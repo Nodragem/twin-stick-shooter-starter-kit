@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/default_env.tres" type="Environment" id=1]
+[ext_resource path="res://characters/PlayerController.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/jm_pp_outlines/jm_pp_outlines_camera.gd" type="Script" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="icy" parent="." instance=ExtResource( 2 )]
+
+[node name="PPOutlinesCamera" type="Camera" parent="icy"]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1, -10 )
+environment = ExtResource( 1 )
+current = true
+fov = 30.9
+script = ExtResource( 3 )
+__meta__ = {
+"_editor_description_": ""
+}
+color_outline_scale = 3.0
+depth_outline_scale = 3.0
+depth_threshold = 2.65
+edge_threshold = 0.269
+max_edge_alpha = 1.0
+edge_color = Color( 0.14902, 0.0196078, 0.105882, 1 )
+color_use_laplace = true
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -0.889977, 0.0360625, -0.454578, -0.35771, 0.56305, 0.744995, 0.282816, 0.825636, -0.488202, 0, 7.60584, -5.7794 )
+light_color = Color( 0.992157, 0.917647, 0.698039, 1 )
+light_energy = 0.4

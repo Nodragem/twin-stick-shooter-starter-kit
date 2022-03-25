@@ -1,0 +1,91 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://characters/icy.glb" type="PackedScene" id=1]
+[ext_resource path="res://characters/PlayerSkin.gd" type="Script" id=2]
+
+[sub_resource type="AnimationNodeAnimation" id=29]
+animation = "Falling-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "Idle-break"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "Idle-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Jumping"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Run-loop"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Strafe-loop"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+advance_condition = "is_moving"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+advance_condition = "is_idle"
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=26]
+switch_mode = 2
+advance_condition = "is_moving_or_idling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+advance_condition = "is_moving"
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+advance_condition = "is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachine" id=27]
+states/Falling/node = SubResource( 29 )
+states/Falling/position = Vector2( 455, -20 )
+states/Idle-break/node = SubResource( 24 )
+states/Idle-break/position = Vector2( 243, 267 )
+states/Idle-loop/node = SubResource( 8 )
+states/Idle-loop/position = Vector2( 235, 159 )
+states/Jumping/node = SubResource( 9 )
+states/Jumping/position = Vector2( 235, -20 )
+states/Run-loop/node = SubResource( 10 )
+states/Run-loop/position = Vector2( 586, 150 )
+states/Strafe-loop/node = SubResource( 11 )
+states/Strafe-loop/position = Vector2( 591, 303 )
+transitions = [ "Idle-loop", "Strafe-loop", SubResource( 12 ), "Strafe-loop", "Idle-loop", SubResource( 13 ), "Idle-loop", "Run-loop", SubResource( 14 ), "Run-loop", "Idle-loop", SubResource( 15 ), "Run-loop", "Strafe-loop", SubResource( 20 ), "Strafe-loop", "Run-loop", SubResource( 21 ), "Idle-loop", "Idle-break", SubResource( 25 ), "Idle-break", "Idle-loop", SubResource( 26 ), "Falling", "Run-loop", SubResource( 31 ), "Falling", "Idle-loop", SubResource( 32 ), "Idle-loop", "Falling", SubResource( 33 ), "Run-loop", "Falling", SubResource( 34 ) ]
+start_node = "Idle-loop"
+graph_offset = Vector2( -158, -53 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=28]
+
+[node name="IcySkin" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Armature" parent="." index="0"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 27 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 28 )
+parameters/conditions/is_idle = false
+parameters/conditions/is_moving = false
+parameters/conditions/is_moving_or_idling = false
