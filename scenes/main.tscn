@@ -9,7 +9,7 @@
 [node name="PlayerEntity" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
-[node name="ThirdPersonCamera" parent="PlayerEntity" index="1"]
+[node name="ThirdPersonCamera" parent="PlayerEntity" index="2"]
 color_outline_scale = 0.0
 depth_outline_scale = 0.0
 depth_threshold = 0.302
