@@ -2,7 +2,9 @@ https://github.com/Nodragem/twin-stick-shooter-starter-kit/assets/10520249/1065d
 
 # Starter Kit for a Twin-Stick Shooter
 Work-in-progress of a twin-stick shooter starter kit for Godot 4. Just a one stick shooter where you can jump at the moment!
+
 You will need to download Kenney Prototype Textures from the asset library for the project to run.
+
 (Big Thanks to Kenney for his amazing textures!)
 
 # Features:
