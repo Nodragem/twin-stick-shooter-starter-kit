@@ -10,10 +10,12 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="ThirdPersonCamera" parent="PlayerEntity" index="2"]
-color_outline_scale = 0.0
-depth_outline_scale = 0.0
+color_outline_scale = 1.5
+depth_outline_scale = 1.5
 depth_threshold = 0.302
 depth_multiplier = 30000.0
+max_edge_alpha = 0.89
+edge_color = Color( 0.317647, 0.0627451, 0.294118, 1 )
 depth_use_laplace = false
 color_use_laplace = false
 
@@ -25,6 +27,7 @@ shadow_enabled = true
 shadow_color = Color( 0.313726, 0.054902, 0.054902, 1 )
 
 [node name="arena_ground" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
 
 [node name="DebugStats" parent="." instance=ExtResource( 1 )]
 

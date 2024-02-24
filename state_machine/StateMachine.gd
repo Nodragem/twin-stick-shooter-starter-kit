@@ -15,7 +15,9 @@ func _init() -> void:
 	DebugStats.add_property(self, "state:name", "")
 
 func _ready() -> void:
+	print("State Machine ", self.name, " is owned by ", owner)
 	yield(owner, "ready")
+	print("State Machine ", self.name, " is initialising", "with current state:", state)
 	state.enter()
 
 func _unhandled_input(event: InputEvent) -> void:

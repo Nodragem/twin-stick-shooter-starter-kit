@@ -72,6 +72,8 @@ enabled=PoolStringArray( "res://addons/jm_pp_outlines/plugin.cfg" )
 [global]
 
 window=false
+wind=false
+wint=false
 
 [input]
 

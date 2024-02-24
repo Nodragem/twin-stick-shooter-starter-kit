@@ -23,6 +23,7 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: = {}) -> void:
 	_break_timer.start(IDLE_BREAK_WAIT_TIME)
+	print("entering Idle with model:", model)
 	model.move_to_running()
 	_parent.velocity = Vector3.ZERO
 	_parent.enter(msg)

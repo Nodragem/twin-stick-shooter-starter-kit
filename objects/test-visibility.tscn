@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8 )

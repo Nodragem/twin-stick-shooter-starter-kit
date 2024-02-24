@@ -8,7 +8,9 @@ var anim_tree: AnimationTree
 var shoot_anchor: Position3D
 
 func _ready() -> void:
+	print("PlayerState ", self.name, " is owned by ", owner)
 	yield(owner,"ready")
+	print("PlayerState ", self.name, " is initialising")
 	player = owner
 	model = player.model
 	camera = player.camera_controller

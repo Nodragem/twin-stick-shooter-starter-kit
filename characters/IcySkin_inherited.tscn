@@ -50,7 +50,7 @@ input_3/auto_advance = false
 animation = "Strafe-loop"
 
 [sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( -676.466, -150.478 )
+graph_offset = Vector2( -309.669, -85.7584 )
 nodes/aiming/node = SubResource( 1 )
 nodes/aiming/position = Vector2( 22.2222, 377.778 )
 nodes/blend_aim/node = SubResource( 2 )
@@ -78,7 +78,7 @@ nodes/state/node = SubResource( 4 )
 nodes/state/position = Vector2( -244.444, 0 )
 nodes/straffing/node = SubResource( 9 )
 nodes/straffing/position = Vector2( -888.889, 177.778 )
-node_connections = [ "state", 0, "blend_running", "state", 1, "blend_straffing", "state", 2, "jumping", "state", 3, "falling", "output", 0, "blend_aim", "blend_aim", 0, "on_idle_break", "blend_aim", 1, "aiming", "blend_running", 0, "idling_run", "blend_running", 1, "running", "blend_straffing", 0, "idling_straff", "blend_straffing", 1, "straffing", "on_idle_break", 0, "state", "on_idle_break", 1, "idle_break" ]
+node_connections = [ "state", 0, "blend_running", "state", 1, "blend_straffing", "state", 2, "jumping", "state", 3, "falling", "output", 0, "blend_aim", "blend_running", 0, "idling_run", "blend_running", 1, "running", "on_idle_break", 0, "state", "on_idle_break", 1, "idle_break", "blend_aim", 0, "on_idle_break", "blend_aim", 1, "aiming", "blend_straffing", 0, "idling_straff", "blend_straffing", 1, "straffing" ]
 
 [node name="IcySkin" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
