@@ -1,10 +1,10 @@
 class_name PlayerSkin
-extends Spatial
+extends Node3D
 
-onready var anim_player: AnimationPlayer = $AnimationPlayer
-onready var anim_tree: AnimationTree = $AnimationTree
-onready var shoot_anchor: Position3D = $ShootAnchor
-export var rotation_speed := 12.0
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var anim_tree: AnimationTree = $AnimationTree
+@onready var shoot_anchor: Marker3D = $ShootAnchor
+@export var rotation_speed := 12.0
 
 var _last_strong_direction := Vector3.FORWARD
 
@@ -21,20 +21,22 @@ func update_animation(move_direction, velocity_ratio, delta) -> void:
 	
 
 func move_to_falling() -> void:
-	anim_tree["parameters/state/current"] = 3
+	anim_tree["parameters/state/transition_request"] = "Falling"
 
 
 func move_to_jumping() -> void:
-	anim_tree["parameters/state/current"] = 2
+	anim_tree["parameters/state/transition_request"] = "Jumping"
 
 
 func move_to_running() -> void:
-	anim_tree["parameters/state/current"] = 0
+	anim_tree["parameters/state/transition_request"] = "Running"
 
 
-func play_idle_break(value: bool) -> void:
-	anim_tree["parameters/on_idle_break/active"] = value
-	
+func play_idle_break(is_requested: bool) -> void:
+	if is_requested:
+		anim_tree["parameters/on_idle_break/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	else:
+		anim_tree["parameters/on_idle_break/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 
 func play_aiming(value: bool) -> void:
 	if value:

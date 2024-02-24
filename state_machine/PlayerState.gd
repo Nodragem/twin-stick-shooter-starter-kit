@@ -3,13 +3,14 @@ class_name PlayerState
 
 var player: PlayerEntity
 var model: PlayerSkin
-var camera: Camera
+var camera: Camera3D
 var anim_tree: AnimationTree
-var shoot_anchor: Position3D
+var shoot_anchor: Marker3D
 
 func _ready() -> void:
+	super._ready()
 	print("PlayerState ", self.name, " is owned by ", owner)
-	yield(owner,"ready")
+	await owner.ready # probably not needed
 	print("PlayerState ", self.name, " is initialising")
 	player = owner
 	model = player.model

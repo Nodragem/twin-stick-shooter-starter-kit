@@ -1,12 +1,13 @@
+@icon("res://assets/2d/icons/state_machine.svg")
+class_name StateMachine
 extends Node
-class_name StateMachine, "res://assets/2d/icons/state_machine.svg"
 
 
 signal transitioned(state_path)
 
-export var initial_state: = NodePath() 
+@export var initial_state: = NodePath() 
 
-onready var state: State = get_node(initial_state) setget set_state
+@onready var state: State = get_node(initial_state): set = set_state
 var _state_name: = ""
 
 
@@ -16,8 +17,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	print("State Machine ", self.name, " is owned by ", owner)
-	yield(owner, "ready")
-	print("State Machine ", self.name, " is initialising", "with current state:", state)
+	await owner.ready
+	print("State Machine ", self.name, " is initialising")
 	state.enter()
 
 func _unhandled_input(event: InputEvent) -> void:

@@ -1,10 +1,9 @@
-extends RigidBody
+extends RigidBody3D
 class_name Arrow
 
 signal exploded
 
-export var initial_velocity = 25
-export var dgravity = Vector3.DOWN * 20
+@export var initial_velocity = 25
 
 var velocity = Vector3.ZERO
 

@@ -1,11 +1,11 @@
 class_name PlayerEntity
-extends KinematicBody
+extends CharacterBody3D
 
-onready var camera_controller := $ThirdPersonCamera
-onready var model := $IcySkin
-onready var anim_tree := $IcySkin/AnimationTree
-onready var shoot_anchor := $IcySkin/ShootAnchor
-onready var start_position := global_transform.origin
+@onready var camera_controller := $ThirdPersonCamera
+@onready var model := $IcySkin
+@onready var anim_tree := $IcySkin/AnimationTree
+@onready var shoot_anchor := $IcySkin/ShootAnchor
+@onready var start_position := global_transform.origin
 
 
 #func _ready() -> void:
@@ -50,12 +50,12 @@ onready var start_position := global_transform.origin
 #
 #func _get_player_input() -> Vector3:
 #	var input_left_right := (
-#		Input.get_action_strength("move_right")
-#		- Input.get_action_strength("move_left")
+#		Input.get_action_strength("p1_move_right")
+#		- Input.get_action_strength("p1_move_left")
 #	)
 #	var input_forward_back := (
-#		Input.get_action_strength("move_down")
-#		- Input.get_action_strength("move_up")
+#		Input.get_action_strength("p1_move_down")
+#		- Input.get_action_strength("p1_move_up")
 #	)
 #	var raw_input := Vector2(input_left_right, input_forward_back)
 #
@@ -86,7 +86,7 @@ onready var start_position := global_transform.origin
 ##	)
 #
 #func jumping_detected() -> bool:
-#	return Input.is_action_just_pressed("jump") and is_on_floor()
+#	return Input.is_action_just_pressed("p1_jump") and is_on_floor()
 #
 #
 #func landing_detected() -> bool:

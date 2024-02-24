@@ -1,14 +1,15 @@
+@icon("res://assets/2d/icons/state.svg")
+class_name State 
 extends Node
-class_name State, "res://assets/2d/icons/state.svg"
 
 
-onready var _state_machine: = _get_state_machine(self) 
+@onready var _state_machine: = _get_state_machine(self) 
 
 var _parent: State = null
 
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	var parent: = get_parent()
 	if not parent.is_in_group("state_machine"):
 		_parent = parent

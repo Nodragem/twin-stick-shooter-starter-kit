@@ -1,0 +1,114 @@
+[gd_scene load_steps=3 format=3 uid="uid://2uwoed3yo2ra"]
+
+[sub_resource type="GDScript" id="1"]
+script/source = "extends CanvasLayer
+
+@onready var draw = $DebugDraw3D
+
+func _ready():
+	if not InputMap.has_action(\"toggle_debug\"):
+		InputMap.add_action(\"toggle_debug\")
+		var ev = InputEventKey.new()
+		ev.keycode = KEY_L
+		InputMap.action_add_event(\"toggle_debug\", ev)
+
+func _input(event):
+	if event.is_action_pressed(\"toggle_debug\"):
+		for n in get_children():
+			n.visible = not n.visible
+"
+
+[sub_resource type="GDScript" id="2"]
+script/source = "extends Control
+
+class Vector:
+	var object  # The node to follow
+	var property  # The property to draw
+	var scale  # Scale factor
+	var width  # Line width
+	var color  # Draw color
+
+	func _init(_object, _property, _scale, _width, _color):
+		object = _object
+		property = _property
+		scale = _scale
+		width = _width
+		color = _color
+
+	func draw(node, camera):
+		var start = camera.unproject_position(object.global_transform.origin)
+		var end = camera.unproject_position(object.global_transform.origin + object.get(property) * scale)
+		node.draw_line(start, end, color, width)
+		node.draw_triangle(end, start.direction_to(end), width*8, color)
+	
+
+
+class Position:
+	var object  # The node to follow
+	var scale  # Scale factor
+	var width  # Line width
+	var color  # Draw color
+
+	func _init(_object, _scale, _width, _color):
+		object = _object
+		scale = _scale
+		width = _width
+		color = _color
+
+	func draw(node, camera):
+		var start1 = camera.unproject_position(object.global_transform.origin + 
+												object.global_transform.basis.y)
+		var end1 = camera.unproject_position(object.global_transform.origin - 
+											object.global_transform.basis.y)
+		var start2 = camera.unproject_position(object.global_transform.origin + 
+												object.global_transform.basis.x)
+		var end2 = camera.unproject_position(object.global_transform.origin -  
+											object.global_transform.basis.x)
+		node.draw_line(start1, end1, color, width)
+		node.draw_line(start2, end2, color, width)
+
+
+var vectors = []  # Array to hold all registered values.
+var positions = []
+
+func _process(delta):
+	if not visible:
+		return
+	queue_redraw()
+
+
+func _draw():
+	var camera = get_viewport().get_camera_3d()
+	if camera == null:
+		return
+	for vector in vectors:
+		vector.draw(self, camera)
+	for position in positions:
+		position.draw(self, camera)
+
+
+func draw_triangle(pos, dir, size, color):
+	var a = pos + dir * size
+	var b = pos + dir.rotated(2*PI/3) * size
+	var c = pos + dir.rotated(4*PI/3) * size
+	var points = PackedVector2Array([a, b, c])
+	draw_polygon(points, PackedColorArray([color]))
+
+
+func add_vector(object, property, scale, width, color):
+	vectors.append(Vector.new(object, property, scale, width, color))
+
+
+func add_position(object, scale, width, color):
+	positions.append(Position.new(object, scale, width, color))
+"
+
+[node name="DebugOverlay" type="CanvasLayer"]
+script = SubResource("1")
+
+[node name="DebugDraw3D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("2")

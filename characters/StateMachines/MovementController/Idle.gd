@@ -1,14 +1,15 @@
 extends PlayerState
 
-const IDLE_BREAK_WAIT_TIME := 2.0
+const IDLE_BREAK_WAIT_TIME := 10.0
 var _break_timer := Timer.new()
 
 func _ready() -> void:
-	yield(owner, "ready")
+	super._ready()
+	await owner.ready
 	add_child(_break_timer)
 	_break_timer.wait_time = IDLE_BREAK_WAIT_TIME
 	_break_timer.one_shot = false
-	_break_timer.connect("timeout", model, "play_idle_break", [true])
+	_break_timer.connect("timeout", Callable(model, "play_idle_break").bind(true))
 	
 
 func unhandled_input(event: InputEvent) -> void:
@@ -23,7 +24,7 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: = {}) -> void:
 	_break_timer.start(IDLE_BREAK_WAIT_TIME)
-	print("entering Idle with model:", model)
+	print(model)
 	model.move_to_running()
 	_parent.velocity = Vector3.ZERO
 	_parent.enter(msg)

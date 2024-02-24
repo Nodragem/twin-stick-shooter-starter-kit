@@ -24,13 +24,25 @@ class Property:
 				s += num_format % p.length()
 			"round":
 				match typeof(p):
-					TYPE_INT, TYPE_REAL:
+					TYPE_INT, TYPE_FLOAT:
 						s += num_format % p
 					TYPE_VECTOR2, TYPE_VECTOR3:
 						s += str(p.round())
 		label_ref.text = s
 
 var props = []  # An array of the tracked properties.
+
+func _ready():
+	if not InputMap.has_action("toggle_debug"):
+		InputMap.add_action("toggle_debug")
+		var ev = InputEventKey.new()
+		ev.keycode = KEY_L
+		InputMap.action_add_event("toggle_debug", ev)
+
+func _input(event):
+	if event.is_action_pressed("toggle_debug"):
+		for n in get_children():
+			n.visible = not n.visible
 
 func _process(_delta):
 	if not visible:
@@ -40,7 +52,7 @@ func _process(_delta):
 
 func add_property(object, property, display):
 	var label = Label.new()
-	label.set("custom_fonts/font", load("res://assets/fonts/roboto_mono_medium20.tres"))
+	label.set("theme_override_fonts/font", load("res://assets/fonts/roboto_mono_medium20.tres"))
 	$VBoxContainer.add_child(label)
 	props.append(Property.new(object, property, label, display))
 
