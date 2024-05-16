@@ -1,0 +1,9 @@
+[gd_resource type="FontFile" load_steps=2 format=3]
+
+[ext_resource type="FontFile" uid="uid://cjm0jehvcg4ba" path="res://ui/fonts/RobotoMono-Medium.ttf" id="1"]
+
+[resource]
+size = 22
+outline_size = 2
+outline_color = Color( 0.423529, 0.337255, 0.337255, 1 )
+font_data = ExtResource( 1 )

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://f23ee6ibiu6w"]
+
+[ext_resource type="Texture2D" uid="uid://c0lpx8edykpem" path="res://characters/CharacterSkins/icy_colors.png" id="1_2waik"]
+
+[resource]
+resource_name = "character-mat"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2waik")
+roughness = 0.5

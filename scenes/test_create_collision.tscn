@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjklvg8pt4duv"]
+
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
+[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="3_yd4xj"]
+[ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="4_xef78"]
+[ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="5_4s5eh"]
+[ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="6_y75p1"]
+[ext_resource type="PackedScene" uid="uid://w3bqftmyjesv" path="res://assets/prototype_bits/Weaponrack.gltf" id="7_m3frb"]
+[ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="8_se5pk"]
+[ext_resource type="PackedScene" uid="uid://cykscxty5uq57" path="res://assets/prototype_bits/Locker.gltf" id="9_2vcal"]
+
+[node name="TestCreateCollision" type="Node3D"]
+
+[node name="PlayerEntity" parent="." instance=ExtResource("1_6jodu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544966, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_rxava")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 0, 41, 65535, 1, 41, 0, 2, 41, 1, 2, 41, 1, 1, 41, 2, 1, 41, 2, 0, 41, 2, 65535, 41, 2, 65534, 41, 1, 65534, 41, 0, 65534, 41, 0, 65535, 41, 0, 0, 41, 0, 1, 41, 1, 0, 41, 1, 65535, 41, 65535, 65535, 41, 65535, 65534, 41, 65534, 65534, 41, 65534, 65533, 41, 65534, 65532, 41, 65533, 65533, 41, 65533, 65534, 41, 65533, 65535, 41, 65533, 0, 41, 65533, 1, 41, 65534, 1, 41, 65534, 2, 41, 65535, 2, 41, 65534, 0, 41, 65532, 65533, 41, 65532, 65534, 41, 65534, 65535, 41, 65535, 65533, 41, 0, 65533, 41, 1, 65533, 41, 2, 65533, 41, 3, 65533, 41, 65532, 65532, 41, 65533, 65532, 41, 65535, 65532, 41, 0, 65532, 41, 1, 65532, 41, 2, 65532, 41, 3, 65532, 41, 3, 65534, 41, 3, 65535, 41, 3, 0, 41, 3, 1, 41, 3, 2, 41, 2, 2, 41, 65533, 2, 41, 65532, 2, 41, 65532, 1, 41, 65532, 0, 41, 65532, 65535, 41)
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_yd4xj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+layers = 2
+light_color = Color(0.992157, 0.917647, 0.698039, 1)
+light_angular_distance = 3.0
+shadow_enabled = true
+shadow_bias = 0.03
+directional_shadow_mode = 0
+directional_shadow_split_2 = 0.343
+directional_shadow_split_3 = 0.566
+directional_shadow_blend_splits = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
+layers = 2
+light_color = Color(0.303129, 0.18483, 0.0558749, 1)
+light_energy = 1.239
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_bias = 0.03
+shadow_blur = 0.0
+directional_shadow_mode = 0
+
+[node name="Workbench_Decorated" parent="." node_paths=PackedStringArray("body") instance=ExtResource("4_xef78")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.50424, 0.500001, 4.49879)
+body = NodePath("Dummy_Base/@RigidBody3D@23159")
+
+[node name="Workbench" parent="Workbench_Decorated" node_paths=PackedStringArray("body") instance=ExtResource("5_4s5eh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75432, 0, 0.0181646)
+body = NodePath("Dummy_Base_001/@RigidBody3D@23152")
+
+[node name="Weaponrack_Decorated" parent="Workbench_Decorated/Workbench" node_paths=PackedStringArray("body") instance=ExtResource("6_y75p1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60533, 0, 0.0850992)
+body = NodePath("Barrel_B/@RigidBody3D@23145")
+
+[node name="Weaponrack" parent="Workbench_Decorated/Workbench/Weaponrack_Decorated" node_paths=PackedStringArray("body") instance=ExtResource("7_m3frb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46555, 0, -0.0846996)
+body = NodePath("Pallet_Small_001/@RigidBody3D@23138")
+
+[node name="Locker_Decorated2" parent="Workbench_Decorated/Workbench/Weaponrack_Decorated/Weaponrack" node_paths=PackedStringArray("body") instance=ExtResource("8_se5pk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33428, 0, 0.2333)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
+
+[node name="Cube_Prototype_Large_B_003" parent="Workbench_Decorated/Workbench/Weaponrack_Decorated/Weaponrack/Locker_Decorated2/Locker_Decorated" index="0"]
+visible = false
+
+[node name="Locker" parent="Workbench_Decorated/Workbench/Weaponrack_Decorated/Weaponrack/Locker_Decorated2" node_paths=PackedStringArray("body") instance=ExtResource("9_2vcal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.104, 0, 0.189262)
+body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
+
+[editable path="Workbench_Decorated/Workbench/Weaponrack_Decorated/Weaponrack/Locker_Decorated2"]

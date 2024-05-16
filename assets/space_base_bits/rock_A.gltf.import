@@ -1,0 +1,46 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dy1h4xg8uhvdg"
+path="res://.godot/imported/rock_A.gltf-f0069d818342bfcbd3fdcc10e3b0d3ce.scn"
+
+[deps]
+
+source_file="res://assets/space_base_bits/rock_A.gltf"
+dest_files=["res://.godot/imported/rock_A.gltf-f0069d818342bfcbd3fdcc10e3b0d3ce.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"spacebits_texture": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/space_base_bits/spacebits_texture.tres"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+gltf/naming_version=1
+gltf/embedded_image_handling=1

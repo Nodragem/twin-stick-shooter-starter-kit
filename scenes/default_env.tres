@@ -1,0 +1,27 @@
+[gd_resource type="Environment" format=3 uid="uid://cewm0h4byi1au"]
+
+[resource]
+background_mode = 1
+background_color = Color(0.415686, 0.843137, 0.980392, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.694118, 0.760784, 1)
+ambient_light_sky_contribution = 0.33
+ambient_light_energy = 0.5
+tonemap_mode = 3
+tonemap_exposure = 1.2
+ssao_enabled = true
+ssao_radius = 3.54
+ssao_power = 2.35376
+ssil_enabled = true
+ssil_radius = 9.81
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.53
+sdfgi_cascades = 6
+sdfgi_min_cell_size = 0.05
+sdfgi_energy = 0.36
+glow_enabled = true
+glow_intensity = 0.99
+glow_strength = 1.55
+glow_bloom = 0.02
+adjustment_enabled = true
+adjustment_saturation = 1.19

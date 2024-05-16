@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxFlat" format=3 uid="uid://onusb7ku18ti"]
+
+[resource]
+bg_color = Color(0.858824, 0.454902, 0, 1)
+border_color = Color(0.027451, 0.203922, 0.203922, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
