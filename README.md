@@ -1,7 +1,7 @@
 https://github.com/Nodragem/twin-stick-shooter-starter-kit/assets/10520249/cb1b10fc-a31e-4a98-8d42-ad8bfacd0b1f
 
 # Starter Kit for a Twin-Stick Shooter
-Work-in-progress of a twin-stick shooter starter kit for Godot 4 using the [Kaykit Prototype Bits](https://kaylousberg.itch.io/prototype-bits) as a base for the 3D Assets.
+Work-in-progress of a twin-stick shooter starter kit for Godot 4 using the FREE [Kaykit Prototype Bits](https://kaylousberg.itch.io/prototype-bits) as a base for the 3D Assets.
 
 # Features:
 - Game Feel: Destructible elements, Hit feedback, Recoil animation (more to come)
