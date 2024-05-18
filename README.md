@@ -3,6 +3,8 @@ https://github.com/Nodragem/twin-stick-shooter-starter-kit/assets/10520249/cb1b1
 # Starter Kit for a Twin-Stick Shooter
 Work-in-progress of a twin-stick shooter starter kit for Godot 4 using the FREE [Kaykit Prototype Bits](https://kaylousberg.itch.io/prototype-bits) as a base for the 3D Assets.
 
+**NOTE:** Developed in and compatible with Godot 4.3dev6. It looks like that `MeshLibrary` is breaking compatibility with 4.2. 
+
 # Features:
 - Game Feel: Destructible elements, Hit feedback, Recoil animation (more to come)
 - Select between 3 controller schemes (One Stick Controller, Two Stick Controller, Two Stick Auto-Shoot Controller)
