@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=3 uid="uid://cphaw77wa4gmg"]
+
+[ext_resource type="PackedScene" uid="uid://dia01pydii23m" path="res://characters/small_ennemy_animated.glb" id="1_1hymw"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tfkaj"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6w7lw"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tebkn"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2olvr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cnx13"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3g4ox"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ptyvq"]
+states/End/position = Vector2(713, 74)
+states/Idle/node = SubResource("AnimationNodeAnimation_6w7lw")
+states/Idle/position = Vector2(345, 74)
+states/Run/node = SubResource("AnimationNodeAnimation_tebkn")
+states/Run/position = Vector2(473, 74)
+states/Start/position = Vector2(202, 100)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_2olvr"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_cnx13"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_3g4ox")]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qe0vm"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sgbjg"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_avn11"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3fyti"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3gsvg"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ijjwx"]
+states/End/position = Vector2(490, 144)
+states/Idle/node = SubResource("AnimationNodeAnimation_qe0vm")
+states/Idle/position = Vector2(227, 144)
+states/Run/node = SubResource("AnimationNodeAnimation_sgbjg")
+states/Run/position = Vector2(346, 144)
+states/Start/position = Vector2(70, 144)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_avn11"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_3fyti"), "Run", "End", SubResource("AnimationNodeStateMachineTransition_3gsvg")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_iralf"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_ijjwx")
+nodes/StateMachine/position = Vector2(-260, 80)
+"nodes/StateMachine 2/node" = SubResource("AnimationNodeStateMachine_ptyvq")
+"nodes/StateMachine 2/position" = Vector2(240, 120)
+nodes/output/position = Vector2(560, 160)
+node_connections = [&"output", 0, &"StateMachine 2"]
+
+[node name="Enemy_Minion" instance=ExtResource("1_1hymw")]
+
+[node name="Skeleton3D" parent="rig" index="0"]
+bones/0/rotation = Quaternion(0.0921636, 1.18702e-07, 1.09867e-08, 0.995744)
+bones/1/rotation = Quaternion(-0.0579564, 1.93782e-14, -1.38179e-08, 0.998319)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.0458588, -1.19084e-07, -5.4668e-09, 0.998948)
+bones/3/rotation = Quaternion(-0.00426309, 7.10536e-15, 3.029e-17, 0.999991)
+bones/4/rotation = Quaternion(0.203256, 1.16721e-07, 2.423e-08, 0.979126)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(-0.0546156, 3.22168e-14, -1.30214e-08, 0.998507)
+bones/6/rotation = Quaternion(-0.128278, -1.14186e-14, -3.05838e-08, 0.991738)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.28745, 0.624442, 0.495661, 0.530815)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.996058, 0.0108568, 0.065085, 0.0592819)
+bones/9/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(0.152654, 2.8483e-07, 5.15946e-08, 0.98828)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.000181852, 0.992857, -0.119299, -0.0015134)
+bones/15/rotation = Quaternion(0.996058, -0.0108569, -0.0650849, 0.0592819)
+bones/15/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(0.152654, -2.97435e-07, -5.1359e-08, 0.98828)
+bones/19/rotation = Quaternion(-0.687111, 0.060944, 0.0235031, 0.723611)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/rotation = Quaternion(-0.000181637, 0.992857, -0.119299, -0.00151174)
+bones/21/rotation = Quaternion(0.670522, 0.365353, 0.463843, -0.449185)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/rotation = Quaternion(0.152296, 0.208584, -0.77716, 0.573866)
+bones/22/scale = Vector3(1, 1, 1)
+bones/24/rotation = Quaternion(0.145507, -5.93604e-07, -6.69294e-07, 0.989357)
+bones/26/rotation = Quaternion(-0.0291915, -0.000883043, -0.0302343, 0.999116)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(0.670522, -0.365353, -0.463843, -0.449185)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/rotation = Quaternion(0.152296, -0.208584, 0.77716, 0.573866)
+bones/28/scale = Vector3(1, 1, 1)
+bones/30/rotation = Quaternion(0.145507, 5.93604e-07, 6.69294e-07, 0.989357)
+bones/32/rotation = Quaternion(-0.0291915, 0.000883043, 0.0302343, 0.999116)
+bones/32/scale = Vector3(1, 1, 1)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="rig/Skeleton3D" index="0"]
+transform = Transform3D(-0.350673, -0.910626, 0.218604, 0.804974, -0.412387, -0.42656, 0.478586, 0.0263873, 0.877644, -1.08356, 1.11758, -0.0492001)
+bone_name = "DEF-hand.R"
+bone_idx = 32
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rig/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(0.85343, -0.389748, -0.346054, 0.342517, -0.0810638, 0.936007, -0.39286, -0.917346, 0.0643131, 0.128395, 0.229603, 0.501577)
+mesh = SubResource("CylinderMesh_tfkaj")
+
+[node name="Cylinder" parent="." index="1"]
+visible = false
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeBlendTree_iralf")
+anim_player = NodePath("../AnimationPlayer")
+parameters/current_length = 0.0
+parameters/current_position = 0.0
+parameters/current_delta = 0.0
+parameters/StateMachine/current_length = 0.0
+parameters/StateMachine/current_position = 0.0
+parameters/StateMachine/current_delta = 0.0
+parameters/StateMachine/End/current_length = 0.0
+parameters/StateMachine/End/current_position = 0.0
+parameters/StateMachine/End/current_delta = 0.0
+parameters/StateMachine/Idle/current_length = 1.0
+parameters/StateMachine/Idle/current_position = 0.0
+parameters/StateMachine/Idle/current_delta = 0.0
+parameters/StateMachine/Run/current_length = 0.666667
+parameters/StateMachine/Run/current_position = 0.0
+parameters/StateMachine/Run/current_delta = 0.0
+parameters/StateMachine/Start/current_length = 0.0
+parameters/StateMachine/Start/current_position = 0.0
+parameters/StateMachine/Start/current_delta = 0.0
+"parameters/StateMachine 2/current_length" = 0.0
+"parameters/StateMachine 2/current_position" = 0.0
+"parameters/StateMachine 2/current_delta" = 0.0
+"parameters/StateMachine 2/End/current_length" = 0.0
+"parameters/StateMachine 2/End/current_position" = 0.0
+"parameters/StateMachine 2/End/current_delta" = 0.0
+"parameters/StateMachine 2/Idle/current_length" = 1.0
+"parameters/StateMachine 2/Idle/current_position" = 0.0
+"parameters/StateMachine 2/Idle/current_delta" = 0.0
+"parameters/StateMachine 2/Run/current_length" = 0.666667
+"parameters/StateMachine 2/Run/current_position" = 0.0
+"parameters/StateMachine 2/Run/current_delta" = 0.0
+"parameters/StateMachine 2/Start/current_length" = 0.0
+"parameters/StateMachine 2/Start/current_position" = 0.0
+"parameters/StateMachine 2/Start/current_delta" = 0.0
+parameters/output/current_length = 0.0
+parameters/output/current_position = 0.0
+parameters/output/current_delta = 0.0

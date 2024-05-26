@@ -1,5 +1,5 @@
 class_name Destructible extends Node3D
-var healt_point = 2
+var healt_point = 3
 var current_tween
 @export var explosion:PackedScene
 @export var body:RigidBody3D

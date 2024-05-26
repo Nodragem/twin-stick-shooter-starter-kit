@@ -91,38 +91,46 @@ body = NodePath("Box_B/@RigidBody3D@20764")
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 0, 1)
 body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Locker_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.5, 0, 7.20575)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated7" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated7" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.3729, 0, 7.20575)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated10" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated10" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.983666, 0, -0.180004, 0, 1, 0, 0.180004, 0, -0.983666, 13.8918, 0, 7.2248)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15.5, 0, 7.17464)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated4" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 15.4177, 0, 0.653378)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated5" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 12.4177, 0, 0.684489)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated5/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated6" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated6" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 11.1899, 0, 0.684489)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("15_4ldk2")]
+[node name="Locker3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
 transform = Transform3D(0.983303, 0, -0.181978, 0, 1, 0, 0.181978, 0, 0.983303, 14.0412, 0, 0.700824)
+body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
 [node name="Pallet_Small4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("10_r8g5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0475, 6.5, 2.05134)
@@ -144,11 +152,13 @@ body = NodePath("target_stand_A/@RigidBody3D@20680")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 4, 6.5)
 body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="Locker_Decorated8" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated8" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 4, -0.5)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated9" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated9" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 4, 4.5)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="target_wall_large_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("19_sqmfd")]
 transform = Transform3D(0.992762, 0.120102, 0, -0.120102, 0.992762, 0, 0, 0, 1, 11.5, 6, -23.6647)
@@ -167,17 +177,21 @@ body = NodePath("Barrel_B/@RigidBody3D@23145")
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.5, 4, -19.5)
 body = NodePath("Barrel_B/@RigidBody3D@23145")
 
-[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("22_6r8a8")]
+[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("22_6r8a8")]
 transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, -1.5, 4, -17.5)
+body = NodePath("Pallet_Small_001/@RigidBody3D@23138")
 
-[node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("23_kicfg")]
+[node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("23_kicfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 4, -19)
+body = NodePath("Dummy_Base/@RigidBody3D@23159")
 
-[node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("23_kicfg")]
+[node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("23_kicfg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -15)
+body = NodePath("Dummy_Base/@RigidBody3D@23159")
 
-[node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("24_bi6o1")]
+[node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("24_bi6o1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -16.5)
+body = NodePath("Dummy_Base_001/@RigidBody3D@23152")
 
 [node name="Dummy_Base2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 4, -19)
@@ -278,15 +292,17 @@ body = NodePath("Dummy_Base/@RigidBody3D@20743")
 transform = Transform3D(0.954396, 0, -0.298541, 0, 1, 0, 0.298541, 0, 0.954396, -21.2106, 0.530001, 26.9038)
 body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Locker2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("15_4ldk2")]
+[node name="Locker2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
 transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -17.1817, 0.5, 55.0293)
+body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
 [node name="target_stand_A2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-1.40662, 0.00283562, 0.371983, 0.00327598, 1.45497, 0.00129664, -0.371979, 0.00209107, -1.40662, -20.338, 0.5, 54.41)
 body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="Locker3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("15_4ldk2")]
+[node name="Locker3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
 transform = Transform3D(-0.566766, 0, 0.823879, 0, 1, 0, -0.823879, 0, -0.566766, -16.109, 0.500001, 40.8873)
+body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
 [node name="target_stand_A3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-1.40662, 0.00283562, 0.371983, 0.00327598, 1.45497, 0.00129664, -0.371979, 0.00209107, -1.40662, -15.1279, 0.5, 38.0013)
@@ -436,33 +452,38 @@ body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 transform = Transform3D(0.969825, 0, -0.243801, 0, 1, 0, 0.243801, 0, 0.969825, -3.76858, 0.529999, 18.3226)
 body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 
-[node name="Workbench2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("24_bi6o1")]
+[node name="Workbench2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("24_bi6o1")]
 transform = Transform3D(0, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0, -14.814, 0.529999, 49.7564)
+body = NodePath("Dummy_Base_001/@RigidBody3D@23152")
 
 [node name="target_stand_A_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("34_6gqwg")]
 transform = Transform3D(-1.05879, 0, 0.806696, 0, 1.33108, 0, -0.806696, 0, -1.05879, -32.3318, 0.529999, 50.3831)
 body = NodePath("target_stand_A_Decorated/@RigidBody3D@20673")
 
-[node name="Locker_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -18.5623, 0.5, 55.0867)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated2/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.157176, 0, 0.987571, 0, 1, 0, -0.987571, 0, -0.157176, -17.6774, 0.5, 38.2866)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.157176, 0, 0.987571, 0, 1, 0, -0.987571, 0, -0.157176, -16.1488, 0.5, 33.8257)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated5/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -22.3655, 0.5, 55.0867)
+body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated3/Locker_Decorated" index="0"]
 visible = false
@@ -470,8 +491,8 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_78xer")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.09503, 0.371605, 0, 26.3786, -5.7794)
 layers = 2
 light_color = Color(0.992157, 0.917647, 0.698039, 1)
 light_angular_distance = 3.0
@@ -482,7 +503,7 @@ directional_shadow_split_2 = 0.343
 directional_shadow_split_3 = 0.566
 directional_shadow_blend_splits = true
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
 layers = 2
 light_color = Color(0.303129, 0.18483, 0.0558749, 1)
@@ -492,6 +513,10 @@ light_negative = true
 shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
+
+[node name="Dummy_Base2" parent="." node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26248, 0.0299999, 28.0111)
+body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4"]
