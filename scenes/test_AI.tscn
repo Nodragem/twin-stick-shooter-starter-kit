@@ -53,8 +53,9 @@ shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
 
-[node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
+[node name="Enemy_Minion" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("4_q1glw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, 7.40523)
+target_object = NodePath("../PlayerEntity")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
