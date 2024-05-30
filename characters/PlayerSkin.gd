@@ -48,7 +48,7 @@ func play_shooting(is_requested: bool) -> void:
 	if is_requested:
 		anim_tree["parameters/on_shooting/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	else:
-		anim_tree["parameters/on_shooting	/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
+		anim_tree["parameters/on_shooting/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 	
 
 func orient_model_to_direction(direction: Vector3, delta: float) -> void:

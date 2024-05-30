@@ -1,12 +1,17 @@
 extends CharacterBody3D
 
-@export var movement_speed: float = 4.0
+@export var movement_speed: float = 8.0
 @export var target_object:Node3D = null
-var gravity = -30.0
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var character_model: MinionSkin = $Skin_Minion
+
+var gravity = -30.0
+var anim_state = null
+var health = 3
 
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
+	DebugStats.add_property(self, "velocity", "")
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
@@ -14,9 +19,19 @@ func set_movement_target(movement_target: Vector3):
 func _process(delta):
 	if target_object:
 		set_movement_target(target_object.position)
+	anim_state = character_model.anim_tree["parameters/state/current_state"]
+	if  anim_state == "Idling" and velocity.length_squared() > 0.01:
+		character_model.move_to_running()
+	if anim_state == "Running":
+		character_model.orient_model_to_direction(Vector3(velocity.x,0, velocity.z), delta)
+		if velocity.length_squared() <= 0.01:
+			character_model.move_to_idling()
+	if health <= 0:
+		character_model.move_to_dying()
 
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
+		velocity = Vector3(0,0,0)
 		return
 
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
