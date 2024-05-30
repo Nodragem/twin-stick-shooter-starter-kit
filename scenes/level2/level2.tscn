@@ -39,7 +39,6 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.2932)
 
 [node name="Enemy_Minion" parent="Characters" instance=ExtResource("31_3nrdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.969235, -0.090026, 0.229082, 0, 0.930711, 0.365756, -0.246137, 0.354503, -0.902078, 0.882673, 5.63801, 28.4046)

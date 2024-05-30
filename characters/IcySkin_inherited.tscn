@@ -121,8 +121,8 @@ script = ExtResource("2_ihbv3")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-1.84688e-10, 0.286411, 0.00153388)
-bones/0/rotation = Quaternion(0.0638655, 4.58408e-05, 0.000714456, 0.997958)
+bones/0/position = Vector3(-3.8625e-09, 0.471646, 0.00978746)
+bones/0/rotation = Quaternion(0.0638638, 0.000468021, 0.00731143, 0.997932)
 bones/1/position = Vector3(1.21027e-15, 0.304688, 9.77356e-10)
 bones/1/rotation = Quaternion(-0.0531333, 0.440734, -0.030263, 0.895553)
 bones/2/position = Vector3(-6.10683e-16, 0.538595, 4.38301e-09)
@@ -163,21 +163,21 @@ bones/14/position = Vector3(5.07759e-08, 0.274804, 1.41851e-09)
 bones/14/rotation = Quaternion(-0.563248, 0.287173, 0.218198, 0.74342)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/position = Vector3(0.214309, 0.127537, -0.0163908)
-bones/15/rotation = Quaternion(0.689094, -0.158586, 0.689094, -0.158586)
+bones/15/rotation = Quaternion(0.693598, 0.137556, 0.693598, 0.137556)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(8.66572e-09, 0.251826, 6.30961e-09)
-bones/16/rotation = Quaternion(-0.0099152, 0.00261656, -0.4163, 0.909169)
+bones/16/rotation = Quaternion(-0.00979737, 0.00302811, -0.453881, 0.891003)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(-0.214309, 0.127537, -0.0163909)
-bones/17/rotation = Quaternion(-0.700581, 0.100402, 0.699087, -0.101898)
+bones/17/rotation = Quaternion(-0.697395, -0.203148, 0.665599, 0.171316)
 bones/18/position = Vector3(2.44867e-08, 0.251826, 7.28026e-09)
-bones/18/rotation = Quaternion(-0.00965806, -0.00344697, 0.491805, 0.870645)
+bones/18/rotation = Quaternion(-0.00990042, -0.00267229, 0.421402, 0.906816)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/position = Vector3(-0.373176, 0.465544, -0.0941911)
 bones/19/rotation = Quaternion(-0.750823, -7.88273e-08, -8.95835e-08, 0.660504)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.999999, -0.00142014, 0.000182753, 0.00143185, 0.991841, -0.12747, -2.36265e-07, 0.12747, 0.991842, -1.84688e-10, 0.286411, 0.00153388)
+transform = Transform3D(0.999893, -0.0145328, 0.00186798, 0.0146524, 0.991736, -0.127457, -2.34577e-07, 0.12747, 0.991842, -3.8625e-09, 0.471646, 0.00978746)
 bone_name = "pelvis"
 bone_idx = 0
 
@@ -186,7 +186,7 @@ unique_name_in_owner = true
 transform = Transform3D(-1.99997, 2.19669e-08, -1.48285e-07, 4.17675e-08, 1.66035, -0.145259, 1.74965e-07, -0.145262, -1.66032, -0.385187, 0.0629825, -1.62756)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.999999, 3.0559e-10, -0.00143182, 0.00143182, 1.04308e-07, 0.999999, 4.46164e-10, -1, 8.9407e-08, -0.373854, 0.759629, -0.0325457)
+transform = Transform3D(0.999893, 1.04774e-09, -0.0146524, 0.0146524, 5.96046e-08, 0.999893, 2.13419e-09, -1, 7.45058e-08, -0.380078, 0.939881, -0.0242921)
 bone_name = "weapon_slot"
 bone_idx = 19
 
@@ -213,7 +213,7 @@ parameters/blend_aim/current_position = 0.166667
 parameters/blend_aim/current_delta = 0.0
 parameters/blend_aim/blend_amount = 1.0
 parameters/blend_running/current_length = 0.875
-parameters/blend_running/current_position = 0.02021
+parameters/blend_running/current_position = 0.130354
 parameters/blend_running/current_delta = 0.0166667
 parameters/blend_running/blend_amount = 1.0
 parameters/blend_straffing/current_length = 0
@@ -244,7 +244,7 @@ parameters/jumping/current_length = null
 parameters/jumping/current_position = null
 parameters/jumping/current_delta = null
 parameters/on_idle_break/current_length = 0.875
-parameters/on_idle_break/current_position = 0.02021
+parameters/on_idle_break/current_position = 0.130354
 parameters/on_idle_break/current_delta = 0.0166667
 parameters/on_idle_break/active = false
 parameters/on_idle_break/internal_active = false
@@ -259,10 +259,10 @@ parameters/output/current_length = 0.166667
 parameters/output/current_position = 0.166667
 parameters/output/current_delta = 0.0
 parameters/running/current_length = 0.875
-parameters/running/current_position = 0.02021
+parameters/running/current_position = 0.130354
 parameters/running/current_delta = 0.0166667
 parameters/state/current_length = 0.875
-parameters/state/current_position = 0.02021
+parameters/state/current_position = 0.130354
 parameters/state/current_delta = 0.0166667
 parameters/state/current_state = "Running"
 parameters/state/transition_request = ""

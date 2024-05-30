@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GameDataStore" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="GameDataStore" load_steps=2 format=3 uid="uid://cvgmkxk86tr45"]
 
 [ext_resource type="Script" path="res://ui/game_data_store.gd" id="1_mhabt"]
 

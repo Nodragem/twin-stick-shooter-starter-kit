@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjklvg8pt4duv"]
+
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
+[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="3_yd4xj"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/minion/Enemy_Minion.tscn" id="4_q1glw"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
+vertices = PackedVector3Array(-15, 1, -15, -15, 1, 11, 15, 1, 11, 15, 1, -15)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_radius = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h5njp"]
+size = Vector2(32, 28)
+
+[node name="TestAI" type="Node3D"]
+
+[node name="PlayerEntity" parent="." instance=ExtResource("1_6jodu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544966, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_rxava")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 0, 41, 65535, 1, 41, 0, 2, 47, 1, 2, 41, 1, 1, 41, 2, 1, 41, 2, 0, 41, 2, 65535, 41, 2, 65534, 41, 1, 65534, 41, 0, 65534, 41, 0, 65535, 39, 0, 0, 41, 0, 1, 41, 1, 0, 41, 1, 65535, 41, 65535, 65535, 41, 65535, 65534, 41, 65534, 65534, 41, 65534, 65533, 41, 65534, 65532, 41, 65533, 65533, 41, 65533, 65534, 41, 65533, 65535, 41, 65533, 0, 41, 65533, 1, 41, 65534, 1, 41, 65534, 2, 41, 65535, 2, 41, 65534, 0, 41, 65532, 65533, 41, 65532, 65534, 41, 65534, 65535, 41, 65535, 65533, 41, 0, 65533, 41, 1, 65533, 41, 2, 65533, 41, 3, 65533, 41, 65532, 65532, 41, 65533, 65532, 41, 65535, 65532, 41, 0, 65532, 47, 1, 65532, 41, 2, 65532, 41, 3, 65532, 41, 3, 65534, 41, 3, 65535, 47, 3, 0, 41, 3, 1, 41, 3, 2, 41, 2, 2, 41, 65533, 2, 41, 65532, 2, 41, 65532, 1, 41, 65532, 0, 41, 65532, 65535, 47, 65531, 1, 34, 65531, 2, 33, 65531, 3, 34, 65532, 3, 33, 65533, 3, 34, 65534, 3, 33, 65535, 3, 34, 0, 3, 54, 1, 3, 34, 2, 3, 33, 3, 3, 34, 4, 3, 34, 4, 2, 34, 4, 1, 34, 4, 65535, 54, 4, 65534, 33, 4, 0, 33, 4, 65533, 34, 65531, 65535, 54, 65531, 65533, 33, 65531, 65531, 33, 65533, 65531, 33, 65535, 65531, 33, 1, 65531, 33, 3, 65531, 33, 4, 65531, 34, 2, 65531, 34, 0, 65531, 54, 65534, 65531, 34, 65532, 65531, 34, 65531, 65532, 34, 65531, 65534, 34, 65531, 0, 34, 4, 65532, 33, 65540, 65531, 57, 131067, 65531, 57, 131067, 3, 57, 65540, 3, 57)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_yd4xj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+layers = 2
+light_color = Color(0.992157, 0.917647, 0.698039, 1)
+light_angular_distance = 3.0
+shadow_enabled = true
+shadow_bias = 0.03
+directional_shadow_mode = 0
+directional_shadow_split_2 = 0.343
+directional_shadow_split_3 = 0.566
+directional_shadow_blend_splits = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
+layers = 2
+light_color = Color(0.303129, 0.18483, 0.0558749, 1)
+light_energy = 1.239
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_bias = 0.03
+shadow_blur = 0.0
+directional_shadow_mode = 0
+
+[node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, 7.40523)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2ocdk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+visible = false
+mesh = SubResource("PlaneMesh_h5njp")
