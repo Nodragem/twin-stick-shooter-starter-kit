@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="3_yd4xj"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/minion/Enemy_Minion.tscn" id="4_q1glw"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="4_q1glw"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 11, 15, 1, 11, 15, 1, -15)

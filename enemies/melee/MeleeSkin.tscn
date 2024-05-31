@@ -1,0 +1,316 @@
+[gd_scene load_steps=19 format=3 uid="uid://en3636qm60ra"]
+
+[ext_resource type="Script" path="res://enemies/melee/melee_skin.gd" id="1_12iv5"]
+[ext_resource type="ArrayMesh" uid="uid://chs03lfaocohd" path="res://objects/explosion/explosion_bits_B.res" id="1_jjy1h"]
+[ext_resource type="PackedScene" uid="uid://duds002tisele" path="res://enemies/melee/minion/small_ennemy_animated.glb" id="2_ydhsr"]
+
+[sub_resource type="Animation" id="Animation_53wom"]
+resource_name = "test"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "animation"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeleeSkin/Skin_Minion/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": PackedStringArray("Run", "Killed-impact"),
+"times": PackedFloat32Array(0, 0.666)
+}
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.6327, 1, 0, 0, 7)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeSkin/Skin_Minion/Skeleton3D/Head_Elastic:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.016),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ldsal"]
+_data = {
+"test": SubResource("Animation_53wom")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a2nrj"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4w4y"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wcs7x"]
+animation = &"Killed-impact"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xdwv5"]
+filter_enabled = true
+filters = ["Skeleton3D:DEF-forearm.R", "Skeleton3D:DEF-forearm.R.001", "Skeleton3D:DEF-hand.R", "Skeleton3D:DEF-shoulder.R", "Skeleton3D:DEF-spine", "Skeleton3D:DEF-spine.001", "Skeleton3D:DEF-spine.002", "Skeleton3D:DEF-spine.003", "Skeleton3D:DEF-spine.004", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006", "Skeleton3D:DEF-upper_arm.R", "Skeleton3D:DEF-upper_arm.R.001"]
+autorestart = true
+autorestart_delay = 0.3
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce2nm"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wld3h"]
+xfade_time = 0.1
+input_0/name = "Idling"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Running"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Dying"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_o08rm"]
+nodes/attack/node = SubResource("AnimationNodeAnimation_a2nrj")
+nodes/attack/position = Vector2(380, 480)
+nodes/idle/node = SubResource("AnimationNodeAnimation_h4w4y")
+nodes/idle/position = Vector2(180, 140)
+nodes/killed/node = SubResource("AnimationNodeAnimation_wcs7x")
+nodes/killed/position = Vector2(160, 460)
+nodes/on_attacking/node = SubResource("AnimationNodeOneShot_xdwv5")
+nodes/on_attacking/position = Vector2(580, 160)
+nodes/output/position = Vector2(980, 160)
+nodes/run/node = SubResource("AnimationNodeAnimation_ce2nm")
+nodes/run/position = Vector2(180, 300)
+nodes/state/node = SubResource("AnimationNodeTransition_wld3h")
+nodes/state/position = Vector2(400, 160)
+node_connections = [&"on_attacking", 0, &"state", &"on_attacking", 1, &"attack", &"output", 0, &"on_attacking", &"state", 0, &"idle", &"state", 1, &"run", &"state", 2, &"killed"]
+
+[sub_resource type="Curve" id="Curve_7hyx8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.631285, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p41r3"]
+curve = SubResource("Curve_7hyx8")
+
+[sub_resource type="Curve" id="Curve_l6dqp"]
+_data = [Vector2(0, 1), 0.0, -4.28403, 0, 0, Vector2(0.73029, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_g55m5"]
+curve = SubResource("Curve_l6dqp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sx1j5"]
+lifetime_randomness = 0.22
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 10)
+spread = 67.693
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+angular_velocity_min = -300.0
+angular_velocity_max = 300.0
+angular_velocity_curve = SubResource("CurveTexture_p41r3")
+radial_velocity_min = 9.99998
+radial_velocity_max = 30.0
+radial_velocity_curve = SubResource("CurveTexture_g55m5")
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+attractor_interaction_enabled = false
+scale_min = 0.8
+scale_max = 1.2
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h823m"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[node name="MeleeSkin" type="Node3D"]
+script = ExtResource("1_12iv5")
+
+[node name="TestAnimation" type="AnimationPlayer" parent="."]
+process_mode = 4
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ldsal")
+}
+autoplay = "test"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Skin_Minion")
+tree_root = SubResource("AnimationNodeBlendTree_o08rm")
+anim_player = NodePath("../Skin_Minion/AnimationPlayer")
+parameters/current_length = 1.0
+parameters/current_position = 0.0443471
+parameters/current_delta = 0.0166667
+parameters/attack/current_length = 0.266667
+parameters/attack/current_position = 0.266667
+parameters/attack/current_delta = 0.0333333
+parameters/idle/current_length = 1.0
+parameters/idle/current_position = 0.0443471
+parameters/idle/current_delta = 0.0166667
+parameters/killed/current_length = 0.466667
+parameters/killed/current_position = 0.466667
+parameters/killed/current_delta = 0.0177047
+parameters/on_attacking/current_length = 1.0
+parameters/on_attacking/current_position = 0.0443471
+parameters/on_attacking/current_delta = 0.0166667
+parameters/on_attacking/active = false
+parameters/on_attacking/internal_active = false
+parameters/on_attacking/request = 0
+parameters/output/current_length = 1.0
+parameters/output/current_position = 0.0443471
+parameters/output/current_delta = 0.0166667
+parameters/run/current_length = 0.666667
+parameters/run/current_position = 0.600257
+parameters/run/current_delta = 0.016623
+parameters/state/current_length = 1.0
+parameters/state/current_position = 0.0443471
+parameters/state/current_delta = 0.0166667
+parameters/state/current_state = "Idling"
+parameters/state/transition_request = ""
+parameters/state/current_index = 0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.95838, -1.63399)
+emitting = false
+amount = 6
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_sx1j5")
+draw_pass_1 = ExtResource("1_jjy1h")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.95838, 1.63399)
+size = Vector3(40.3376, 0.979858, 53.9834)
+
+[node name="Weapon_BoneAttachment" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-0.928912, 0.0121444, 0.370103, 0.225302, -0.774647, 0.590899, 0.293875, 0.632278, 0.716842, -0.614671, 0.739911, 0.0601541)
+bone_name = "DEF-hand.R"
+bone_idx = 23
+use_external_skeleton = true
+external_skeleton = NodePath("../Skin_Minion/Skeleton3D")
+
+[node name="Weapon" type="MeshInstance3D" parent="Weapon_BoneAttachment"]
+transform = Transform3D(0.858168, -0.382444, -0.342467, 0.353611, -0.0432493, 0.934392, -0.372164, -0.922966, 0.0981209, 0.116602, 0.268402, 0.560477)
+mesh = SubResource("CylinderMesh_h823m")
+
+[node name="Skin_Minion" parent="." instance=ExtResource("2_ydhsr")]
+
+[node name="Skeleton3D" parent="Skin_Minion" index="0"]
+bones/0/position = Vector3(-1.6682e-10, 0.837298, -0.0179267)
+bones/0/rotation = Quaternion(0.037292, 1.19133e-07, 4.25004e-09, 0.999304)
+bones/0/scale = Vector3(1.03211, 0.941377, 1.03211)
+bones/1/position = Vector3(1.95176e-15, 1.06769, -0.000400006)
+bones/1/rotation = Quaternion(-0.0444093, -5.90952e-08, 2.62696e-09, 0.999013)
+bones/1/scale = Vector3(1.04663, 0.998195, 1.04663)
+bones/2/position = Vector3(1.41242e-15, 1.30386, -0.021456)
+bones/2/rotation = Quaternion(-0.0460943, 2.64698e-23, 9.52912e-22, 0.998937)
+bones/2/scale = Vector3(1.05952, 1.05952, 1.05952)
+bones/3/position = Vector3(1.41242e-15, 1.48714, -0.0384068)
+bones/3/rotation = Quaternion(0.172671, 1.17419e-07, 2.05839e-08, 0.98498)
+bones/3/scale = Vector3(1, 0.999999, 1)
+bones/4/position = Vector3(1.41904e-14, 1.52373, -0.0251599)
+bones/4/rotation = Quaternion(0.118619, 1.99999e-08, 2.40355e-09, 0.99294)
+bones/4/scale = Vector3(0.999998, 1, 0.999998)
+bones/5/position = Vector3(1.92707e-14, 1.55195, -0.0183083)
+bones/5/rotation = Quaternion(0.00440361, 1.19207e-07, 8.04251e-10, 0.99999)
+bones/6/position = Vector3(0.272302, 0.491799, 0.00797695)
+bones/6/rotation = Quaternion(0.995951, 0.0106061, 0.0651206, 0.0610696)
+bones/6/scale = Vector3(1.00017, 0.999667, 1.00017)
+bones/7/position = Vector3(0.274455, 0.321781, 0.029303)
+bones/7/rotation = Quaternion(0.993326, 0.0206066, 0.0626764, -0.0946019)
+bones/7/scale = Vector3(1.00019, 0.999612, 1.00019)
+bones/8/position = Vector3(0.280913, 0.20175, 0.0066858)
+bones/8/rotation = Quaternion(0.993327, 0.0206066, 0.0626761, -0.0946021)
+bones/8/scale = Vector3(1.00019, 0.999611, 1.00019)
+bones/9/position = Vector3(0.287369, 0.0818337, -0.0161999)
+bones/9/rotation = Quaternion(0.786413, -0.000941748, -0.00119889, 0.617699)
+bones/9/scale = Vector3(1, 1, 0.999995)
+bones/10/position = Vector3(0.287369, 0.00856141, 0.284299)
+bones/10/rotation = Quaternion(-4.8568e-09, 0.707107, 0.707107, -4.8568e-09)
+bones/11/position = Vector3(-0.272302, 0.491799, 0.007977)
+bones/11/rotation = Quaternion(0.99595, -0.010606, -0.0651206, 0.0610696)
+bones/11/scale = Vector3(1.00017, 0.999667, 1.00017)
+bones/12/position = Vector3(-0.274455, 0.321781, 0.0293029)
+bones/12/rotation = Quaternion(0.993326, -0.0206067, -0.0626764, -0.0946022)
+bones/12/scale = Vector3(1.00019, 0.999612, 1.00019)
+bones/13/position = Vector3(-0.280913, 0.20175, 0.00668583)
+bones/13/rotation = Quaternion(0.993327, -0.0206067, -0.0626752, -0.0946021)
+bones/13/scale = Vector3(1.00019, 0.999612, 1.00019)
+bones/14/position = Vector3(-0.287369, 0.0818337, -0.0161999)
+bones/14/rotation = Quaternion(0.786413, -0.000940304, -0.00119721, 0.617699)
+bones/14/scale = Vector3(1, 1, 0.999995)
+bones/15/position = Vector3(-0.287369, 0.0085614, 0.284299)
+bones/15/rotation = Quaternion(-5.02144e-09, 0.707107, 0.707107, -5.02144e-09)
+bones/16/position = Vector3(0.491889, 1.19253, -0.0938747)
+bones/16/rotation = Quaternion(0.146859, 0.170248, -0.930221, 0.290063)
+bones/16/scale = Vector3(1.00434, 0.991377, 1.00434)
+bones/17/position = Vector3(0.612782, 1.03388, -0.141347)
+bones/17/rotation = Quaternion(0.266855, -0.138575, -0.931248, 0.205822)
+bones/17/scale = Vector3(1.00493, 0.990217, 1.00493)
+bones/18/position = Vector3(0.669347, 0.873568, -0.0740757)
+bones/18/rotation = Quaternion(0.326077, -0.125079, -0.912199, 0.214292)
+bones/18/scale = Vector3(1.00493, 0.990216, 1.00493)
+bones/19/position = Vector3(0.725911, 0.713252, -0.00680472)
+bones/19/rotation = Quaternion(0.402931, -0.0785187, -0.909019, 0.0718821)
+bones/20/position = Vector3(-0.484562, 1.19143, -0.0997179)
+bones/20/rotation = Quaternion(0.149988, -0.184049, 0.933125, 0.270013)
+bones/20/scale = Vector3(1.00905, 0.982149, 1.00905)
+bones/21/position = Vector3(-0.59813, 1.03169, -0.153033)
+bones/21/rotation = Quaternion(0.306205, 0.285758, 0.899741, 0.122663)
+bones/21/scale = Vector3(1.01035, 0.979612, 1.01035)
+bones/22/position = Vector3(-0.6064, 0.8858, -0.0464395)
+bones/22/rotation = Quaternion(0.240028, 0.293915, 0.91961, 0.101578)
+bones/22/scale = Vector3(1.01035, 0.979612, 1.01035)
+bones/23/position = Vector3(-0.614671, 0.739911, 0.0601541)
+bones/23/rotation = Quaternion(0.179508, 0.33069, 0.924716, 0.0576278)
+bones/25/position = Vector3(-9.04156e-11, 0.633815, -0.0559443)
+bones/25/rotation = Quaternion(0.0929327, 1.18693e-07, 1.10784e-08, 0.995672)
+bones/25/scale = Vector3(1.00093, 1.00093, 1.00093)
+bones/26/position = Vector3(-1.85455e-08, 0.633815, -0.0559444)
+bones/26/rotation = Quaternion(-0.28704, -0.624059, -0.496143, 0.531037)
+bones/26/scale = Vector3(1.00093, 1.00093, 1.00093)
+bones/27/position = Vector3(1.844e-08, 0.633815, -0.0559444)
+bones/27/rotation = Quaternion(-0.28704, 0.624059, 0.496143, 0.531037)
+bones/27/scale = Vector3(1.00093, 1.00093, 1.00093)
+bones/28/position = Vector3(0.269937, 0.662212, -0.0130605)
+bones/28/rotation = Quaternion(0.99595, 0.0106061, 0.0651227, 0.0610695)
+bones/28/scale = Vector3(1.00017, 0.999666, 1.00017)
+bones/29/position = Vector3(-0.269937, 0.662212, -0.0130605)
+bones/29/rotation = Quaternion(0.99595, -0.0106061, -0.0651227, 0.0610696)
+bones/29/scale = Vector3(1.00017, 0.999666, 1.00017)
+bones/30/position = Vector3(0.0193893, 1.49643, 0.045735)
+bones/30/rotation = Quaternion(0.683813, 0.379228, 0.45257, -0.42868)
+bones/30/scale = Vector3(1.05952, 1.05952, 1.05952)
+bones/31/position = Vector3(0.370995, 1.35117, -0.0464027)
+bones/31/rotation = Quaternion(0.113056, 0.159626, -0.934932, 0.296041)
+bones/31/scale = Vector3(1.00434, 0.991377, 1.00434)
+bones/32/position = Vector3(-0.0193893, 1.49643, 0.045735)
+bones/32/rotation = Quaternion(0.683813, -0.379228, -0.45257, -0.42868)
+bones/32/scale = Vector3(1.05952, 1.05952, 1.05952)
+bones/33/position = Vector3(-0.370995, 1.35117, -0.0464027)
+bones/33/rotation = Quaternion(0.102163, -0.170027, 0.939565, 0.279056)
+bones/33/scale = Vector3(1.00905, 0.982149, 1.00905)
+
+[node name="Head_Elastic" parent="Skin_Minion/Skeleton3D" index="2"]
+visible = false
+
+[node name="Cylinder" parent="Skin_Minion" index="1"]
+visible = false
+
+[editable path="Skin_Minion"]

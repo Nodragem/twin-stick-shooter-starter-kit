@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyssgs4g0elmf"]
+
+[ext_resource type="Script" path="res://enemies/melee/enemy_entity.gd" id="1_p1qno"]
+[ext_resource type="PackedScene" uid="uid://en3636qm60ra" path="res://enemies/melee/MeleeSkin.tscn" id="2_dbrsx"]
+[ext_resource type="Script" path="res://enemies/melee/melee_controller.gd" id="2_e44t7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khqmx"]
+radius = 0.7
+height = 3.0
+
+[node name="Enemy_Minion" type="CharacterBody3D"]
+script = ExtResource("1_p1qno")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_khqmx")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+
+[node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
+
+[node name="MeleeController" type="Node" parent="."]
+script = ExtResource("2_e44t7")

@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="27_u2lrj"]
 [ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="29_514tw"]
 [ext_resource type="PackedScene" uid="uid://gcagnlrq3ee1" path="res://assets/prototype_bits/Barrel_B.gltf" id="30_imgvi"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/minion/Enemy_Minion.tscn" id="31_3nrdx"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="31_3nrdx"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="31_78xer"]
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="31_drbww"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="31_gnk3y"]
