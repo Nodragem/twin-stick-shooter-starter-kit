@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjklvg8pt4duv"]
+[gd_scene load_steps=8 format=3 uid="uid://cjklvg8pt4duv"]
 
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="3_yd4xj"]
 [ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="4_q1glw"]
+[ext_resource type="Script" path="res://enemies/melee/minion/attack_player.gd" id="5_hkpyq"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 11, 15, 1, 11, 15, 1, -15)
@@ -16,7 +17,7 @@ size = Vector2(32, 28)
 [node name="TestAI" type="Node3D"]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("1_6jodu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.544966, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6444, 0.544966, 9.80594)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_rxava")
@@ -53,9 +54,18 @@ shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
 
-[node name="Enemy_Minion" parent="." node_paths=PackedStringArray("target_object") instance=ExtResource("4_q1glw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, 7.40523)
-target_object = NodePath("../PlayerEntity")
+[node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, -11.0347)
+
+[node name="BeehaveTree" parent="Enemy_Minion" index="5" node_paths=PackedStringArray("blackboard", "actor")]
+blackboard = NodePath("@Node@30848")
+actor = NodePath("..")
+
+[node name="ReachPlayer" parent="Enemy_Minion/BeehaveTree/SelectBehaviour/GoToReach" index="2" node_paths=PackedStringArray("target_object")]
+target_object = NodePath("../../../../../PlayerEntity")
+
+[node name="AttackPlayer" parent="Enemy_Minion/BeehaveTree/SelectBehaviour/GoToAttack" index="2"]
+script = ExtResource("5_hkpyq")
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
@@ -64,3 +74,5 @@ navigation_mesh = SubResource("NavigationMesh_2ocdk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
 visible = false
 mesh = SubResource("PlaneMesh_h5njp")
+
+[editable path="Enemy_Minion"]

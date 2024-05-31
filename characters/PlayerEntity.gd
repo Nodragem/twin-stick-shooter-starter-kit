@@ -25,4 +25,3 @@ func _on_controller_scheme_changed(value):
 	add_child(new_controller)
 	new_controller.owner = self
 	current_controller = new_controller
-
