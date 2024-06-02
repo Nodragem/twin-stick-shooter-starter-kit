@@ -53,9 +53,6 @@ shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
 
-[node name="Enemy_Minion2" parent="." instance=ExtResource("4_q1glw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9013, 0.5, -6.21814)
-
 [node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, -11.0347)
 

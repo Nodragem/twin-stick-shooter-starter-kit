@@ -23,5 +23,5 @@ func _ready():
 func _on_body_entered(body):
 	if body is GridMap: # hit a wall
 		self.remove_from_group("bullet")
-		self.contact_monitor = false
+		call_deferred("set_contact_monitor", false)
 		self.max_contacts_reported = 0
