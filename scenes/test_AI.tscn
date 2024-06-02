@@ -16,7 +16,7 @@ size = Vector2(32, 28)
 [node name="TestAI" type="Node3D"]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("1_6jodu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6444, 0.544966, 9.80594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.515, 0.544966, 6.06295)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_rxava")
@@ -56,9 +56,8 @@ directional_shadow_mode = 0
 [node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, -11.0347)
 
-[node name="BeehaveTree" parent="Enemy_Minion" index="5" node_paths=PackedStringArray("blackboard", "actor")]
-blackboard = NodePath("@Node@41273")
-actor = NodePath("..")
+[node name="Enemy_Minion" parent="Enemy_Minion" instance=ExtResource("4_q1glw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.571074, 4.76837e-07, 4.81656)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
@@ -67,5 +66,3 @@ navigation_mesh = SubResource("NavigationMesh_2ocdk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
 visible = false
 mesh = SubResource("PlaneMesh_h5njp")
-
-[editable path="Enemy_Minion"]

@@ -16,3 +16,12 @@ func _physics_process(delta):
 func _ready():
 	await get_tree().create_timer(10.0).timeout # waits for 1 second
 	queue_free()
+
+
+
+
+func _on_body_entered(body):
+	if body is GridMap: # hit a wall
+		self.remove_from_group("bullet")
+		self.contact_monitor = false
+		self.max_contacts_reported = 0
