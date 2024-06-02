@@ -3,10 +3,13 @@ extends ActionLeaf
 var physics_delta_time
 var delta_time
 var target_reached = false
+var target_lost = false
 @export var target_object:PlayerEntity = null
 
 func tick(actor, blackboard):
 	if not actor.target_reached.is_connected(_target_reached):
+		# initialisation code:
+		actor.current_state = actor.BehaviorState.Reaching
 		actor.target_reached.connect(_target_reached)
 	if self.target_reached:
 		self.target_reached = false
@@ -25,3 +28,6 @@ func tick(actor, blackboard):
 
 func _target_reached():
 	self.target_reached = true
+	
+func _target_lost():
+	self.target_lost = true

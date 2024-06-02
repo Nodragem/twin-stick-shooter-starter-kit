@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name EnemyEntity
 
-enum EnemyState {Idling, Reaching, Attacking, Dead}
+enum BehaviorState {Idling, Reaching, Attacking, Dead}
 
 @onready var navigation_agent:NavigationAgent3D=$NavigationAgent3D
 @onready var anim_tree: AnimationTree = $MeleeSkin/AnimationTree
@@ -15,7 +15,7 @@ var _last_strong_direction := Vector3.FORWARD
 var gravity = -30.0
 var anim_state = null
 var health = 3
-var current_state = EnemyState.Idling
+var current_state = null
 var is_player_detected = false
 var is_player_in_reach = false
 
@@ -116,3 +116,13 @@ func _on_detection_range_body_entered(body):
 func _on_attack_range_body_entered(body):
 	if body is PlayerEntity:
 		is_player_in_reach = true
+
+
+func _on_detection_range_body_exited(body):
+	if body is PlayerEntity:
+		is_player_detected = false
+
+
+func _on_attack_range_body_exited(body):
+	if body is PlayerEntity:
+		is_player_in_reach = false
