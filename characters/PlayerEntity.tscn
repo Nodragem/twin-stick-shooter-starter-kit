@@ -13,7 +13,7 @@ radius = 0.492627
 height = 1.97047
 
 [node name="PlayerEntity" type="CharacterBody3D"]
-collision_mask = 11
+collision_mask = 27
 floor_max_angle = 0.872665
 script = ExtResource("2")
 controller_schemes = Array[PackedScene]([ExtResource("2_njm8p"), ExtResource("3_k2os6"), ExtResource("5_n2q7r")])

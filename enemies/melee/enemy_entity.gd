@@ -7,17 +7,17 @@ enum BehaviorState {Idling, Reaching, Attacking, Dead}
 @onready var anim_tree: AnimationTree = $MeleeSkin/AnimationTree
 
 @export var movement_speed: float = 8.0
-@export var target_object:Node3D = null
 @export var rotation_speed := 12.0
 
+var target_object:Node3D = null
 var transition:AnimationNodeTransition=null
 var _last_strong_direction := Vector3.FORWARD
 var gravity = -30.0
 var anim_state = null
-var health = 3
+var health_points = 3
 var current_state = null
-var is_player_detected = false
-var is_player_in_reach = false
+var is_target_detected = false
+var is_target_in_reach = false
 
 signal target_reached
 
@@ -37,8 +37,6 @@ func update_animation_skin(delta):
 		self.orient_model_to_direction(Vector3(self.velocity.x,0, self.velocity.z), delta)
 		if self.velocity.length_squared() <= 0.01:
 			self.move_to_idling()
-	if health <= 0:
-		self.move_to_dying()
 
 
 func update_navigation_agent(delta, target_object):
@@ -107,22 +105,35 @@ func orient_model_to_direction(direction: Vector3, delta: float) -> void:
 	.slerp(rotation_basis, delta * rotation_speed)\
 	.scaled(self.scale)
 
+func run_hit_animation():
+	pass
+
 
 func _on_detection_range_body_entered(body):
 	if body is PlayerEntity:
-		is_player_detected = true
+		is_target_detected = true
+		target_object = body
 
 
 func _on_attack_range_body_entered(body):
 	if body is PlayerEntity:
-		is_player_in_reach = true
+		is_target_in_reach = true
 
 
 func _on_detection_range_body_exited(body):
 	if body is PlayerEntity:
-		is_player_detected = false
+		is_target_detected = false
+		target_object = null
 
 
 func _on_attack_range_body_exited(body):
 	if body is PlayerEntity:
-		is_player_in_reach = false
+		is_target_in_reach = false
+
+
+func _on_hit_area_body_entered(colliding_body):
+	if colliding_body.is_in_group("bullet"):
+		print("hit by", colliding_body.name, "!")
+		health_points -= 1
+		colliding_body.remove_from_group("bullet")
+		run_hit_animation()

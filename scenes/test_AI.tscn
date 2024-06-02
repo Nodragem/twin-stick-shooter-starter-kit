@@ -60,9 +60,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, -11.0347)
 blackboard = NodePath("@Node@41273")
 actor = NodePath("..")
 
-[node name="ReachPlayer" parent="Enemy_Minion/BeehaveTree/SelectBehaviour/GoToReach" index="2" node_paths=PackedStringArray("target_object")]
-target_object = NodePath("../../../../../PlayerEntity")
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
 

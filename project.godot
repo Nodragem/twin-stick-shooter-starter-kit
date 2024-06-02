@@ -198,6 +198,7 @@ p1_camera_RL={
 3d_physics/layer_2="world"
 3d_physics/layer_3="bullets"
 3d_physics/layer_4="objects"
+3d_physics/layer_5="enemies"
 
 [physics]
 

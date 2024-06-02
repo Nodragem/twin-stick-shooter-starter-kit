@@ -30,9 +30,19 @@ radius = 8.66229
 radius = 2.06982
 
 [node name="Enemy_Minion" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 15
 script = ExtResource("1_p1qno")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_khqmx")
+
+[node name="HitArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_khqmx")
 
@@ -44,12 +54,14 @@ script = null
 
 [node name="DetectionRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
 shape = SubResource("SphereShape3D_hsi84")
 
 [node name="AttackRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
 shape = SubResource("SphereShape3D_vfolx")
@@ -57,7 +69,7 @@ shape = SubResource("SphereShape3D_vfolx")
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@41381")
+blackboard = NodePath("@Node@69808")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
@@ -126,11 +138,12 @@ script = ExtResource("13_e4uf5")
 
 [node name="CooldownDecorator" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack"]
 script = ExtResource("15_eal38")
-wait_time = 3.0
+wait_time = 0.75
 
 [node name="AttackPlayer" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack/CooldownDecorator"]
 script = ExtResource("15_s2pk0")
 
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
