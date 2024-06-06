@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=34 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="6_g7j5a"]
 [ext_resource type="PackedScene" uid="uid://dfpm8iiyrvwb8" path="res://assets/prototype_bits/Can_A.gltf" id="7_wgtu6"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="31_gnk3y"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="32_53hy4"]
 [ext_resource type="PackedScene" uid="uid://b24abelia56r4" path="res://assets/prototype_bits/Pallet_Large.gltf" id="32_tsnio"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="33_evopr"]
 [ext_resource type="PackedScene" uid="uid://nxomq6dl8kp6" path="res://assets/prototype_bits/Barrel_C.gltf" id="33_hsydh"]
 [ext_resource type="PackedScene" uid="uid://cyg3765gfh25q" path="res://assets/prototype_bits/target_stand_A_Decorated.gltf" id="34_6gqwg"]
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="35_e6ad7"]
@@ -523,6 +524,9 @@ directional_shadow_mode = 0
 [node name="Dummy_Base2" parent="." node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26248, 0.0299999, 28.0111)
 body = NodePath("Dummy_Base/@RigidBody3D@20743")
+
+[node name="PlayerEntity" parent="." instance=ExtResource("33_evopr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59487, 4, -17.8027)
 
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4"]
