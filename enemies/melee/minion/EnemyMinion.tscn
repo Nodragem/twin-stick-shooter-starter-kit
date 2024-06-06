@@ -71,7 +71,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@25231")
+blackboard = NodePath("@Node@123819")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
