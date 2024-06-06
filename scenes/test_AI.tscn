@@ -56,6 +56,12 @@ directional_shadow_mode = 0
 [node name="Enemy_Minion" parent="." instance=ExtResource("4_q1glw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3302, 0.5, -11.0347)
 
+[node name="Enemy_Minion2" parent="." instance=ExtResource("4_q1glw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43768, 0.5, -11.0347)
+
+[node name="Enemy_Minion3" parent="." instance=ExtResource("4_q1glw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2547, 0.500001, -4.15311)
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
 

@@ -24,7 +24,7 @@ radius = 1.05142
 height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hsi84"]
-radius = 10.6179
+radius = 10.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vfolx"]
 radius = 2.06982
@@ -46,14 +46,6 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_khqmx")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 2.0
-debug_enabled = true
-debug_path_custom_color = Color(0.595041, 0.133162, 0.133162, 1)
-
-[node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
-script = null
-
 [node name="DetectionRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
@@ -68,10 +60,18 @@ collision_layer = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
 shape = SubResource("SphereShape3D_vfolx")
 
+[node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
+script = null
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+debug_path_custom_color = Color(0.595041, 0.133162, 0.133162, 1)
+debug_path_custom_point_size = 10.04
+
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@17976")
+blackboard = NodePath("@Node@123819")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]

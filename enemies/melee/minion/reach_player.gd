@@ -10,7 +10,7 @@ func tick(actor, blackboard):
 		actor.current_state = actor.BehaviorState.Reaching
 	if actor.is_target_in_reach:
 		return SUCCESS
-	if actor.target_object != null:
+	if actor.target_object != null and actor.health_points > 0:
 		actor.set_movement_target(actor.target_object.position)
 		physics_delta_time = get_physics_process_delta_time()
 		delta_time = get_process_delta_time()

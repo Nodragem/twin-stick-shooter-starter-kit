@@ -5,6 +5,7 @@ enum BehaviorState {Idling, Reaching, Attacking, Dead}
 
 @onready var navigation_agent:NavigationAgent3D=$NavigationAgent3D
 @onready var anim_tree: AnimationTree = $MeleeSkin/AnimationTree
+@onready var detection_shape: CollisionShape3D = $DetectionRange/CollisionShape3D
 
 @export var movement_speed: float = 8.0
 @export var rotation_speed := 12.0
@@ -18,6 +19,7 @@ var health_points = 3
 var current_state = null
 var is_target_detected = false
 var is_target_in_reach = false
+var detection_range = null
 
 signal target_reached
 
@@ -26,6 +28,7 @@ func _ready() -> void:
 	DebugStats.add_property(self, "velocity", "")
 	anim_tree.active = true
 	transition = anim_tree.tree_root.get("nodes/state/node")
+	detection_range = detection_shape.shape.radius
 
 
 func update_animation_skin(delta):
@@ -77,14 +80,29 @@ func move_to_idling() -> void:
 func move_to_dying() -> void:
 	transition.xfade_time = 0
 	anim_tree["parameters/state/transition_request"] = "Dying"
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	# Note: we set the MeleeSkin so that it does not inherit the parent's state
+	# This way it can continue to play the animation and then we use a tween to
+	# disable it with a 2 sec delay.
+	(get_tree().create_tween()
+	.tween_callback(func(): $MeleeSkin.process_mode = Node.PROCESS_MODE_DISABLED)
+	.set_delay(2))
 
 
-func play_attacking(is_requested: bool) -> void:
+func play_on_attacking(is_requested: bool) -> void:
 	if is_requested:
 		anim_tree["parameters/on_attacking/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	else:
 		anim_tree["parameters/on_attacking/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
+
+
+func play_on_hit(is_requested:bool):
+	if is_requested:
+		anim_tree["parameters/on_hit/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	else:
+		anim_tree["parameters/on_hit/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 	
+
 
 func orient_model_to_direction(direction: Vector3, delta: float) -> void:
 	# METHOD 1:
@@ -105,14 +123,12 @@ func orient_model_to_direction(direction: Vector3, delta: float) -> void:
 	.slerp(rotation_basis, delta * rotation_speed)\
 	.scaled(self.scale)
 
-func run_hit_animation():
-	pass
-
 
 func _on_detection_range_body_entered(body):
 	if body is PlayerEntity:
 		is_target_detected = true
 		target_object = body
+		detection_shape.shape.radius = detection_range*1.5
 
 
 func _on_attack_range_body_entered(body):
@@ -124,6 +140,7 @@ func _on_detection_range_body_exited(body):
 	if body is PlayerEntity:
 		is_target_detected = false
 		target_object = null
+		detection_shape.shape.radius = detection_range
 
 
 func _on_attack_range_body_exited(body):
@@ -136,4 +153,4 @@ func _on_hit_area_body_entered(colliding_body):
 		print("hit by", colliding_body.name, "!")
 		health_points -= 1
 		colliding_body.remove_from_group("bullet")
-		run_hit_animation()
+		play_on_hit(true)
