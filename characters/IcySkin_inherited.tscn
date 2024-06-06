@@ -1,8 +1,32 @@
-[gd_scene load_steps=23 format=3 uid="uid://ds848t2x4cxyt"]
+[gd_scene load_steps=26 format=3 uid="uid://ds848t2x4cxyt"]
 
 [ext_resource type="PackedScene" uid="uid://bbge8f5gbi7b6" path="res://characters/CharacterSkins/icy.glb" id="1_jnnas"]
 [ext_resource type="Script" path="res://characters/PlayerSkin.gd" id="2_ihbv3"]
 [ext_resource type="PackedScene" uid="uid://jvm2nax5dsg7" path="res://objects/laser-gun-design1.glb" id="2_nu448"]
+[ext_resource type="Texture2D" uid="uid://dqq0avo77srm7" path="res://objects/muzzle-effect.png" id="3_di4uy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfkpv"]
+transparency = 2
+alpha_scissor_threshold = 0.621
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.927686, 0.860382, 0.756688, 1)
+albedo_texture = ExtResource("3_di4uy")
+uv1_scale = Vector3(2.49, -1.72, 1)
+uv1_offset = Vector3(0, -0.16, 0)
+grow_amount = -1.362
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s8lnb"]
+material = SubResource("StandardMaterial3D_hfkpv")
+top_radius = 0.7
+bottom_radius = 0.2
+height = 0.7
+radial_segments = 12
+rings = 3
+cap_top = false
+cap_bottom = false
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tweyv"]
 animation = &"Shooting"
@@ -183,6 +207,12 @@ bone_idx = 0
 [node name="ShootAnchor" type="Marker3D" parent="Armature/Skeleton3D/BoneAttachment3D2" index="0"]
 unique_name_in_owner = true
 transform = Transform3D(-1.99997, -0.000264508, 0.00313459, -0.000317461, 1.66669, -3.35723e-05, -0.00376146, -3.44366e-05, -1.66666, -0.385187, 0.0629825, -1.62756)
+
+[node name="MuzzleVFX" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D2" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(-0.954763, 1.47578e-07, 0.29738, -0.297375, 2.24508e-08, -0.954777, -1.47581e-07, -0.999984, 2.24515e-08, -0.38445, 0.0822514, -1.86923)
+mesh = SubResource("CylinderMesh_s8lnb")
+skeleton = NodePath("../../BoneAttachment3D")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
 transform = Transform3D(0.999766, -1.62981e-08, -0.0216363, 0.0216363, 6.70552e-07, 0.999766, -1.47475e-09, -1, 6.85453e-07, -0.383339, 1.09147, -0.0250878)

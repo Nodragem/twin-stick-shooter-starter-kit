@@ -4,12 +4,16 @@ extends Node3D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var anim_tree: AnimationTree = $AnimationTree
 @onready var shoot_anchor: Marker3D = %ShootAnchor
+@onready var muzzle_vfx: MeshInstance3D = %MuzzleVFX
 @export var rotation_speed := 12.0
 
 var _last_strong_direction := Vector3.FORWARD
+var muzzle_tween:Tween
 
 func _ready() -> void:
 	anim_tree.active = true
+	muzzle_vfx.visible = false
+	muzzle_vfx.scale = Vector3()
 
 
 func update_move_animation(velocity_ratio, delta) -> void:
@@ -45,6 +49,20 @@ func play_aiming(value: bool) -> void:
 
 
 func play_shooting(is_requested: bool) -> void:
+	muzzle_vfx.visible = true
+	print("randf: ",  randf_range(-2*PI,2*PI))
+	#muzzle_vfx.rotate(Vector3(1,0,0), randf_range(-2*PI,2*PI))
+	muzzle_vfx.rotation.x = randf_range(-2*PI,2*PI)
+	
+	muzzle_tween = self.create_tween()
+	var scale_r = randf_range(0.9, 1.2)
+	(muzzle_tween.tween_property(muzzle_vfx, "scale", Vector3(scale_r,scale_r*1.5,scale_r), 0.06)
+		.set_trans(Tween.TRANS_QUAD)
+		.set_ease(Tween.EASE_OUT))
+	(muzzle_tween.tween_property(muzzle_vfx, "scale", Vector3(), 0.1)
+		.set_trans(Tween.TRANS_QUAD)
+		.set_ease(Tween.EASE_IN))
+	muzzle_tween.tween_callback(func(): muzzle_vfx.visible = false)
 	if is_requested:
 		anim_tree["parameters/on_shooting/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
 	else:
