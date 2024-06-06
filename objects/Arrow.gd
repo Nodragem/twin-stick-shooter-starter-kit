@@ -4,6 +4,7 @@ class_name Arrow
 signal exploded
 
 @export var initial_velocity = 25
+@onready var impact_mesh = $ImpactMesh
 
 var velocity = Vector3.ZERO
 
@@ -14,6 +15,8 @@ func _physics_process(delta):
 	
 
 func _ready():
+	impact_mesh.visible = false
+	impact_mesh.scale = Vector3(1,1,1)
 	await get_tree().create_timer(10.0).timeout # waits for 1 second
 	queue_free()
 
@@ -21,6 +24,19 @@ func _ready():
 
 
 func _on_body_entered(body):
+	if impact_mesh:
+		impact_mesh.visible = true
+		impact_mesh.reparent(get_tree().get_root())
+		var tween = (self.create_tween()
+		.tween_callback(func(): impact_mesh.visible = false)
+		.set_delay(0.02)
+		)
+		# TODO: might try a longer animation when we can get the collision normal
+		#(tween.tween_property(impact_mesh, "scale", Vector3(), 0.2)
+		#.set_trans(Tween.TRANS_QUAD)
+		#.set_ease(Tween.EASE_IN))
+		#tween.parallel().tween_callback(func(): impact_mesh.visible = false).set_delay(0.02)
+	
 	if body is GridMap: # hit a wall
 		self.remove_from_group("bullet")
 		call_deferred("set_contact_monitor", false)
