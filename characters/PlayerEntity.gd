@@ -15,6 +15,10 @@ extends CharacterBody3D
 
 func _ready():
 	game_data.controller_scheme_changed.connect(_on_controller_scheme_changed)
+
+func on_death():
+	model.play_death()
+	current_controller.paused = true
 	
 
 func _on_controller_scheme_changed(value):

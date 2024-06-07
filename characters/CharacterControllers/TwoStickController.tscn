@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1rmoxdu5yefv"]
+[gd_scene load_steps=10 format=3 uid="uid://d1rmoxdu5yefv"]
 
 [ext_resource type="Script" path="res://tools/state_machine/StateMachine.gd" id="1_2oigd"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/CharacterController.gd" id="1_te6a2"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Jump.gd" id="5_b4rsb"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Fall.gd" id="6_xrepr"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Aim.gd" id="7_p3sv0"]
-[ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Fire.gd" id="8_0o7f0"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Rest.gd" id="9_dcdd7"]
 
 [node name="TwoStickController" type="Node"]
@@ -44,9 +43,6 @@ script = ExtResource("7_p3sv0")
 [node name="Timer" type="Timer" parent="AimingController_RStick/Aim"]
 wait_time = 0.2
 one_shot = true
-
-[node name="Fire" type="Node" parent="AimingController_RStick"]
-script = ExtResource("8_0o7f0")
 
 [node name="Rest" type="Node" parent="AimingController_RStick"]
 script = ExtResource("9_dcdd7")

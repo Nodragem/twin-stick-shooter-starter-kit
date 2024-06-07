@@ -26,13 +26,10 @@ func _ready():
 func _on_body_entered(body):
 	if impact_mesh:
 		impact_mesh.visible = true
-		impact_mesh.reparent(get_tree().get_root())
+		#TODO: attach to wall and align with collision normal
+		#impact_mesh.reparent(get_tree().get_root())
 		var tween = self.create_tween()
-		#.tween_callback(func(): impact_mesh.visible = false)
-		#.set_delay(0.02)
-		#)
-		# TODO: might try a longer animation when we can get the collision normal
-		#impact_mesh.rotation.x = randf_range(-2*PI,2*PI)
+
 		(tween.tween_property(impact_mesh, "scale", Vector3(), 0.1)
 		.set_trans(Tween.TRANS_QUAD)
 		.set_ease(Tween.EASE_IN))

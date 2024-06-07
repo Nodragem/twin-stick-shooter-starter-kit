@@ -11,5 +11,3 @@ func _post_import(scene):
 	scene.explosion = preload("res://objects/SmokeExplosion.tscn")
 	print("Destructible Script Added!")
 	return scene # Remember to return the imported scene
-
-

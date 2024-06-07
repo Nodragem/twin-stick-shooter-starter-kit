@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dyssgs4g0elmf"]
+[gd_scene load_steps=23 format=3 uid="uid://dyssgs4g0elmf"]
 
 [ext_resource type="Script" path="res://enemies/melee/enemy_entity.gd" id="1_p1qno"]
 [ext_resource type="PackedScene" uid="uid://en3636qm60ra" path="res://enemies/melee/MeleeSkin.tscn" id="2_dbrsx"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://enemies/melee/minion/attack_player.gd" id="15_s2pk0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khqmx"]
-radius = 1.05142
+radius = 1.30422
 height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hsi84"]
@@ -28,6 +28,9 @@ radius = 10.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vfolx"]
 radius = 2.06982
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ue0h"]
+radius = 0.617405
 
 [node name="Enemy_Minion" type="CharacterBody3D"]
 collision_layer = 16
@@ -41,14 +44,16 @@ shape = SubResource("CapsuleShape3D_khqmx")
 [node name="HitArea" type="Area3D" parent="."]
 collision_layer = 16
 collision_mask = 4
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.230515)
 shape = SubResource("CapsuleShape3D_khqmx")
 
 [node name="DetectionRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
 shape = SubResource("SphereShape3D_hsi84")
@@ -56,9 +61,19 @@ shape = SubResource("SphereShape3D_hsi84")
 [node name="AttackRange" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 16
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
 shape = SubResource("SphereShape3D_vfolx")
+
+[node name="AttackHitArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackHitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0418096, 1.54775)
+shape = SubResource("SphereShape3D_2ue0h")
 
 [node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
 script = null
@@ -71,7 +86,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@36700")
+blackboard = NodePath("@Node@17294")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]

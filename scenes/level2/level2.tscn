@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=33 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="6_g7j5a"]
 [ext_resource type="PackedScene" uid="uid://dfpm8iiyrvwb8" path="res://assets/prototype_bits/Can_A.gltf" id="7_wgtu6"]
@@ -23,7 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="27_u2lrj"]
 [ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="29_514tw"]
 [ext_resource type="PackedScene" uid="uid://gcagnlrq3ee1" path="res://assets/prototype_bits/Barrel_B.gltf" id="30_imgvi"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="31_3nrdx"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="31_78xer"]
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="31_drbww"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="31_gnk3y"]
@@ -35,14 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="35_e6ad7"]
 
 [node name="Level2" type="Node3D"]
-
-[node name="Characters" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.2932)
-
-[node name="Enemy_Minion" parent="Characters" instance=ExtResource("31_3nrdx")]
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.969235, -0.090026, 0.229082, 0, 0.930711, 0.365756, -0.246137, 0.354503, -0.902078, 0.882673, 5.63801, 28.4046)
 
 [node name="GridMapBuilding" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

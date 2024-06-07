@@ -45,4 +45,3 @@ func set_state(value: State) -> void:
 	state = value
 	_state_name = state.name
 	
-
