@@ -9,6 +9,12 @@ Follow me on Twitter/X to get regular updates about the development and coming f
 
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/nodragem.svg?style=social&label=%20%40nodragem)](https://twitter.com/nodragem)
 
+# Loading the project for the first time:
+
+There is a bug at the moment when you first load the project because Godot does not registered `static` functions in time for running the `_post_import` function.
+Please refer to the [walk around explained here](https://github.com/Nodragem/twin-stick-shooter-starter-kit/issues/3).
+
+While this is being discussed with Godot developers, I will propably release a version that does not use a `static` function 😄!
 
 # Features:
 - Game Feel: Destructible elements, Hit feedback, Recoil animation (more to come)
