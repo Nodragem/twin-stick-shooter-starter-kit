@@ -12,5 +12,5 @@ func tick(actor, blackboard):
 		bodies  = hit_area.get_overlapping_bodies()
 		for body in bodies:
 			if body is PlayerEntity:
-				body.get_damage(attack_damage) 
+				body.health_manager.get_damage(attack_damage) 
 	return SUCCESS

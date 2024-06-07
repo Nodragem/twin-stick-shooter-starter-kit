@@ -5,7 +5,8 @@ signal health_depleted
 signal health_replenished
 
 @export var ui_hearts: Array[TextureRect]
-@export var max_health: int = 5
+@export var max_health: int = 10
+@export var start_health: int = 4
 
 var heart_full = preload("res://objects/heart_full.png")
 var heart_empty = preload("res://objects/heart_null.png")
@@ -14,7 +15,7 @@ var heart_half = preload("res://objects/heart_half.png")
 var health_points: int = 0: set = set_health
 
 func _ready():
-	health_points = max_health
+	health_points = start_health
 
 func set_health(value:int):
 	health_changed.emit(health_points, value)

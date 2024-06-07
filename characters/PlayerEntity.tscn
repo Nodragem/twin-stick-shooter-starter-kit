@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://jga6pbb5xpug"]
+[gd_scene load_steps=10 format=3 uid="uid://jga6pbb5xpug"]
 
 [ext_resource type="PackedScene" uid="uid://ds848t2x4cxyt" path="res://characters/IcySkin_inherited.tscn" id="1"]
 [ext_resource type="Script" path="res://characters/PlayerEntity.gd" id="2"]
@@ -6,23 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://d3yswfl2m7nue" path="res://characters/CharacterControllers/OneStickController.tscn" id="2_njm8p"]
 [ext_resource type="PackedScene" uid="uid://d1rmoxdu5yefv" path="res://characters/CharacterControllers/TwoStickController.tscn" id="3_k2os6"]
 [ext_resource type="PackedScene" uid="uid://drvgaalhd5v8s" path="res://characters/CharacterControllers/TwoStickControllerAuto.tscn" id="5_n2q7r"]
-[ext_resource type="Script" path="res://health_manager.gd" id="6_dehll"]
-[ext_resource type="FontFile" uid="uid://dgn5mdix5re20" path="res://ui/fonts/Montserrat-Bold.ttf" id="7_0o2cb"]
-[ext_resource type="Texture2D" uid="uid://8jihgu4bmhcd" path="res://objects/heart_null.png" id="8_devdu"]
-[ext_resource type="Texture2D" uid="uid://x8mapw2tro6o" path="res://objects/heart_full.png" id="8_mymp6"]
+[ext_resource type="PackedScene" uid="uid://c5l20701ck6co" path="res://characters/health_manager.tscn" id="6_7wv34"]
 [ext_resource type="Script" path="res://characters/PositionResetter.gd" id="14"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.492627
 height = 1.97047
-
-[sub_resource type="LabelSettings" id="LabelSettings_kmpmy"]
-font = ExtResource("7_0o2cb")
-font_size = 24
-outline_color = Color(0.221665, 0.221665, 0.221665, 1)
-shadow_size = 2
-shadow_color = Color(0, 0, 0, 0.673)
-shadow_offset = Vector2(3.145, 1)
 
 [node name="PlayerEntity" type="CharacterBody3D"]
 collision_mask = 27
@@ -35,71 +24,8 @@ game_data = ExtResource("2_gbwfc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.987748, 0)
 shape = SubResource("1")
 
-[node name="HealthManager" type="Control" parent="." node_paths=PackedStringArray("ui_hearts")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("6_dehll")
+[node name="HealthManager" parent="." node_paths=PackedStringArray("ui_hearts") instance=ExtResource("6_7wv34")]
 ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
-metadata/_edit_lock_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HealthManager"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -60.0
-offset_right = 333.0
-offset_bottom = -16.0
-grow_vertical = 0
-theme_override_constants/separation = 5
-
-[node name="Label" type="Label" parent="HealthManager/HBoxContainer"]
-layout_mode = 2
-text = "HP:"
-label_settings = SubResource("LabelSettings_kmpmy")
-metadata/_edit_lock_ = true
-
-[node name="p1" type="TextureRect" parent="HealthManager/HBoxContainer"]
-texture_filter = 4
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_mymp6")
-expand_mode = 1
-
-[node name="p2" type="TextureRect" parent="HealthManager/HBoxContainer"]
-texture_filter = 4
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_devdu")
-expand_mode = 1
-
-[node name="p3" type="TextureRect" parent="HealthManager/HBoxContainer"]
-texture_filter = 4
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_devdu")
-expand_mode = 1
-
-[node name="p4" type="TextureRect" parent="HealthManager/HBoxContainer"]
-texture_filter = 4
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_devdu")
-expand_mode = 1
-
-[node name="p5" type="TextureRect" parent="HealthManager/HBoxContainer"]
-texture_filter = 4
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("8_devdu")
-expand_mode = 1
 
 [node name="PositionResetter" type="Node" parent="."]
 script = ExtResource("14")

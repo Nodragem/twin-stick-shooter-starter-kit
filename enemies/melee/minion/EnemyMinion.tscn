@@ -86,7 +86,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@17294")
+blackboard = NodePath("@Node@187557")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
@@ -157,8 +157,9 @@ script = ExtResource("13_e4uf5")
 script = ExtResource("15_eal38")
 wait_time = 0.75
 
-[node name="AttackPlayer" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack/CooldownDecorator"]
+[node name="AttackPlayer" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack/CooldownDecorator" node_paths=PackedStringArray("hit_area")]
 script = ExtResource("15_s2pk0")
+hit_area = NodePath("../../../../../AttackHitArea")
 
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
