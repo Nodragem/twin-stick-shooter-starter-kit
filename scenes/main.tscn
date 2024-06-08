@@ -9,6 +9,9 @@
 [node name="PlayerEntity" parent="." instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564909, 0.467465, 24.7514)
 
+[node name="HealthManager" parent="PlayerEntity" index="1" node_paths=PackedStringArray("ui_hearts")]
+ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
+
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
 transform = Transform3D(0.545181, 0, 0.838319, 0, 1, 0, -0.838319, 0, 0.545181, 0, 0, 0)
 

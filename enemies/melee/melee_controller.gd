@@ -1,2 +1,0 @@
-extends Node
-class_name MeleeController

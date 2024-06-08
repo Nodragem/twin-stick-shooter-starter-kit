@@ -4,8 +4,9 @@ class_name EnemyEntity
 enum BehaviorState {Idling, Reaching, Attacking, Dead}
 
 @onready var navigation_agent:NavigationAgent3D=$NavigationAgent3D
-@onready var anim_tree: AnimationTree = $MeleeSkin/AnimationTree
+@onready var anim_tree: AnimationTree = $AnimationTree
 @onready var detection_shape: CollisionShape3D = $DetectionRange/CollisionShape3D
+@onready var weapon_anchor: Node3D = $WeaponAnchor
 
 @export var movement_speed: float = 8.0
 @export var rotation_speed := 12.0
@@ -102,6 +103,12 @@ func play_on_hit(is_requested:bool):
 	else:
 		anim_tree["parameters/on_hit/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 	
+
+func deal_damage():
+	## To be called by AnimationPlayer on the Skin in Attack animations
+	var weapon:Weapon = weapon_anchor.get_child(0)
+	if weapon != null and weapon is Weapon:
+		weapon.deal_damage()
 
 
 func orient_model_to_direction(direction: Vector3, delta: float) -> void:
