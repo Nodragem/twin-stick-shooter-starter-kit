@@ -34,7 +34,7 @@ animation = &"Killed-impact"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xdwv5"]
 filter_enabled = true
-filters = ["../..", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-forearm.R", "Skeleton3D:DEF-forearm.R.001", "Skeleton3D:DEF-hand.R", "Skeleton3D:DEF-shoulder.R", "Skeleton3D:DEF-spine", "Skeleton3D:DEF-spine.001", "Skeleton3D:DEF-spine.002", "Skeleton3D:DEF-spine.003", "Skeleton3D:DEF-spine.004", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006", "Skeleton3D:DEF-upper_arm.R", "Skeleton3D:DEF-upper_arm.R.001"]
+filters = ["../..", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-forearm.R", "Skeleton3D:DEF-forearm.R.001", "Skeleton3D:DEF-hand.R", "Skeleton3D:DEF-shoulder.R", "Skeleton3D:DEF-spine", "Skeleton3D:DEF-spine.001", "Skeleton3D:DEF-spine.002", "Skeleton3D:DEF-spine.003", "Skeleton3D:DEF-spine.004", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006", "Skeleton3D:DEF-upper_arm.R", "Skeleton3D:DEF-upper_arm.R.001", "Skeleton3D:DEF-weapon-anchor"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sf8yh"]
 filter_enabled = true
@@ -60,7 +60,7 @@ input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_o08rm"]
-graph_offset = Vector2(0, 117.954)
+graph_offset = Vector2(-284.633, -13.5092)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_1hmg7")
 nodes/Animation/position = Vector2(600, 480)
 nodes/attack/node = SubResource("AnimationNodeAnimation_a2nrj")
@@ -106,48 +106,49 @@ collision_mask = 27
 script = ExtResource("1_p1qno")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+process_mode = 1
 root_node = NodePath("../MeleeSkin/Skin")
 tree_root = SubResource("AnimationNodeBlendTree_o08rm")
 anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
-parameters/current_length = 0.666667
-parameters/current_position = 0.0596218
-parameters/current_delta = 0.00516167
+parameters/current_length = 0.466667
+parameters/current_position = 0.466667
+parameters/current_delta = 0.0
 parameters/Animation/current_length = 0.366667
 parameters/Animation/current_position = 0.366667
 parameters/Animation/current_delta = 0.0309255
 parameters/attack/current_length = 0.266667
 parameters/attack/current_position = 0.266667
-parameters/attack/current_delta = 0.033287
+parameters/attack/current_delta = 0.0190137
 parameters/idle/current_length = 1.0
-parameters/idle/current_position = 0.760247
-parameters/idle/current_delta = 0.0257007
+parameters/idle/current_position = 0.841304
+parameters/idle/current_delta = 0.008211
 parameters/killed/current_length = 0.466667
 parameters/killed/current_position = 0.466667
 parameters/killed/current_delta = 0.0
-parameters/on_attacking/current_length = 0.666667
-parameters/on_attacking/current_position = 0.0596218
-parameters/on_attacking/current_delta = 0.00516167
+parameters/on_attacking/current_length = 0.466667
+parameters/on_attacking/current_position = 0.466667
+parameters/on_attacking/current_delta = 0.0
 parameters/on_attacking/active = false
 parameters/on_attacking/internal_active = false
 parameters/on_attacking/request = 0
-parameters/on_hit/current_length = 0.666667
-parameters/on_hit/current_position = 0.0596218
-parameters/on_hit/current_delta = 0.00516167
+parameters/on_hit/current_length = 0.466667
+parameters/on_hit/current_position = 0.466667
+parameters/on_hit/current_delta = 0.0
 parameters/on_hit/active = false
 parameters/on_hit/internal_active = false
 parameters/on_hit/request = 0
-parameters/output/current_length = 0.666667
-parameters/output/current_position = 0.0596218
-parameters/output/current_delta = 0.00516167
+parameters/output/current_length = 0.466667
+parameters/output/current_position = 0.466667
+parameters/output/current_delta = 0.0
 parameters/run/current_length = 0.666667
-parameters/run/current_position = 0.0596218
-parameters/run/current_delta = 0.00516167
-parameters/state/current_length = 0.666667
-parameters/state/current_position = 0.0596218
-parameters/state/current_delta = 0.00516167
-parameters/state/current_state = "Running"
+parameters/run/current_position = 0.558723
+parameters/run/current_delta = 0.0246683
+parameters/state/current_length = 0.466667
+parameters/state/current_position = 0.466667
+parameters/state/current_delta = 0.0
+parameters/state/current_state = "Dying"
 parameters/state/transition_request = ""
-parameters/state/current_index = 1
+parameters/state/current_index = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -179,14 +180,14 @@ monitorable = false
 shape = SubResource("SphereShape3D_vfolx")
 
 [node name="WeaponAnchor" type="BoneAttachment3D" parent="."]
-transform = Transform3D(-0.867278, -0.136666, 0.478697, 0.14745, -0.988953, -0.0151989, 0.475486, 0.0574024, 0.877849, -0.705648, 0.879446, 0.0661688)
-bone_name = "DEF-hand.R"
-bone_idx = 24
+transform = Transform3D(0.393251, -0.0232529, 0.919137, 0.79503, 0.510733, -0.327232, -0.461824, 0.859426, 0.219333, -0.599293, 0.00299174, -9.52384)
+bone_name = "DEF-weapon-anchor"
+bone_idx = 25
 use_external_skeleton = true
 external_skeleton = NodePath("../MeleeSkin/Skin/Skeleton3D")
 
 [node name="Weapon" type="MeshInstance3D" parent="WeaponAnchor" node_paths=PackedStringArray("hit_area")]
-transform = Transform3D(0.83624, -0.543037, -0.0762504, 0.0790809, -0.0181726, 0.996703, -0.542632, -0.839512, 0.0277473, 0.18588, 0.284743, 0.503694)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771422, 0)
 mesh = SubResource("CylinderMesh_7egl3")
 script = ExtResource("2_efcwp")
 hit_area = NodePath("AttackHitArea")
@@ -202,104 +203,6 @@ shape = SubResource("SphereShape3D_2ue0h")
 
 [node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
 
-[node name="Skeleton3D" parent="MeleeSkin/Skin" index="0"]
-bones/0/position = Vector3(0.0126864, 0.932891, 0.205919)
-bones/0/rotation = Quaternion(0.136081, 0.00329811, 0.028255, 0.990289)
-bones/0/scale = Vector3(1.03129, 0.940246, 1.03129)
-bones/1/position = Vector3(-2.40031e-09, 1.15439, 0.268058)
-bones/1/rotation = Quaternion(0.146072, 0.00359232, 0.0231307, 0.988997)
-bones/1/scale = Vector3(1.04539, 0.996061, 1.04539)
-bones/2/position = Vector3(-0.0105845, 1.3808, 0.336509)
-bones/2/rotation = Quaternion(0.133213, 0.00291637, 0.0216921, 0.990846)
-bones/2/scale = Vector3(1.05736, 1.05736, 1.05736)
-bones/3/position = Vector3(-0.0183379, 1.5578, 0.385023)
-bones/3/rotation = Quaternion(0.900363, 0.00198869, 0.0344941, 0.433766)
-bones/3/scale = Vector3(1.33143, 0.578143, 1.33143)
-bones/4/position = Vector3(-0.0188987, 1.54346, 0.401766)
-bones/4/rotation = Quaternion(0.835333, -0.00165441, 0.0378596, 0.548437)
-bones/4/scale = Vector3(1.3284, 0.580483, 1.3284)
-bones/5/position = Vector3(-0.0196035, 1.53633, 0.416385)
-bones/5/rotation = Quaternion(0.00557411, 0.000103893, 0.0186141, 0.999811)
-bones/6/position = Vector3(-0.0360084, 2.19298, 0.361991)
-bones/6/rotation = Quaternion(0.706984, 0.0131623, 0.0131623, 0.706984)
-bones/7/position = Vector3(0.278855, 0.630581, 0.218571)
-bones/7/rotation = Quaternion(0.977433, -0.0243216, 0.0604966, 0.200934)
-bones/7/scale = Vector3(1.00837, 0.983489, 1.00837)
-bones/8/position = Vector3(0.266766, 0.481039, 0.282608)
-bones/8/rotation = Quaternion(0.931994, 0.00866918, 0.059215, -0.3575)
-bones/8/scale = Vector3(1.01179, 0.976858, 1.01179)
-bones/9/position = Vector3(0.273738, 0.392385, 0.203297)
-bones/9/rotation = Quaternion(0.931913, 0.00796689, 0.0606661, -0.357484)
-bones/9/scale = Vector3(1.01179, 0.976858, 1.01179)
-bones/10/position = Vector3(0.28071, 0.303732, 0.123985)
-bones/10/rotation = Quaternion(0.832125, -0.000845432, -0.00126865, 0.554586)
-bones/10/scale = Vector3(0.999956, 1.00009, 0.999951)
-bones/11/position = Vector3(0.28071, 0.185862, 0.407081)
-bones/11/rotation = Quaternion(-5.22029e-09, 0.649893, 0.760026, -4.46382e-09)
-bones/12/position = Vector3(-0.234159, 0.583406, 0.152014)
-bones/12/rotation = Quaternion(0.997125, 0.0403826, -0.0639267, -0.00492114)
-bones/12/scale = Vector3(1.00654, 0.987048, 1.00654)
-bones/13/position = Vector3(-0.22067, 0.415556, 0.149494)
-bones/13/rotation = Quaternion(0.881626, 0.00672579, -0.0746307, -0.465963)
-bones/13/scale = Vector3(1.00921, 0.98184, 1.00921)
-bones/14/position = Vector3(-0.227499, 0.349519, 0.0530744)
-bones/14/rotation = Quaternion(0.88192, 0.00442909, -0.0711895, -0.465973)
-bones/14/scale = Vector3(1.00921, 0.98184, 1.00921)
-bones/15/position = Vector3(-0.234329, 0.283482, -0.0433446)
-bones/15/rotation = Quaternion(0.916224, -0.000610171, -0.00139465, 0.400664)
-bones/15/scale = Vector3(1.00002, 0.99997, 1.00001)
-bones/16/position = Vector3(-0.234329, 0.0764631, 0.17993)
-bones/16/rotation = Quaternion(-6.1206e-09, 0.507099, 0.861888, -3.6011e-09)
-bones/17/position = Vector3(0.49801, 1.34609, 0.228405)
-bones/17/rotation = Quaternion(0.191558, 0.369246, -0.848292, 0.327665)
-bones/17/scale = Vector3(1.00896, 0.982316, 1.00896)
-bones/18/position = Vector3(0.63904, 1.24228, 0.126998)
-bones/18/rotation = Quaternion(0.343237, -0.00683615, -0.921909, 0.179517)
-bones/18/scale = Vector3(1.00982, 0.980655, 1.00982)
-bones/19/position = Vector3(0.697732, 1.07318, 0.151463)
-bones/19/rotation = Quaternion(0.295639, -0.0160491, -0.93837, 0.178333)
-bones/19/scale = Vector3(1.00982, 0.980654, 1.00982)
-bones/20/position = Vector3(0.756423, 0.904087, 0.175928)
-bones/20/rotation = Quaternion(0.251857, -0.0328879, -0.962501, 0.0952836)
-bones/21/position = Vector3(-0.50192, 1.32359, 0.196026)
-bones/21/rotation = Quaternion(0.153747, -0.442072, 0.841721, 0.269147)
-bones/21/scale = Vector3(1.01114, 0.978086, 1.01114)
-bones/22/position = Vector3(-0.621055, 1.22969, 0.0622385)
-bones/22/rotation = Quaternion(0.297251, -0.0301436, 0.947431, 0.11449)
-bones/22/scale = Vector3(1.01219, 0.976066, 1.01219)
-bones/23/position = Vector3(-0.663352, 1.05457, 0.0642037)
-bones/23/rotation = Quaternion(0.270648, -0.026927, 0.955375, 0.115252)
-bones/23/scale = Vector3(1.01219, 0.976066, 1.01219)
-bones/24/position = Vector3(-0.705648, 0.879446, 0.0661688)
-bones/24/rotation = Quaternion(0.246894, 0.0109201, 0.966188, 0.0735148)
-bones/26/position = Vector3(0.0223584, 0.752435, 0.104894)
-bones/26/rotation = Quaternion(0.252032, 0.0067494, 0.0259051, 0.967349)
-bones/26/scale = Vector3(1, 1, 1)
-bones/27/position = Vector3(0.0223584, 0.752435, 0.104894)
-bones/27/rotation = Quaternion(-0.183321, -0.54108, -0.574719, 0.585938)
-bones/27/scale = Vector3(1, 1, 1)
-bones/28/position = Vector3(0.0223584, 0.752435, 0.104894)
-bones/28/rotation = Quaternion(-0.212017, 0.530493, 0.605256, 0.554339)
-bones/28/scale = Vector3(1, 1, 1)
-bones/29/position = Vector3(0.290945, 0.780123, 0.154535)
-bones/29/rotation = Quaternion(0.977145, -0.0235124, 0.0649341, 0.201043)
-bones/29/scale = Vector3(1.00837, 0.983488, 1.00837)
-bones/30/position = Vector3(-0.247649, 0.751256, 0.154535)
-bones/30/rotation = Quaternion(0.997056, 0.0404346, -0.0649612, -0.00487755)
-bones/30/scale = Vector3(1.00654, 0.987048, 1.00654)
-bones/31/position = Vector3(0.00190634, 1.5378, 0.466886)
-bones/31/rotation = Quaternion(0.589615, 0.305182, 0.501048, -0.555129)
-bones/31/scale = Vector3(1.05736, 1.05736, 1.05736)
-bones/32/position = Vector3(0.35698, 1.4499, 0.329812)
-bones/32/rotation = Quaternion(0.152186, 0.353756, -0.856162, 0.344505)
-bones/32/scale = Vector3(1.00896, 0.982317, 1.00896)
-bones/33/position = Vector3(-0.0367559, 1.5361, 0.466886)
-bones/33/rotation = Quaternion(0.602406, -0.279086, -0.524863, -0.53267)
-bones/33/scale = Vector3(1.05736, 1.05736, 1.05736)
-bones/34/position = Vector3(-0.382784, 1.4175, 0.329812)
-bones/34/rotation = Quaternion(0.1013, -0.424548, 0.849629, 0.296021)
-bones/34/scale = Vector3(1.01114, 0.978086, 1.01114)
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 2.0
 debug_path_custom_color = Color(0.595041, 0.133162, 0.133162, 1)
@@ -308,7 +211,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@17291")
+blackboard = NodePath("@Node@23012")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
@@ -387,6 +290,3 @@ script = ExtResource("15_s2pk0")
 [connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
-
-[editable path="MeleeSkin"]
-[editable path="MeleeSkin/Skin"]

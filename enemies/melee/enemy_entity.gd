@@ -86,7 +86,10 @@ func move_to_dying() -> void:
 	# This way it can continue to play the animation and then we use a tween to
 	# disable it with a 2 sec delay.
 	(get_tree().create_tween()
-	.tween_callback(func(): $MeleeSkin.process_mode = Node.PROCESS_MODE_DISABLED)
+	.tween_callback(func(): 
+		$MeleeSkin.process_mode = Node.PROCESS_MODE_DISABLED
+		anim_tree.process_mode = Node.PROCESS_MODE_DISABLED
+		)
 	.set_delay(2))
 
 

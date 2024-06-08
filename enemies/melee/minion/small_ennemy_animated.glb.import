@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/small_ennemy_animated.glb-3a8d57c7572f031665a
 [params]
 
 nodes/root_type=""
-nodes/root_name=""
+nodes/root_name="Skin"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
