@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://enemies/melee/enemy_entity.gd" id="1_p1qno"]
 [ext_resource type="PackedScene" uid="uid://en3636qm60ra" path="res://enemies/melee/MeleeSkin.tscn" id="2_dbrsx"]
 [ext_resource type="Script" path="res://enemies/melee/weapon.gd" id="2_efcwp"]
+[ext_resource type="ArrayMesh" uid="uid://bptnevpcunpnm" path="res://objects/weapons/grass_hockey.res" id="2_gj8p3"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_1stn8"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_3u80n"]
 [ext_resource type="Script" path="res://enemies/melee/minion/is_dead.gd" id="5_qq63t"]
@@ -90,13 +91,6 @@ radius = 10.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_vfolx"]
 radius = 2.06982
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_7egl3"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 1.5
-radial_segments = 8
-rings = 2
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_2ue0h"]
 radius = 0.56734
 
@@ -110,9 +104,9 @@ process_mode = 1
 root_node = NodePath("../MeleeSkin/Skin")
 tree_root = SubResource("AnimationNodeBlendTree_o08rm")
 anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
-parameters/current_length = 0.466667
-parameters/current_position = 0.466667
-parameters/current_delta = 0.0
+parameters/current_length = 0.666667
+parameters/current_position = 0.0985416
+parameters/current_delta = 0.0009565
 parameters/Animation/current_length = 0.366667
 parameters/Animation/current_position = 0.366667
 parameters/Animation/current_delta = 0.0309255
@@ -125,30 +119,30 @@ parameters/idle/current_delta = 0.008211
 parameters/killed/current_length = 0.466667
 parameters/killed/current_position = 0.466667
 parameters/killed/current_delta = 0.0
-parameters/on_attacking/current_length = 0.466667
-parameters/on_attacking/current_position = 0.466667
-parameters/on_attacking/current_delta = 0.0
+parameters/on_attacking/current_length = 0.666667
+parameters/on_attacking/current_position = 0.0985416
+parameters/on_attacking/current_delta = 0.0009565
 parameters/on_attacking/active = false
 parameters/on_attacking/internal_active = false
 parameters/on_attacking/request = 0
-parameters/on_hit/current_length = 0.466667
-parameters/on_hit/current_position = 0.466667
-parameters/on_hit/current_delta = 0.0
+parameters/on_hit/current_length = 0.666667
+parameters/on_hit/current_position = 0.0985416
+parameters/on_hit/current_delta = 0.0009565
 parameters/on_hit/active = false
 parameters/on_hit/internal_active = false
 parameters/on_hit/request = 0
-parameters/output/current_length = 0.466667
-parameters/output/current_position = 0.466667
-parameters/output/current_delta = 0.0
+parameters/output/current_length = 0.666667
+parameters/output/current_position = 0.0985416
+parameters/output/current_delta = 0.0009565
 parameters/run/current_length = 0.666667
-parameters/run/current_position = 0.558723
-parameters/run/current_delta = 0.0246683
-parameters/state/current_length = 0.466667
-parameters/state/current_position = 0.466667
-parameters/state/current_delta = 0.0
-parameters/state/current_state = "Dying"
+parameters/run/current_position = 0.0985416
+parameters/run/current_delta = 0.0009565
+parameters/state/current_length = 0.666667
+parameters/state/current_position = 0.0985416
+parameters/state/current_delta = 0.0009565
+parameters/state/current_state = "Running"
 parameters/state/transition_request = ""
-parameters/state/current_index = 2
+parameters/state/current_index = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -180,20 +174,19 @@ monitorable = false
 shape = SubResource("SphereShape3D_vfolx")
 
 [node name="WeaponAnchor" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.393251, -0.0232529, 0.919137, 0.79503, 0.510733, -0.327232, -0.461824, 0.859426, 0.219333, -0.599293, 0.00299174, -9.52384)
+transform = Transform3D(0.536304, 0.0959118, 0.838558, 0.840426, 0.0309694, -0.541041, -0.0778618, 0.994908, -0.0639978, -0.653484, 0.725063, -0.158034)
 bone_name = "DEF-weapon-anchor"
 bone_idx = 25
 use_external_skeleton = true
 external_skeleton = NodePath("../MeleeSkin/Skin/Skeleton3D")
 
 [node name="Weapon" type="MeshInstance3D" parent="WeaponAnchor" node_paths=PackedStringArray("hit_area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771422, 0)
-mesh = SubResource("CylinderMesh_7egl3")
+mesh = ExtResource("2_gj8p3")
 script = ExtResource("2_efcwp")
 hit_area = NodePath("AttackHitArea")
 
 [node name="AttackHitArea" type="Area3D" parent="WeaponAnchor/Weapon"]
-transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.11759e-08, 2.80233, -0.329513)
 collision_layer = 16
 monitorable = false
 
@@ -211,7 +204,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@23012")
+blackboard = NodePath("@Node@30277")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
