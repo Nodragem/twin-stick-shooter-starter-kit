@@ -39,7 +39,7 @@ filters = ["../..", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-forearm.R", "Ske
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sf8yh"]
 filter_enabled = true
-filters = ["Skeleton3D/Body_001:surface_material_override/0", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006"]
+filters = ["Skeleton3D/Body_001:material_overlay", "Skeleton3D/Body_001:material_overlay:albedo_color", "Skeleton3D/Body_001:surface_material_override/0", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006"]
 mix_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce2nm"]
@@ -61,7 +61,7 @@ input_2/break_loop_at_end = false
 input_2/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_o08rm"]
-graph_offset = Vector2(-284.633, -13.5092)
+graph_offset = Vector2(0, 131.491)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_1hmg7")
 nodes/Animation/position = Vector2(600, 480)
 nodes/attack/node = SubResource("AnimationNodeAnimation_a2nrj")
@@ -105,8 +105,8 @@ root_node = NodePath("../MeleeSkin/Skin")
 tree_root = SubResource("AnimationNodeBlendTree_o08rm")
 anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
 parameters/current_length = 0.666667
-parameters/current_position = 0.0985416
-parameters/current_delta = 0.0009565
+parameters/current_position = 0.36846
+parameters/current_delta = 0.0166667
 parameters/Animation/current_length = 0.366667
 parameters/Animation/current_position = 0.366667
 parameters/Animation/current_delta = 0.0309255
@@ -120,26 +120,26 @@ parameters/killed/current_length = 0.466667
 parameters/killed/current_position = 0.466667
 parameters/killed/current_delta = 0.0
 parameters/on_attacking/current_length = 0.666667
-parameters/on_attacking/current_position = 0.0985416
-parameters/on_attacking/current_delta = 0.0009565
+parameters/on_attacking/current_position = 0.36846
+parameters/on_attacking/current_delta = 0.0166667
 parameters/on_attacking/active = false
 parameters/on_attacking/internal_active = false
 parameters/on_attacking/request = 0
 parameters/on_hit/current_length = 0.666667
-parameters/on_hit/current_position = 0.0985416
-parameters/on_hit/current_delta = 0.0009565
+parameters/on_hit/current_position = 0.36846
+parameters/on_hit/current_delta = 0.0166667
 parameters/on_hit/active = false
 parameters/on_hit/internal_active = false
 parameters/on_hit/request = 0
 parameters/output/current_length = 0.666667
-parameters/output/current_position = 0.0985416
-parameters/output/current_delta = 0.0009565
+parameters/output/current_position = 0.36846
+parameters/output/current_delta = 0.0166667
 parameters/run/current_length = 0.666667
-parameters/run/current_position = 0.0985416
-parameters/run/current_delta = 0.0009565
+parameters/run/current_position = 0.36846
+parameters/run/current_delta = 0.0166667
 parameters/state/current_length = 0.666667
-parameters/state/current_position = 0.0985416
-parameters/state/current_delta = 0.0009565
+parameters/state/current_position = 0.36846
+parameters/state/current_delta = 0.0166667
 parameters/state/current_state = "Running"
 parameters/state/transition_request = ""
 parameters/state/current_index = 1
@@ -174,7 +174,7 @@ monitorable = false
 shape = SubResource("SphereShape3D_vfolx")
 
 [node name="WeaponAnchor" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.536304, 0.0959118, 0.838558, 0.840426, 0.0309694, -0.541041, -0.0778618, 0.994908, -0.0639978, -0.653484, 0.725063, -0.158034)
+transform = Transform3D(0.999917, 0.0128927, 5.07906e-05, 0.0013551, -0.101178, -0.994868, -0.0128214, 0.994785, -0.101187, -1.2625, 0.930819, -2.912)
 bone_name = "DEF-weapon-anchor"
 bone_idx = 25
 use_external_skeleton = true
@@ -204,7 +204,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@30277")
+blackboard = NodePath("@Node@52091")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]

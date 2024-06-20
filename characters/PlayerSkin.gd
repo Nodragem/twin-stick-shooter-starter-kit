@@ -39,6 +39,14 @@ func play_idle_break(is_requested: bool) -> void:
 	else:
 		anim_tree["parameters/on_idle_break/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
 
+
+func play_on_hit(is_requested:bool):
+	if is_requested:
+		anim_tree["parameters/on_hit/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE
+	else:
+		anim_tree["parameters/on_hit/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FADE_OUT
+
+
 func play_aiming(value: bool) -> void:
 	if value:
 		anim_tree["parameters/blend_aim/blend_amount"] = 1

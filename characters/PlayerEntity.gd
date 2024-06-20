@@ -16,6 +16,9 @@ extends CharacterBody3D
 
 func _ready():
 	game_data.controller_scheme_changed.connect(_on_controller_scheme_changed)
+	if health_manager and model:
+		health_manager.damage.connect(model.play_on_hit.bind(true))
+
 
 func on_death():
 	model.play_death()

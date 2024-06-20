@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ds848t2x4cxyt"]
+[gd_scene load_steps=28 format=3 uid="uid://ds848t2x4cxyt"]
 
 [ext_resource type="PackedScene" uid="uid://bbge8f5gbi7b6" path="res://characters/CharacterSkins/icy.glb" id="1_jnnas"]
 [ext_resource type="Script" path="res://characters/PlayerSkin.gd" id="2_ihbv3"]
@@ -28,12 +28,6 @@ rings = 3
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tweyv"]
-animation = &"Shooting"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0if1l"]
-animation = &"DrawWeapon"
-
 [sub_resource type="AnimationNodeAnimation" id="1"]
 animation = &"Aiming"
 
@@ -51,6 +45,9 @@ filters = ["Armature/Skeleton3D:weapon_slot"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_152ur"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0if1l"]
+animation = &"DrawWeapon"
+
 [sub_resource type="AnimationNodeAnimation" id="7"]
 animation = &"Falling"
 
@@ -66,6 +63,14 @@ animation = &"Idle"
 [sub_resource type="AnimationNodeAnimation" id="8"]
 animation = &"JumpingStretch"
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_vtcfj"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D/body:material_overlay", "Armature/Skeleton3D:body_2", "Armature/Skeleton3D:head"]
+mix_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fbbsc"]
+animation = &"OnHit"
+
 [sub_resource type="AnimationNodeOneShot" id="14"]
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_6jfuv"]
@@ -74,6 +79,9 @@ filters = ["Armature/Skeleton3D:arm.L", "Armature/Skeleton3D:arm.R", "Armature/S
 
 [sub_resource type="AnimationNodeAnimation" id="3"]
 animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tweyv"]
+animation = &"Shooting"
 
 [sub_resource type="AnimationNodeTransition" id="4"]
 xfade_time = 0.15
@@ -98,10 +106,6 @@ input_3/reset = true
 animation = &"Strafe"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7xuvf"]
-nodes/Animation/node = SubResource("AnimationNodeAnimation_0if1l")
-nodes/Animation/position = Vector2(100, 460)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_tweyv")
-"nodes/Animation 2/position" = Vector2(580, 300)
 nodes/aiming/node = SubResource("1")
 nodes/aiming/position = Vector2(-100, 440)
 nodes/blend_aim/node = SubResource("2")
@@ -114,6 +118,8 @@ nodes/blend_weapon/node = SubResource("AnimationNodeBlend2_4bvl4")
 nodes/blend_weapon/position = Vector2(520, 40)
 nodes/draw_weapon/node = SubResource("AnimationNodeTimeScale_152ur")
 nodes/draw_weapon/position = Vector2(340, 320)
+nodes/draw_weapon_anim/node = SubResource("AnimationNodeAnimation_0if1l")
+nodes/draw_weapon_anim/position = Vector2(100, 460)
 nodes/falling/node = SubResource("7")
 nodes/falling/position = Vector2(-580, 440)
 nodes/idle_break/node = SubResource("12")
@@ -124,18 +130,24 @@ nodes/idling_straff/node = SubResource("13")
 nodes/idling_straff/position = Vector2(-880, 80)
 nodes/jumping/node = SubResource("8")
 nodes/jumping/position = Vector2(-580, 280)
+nodes/on_hit/node = SubResource("AnimationNodeOneShot_vtcfj")
+nodes/on_hit/position = Vector2(960, 80)
+nodes/on_hit_anim/node = SubResource("AnimationNodeAnimation_fbbsc")
+nodes/on_hit_anim/position = Vector2(760, 400)
 nodes/on_idle_break/node = SubResource("14")
 nodes/on_idle_break/position = Vector2(0, 0)
 nodes/on_shooting/node = SubResource("AnimationNodeOneShot_6jfuv")
 nodes/on_shooting/position = Vector2(760, 60)
-nodes/output/position = Vector2(940, 120)
+nodes/output/position = Vector2(1140, 100)
 nodes/running/node = SubResource("3")
 nodes/running/position = Vector2(-880, -60)
+nodes/shooting/node = SubResource("AnimationNodeAnimation_tweyv")
+nodes/shooting/position = Vector2(580, 300)
 nodes/state/node = SubResource("4")
 nodes/state/position = Vector2(-240, 0)
 nodes/straffing/node = SubResource("9")
 nodes/straffing/position = Vector2(-880, 220)
-node_connections = [&"blend_aim", 0, &"on_idle_break", &"blend_aim", 1, &"aiming", &"blend_running", 0, &"idling_run", &"blend_running", 1, &"running", &"blend_straffing", 0, &"idling_straff", &"blend_straffing", 1, &"straffing", &"blend_weapon", 0, &"blend_aim", &"blend_weapon", 1, &"draw_weapon", &"draw_weapon", 0, &"Animation", &"on_idle_break", 0, &"state", &"on_idle_break", 1, &"idle_break", &"on_shooting", 0, &"blend_weapon", &"on_shooting", 1, &"Animation 2", &"output", 0, &"on_shooting", &"state", 0, &"blend_running", &"state", 1, &"blend_straffing", &"state", 2, &"jumping", &"state", 3, &"falling"]
+node_connections = [&"blend_aim", 0, &"on_idle_break", &"blend_aim", 1, &"aiming", &"blend_running", 0, &"idling_run", &"blend_running", 1, &"running", &"blend_straffing", 0, &"idling_straff", &"blend_straffing", 1, &"straffing", &"blend_weapon", 0, &"blend_aim", &"blend_weapon", 1, &"draw_weapon", &"draw_weapon", 0, &"draw_weapon_anim", &"on_hit", 0, &"on_shooting", &"on_hit", 1, &"on_hit_anim", &"on_idle_break", 0, &"state", &"on_idle_break", 1, &"idle_break", &"on_shooting", 0, &"blend_weapon", &"on_shooting", 1, &"shooting", &"output", 0, &"on_hit", &"state", 0, &"blend_running", &"state", 1, &"blend_straffing", &"state", 2, &"jumping", &"state", 3, &"falling"]
 
 [node name="IcySkin" instance=ExtResource("1_jnnas")]
 script = ExtResource("2_ihbv3")
@@ -144,63 +156,62 @@ script = ExtResource("2_ihbv3")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-4.49732e-09, 0.625903, 0.00899179)
-bones/0/rotation = Quaternion(0.0638618, 0.000691067, 0.0107967, 0.9979)
+bones/0/position = Vector3(0, 0.318594, 3.79892e-09)
+bones/0/rotation = Quaternion(0.0638656, 1.18966e-07, 7.61337e-09, 0.997959)
 bones/1/position = Vector3(1.21027e-15, 0.304688, 9.77356e-10)
-bones/1/rotation = Quaternion(-0.0531333, 0.440734, -0.030263, 0.895553)
+bones/1/rotation = Quaternion(-0.0592261, 1.95771e-14, -1.41206e-08, 0.998245)
 bones/2/position = Vector3(-6.10683e-16, 0.538595, 4.38301e-09)
-bones/2/rotation = Quaternion(-0.0263339, -0.422991, -0.00836387, 0.905712)
-bones/3/position = Vector3(0.409599, 0.247381, 0.0251058)
+bones/2/rotation = Quaternion(-0.029063, -1.19159e-07, -3.46458e-09, 0.999578)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0.409599, 0.247381, 0.0251057)
 bones/3/rotation = Quaternion(0.0480825, -0.0406241, -0.774513, 0.629419)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/position = Vector3(-0.409599, 0.247381, 0.0251058)
+bones/4/position = Vector3(-0.409599, 0.247381, 0.0251057)
 bones/4/rotation = Quaternion(0.0480825, 0.0406241, 0.774513, 0.629419)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/position = Vector3(0.353351, 0.734408, -0.0773831)
 bones/5/rotation = Quaternion(-0.241658, 0.209181, -0.614578, 0.721206)
 bones/5/scale = Vector3(1, 1, 1)
-bones/6/position = Vector3(0.00569358, 0.770824, -0.369409)
+bones/6/position = Vector3(0.0056936, 0.770824, -0.369409)
 bones/6/rotation = Quaternion(-0.341393, 0.278281, -0.433944, 0.785941)
 bones/6/scale = Vector3(1, 1, 1)
-bones/7/position = Vector3(0.00569362, 0.949772, 0.0119297)
+bones/7/position = Vector3(0.00569342, 0.949773, 0.0119296)
 bones/7/rotation = Quaternion(-0.392348, 0.203379, -0.311364, 0.84128)
 bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-0.339219, 0.665111, 0.00316242)
 bones/8/rotation = Quaternion(-0.0914904, -0.0395669, 0.0675893, 0.992721)
 bones/8/scale = Vector3(1, 1, 1)
-bones/9/position = Vector3(0.00569351, 0.64603, 0.335804)
+bones/9/position = Vector3(0.00569362, 0.64603, 0.335804)
 bones/9/rotation = Quaternion(0.12297, -0.0930752, -0.135418, 0.978712)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-0.451809, 0.499883, 0.0871114)
 bones/10/rotation = Quaternion(0.113128, 0.0490838, 0.596035, 0.793432)
 bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(0.396213, 0.272741, 0.0203031)
-bones/11/rotation = Quaternion(0.0671144, -0.403956, 0.798738, -0.440831)
+bones/11/rotation = Quaternion(-0.0126225, 0.0858226, 0.981828, -0.168788)
 bones/11/scale = Vector3(0.999998, 1, 0.999999)
 bones/12/position = Vector3(7.92845e-08, 0.274804, 8.02172e-09)
 bones/12/rotation = Quaternion(-0.146594, -0.00141585, -0.107122, 0.983378)
+bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.396213, 0.272741, 0.020303)
-bones/13/rotation = Quaternion(-0.156347, -0.456843, 0.767675, 0.421337)
+bones/13/rotation = Quaternion(0.012622, 0.0858226, 0.981828, 0.168788)
 bones/13/scale = Vector3(0.999999, 1, 1)
 bones/14/position = Vector3(5.07759e-08, 0.274804, 1.41851e-09)
-bones/14/rotation = Quaternion(-0.563248, 0.287173, 0.218198, 0.74342)
+bones/14/rotation = Quaternion(-0.146594, 0.00141587, 0.107122, 0.983378)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/position = Vector3(0.214309, 0.127537, -0.0163908)
-bones/15/rotation = Quaternion(0.605305, 0.365521, 0.605305, 0.365521)
+bones/15/rotation = Quaternion(0.707029, -0.0104532, 0.70703, -0.0104531)
 bones/15/scale = Vector3(1, 1, 1)
-bones/16/position = Vector3(8.66572e-09, 0.251826, 6.30961e-09)
-bones/16/rotation = Quaternion(-0.00970481, 0.0033128, -0.479694, 0.877376)
+bones/16/position = Vector3(-1.53019e-08, 0.251826, -2.11864e-09)
+bones/16/rotation = Quaternion(-0.0102543, -8.78313e-05, -0.162102, 0.986721)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(-0.214309, 0.127537, -0.0163909)
-bones/17/rotation = Quaternion(-0.614417, -0.435487, 0.546024, 0.367017)
-bones/18/position = Vector3(2.44867e-08, 0.251826, 7.28026e-09)
-bones/18/rotation = Quaternion(-0.0101303, -0.0015924, 0.321468, 0.946865)
+bones/17/rotation = Quaternion(-0.70703, -0.0104531, 0.70703, 0.0104532)
+bones/18/position = Vector3(-7.08289e-10, 0.251826, 2.407e-09)
+bones/18/rotation = Quaternion(-0.0102544, 8.77911e-05, 0.162102, 0.986721)
 bones/18/scale = Vector3(1, 1, 1)
-bones/19/position = Vector3(-0.373176, 0.465544, -0.0941911)
+bones/19/position = Vector3(0.00569371, 0.396217, -0.633623)
 bones/19/rotation = Quaternion(-0.750823, -7.88273e-08, -8.95835e-08, 0.660504)
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.999766, -0.0214598, 0.00275823, 0.0216363, 0.99161, -0.12744, -2.38186e-07, 0.12747, 0.991842, -4.49732e-09, 0.625903, 0.00899179)
+transform = Transform3D(1, -1.06581e-14, 2.38418e-07, 3.03913e-08, 0.991842, -0.12747, -2.36474e-07, 0.12747, 0.991842, 0, 0.318594, 3.79892e-09)
 bone_name = "pelvis"
 bone_idx = 0
 
@@ -215,15 +226,12 @@ mesh = SubResource("CylinderMesh_s8lnb")
 skeleton = NodePath("../../BoneAttachment3D")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.999766, -1.62981e-08, -0.0216363, 0.0216363, 6.70552e-07, 0.999766, -1.47475e-09, -1, 6.85453e-07, -0.383339, 1.09147, -0.0250878)
+transform = Transform3D(1, 2.37549e-10, 1.77636e-14, -3.55271e-15, 1.04308e-07, 1, 2.37478e-10, -1, 1.04308e-07, 0.00569356, 0.792347, -0.577949)
 bone_name = "weapon_slot"
 bone_idx = 19
 
 [node name="laser-gun-design1" parent="Armature/Skeleton3D/BoneAttachment3D" index="0" instance=ExtResource("2_nu448")]
 transform = Transform3D(0.6, -1.42613e-10, -3.95349e-09, -4.74155e-09, -0.0261682, -0.499315, 3.68432e-14, 0.499315, -0.0261682, 0, 0, 0)
-
-[node name="AnimationPlayer" parent="." index="1"]
-active = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 active = false
@@ -232,12 +240,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.166667
 parameters/current_position = 0.166667
 parameters/current_delta = 0.0
-parameters/Animation/current_length = 0.166667
-parameters/Animation/current_position = 0.166667
-parameters/Animation/current_delta = 0.0
-"parameters/Animation 2/current_length" = 0.375
-"parameters/Animation 2/current_position" = 0.375
-"parameters/Animation 2/current_delta" = 0.0228253
 parameters/aiming/current_length = 0.166667
 parameters/aiming/current_position = 0.166667
 parameters/aiming/current_delta = 0.0
@@ -246,7 +248,7 @@ parameters/blend_aim/current_position = 0.166667
 parameters/blend_aim/current_delta = 0.0
 parameters/blend_aim/blend_amount = 1.0
 parameters/blend_running/current_length = 0.875
-parameters/blend_running/current_position = 0.228961
+parameters/blend_running/current_position = 0.61724
 parameters/blend_running/current_delta = 0.0166667
 parameters/blend_running/blend_amount = 1.0
 parameters/blend_straffing/current_length = 0
@@ -261,6 +263,9 @@ parameters/draw_weapon/current_length = 0.166667
 parameters/draw_weapon/current_position = 0.166667
 parameters/draw_weapon/current_delta = 0.0
 parameters/draw_weapon/scale = 1.0
+parameters/draw_weapon_anim/current_length = 0.166667
+parameters/draw_weapon_anim/current_position = 0.166667
+parameters/draw_weapon_anim/current_delta = 0.0
 parameters/falling/current_length = null
 parameters/falling/current_position = null
 parameters/falling/current_delta = null
@@ -276,8 +281,17 @@ parameters/idling_straff/current_delta = null
 parameters/jumping/current_length = null
 parameters/jumping/current_position = null
 parameters/jumping/current_delta = null
+parameters/on_hit/current_length = 0.166667
+parameters/on_hit/current_position = 0.166667
+parameters/on_hit/current_delta = 0.0
+parameters/on_hit/active = false
+parameters/on_hit/internal_active = false
+parameters/on_hit/request = 0
+parameters/on_hit_anim/current_length = 0.25
+parameters/on_hit_anim/current_position = 0.25
+parameters/on_hit_anim/current_delta = 0.0230933
 parameters/on_idle_break/current_length = 0.875
-parameters/on_idle_break/current_position = 0.228961
+parameters/on_idle_break/current_position = 0.61724
 parameters/on_idle_break/current_delta = 0.0166667
 parameters/on_idle_break/active = false
 parameters/on_idle_break/internal_active = false
@@ -292,10 +306,13 @@ parameters/output/current_length = 0.166667
 parameters/output/current_position = 0.166667
 parameters/output/current_delta = 0.0
 parameters/running/current_length = 0.875
-parameters/running/current_position = 0.228961
+parameters/running/current_position = 0.61724
 parameters/running/current_delta = 0.0166667
+parameters/shooting/current_length = 0.375
+parameters/shooting/current_position = 0.375
+parameters/shooting/current_delta = 0.0228253
 parameters/state/current_length = 0.875
-parameters/state/current_position = 0.228961
+parameters/state/current_position = 0.61724
 parameters/state/current_delta = 0.0166667
 parameters/state/current_state = "Running"
 parameters/state/transition_request = ""

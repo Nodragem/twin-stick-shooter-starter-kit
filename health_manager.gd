@@ -1,6 +1,7 @@
 extends Node
 
 signal health_changed(old_value, new_value)
+signal damage
 signal health_depleted
 signal health_replenished
 
@@ -37,6 +38,7 @@ func update_ui_hearts(value):
 
 func get_damage(amount:int):
 	health_points = max(0, health_points - amount)
+	damage.emit()
 
 func get_health(amount:int):
 	health_points = min(max_health, health_points + amount)
