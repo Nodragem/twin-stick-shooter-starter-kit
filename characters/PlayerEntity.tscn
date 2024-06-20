@@ -41,3 +41,6 @@ current = true
 fov = 30.9
 
 [node name="IcySkin" parent="." instance=ExtResource("1")]
+
+[connection signal="damage" from="HealthManager" to="." method="on_hit"]
+[connection signal="health_depleted" from="HealthManager" to="." method="on_death"]

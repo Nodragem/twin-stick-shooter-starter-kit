@@ -18027,7 +18027,7 @@ _subresources={
 "materials": {
 "character-mat": {
 "use_external/enabled": true,
-"use_external/path": "res://characters/character-mat.tres"
+"use_external/path": "res://characters/CharacterSkins/character-mat.tres"
 }
 }
 }

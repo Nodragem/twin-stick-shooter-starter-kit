@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Jump.gd" id="5_tc8t1"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Fall.gd" id="6_4d8x4"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_LStick/Aim.gd" id="7_485hx"]
-[ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_LStick/Fire.gd" id="8_2q0b1"]
+[ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/Dead.gd" id="8_hpgnt"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_LStick/Rest.gd" id="9_w678k"]
 
 [node name="OneStickController" type="Node"]
@@ -34,15 +34,19 @@ script = ExtResource("5_tc8t1")
 [node name="Fall" type="Node" parent="MovementController/Move"]
 script = ExtResource("6_4d8x4")
 
-[node name="AimingController_LStick" type="Node" parent="."]
+[node name="Dead" type="Node" parent="MovementController"]
+script = ExtResource("8_hpgnt")
+is_taking_input = true
+
+[node name="AimingController" type="Node" parent="."]
 script = ExtResource("1_wytfg")
 initial_state = NodePath("Rest")
 
-[node name="Aim" type="Node" parent="AimingController_LStick"]
+[node name="Aim" type="Node" parent="AimingController"]
 script = ExtResource("7_485hx")
 
-[node name="Fire" type="Node" parent="AimingController_LStick"]
-script = ExtResource("8_2q0b1")
-
-[node name="Rest" type="Node" parent="AimingController_LStick"]
+[node name="Rest" type="Node" parent="AimingController"]
 script = ExtResource("9_w678k")
+
+[node name="Dead" type="Node" parent="AimingController"]
+script = ExtResource("8_hpgnt")

@@ -33,6 +33,10 @@ func move_to_running() -> void:
 	anim_tree["parameters/state/transition_request"] = "Running"
 
 
+func move_to_dead() -> void:
+	anim_tree["parameters/state/transition_request"] = "Dead"
+
+
 func play_idle_break(is_requested: bool) -> void:
 	if is_requested:
 		anim_tree["parameters/on_idle_break/request"] = AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE

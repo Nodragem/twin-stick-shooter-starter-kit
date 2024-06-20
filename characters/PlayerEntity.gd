@@ -14,16 +14,29 @@ extends CharacterBody3D
 
 @export var game_data:GameDataStore
 
+signal is_dead
+
 func _ready():
 	game_data.controller_scheme_changed.connect(_on_controller_scheme_changed)
-	if health_manager and model:
-		health_manager.damage.connect(model.play_on_hit.bind(true))
+	#if health_manager:
+		#health_manager.damage.connect(on_hit)
+		#health_manager.health_depleted.connect(on_death)
+
+
+func on_hit():
+	model.play_on_hit(true)
 
 
 func on_death():
-	model.play_death()
-	current_controller.paused = true
+	is_dead.emit()
+	model.move_to_dead()
+	#current_controller.process_mode = Node.PROCESS_MODE_DISABLED
+	current_controller.on_death()
 	
+
+func respawn():
+	pass
+
 
 func _on_controller_scheme_changed(value):
 	pass

@@ -48,6 +48,3 @@ func get_full_health():
 
 func instant_death():
 	health_points = 0
-
-func _on_death():
-	pass

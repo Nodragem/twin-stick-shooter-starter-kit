@@ -13,4 +13,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if parent != null and parent.position.y < -1:
-		parent.position = initial_position
+		reset_position()
+
+
+func reset_position():
+	parent.position = initial_position

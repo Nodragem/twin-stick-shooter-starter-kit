@@ -23,3 +23,8 @@ func _process(delta) -> void:
 func _update_player_input():
 	_player_input =  Input.get_action_raw_strength("p1_camera_RR") - Input.get_action_raw_strength("p1_camera_RL")
 	_parent.camera_pivot.rotate_y(_player_input * _camera_rotation_speed)
+
+
+func on_death():
+	$MovementController.transition_to("Dead")
+	$AimingController.transition_to("Dead")
