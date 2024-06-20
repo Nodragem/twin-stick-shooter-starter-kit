@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjklvg8pt4duv"]
+[gd_scene load_steps=9 format=3 uid="uid://cjklvg8pt4duv"]
 
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
+[ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_txk74"]
+[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_kmmi5"]
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="3_yd4xj"]
 [ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="4_q1glw"]
@@ -14,6 +16,9 @@ agent_radius = 1.0
 size = Vector2(32, 28)
 
 [node name="TestAI" type="Node3D"]
+script = ExtResource("1_txk74")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("2_kmmi5")]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("1_6jodu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.515, 0.544966, 6.06295)
@@ -69,3 +74,5 @@ navigation_mesh = SubResource("NavigationMesh_2ocdk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
 visible = false
 mesh = SubResource("PlaneMesh_h5njp")
+
+[connection signal="is_dead" from="PlayerEntity" to="." method="on_player_death"]
