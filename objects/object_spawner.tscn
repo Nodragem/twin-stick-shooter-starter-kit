@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjt7nal8lacai"]
+
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="1_g6ffw"]
+
+[sub_resource type="GDScript" id="GDScript_wjm4f"]
+script/source = "extends Marker3D
+
+@export var to_spawn : PackedScene
+@export var time_between_waves : int = 3
+@export var nb_spawn_by_wave : int = 3
+@export var flow_rate : int = 1
+@onready var wave_timer : Timer = $WaveTimer
+
+func _ready():
+	wave_timer.wait_time = time_between_waves
+	_on_wave_timer_timeout()
+
+func spawn():
+	var enemy = to_spawn.instantiate()
+	enemy.transform = self.transform
+	get_tree().root.add_child(enemy)
+	print(\"Spawn!\")
+
+func _on_wave_timer_timeout():
+	var tween = self.create_tween()
+	tween.set_loops(nb_spawn_by_wave).tween_callback(spawn).set_delay(flow_rate)
+	tween.finished.connect(restart_wave_timer)
+
+func restart_wave_timer():
+	wave_timer.start()
+"
+
+[node name="EnemySpawner" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3425, 1.90735e-06, 1.888)
+gizmo_extents = 3.88
+script = SubResource("GDScript_wjm4f")
+to_spawn = ExtResource("1_g6ffw")
+time_between_waves = 10
+
+[node name="WaveTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

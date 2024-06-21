@@ -1,0 +1,152 @@
+[gd_scene load_steps=18 format=3 uid="uid://d2yqin8xn1yc1"]
+
+[ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
+[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="3_yl3ue"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="4_ylicc"]
+[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level2/level2_env.tres" id="5_2vc36"]
+[ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="7_hjv8p"]
+[ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_4wka0"]
+[ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="9_gj423"]
+[ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="10_mjrnx"]
+[ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
+[ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
+[ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
+[ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="14_6bvec"]
+[ext_resource type="PackedScene" uid="uid://bjt7nal8lacai" path="res://objects/object_spawner.tscn" id="15_68bn6"]
+[ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_mrupq"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
+vertices = PackedVector3Array(-15, 1, -15, -15, 1, 19, 19, 1, 19, 19, 1, -15)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+agent_radius = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_v623h"]
+size = Vector2(36, 36)
+
+[node name="TestAI" type="Node3D"]
+script = ExtResource("1_a2x0p")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
+
+[node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.515, 0.544966, 6.06295)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_ylicc")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(1, 65534, 40, 0, 65534, 1441833, 65535, 65534, 40, 65534, 65534, 40, 65534, 65533, 1048616, 65534, 65532, 34, 65533, 65533, 40, 65533, 65534, 40, 65532, 65533, 40, 65532, 65534, 1048616, 65535, 65533, 40, 0, 65533, 1441833, 1, 65533, 1048616, 65532, 65532, 1441831, 65533, 65532, 40, 65535, 65532, 40, 0, 65532, 47, 1, 65532, 40, 65531, 65533, 33, 65531, 65531, 33, 65533, 65531, 33, 65535, 65531, 33, 1, 65531, 34, 0, 65531, 54, 65534, 65531, 34, 65532, 65531, 34, 65531, 65532, 34, 65531, 65534, 34, 131067, 65531, 57, 3, 65531, 34, 3, 65532, 1441832, 3, 65533, 655400, 3, 65534, 1441832, 4, 65531, 33, 4, 65532, 1441831, 4, 65533, 1441832, 4, 65534, 1441832, 5, 65531, 34, 5, 65532, 33, 5, 65533, 34, 5, 65534, 33, 65531, 0, 54, 65531, 1, 34, 65532, 0, 47, 65532, 1, 655400, 65533, 0, 1441833, 65533, 1, 655400, 65534, 0, 1441833, 65534, 1, 655400, 65535, 0, 1441833, 65535, 1, 655400, 0, 0, 1441831, 0, 1, 1441833, 1, 0, 1441833, 1, 1, 655400, 3, 0, 1441833, 3, 1, 655400, 4, 0, 47, 4, 1, 655400, 5, 0, 54, 5, 1, 33, 65531, 3, 34, 65531, 4, 33, 65531, 5, 34, 65532, 3, 655400, 65532, 4, 1441831, 65532, 5, 33, 65533, 3, 655400, 65533, 4, 655400, 65533, 5, 34, 65534, 3, 1048616, 65534, 4, 655400, 65534, 5, 33, 65535, 3, 40, 65535, 4, 655400, 65535, 5, 34, 0, 3, 1441833, 0, 4, 47, 0, 5, 54, 1, 3, 655400, 1, 4, 655400, 1, 5, 33, 3, 3, 655400, 3, 4, 655400, 3, 5, 33, 4, 3, 655400, 4, 4, 1441831, 4, 5, 34, 5, 3, 33, 5, 4, 34, 5, 5, 34, 131067, 5, 57, 65541, 5, 57, 65541, 65531, 57, 65531, 65535, 33, 65531, 2, 33, 5, 65535, 34, 5, 2, 34, 2, 5, 34, 2, 65531, 33, 2, 4, 34, 65534, 65535, 1048616, 65532, 65535, 40, 65533, 65535, 40, 65535, 65535, 40, 0, 65535, 1441833, 1, 65535, 1441832, 2, 65532, 1441832, 2, 65533, 1441832, 2, 65534, 655400, 2, 65535, 40, 3, 65535, 1441832, 4, 65535, 1441832, 2, 0, 1441833, 65534, 2, 655400, 65533, 2, 655400, 65532, 2, 655400, 65535, 2, 655400, 0, 2, 1441833, 2, 3, 655400, 4, 2, 655400, 3, 2, 655400, 2, 2, 655400, 1, 2, 655400, 2, 1, 655400)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_2vc36")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+layers = 2
+light_color = Color(0.992157, 0.917647, 0.698039, 1)
+light_angular_distance = 3.0
+shadow_enabled = true
+shadow_bias = 0.03
+directional_shadow_mode = 0
+directional_shadow_split_2 = 0.343
+directional_shadow_split_3 = 0.566
+directional_shadow_blend_splits = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
+layers = 2
+light_color = Color(0.303129, 0.18483, 0.0558749, 1)
+light_energy = 1.239
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_bias = 0.03
+shadow_blur = 0.0
+directional_shadow_mode = 0
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2ocdk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5, 2)
+visible = false
+mesh = SubResource("QuadMesh_v623h")
+
+[node name="Locker_Decorated2" parent="." instance=ExtResource("7_hjv8p")]
+transform = Transform3D(-0.938974, 0, -0.343987, 0, 1, 0, 0.343987, 0, -0.938974, -14.4395, 0.499998, 18.1854)
+
+[node name="Pallet_Small_Decorated_B2" parent="." instance=ExtResource("8_4wka0")]
+transform = Transform3D(0.961233, 0, 0.275738, 0, 1, 0, -0.275738, 0, 0.961233, 17.5164, 0.500002, -13.4174)
+
+[node name="Pallet_Small_Decorated_A2" parent="." instance=ExtResource("9_gj423")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5309, 0.5, -13.592)
+
+[node name="table_medium_Decorated2" parent="." instance=ExtResource("10_mjrnx")]
+transform = Transform3D(0.941741, 0, -0.336339, 0, 1, 0, 0.336339, 0, 0.941741, 17.1569, 0.500002, -10.6213)
+
+[node name="Weaponrack_Decorated" parent="." instance=ExtResource("11_qcire")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27134, 0.5, -15.236)
+
+[node name="Workbench" parent="." instance=ExtResource("12_hx5fo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0895, 0.5, 16.2518)
+
+[node name="Workbench_Decorated" parent="." instance=ExtResource("13_4uk6c")]
+transform = Transform3D(-0.162121, 0, -0.986771, 0, 1, 0, 0.986771, 0, -0.162121, -13.8471, 0.5, 13.5474)
+
+[node name="Dummy_Base2" parent="." instance=ExtResource("14_6bvec")]
+transform = Transform3D(0.917872, 0, -0.396876, 0, 1, 0, 0.396876, 0, 0.917872, -5.93547, 0.499998, -10.7149)
+
+[node name="Locker_Decorated3" parent="." instance=ExtResource("7_hjv8p")]
+transform = Transform3D(-0.0349344, 0, 0.99939, 0, 1, 0, -0.99939, 0, -0.0349344, -15.2065, 0.5, -1.75924)
+
+[node name="Pallet_Small_Decorated_A3" parent="." instance=ExtResource("9_gj423")]
+transform = Transform3D(0.995316, 0, -0.0966796, 0, 1, 0, 0.0966796, 0, 0.995316, -14.0543, 0.5, 9.58811)
+
+[node name="Pallet_Small_Decorated_B3" parent="." instance=ExtResource("8_4wka0")]
+transform = Transform3D(0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, 0.980639, -13.9626, 0.5, 6.23112)
+
+[node name="table_medium_Decorated3" parent="." instance=ExtResource("10_mjrnx")]
+transform = Transform3D(0.644346, -0.00938846, -0.764677, 0.00959683, 0.999945, -0.00419036, 0.764674, -0.00463843, 0.6444, -11.6043, 0.770306, 14.3137)
+
+[node name="Workbench_Decorated2" parent="." instance=ExtResource("13_4uk6c")]
+transform = Transform3D(0.709952, 0, 0.70425, 0, 1, 0, -0.70425, 0, 0.709952, -11.0625, 0.5, 18.1713)
+
+[node name="Weaponrack_Decorated2" parent="." instance=ExtResource("11_qcire")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57059, 0.5, -15.2207)
+
+[node name="Door_B2" parent="." instance=ExtResource("15_mrupq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8737, 0.500001, 2.89588)
+
+[node name="Door_B3" parent="." instance=ExtResource("15_mrupq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8963, 0.500001, 1.20538)
+
+[node name="Door_B4" parent="." instance=ExtResource("15_mrupq")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.55863, 0.500001, 19.8563)
+
+[node name="Door_B5" parent="." instance=ExtResource("15_mrupq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.972351, 0.500001, -15.9218)
+
+[node name="Locker_Decorated4" parent="." instance=ExtResource("7_hjv8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42534, 0.500002, -14.29)
+
+[node name="Cube_Prototype_Large_B_003" parent="Locker_Decorated4/Locker_Decorated" index="0"]
+visible = false
+
+[node name="EnemySpawner" parent="." instance=ExtResource("15_68bn6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
+
+[node name="EnemySpawner2" parent="." instance=ExtResource("15_68bn6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
+
+[node name="EnemySpawner3" parent="." instance=ExtResource("15_68bn6")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 1.94268, 1.15461, -13.6816)
+
+[node name="EnemySpawner4" parent="." instance=ExtResource("15_68bn6")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.08373, 1.15461, 17.888)
+
+[connection signal="is_dead" from="PlayerEntity" to="." method="on_player_death"]
+
+[editable path="Locker_Decorated4"]
