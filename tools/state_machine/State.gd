@@ -43,5 +43,3 @@ func _get_state_machine(node: Node) -> Node:
 	if node != null and not node.is_in_group("state_machine"):
 		return _get_state_machine(node.get_parent())
 	return node
-
-

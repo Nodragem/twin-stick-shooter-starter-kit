@@ -59,8 +59,6 @@ func _update_velocity(delta: float):
 	velocity.y = y_velocity + gravity * delta # preserve y
 
 
-
-
 func _on_aim_enter_state():
 	_is_directing = false
 

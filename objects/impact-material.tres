@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8x5le7e5jdm1"]
+
+[ext_resource type="Texture2D" uid="uid://snnpyfqnqw38" path="res://objects/impact-arrow-r2.png" id="1_goj8f"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.621
+alpha_antialiasing_mode = 0
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.920897, 0.85784, 0.793544, 1)
+albedo_texture = ExtResource("1_goj8f")
+uv1_scale = Vector3(2.525, -1.29, 1)
+uv1_offset = Vector3(0, -1.015, 0)

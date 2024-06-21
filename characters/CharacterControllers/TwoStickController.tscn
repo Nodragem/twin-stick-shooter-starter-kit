@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Jump.gd" id="5_b4rsb"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/MovementController/Fall.gd" id="6_xrepr"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Aim.gd" id="7_p3sv0"]
-[ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Fire.gd" id="8_0o7f0"]
+[ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/Dead.gd" id="8_b4jpe"]
 [ext_resource type="Script" path="res://characters/CharacterControllers/StateMachines/AimingController_RStick/Rest.gd" id="9_dcdd7"]
 
 [node name="TwoStickController" type="Node"]
@@ -34,22 +34,26 @@ script = ExtResource("5_b4rsb")
 [node name="Fall" type="Node" parent="MovementController/Move"]
 script = ExtResource("6_xrepr")
 
-[node name="AimingController_RStick" type="Node" parent="."]
+[node name="Dead" type="Node" parent="MovementController"]
+script = ExtResource("8_b4jpe")
+is_taking_input = true
+
+[node name="AimingController" type="Node" parent="."]
 script = ExtResource("1_2oigd")
 initial_state = NodePath("Rest")
 
-[node name="Aim" type="Node" parent="AimingController_RStick"]
+[node name="Aim" type="Node" parent="AimingController"]
 script = ExtResource("7_p3sv0")
 
-[node name="Timer" type="Timer" parent="AimingController_RStick/Aim"]
+[node name="Timer" type="Timer" parent="AimingController/Aim"]
 wait_time = 0.2
 one_shot = true
 
-[node name="Fire" type="Node" parent="AimingController_RStick"]
-script = ExtResource("8_0o7f0")
-
-[node name="Rest" type="Node" parent="AimingController_RStick"]
+[node name="Rest" type="Node" parent="AimingController"]
 script = ExtResource("9_dcdd7")
 
-[connection signal="enter_state" from="AimingController_RStick/Aim" to="MovementController/Move" method="_on_aim_enter_state"]
-[connection signal="exit_state" from="AimingController_RStick/Aim" to="MovementController/Move" method="_on_aim_exit_state"]
+[node name="Dead" type="Node" parent="AimingController"]
+script = ExtResource("8_b4jpe")
+
+[connection signal="enter_state" from="AimingController/Aim" to="MovementController/Move" method="_on_aim_enter_state"]
+[connection signal="exit_state" from="AimingController/Aim" to="MovementController/Move" method="_on_aim_exit_state"]

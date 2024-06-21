@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Twin Shooter Starting Kit"
-run/main_scene="res://scenes/main.tscn"
+config/tags=PackedStringArray("starterkit")
+run/main_scene="res://scenes/test_AI.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://project_icon.png"
 
@@ -19,6 +20,8 @@ config/icon="res://project_icon.png"
 
 DebugStats="*res://tools/debugging/DebugStats.tscn"
 DebugOverlay="*res://tools/debugging/DebugOverlay.tscn"
+BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
+BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
 
 [display]
 
@@ -30,7 +33,7 @@ window/size/window_height_override=540
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 
 [filesystem]
 
@@ -195,6 +198,7 @@ p1_camera_RL={
 3d_physics/layer_2="world"
 3d_physics/layer_3="bullets"
 3d_physics/layer_4="objects"
+3d_physics/layer_5="enemies"
 
 [physics]
 

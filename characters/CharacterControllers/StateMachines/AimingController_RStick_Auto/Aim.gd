@@ -7,6 +7,7 @@ var _aim_input := Vector2.ZERO
 
 
 func process(delta) -> void:
+	
 	_update_player_input()
 	if _player_aim.length() <= 0.2:
 		_state_machine.transition_to("Rest")

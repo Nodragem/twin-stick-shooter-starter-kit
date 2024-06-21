@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd5lrudlpxbay"]
+
+[ext_resource type="FontFile" uid="uid://dgn5mdix5re20" path="res://ui/fonts/Montserrat-Bold.ttf" id="1_4agrd"]
+[ext_resource type="StyleBox" uid="uid://onusb7ku18ti" path="res://ui/selected_style.tres" id="2_1x6aw"]
+
+[sub_resource type="GDScript" id="GDScript_nf6jy"]
+script/source = "extends Control
+class_name GameOverMenu
+
+signal restart_pressed
+signal quit_pressed
+
+func _ready():
+	visible = false
+
+
+func _on_visibility_changed():
+	if visible == true and $\"%Restart\".is_inside_tree():
+		$\"%Restart\".grab_focus()
+
+
+func _on_restart_pressed():
+	restart_pressed.emit()
+
+
+func _on_quit_pressed():
+	quit_pressed.emit()
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_icd7l"]
+line_spacing = 0.0
+font = ExtResource("1_4agrd")
+font_size = 43
+shadow_color = Color(0, 0, 0, 0.484)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5s2ih"]
+line_spacing = 0.0
+font = ExtResource("1_4agrd")
+font_size = 25
+shadow_color = Color(0, 0, 0, 0.405)
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -132.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 0
+script = SubResource("GDScript_nf6jy")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU'RE DEAD...
+"
+label_settings = SubResource("LabelSettings_icd7l")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "What are you going to do about it?
+"
+label_settings = SubResource("LabelSettings_5s2ih")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Restart" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_right = NodePath("../Quit")
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = ExtResource("2_1x6aw")
+text = "Restart"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Restart")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = ExtResource("2_1x6aw")
+text = "Quit"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

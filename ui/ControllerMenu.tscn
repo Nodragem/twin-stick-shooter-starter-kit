@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsvdg3ojnd0oj"]
 
-[ext_resource type="Resource" uid="uid://b5kvl5o6ywpt1" path="res://ui/game_data_store.tres" id="1_fgpb7"]
+[ext_resource type="Resource" uid="uid://cvgmkxk86tr45" path="res://ui/game_data_store.tres" id="1_fgpb7"]
 [ext_resource type="ButtonGroup" uid="uid://cvcioqwcbs17c" path="res://ui/button_group.tres" id="1_qxp7l"]
 [ext_resource type="StyleBox" uid="uid://onusb7ku18ti" path="res://ui/selected_style.tres" id="2_m52od"]
 
