@@ -16,10 +16,11 @@ var transition:AnimationNodeTransition=null
 var _last_strong_direction := Vector3.FORWARD
 var gravity = -30.0
 var anim_state = null
-var health_points = 3
 var current_state = null
+var health_points = 3
 var is_target_detected = false
 var is_target_in_reach = false
+var is_target_aligned = false
 var detection_range = null
 
 signal target_reached
@@ -33,18 +34,19 @@ func _ready() -> void:
 
 
 func update_animation_skin(delta):
-	
 	anim_state = self.anim_tree["parameters/state/current_state"]
-	if  anim_state == "Idling" and self.velocity.length_squared() > 0.01:
-		self.move_to_running()
+	if  anim_state == "Idling":
+		#if target_object: # align with target if any
+			#self.look_at(target_object.global_position)
+		if self.velocity.length_squared() > 0.01:
+			self.move_to_running()
 	if anim_state == "Running":
 		self.orient_model_to_direction(Vector3(self.velocity.x,0, self.velocity.z), delta)
 		if self.velocity.length_squared() <= 0.01:
 			self.move_to_idling()
-
+	
 
 func update_navigation_agent(delta, target_object):
-
 	if self.navigation_agent.is_navigation_finished():
 		self.velocity = Vector3(0,0,0)
 		target_reached.emit()
@@ -115,23 +117,19 @@ func deal_damage():
 
 
 func orient_model_to_direction(direction: Vector3, delta: float) -> void:
-	# METHOD 1:
-	# model.look_at(player.global_transform.origin +\
-	# _move_direction, Vector3.UP)
 	
-	if direction.length() > 0.2:
-		_last_strong_direction = direction
+	#if direction.length() > 0.05:
+	_last_strong_direction = direction
+	if target_object: # prioritize aligning with target if any
+		_last_strong_direction = global_position.direction_to(target_object.global_position)
 	
-	# METHOD 2:
-	var left_axis := Vector3.UP.cross(_last_strong_direction)
-	var rotation_basis := Basis(left_axis, Vector3.UP, _last_strong_direction)\
-	.orthonormalized()
-	
-	# in what sense is it different from transform.look_at + interpolate_with?
-	self.transform.basis = self.transform.basis\
-	.orthonormalized()\
-	.slerp(rotation_basis, delta * rotation_speed)\
-	.scaled(self.scale)
+	# Remember that Y is the Up Axis
+	# LERP is used cumulatively here
+	rotation.y = lerp_angle(
+		rotation.y, 
+		Vector2(_last_strong_direction.z, _last_strong_direction.x).angle(), 
+		delta*rotation_speed
+	)
 
 
 func _on_detection_range_body_entered(body):

@@ -15,14 +15,12 @@ func _ready():
 
 
 func _on_visibility_changed():
-	if visible == true:
+	if visible == true and $\"%Restart\".is_inside_tree():
 		$\"%Restart\".grab_focus()
 
 
 func _on_restart_pressed():
 	restart_pressed.emit()
-
-
 
 
 func _on_quit_pressed():
