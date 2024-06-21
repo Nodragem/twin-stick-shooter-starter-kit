@@ -105,7 +105,7 @@ root_node = NodePath("../MeleeSkin/Skin")
 tree_root = SubResource("AnimationNodeBlendTree_o08rm")
 anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
 parameters/current_length = 0.666667
-parameters/current_position = 0.474529
+parameters/current_position = 0.615612
 parameters/current_delta = 0.0166667
 parameters/Animation/current_length = 0.366667
 parameters/Animation/current_position = 0.366667
@@ -120,25 +120,25 @@ parameters/killed/current_length = 0.466667
 parameters/killed/current_position = 0.466667
 parameters/killed/current_delta = 0.0
 parameters/on_attacking/current_length = 0.666667
-parameters/on_attacking/current_position = 0.474529
+parameters/on_attacking/current_position = 0.615612
 parameters/on_attacking/current_delta = 0.0166667
 parameters/on_attacking/active = false
 parameters/on_attacking/internal_active = false
 parameters/on_attacking/request = 0
 parameters/on_hit/current_length = 0.666667
-parameters/on_hit/current_position = 0.474529
+parameters/on_hit/current_position = 0.615612
 parameters/on_hit/current_delta = 0.0166667
 parameters/on_hit/active = false
 parameters/on_hit/internal_active = false
 parameters/on_hit/request = 0
 parameters/output/current_length = 0.666667
-parameters/output/current_position = 0.474529
+parameters/output/current_position = 0.615612
 parameters/output/current_delta = 0.0166667
 parameters/run/current_length = 0.666667
-parameters/run/current_position = 0.474529
+parameters/run/current_position = 0.615612
 parameters/run/current_delta = 0.0166667
 parameters/state/current_length = 0.666667
-parameters/state/current_position = 0.474529
+parameters/state/current_position = 0.615612
 parameters/state/current_delta = 0.0166667
 parameters/state/current_state = "Running"
 parameters/state/transition_request = ""
@@ -174,7 +174,7 @@ monitorable = false
 shape = SubResource("SphereShape3D_vfolx")
 
 [node name="WeaponAnchor" type="BoneAttachment3D" parent="."]
-transform = Transform3D(0.549548, 0.103983, 0.828966, 0.811219, 0.170881, -0.559217, -0.199803, 0.97979, 0.00955421, -0.686397, 0.811382, 0.0308777)
+transform = Transform3D(0.531332, 0.0936172, 0.841975, 0.846484, -0.0188682, -0.532079, -0.0339252, 0.99543, -0.0892708, -0.641908, 0.673626, -0.22368)
 bone_name = "DEF-weapon-anchor"
 bone_idx = 25
 use_external_skeleton = true
@@ -204,7 +204,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@17983")
+blackboard = NodePath("@Node@26933")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]

@@ -1,14 +1,22 @@
-[gd_scene load_steps=15 format=3 uid="uid://en3636qm60ra"]
+[gd_scene load_steps=17 format=3 uid="uid://en3636qm60ra"]
 
+[ext_resource type="Material" uid="uid://yy4wl7opy4lu" path="res://objects/SmokeExplosion.material" id="1_7jnch"]
 [ext_resource type="ArrayMesh" uid="uid://chs03lfaocohd" path="res://objects/explosion/explosion_bits_B.res" id="1_jjy1h"]
 [ext_resource type="PackedScene" uid="uid://duds002tisele" path="res://enemies/melee/minion/small_ennemy_animated.glb" id="2_ydhsr"]
 
 [sub_resource type="Curve" id="Curve_hhmyj"]
-_data = [Vector2(0, 0.615385), 0.0, -0.0714286, 0, 0, Vector2(1, 0), -2.03007, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, -0.209878, 0, 0, Vector2(1, 0), -3.09458, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_7der6"]
 curve = SubResource("Curve_hhmyj")
+
+[sub_resource type="Gradient" id="Gradient_y2pog"]
+offsets = PackedFloat32Array(0, 0.466667, 1)
+colors = PackedColorArray(1, 0.77664, 0.532883, 1, 1, 0.452615, 0.250092, 1, 0.418536, 0.258217, 0.203763, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ee05i"]
+gradient = SubResource("Gradient_y2pog")
 
 [sub_resource type="Curve" id="Curve_137f5"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.538461), 0.0, 0.0, 0, 0]
@@ -25,16 +33,11 @@ scale_min = 0.5
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_a3wc3")
 color = Color(0.85301, 0.762545, 0.740656, 1)
+color_ramp = SubResource("GradientTexture1D_ee05i")
 alpha_curve = SubResource("CurveTexture_7der6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w46x2"]
-transparency = 1
-diffuse_mode = 3
-specular_mode = 2
-vertex_color_use_as_albedo = true
-
 [sub_resource type="SphereMesh" id="SphereMesh_nrawn"]
-material = SubResource("StandardMaterial3D_w46x2")
+material = ExtResource("1_7jnch")
 
 [sub_resource type="Curve" id="Curve_7hyx8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.631285, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

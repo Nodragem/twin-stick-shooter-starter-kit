@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bbcls2jgwl4rs"]
 
 [ext_resource type="ArrayMesh" uid="uid://chs03lfaocohd" path="res://objects/explosion/explosion_bits_B.res" id="1_3fynh"]
+[ext_resource type="Material" uid="uid://yy4wl7opy4lu" path="res://objects/SmokeExplosion.material" id="1_osmxc"]
 
 [sub_resource type="Gradient" id="Gradient_y2pog"]
 offsets = PackedFloat32Array(0, 0.466667, 1)
@@ -59,15 +60,8 @@ emission_curve = SubResource("CurveTexture_0elt7")
 sub_emitter_mode = 1
 sub_emitter_frequency = 40.3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al70t"]
-diffuse_mode = 3
-specular_mode = 1
-vertex_color_use_as_albedo = true
-emission = Color(0.873376, 0.741108, 0.741108, 1)
-grow_amount = -1.462
-
 [sub_resource type="SphereMesh" id="SphereMesh_84cqy"]
-material = SubResource("StandardMaterial3D_al70t")
+material = ExtResource("1_osmxc")
 
 [sub_resource type="Curve" id="Curve_ordqi"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.631285, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

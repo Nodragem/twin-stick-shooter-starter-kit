@@ -54,22 +54,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Can_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("7_wgtu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 15)
 
-[node name="Pallet_Small_Decorated_B3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 14.5)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Pallet_Small_Decorated_B5" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 9.5)
 explosion = null
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Pallet_Small_Decorated_A2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("9_q48ew")]
+[node name="Pallet_Small_Decorated_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("9_q48ew")]
 transform = Transform3D(0.988316, 0, 0.152417, 0, 1, 0, -0.152417, 0, 0.988316, 8.5, 0, 12)
-body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 
-[node name="Pallet_Small_Decorated_A3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("9_q48ew")]
+[node name="Pallet_Small_Decorated_A3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("9_q48ew")]
 transform = Transform3D(0.999179, 0, -0.0405155, 0, 1, 0, 0.0405155, 0, 0.999179, 4, 0, 1.5)
-body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 
 [node name="Pallet_Small2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("10_r8g5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 14.5)
@@ -77,58 +73,47 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 0, 14.5)
 [node name="Pallet_Small3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("10_r8g5u")]
 transform = Transform3D(0.640271, 0.335215, -0.691147, 0, 0.899756, 0.436394, 0.768149, -0.27941, 0.576087, -6.5, 0.408185, 14.5)
 
-[node name="Box_C2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("11_10lro")]
+[node name="Box_C2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("11_10lro")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.60065, 0.530238, 14.2394)
-body = NodePath("Box_C/@RigidBody3D@20757")
 
-[node name="Box_B2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("12_d5paq")]
+[node name="Box_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("12_d5paq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, 15)
-body = NodePath("Box_B/@RigidBody3D@20764")
 
-[node name="Dummy_Base3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("13_ae10q")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 0, 1)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Locker_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 12.5, 0, 7.20575)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated7" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated7" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.3729, 0, 7.20575)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated10" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated10" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.983666, 0, -0.180004, 0, 1, 0, 0.180004, 0, -0.983666, 13.8918, 0, 7.2248)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 15.5, 0, 7.17464)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated4" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 15.4177, 0, 0.653378)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated5" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 12.4177, 0, 0.684489)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room1_StaticObjects/Locker_Decorated5/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated6" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated6" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 11.1899, 0, 0.684489)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
+[node name="Locker3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("15_4ldk2")]
 transform = Transform3D(0.983303, 0, -0.181978, 0, 1, 0, 0.181978, 0, 0.983303, 14.0412, 0, 0.700824)
-body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
 [node name="Pallet_Small4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("10_r8g5u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0475, 6.5, 2.05134)
@@ -142,21 +127,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 1.5)
 [node name="Can_A4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("7_wgtu6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 2.5)
 
-[node name="target_stand_A2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
+[node name="target_stand_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 4, -2)
-body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="target_stand_A3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
+[node name="target_stand_A3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 4, 6.5)
-body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="Locker_Decorated8" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated8" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 4, -0.5)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
-[node name="Locker_Decorated9" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated9" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 4, 4.5)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="target_wall_large_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("19_sqmfd")]
 transform = Transform3D(0.992762, 0.120102, 0, -0.120102, 0.992762, 0, 0, 0, 1, 11.5, 6, -23.6647)
@@ -167,61 +148,47 @@ transform = Transform3D(0.449736, -0.100968, 0.141308, 0.0905387, 0.513516, -0.0
 [node name="target_wall_large_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("20_u3j8q")]
 transform = Transform3D(0.965926, 0.183013, -0.183013, 0, 0.707107, 0.707107, 0.258819, -0.683013, 0.683013, 1.7815, 4.76081, -17.863)
 
-[node name="Weaponrack_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("21_wai02")]
+[node name="Weaponrack_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("21_wai02")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.5, 4, -19.5)
-body = NodePath("Barrel_B/@RigidBody3D@23145")
 
-[node name="Weaponrack_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("21_wai02")]
+[node name="Weaponrack_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("21_wai02")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.5, 4, -19.5)
-body = NodePath("Barrel_B/@RigidBody3D@23145")
 
-[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("22_6r8a8")]
+[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("22_6r8a8")]
 transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, -1.5, 4, -17.5)
-body = NodePath("Pallet_Small_001/@RigidBody3D@23138")
 
-[node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("23_kicfg")]
+[node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("23_kicfg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 4, -19)
-body = NodePath("Dummy_Base/@RigidBody3D@23159")
 
-[node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("23_kicfg")]
+[node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("23_kicfg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -15)
-body = NodePath("Dummy_Base/@RigidBody3D@23159")
 
-[node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("24_bi6o1")]
+[node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("24_bi6o1")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -16.5)
-body = NodePath("Dummy_Base_001/@RigidBody3D@23152")
 
-[node name="Dummy_Base2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("13_ae10q")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 4, -19)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Dummy_Base4" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("13_ae10q")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 17, 4, -12.5)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="target_stand_B2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("25_ry6v2")]
+[node name="target_stand_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("25_ry6v2")]
 transform = Transform3D(-0.221804, 0, -0.975091, 0, 1, 0, 0.975091, 0, -0.221804, 17, 4, -11.0773)
-body = NodePath("target_stand_B/@RigidBody3D@20666")
 
-[node name="table_medium2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("26_dol4e")]
+[node name="table_medium2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("26_dol4e")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -0.444203, 4, -11.8966)
-body = NodePath("table_medium/@RigidBody3D@20708")
 
-[node name="table_medium_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("27_u2lrj")]
+[node name="table_medium_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("27_u2lrj")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 4, -14)
-body = NodePath("table_medium_Decorated/@RigidBody3D@20701")
 
-[node name="Barrel_A2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 4.5, -19)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_A3" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -10)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_B2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("30_imgvi")]
+[node name="Barrel_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("30_imgvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.5, -18.5)
-body = NodePath("Barrel_B/@RigidBody3D@20785")
 
 [node name="Door_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("31_gnk3y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.32414, 4.04713, -23.6489)
@@ -232,27 +199,22 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 [node name="Pallet_Small5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("10_r8g5u")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.5, 4.5, -14)
 
-[node name="Barrel_C2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("33_hsydh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -10)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="target_stand_A_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("34_6gqwg")]
+[node name="target_stand_A_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("34_6gqwg")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 17, 0, 4)
-body = NodePath("target_stand_A_Decorated/@RigidBody3D@20673")
 
-[node name="target2" parent="GridMapBuilding/Room1_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("35_e6ad7")]
+[node name="target2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("35_e6ad7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 2, 7)
-body = NodePath("target/@RigidBody3D@20687")
 
 [node name="Room2_StaticObjects" type="Node3D" parent="GridMapBuilding"]
 
-[node name="Box_B2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("12_d5paq")]
+[node name="Box_B2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("12_d5paq")]
 transform = Transform3D(2.46076, 0, -0.91251, 0, 2.62451, 0, 0.91251, 0, 2.46076, -8.00669, 0.529999, 29.1377)
-body = NodePath("Box_B/@RigidBody3D@20764")
 
-[node name="Box_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B2" node_paths=PackedStringArray("body") instance=ExtResource("31_drbww")]
+[node name="Box_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B2" instance=ExtResource("31_drbww")]
 transform = Transform3D(0.683459, 0, 0.435143, 0, 0.810226, 0, -0.435143, 0, 0.683459, -0.182285, 0, 0.493409)
-body = NodePath("Box_A/@RigidBody3D@20771")
 
 [node name="Can_B2" parent="GridMapBuilding/Room2_StaticObjects/Box_B2" instance=ExtResource("16_ryvsm")]
 transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.357252, 0.15965, 0, 0.499887)
@@ -260,13 +222,11 @@ transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.3
 [node name="Can_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B2" instance=ExtResource("7_wgtu6")]
 transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.357252, 0.159422, 0, 0.340047)
 
-[node name="Box_B3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("12_d5paq")]
+[node name="Box_B3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("12_d5paq")]
 transform = Transform3D(1.84111, 0, 1.87039, 0, 2.62451, 0, -1.87039, 0, 1.84111, -32.0743, 0.529999, 29.7606)
-body = NodePath("Box_B/@RigidBody3D@20764")
 
-[node name="Box_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B3" node_paths=PackedStringArray("body") instance=ExtResource("31_drbww")]
+[node name="Box_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B3" instance=ExtResource("31_drbww")]
 transform = Transform3D(0.683459, 0, 0.435143, 0, 0.810226, 0, -0.435143, 0, 0.683459, -0.182285, 0, 0.493409)
-body = NodePath("Box_A/@RigidBody3D@20771")
 
 [node name="Can_B2" parent="GridMapBuilding/Room2_StaticObjects/Box_B3" instance=ExtResource("16_ryvsm")]
 transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.357252, 0.15965, 0, 0.499887)
@@ -274,214 +234,164 @@ transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.3
 [node name="Can_A2" parent="GridMapBuilding/Room2_StaticObjects/Box_B3" instance=ExtResource("7_wgtu6")]
 transform = Transform3D(0.357252, 0, 0.132478, 0, 0.381024, 0, -0.132478, 0, 0.357252, 0.159422, 0, 0.340047)
 
-[node name="Cube_Prototype_Small2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(0.91414, 0, -0.405397, 0, 1, 0, 0.405397, 0, 0.91414, -27.1769, 0.53, 34.0947)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Cube_Prototype_Small3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(0.983891, 0, 0.178768, 0, 1, 0, -0.178768, 0, 0.983891, 0.914879, 0.53, 35.6299)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Dummy_Base2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("13_ae10q")]
 transform = Transform3D(0.931418, 0, 0.36395, 0, 1, 0, -0.36395, 0, 0.931418, -24.2351, 0.530001, 26.9038)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Dummy_Base3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("13_ae10q")]
 transform = Transform3D(0.954396, 0, -0.298541, 0, 1, 0, 0.298541, 0, 0.954396, -21.2106, 0.530001, 26.9038)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
-[node name="Locker2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
+[node name="Locker2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("15_4ldk2")]
 transform = Transform3D(-1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, -1, -17.1817, 0.5, 55.0293)
-body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
-[node name="target_stand_A2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
+[node name="target_stand_A2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-1.40662, 0.00283562, 0.371983, 0.00327598, 1.45497, 0.00129664, -0.371979, 0.00209107, -1.40662, -20.338, 0.5, 54.41)
-body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="Locker3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("15_4ldk2")]
+[node name="Locker3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("15_4ldk2")]
 transform = Transform3D(-0.566766, 0, 0.823879, 0, 1, 0, -0.823879, 0, -0.566766, -16.109, 0.500001, 40.8873)
-body = NodePath("Cube_Prototype_Large_B/@RigidBody3D@23124")
 
-[node name="target_stand_A3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("18_7d3wp")]
+[node name="target_stand_A3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("18_7d3wp")]
 transform = Transform3D(-1.40662, 0.00283562, 0.371983, 0.00327598, 1.45497, 0.00129664, -0.371979, 0.00209107, -1.40662, -15.1279, 0.5, 38.0013)
-body = NodePath("target_stand_A/@RigidBody3D@20680")
 
-[node name="target2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("35_e6ad7")]
+[node name="target2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("35_e6ad7")]
 transform = Transform3D(-1.34821, 0, 1.17864e-07, 0, 1.34821, 0, -1.17864e-07, 0, -1.34821, -10.984, 2.41061, 47.8027)
-body = NodePath("target/@RigidBody3D@20687")
 
-[node name="Barrel_B2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("30_imgvi")]
+[node name="Barrel_B2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("30_imgvi")]
 transform = Transform3D(1.1047, 0, 0, 0, 1.1047, 0, 0, 0, 1.1047, 3.62674, 1.03, 38.0198)
-body = NodePath("Barrel_B/@RigidBody3D@20785")
 
-[node name="Barrel_A2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8476, 1.03, 37.1246)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_A3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8476, 1.03, 38.5758)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_A5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(-4.92417e-08, 0, 1.12652, 0, 1.12652, 0, -1.12652, 0, -4.92417e-08, -30.5135, 1.03, 50.9264)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_C2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("33_hsydh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.77598, 1.03, 38.4851)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C2" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C2" instance=ExtResource("33_hsydh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1592, 0, -0.0559793)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C2" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C2" instance=ExtResource("29_514tw")]
 transform = Transform3D(1.12652, 0, 0, 0, 1.12652, 0, 0, 0, 1.12652, -0.193115, 0, 1.17342)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("33_hsydh")]
 transform = Transform3D(0.890506, 0, -0.45497, 0, 1, 0, 0.45497, 0, 0.890506, 3.63072, 1.03, 17.8373)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C3" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C3" instance=ExtResource("33_hsydh")]
 transform = Transform3D(1.14322, 0, 0, 0, 1.14322, 0, 0, 0, 1.14322, 1.1592, 0, -0.0559788)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C3" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C3" instance=ExtResource("29_514tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.193115, 0, 1.17342)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Pallet_Small_Decorated_B2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(0.963775, 0, 0.266717, 0, 1, 0, -0.266717, 0, 0.963775, 1.46351, 0.529999, 37.9631)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Cube_Prototype_Small4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36304, 0.5, 35.4099)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Pallet_Small_Decorated_B3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(0.996645, 0, 0.0818515, 0, 1, 0, -0.0818515, 0, 0.996645, -1.70472, 0.529999, 37.9631)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Cube_Prototype_Small5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(-0.0720021, 0, -0.997404, 0, 1, 0, 0.997404, 0, -0.0720021, -21.116, 0.53, 34.9437)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Barrel_B3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("30_imgvi")]
+[node name="Barrel_B3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("30_imgvi")]
 transform = Transform3D(-0.275232, 0, -1.06986, 0, 1.1047, 0, 1.06986, 0, -0.275232, -24.1061, 1.03, 36.9746)
-body = NodePath("Barrel_B/@RigidBody3D@20785")
 
-[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(-0.249146, 0, -0.968466, 0, 1, 0, 0.968466, 0, -0.249146, -23.5433, 1.03, 38.38)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_A6" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A6" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(-0.249146, 0, -0.968466, 0, 1, 0, 0.968466, 0, -0.249146, -24.9488, 1.03, 38.0184)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_C4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("33_hsydh")]
 transform = Transform3D(0.968466, 0, -0.249146, 0, 1, 0, 0.249146, 0, 0.968466, -22.4633, 1.03, 28.7209)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C4" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C4" instance=ExtResource("33_hsydh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1592, 0, -0.0559793)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C4" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C4" instance=ExtResource("29_514tw")]
 transform = Transform3D(1.12652, 0, 0, 0, 1.12652, 0, 0, 0, 1.12652, -0.193115, 0, 1.17342)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Pallet_Small_Decorated_B4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(0.0181853, 0, -0.999835, 0, 1, 0, 0.999835, 0, 0.0181853, -23.5123, 0.529999, 34.8937)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Cube_Prototype_Small6" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small6" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(-0.249146, 0, -0.968466, 0, 1, 0, 0.968466, 0, -0.249146, -20.0862, 0.5, 31.8239)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Pallet_Small_Decorated_B5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(-0.16904, 0, -0.98561, 0, 1, 0, 0.98561, 0, -0.16904, -22.7229, 0.529999, 31.8254)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Cube_Prototype_Small7" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small7" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(0.711597, 0, 0.702588, 0, 1, 0, -0.702588, 0, 0.711597, -14.562, 0.53, 42.8328)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Barrel_B4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("30_imgvi")]
+[node name="Barrel_B4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("30_imgvi")]
 transform = Transform3D(0.912189, 0, 0.623116, 0, 1.1047, 0, -0.623116, 0, 0.912189, -18.0056, 1.03, 31.4764)
-body = NodePath("Barrel_B/@RigidBody3D@20785")
 
-[node name="Barrel_A7" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A7" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(0.825734, 0, 0.564059, 0, 1, 0, -0.564059, 0, 0.825734, -17.5024, 1.03, 30.0486)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_A8" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A8" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("29_514tw")]
 transform = Transform3D(0.825734, 0, 0.564059, 0, 1, 0, -0.564059, 0, 0.825734, -16.6839, 1.03, 31.2469)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Barrel_C5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("33_hsydh")]
 transform = Transform3D(0.971751, 0, 0.236007, 0, 1, 0, -0.236007, 0, 0.971751, -21.9253, 1.03, 37.3542)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C5" node_paths=PackedStringArray("body") instance=ExtResource("33_hsydh")]
+[node name="Barrel_C3" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C5" instance=ExtResource("33_hsydh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1592, 0, -0.0559793)
-body = NodePath("Barrel_C/@RigidBody3D@20778")
 
-[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C5" node_paths=PackedStringArray("body") instance=ExtResource("29_514tw")]
+[node name="Barrel_A4" parent="GridMapBuilding/Room2_StaticObjects/Barrel_C5" instance=ExtResource("29_514tw")]
 transform = Transform3D(1.12652, 0, 0, 0, 1.12652, 0, 0, 0, 1.12652, -0.193115, 0, 1.17342)
-body = NodePath("Barrel_A/@RigidBody3D@20792")
 
-[node name="Pallet_Small_Decorated_B6" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B6" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(0.645378, 0, 0.763864, 0, 1, 0, -0.763864, 0, 0.645378, -17.5533, 0.529999, 35.6208)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Cube_Prototype_Small8" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("32_53hy4")]
+[node name="Cube_Prototype_Small8" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("32_53hy4")]
 transform = Transform3D(0.877891, 0, -0.478861, 0, 1, 0, 0.478861, 0, 0.877891, -23.0866, 0.5, 41.1779)
-body = NodePath("Cube_Prototype_Small/@RigidBody3D@20750")
 
-[node name="Pallet_Small_Decorated_B7" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("8_5cxr2")]
+[node name="Pallet_Small_Decorated_B7" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("8_5cxr2")]
 transform = Transform3D(0.776795, 0, 0.629754, 0, 1, 0, -0.629754, 0, 0.776795, -19.537, 0.529999, 40.3056)
-body = NodePath("Pallet_Small_Decorated_B/@RigidBody3D@25884")
 
-[node name="Pallet_Small_Decorated_A2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("9_q48ew")]
+[node name="Pallet_Small_Decorated_A2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("9_q48ew")]
 transform = Transform3D(0.969825, 0, -0.243801, 0, 1, 0, 0.243801, 0, 0.969825, -7.97981, 0.529999, 49.9499)
-body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 
-[node name="Pallet_Small_Decorated_A3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("9_q48ew")]
+[node name="Pallet_Small_Decorated_A3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("9_q48ew")]
 transform = Transform3D(0.969825, 0, -0.243801, 0, 1, 0, 0.243801, 0, 0.969825, -3.76858, 0.529999, 18.3226)
-body = NodePath("Pallet_Small_Decorated_A/@RigidBody3D@20722")
 
-[node name="Workbench2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("24_bi6o1")]
+[node name="Workbench2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("24_bi6o1")]
 transform = Transform3D(0, 0, -0.999999, 0, 1, 0, 0.999999, 0, 0, -14.814, 0.529999, 49.7564)
-body = NodePath("Dummy_Base_001/@RigidBody3D@23152")
 
-[node name="target_stand_A_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("34_6gqwg")]
+[node name="target_stand_A_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("34_6gqwg")]
 transform = Transform3D(-1.05879, 0, 0.806696, 0, 1.33108, 0, -0.806696, 0, -1.05879, -32.3318, 0.529999, 50.3831)
-body = NodePath("target_stand_A_Decorated/@RigidBody3D@20673")
 
-[node name="Locker_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -18.5623, 0.5, 55.0867)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated2/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated4" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated4" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.157176, 0, 0.987571, 0, 1, 0, -0.987571, 0, -0.157176, -17.6774, 0.5, 38.2866)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated5" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated5" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-0.157176, 0, 0.987571, 0, 1, 0, -0.987571, 0, -0.157176, -16.1488, 0.5, 33.8257)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated5/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated3" parent="GridMapBuilding/Room2_StaticObjects" node_paths=PackedStringArray("body") instance=ExtResource("14_wxdma")]
+[node name="Locker_Decorated3" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("14_wxdma")]
 transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -22.3655, 0.5, 55.0867)
-body = NodePath("Locker_Decorated/@RigidBody3D@23131")
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated3/Locker_Decorated" index="0"]
 visible = false
@@ -512,9 +422,8 @@ shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
 
-[node name="Dummy_Base2" parent="." node_paths=PackedStringArray("body") instance=ExtResource("13_ae10q")]
+[node name="Dummy_Base2" parent="." instance=ExtResource("13_ae10q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26248, 0.0299999, 28.0111)
-body = NodePath("Dummy_Base/@RigidBody3D@20743")
 
 [node name="PlayerEntity" parent="." instance=ExtResource("33_knj36")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.62523, 4, -18.7447)

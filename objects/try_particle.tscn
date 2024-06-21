@@ -12,4 +12,3 @@ transform = Transform3D(0.171106, -0.344308, 0.923133, 0, 0.936951, 0.349461, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
 [node name="GPUParticles3D" parent="." instance=ExtResource("2_rpnfp")]
-emitting = false
