@@ -1,15 +1,25 @@
 extends Node3D
 class_name LongInteractable
 
-var is_activated = false
+enum {OFF, PROGRESSING, REGRESSING, ON}
+var state = OFF
+var progress
+@export_range(0,100) var progression_rate:float=10
+@export_range(0,100) var regression_rate:float=10
+
+func _process(delta):
+	if state == PROGRESSING:
+		progress += progression_rate*delta
+	elif state == REGRESSING:
+		progress -= regression_rate*delta
 
 func on_interaction():
-	is_activated = !is_activated
-	if is_activated:
-		print("interacting ON")
-		$AnimationPlayer.play("progession_bar")
-		#$AnimationPlayer.seek(0.5, true)
-	else:
-		print("interacting OFF")
-		$AnimationPlayer.play_backwards("progession_bar")
-		#$AnimationPlayer.seek(0.0, true)
+	if state == OFF or state == REGRESSING:
+		state = PROGRESSING
+		print("Progessing")
+		$AnimationPlayer.play("switch_charging")
+
+func on_interruption():
+	if state == PROGRESSING:
+		print("Regressing")
+		state = REGRESSING

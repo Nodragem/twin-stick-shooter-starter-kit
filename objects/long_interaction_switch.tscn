@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
+[gd_scene load_steps=19 format=3 uid="uid://hcqc6rr7cqwf"]
 
 [ext_resource type="Script" path="res://objects/long_interaction_switch.gd" id="1_qcqne"]
 
@@ -21,6 +21,45 @@ material = SubResource("StandardMaterial3D_olqxu")
 height = 0.1
 radial_segments = 6
 rings = 2
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_mi5fe"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs4oq"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_epq6n"]
+animation = &"switch_charging"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pelsy"]
+animation = &"progession_bar"
+
+[sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_ihvld"]
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6fy62"]
+input_0/name = "state_0"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "state_1"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_06m2i"]
+nodes/Add2/node = SubResource("AnimationNodeAdd2_mi5fe")
+nodes/Add2/position = Vector2(840, 100)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_epq6n")
+nodes/Animation/position = Vector2(320, 0)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_bs4oq")
+"nodes/Animation 2/position" = Vector2(360, 140)
+nodes/Progression/node = SubResource("AnimationNodeAnimation_pelsy")
+nodes/Progression/position = Vector2(360, 300)
+nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_ihvld")
+nodes/TimeSeek/position = Vector2(600, 260)
+nodes/Transition/node = SubResource("AnimationNodeTransition_6fy62")
+nodes/Transition/position = Vector2(600, 40)
+nodes/output/position = Vector2(1020, 160)
+node_connections = [&"Add2", 0, &"Transition", &"Add2", 1, &"TimeSeek", &"TimeSeek", 0, &"Progression", &"Transition", 0, &"Animation", &"Transition", 1, &"Animation 2", &"output", 0, &"Add2"]
 
 [sub_resource type="Animation" id="Animation_lwkho"]
 length = 0.001
@@ -145,6 +184,39 @@ skeleton = NodePath("")
 transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 mesh = SubResource("CylinderMesh_1rybc")
 skeleton = NodePath("")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_06m2i")
+anim_player = NodePath("../AnimationPlayer")
+parameters/current_length = 0.500002
+parameters/current_position = 0.383344
+parameters/current_delta = 0.00978
+parameters/Add2/current_length = 0.500002
+parameters/Add2/current_position = 0.383344
+parameters/Add2/current_delta = 0.00978
+parameters/Add2/add_amount = 1.0
+parameters/Animation/current_length = 0.500002
+parameters/Animation/current_position = 0.383344
+parameters/Animation/current_delta = 0.00978
+"parameters/Animation 2/current_length" = 0.001
+"parameters/Animation 2/current_position" = 0.001
+"parameters/Animation 2/current_delta" = 0.0
+parameters/Progression/current_length = 1.0
+parameters/Progression/current_position = 1.0
+parameters/Progression/current_delta = 0.0
+parameters/TimeSeek/current_length = 1.0
+parameters/TimeSeek/current_position = 1.0
+parameters/TimeSeek/current_delta = 0.0
+parameters/TimeSeek/seek_request = -1.0
+parameters/Transition/current_length = 0.500002
+parameters/Transition/current_position = 0.383344
+parameters/Transition/current_delta = 0.00978
+parameters/Transition/current_state = "state_0"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
+parameters/output/current_length = 0.500002
+parameters/output/current_position = 0.383344
+parameters/output/current_delta = 0.00978
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
