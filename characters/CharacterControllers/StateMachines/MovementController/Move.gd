@@ -22,6 +22,18 @@ func _ready():
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_jump") and player.is_on_floor():
 		_state_machine.transition_to("Move/Jump", {velocity = player.velocity})
+	if event.is_action_pressed("p1_interact") and player.is_on_floor():
+		print("button interacting pressed.")
+		var interactibles = player.interaction_area.get_overlapping_areas()
+		for area in interactibles:
+			print("Interactible Objects found!")
+			if area is LongInteractable:
+				print("long interaction")
+				area.on_interaction() 
+				#_state_machine.transition_to("Interacting")
+			elif area is ShortInteractable:
+				print("short interaction")
+				area.on_interaction() 
 
 
 func physics_process(delta: float) -> void:

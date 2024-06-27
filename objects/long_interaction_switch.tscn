@@ -1,0 +1,152 @@
+[gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
+
+[ext_resource type="Script" path="res://objects/long_interaction_switch.gd" id="1_qcqne"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w132w"]
+radius = 0.994774
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
+albedo_color = Color(0.351331, 0.595926, 0.988783, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
+material = SubResource("StandardMaterial3D_kao0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olqxu"]
+albedo_color = Color(0.652653, 0.927686, 0.256411, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iiikx"]
+material = SubResource("StandardMaterial3D_olqxu")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
+height = 0.1
+radial_segments = 6
+rings = 2
+
+[sub_resource type="Animation" id="Animation_lwkho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("origin_progress_bar/progress_bar:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.652653, 0.927686, 0.256411, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("origin_progress_bar:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.178118, 1, 0.208812)]
+}
+
+[sub_resource type="Animation" id="Animation_uicdx"]
+resource_name = "progession_bar"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("origin_progress_bar/progress_bar:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.927686, 0.256411, 0.293453, 1), Color(0.840592, 0.468981, 0.281723, 1), Color(0.652653, 0.927686, 0.256411, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("origin_progress_bar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.178, 0.01, 0.209), Vector3(0.178118, 1, 0.208812)]
+}
+
+[sub_resource type="Animation" id="Animation_728kc"]
+resource_name = "switch_charging"
+length = 0.500002
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rotor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5708), Vector3(3.14159, 0, -1.5708), Vector3(6.26573, 0, -1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oai5e"]
+_data = {
+"RESET": SubResource("Animation_lwkho"),
+"progession_bar": SubResource("Animation_uicdx"),
+"switch_charging": SubResource("Animation_728kc")
+}
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 8
+monitoring = false
+script = ExtResource("1_qcqne")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
+shape = SubResource("SphereShape3D_w132w")
+
+[node name="main_body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.521648, 0, 0, 0, 1, 0, 0, 0, 0.524464, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_3fq0q")
+skeleton = NodePath("")
+
+[node name="origin_progress_bar" type="Node3D" parent="."]
+transform = Transform3D(0.178118, 0, 0, 0, 1, 0, 0, 0, 0.208812, 0, 0.0284122, 0.376342)
+
+[node name="progress_bar" type="MeshInstance3D" parent="origin_progress_bar"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499407, 0)
+mesh = SubResource("BoxMesh_iiikx")
+skeleton = NodePath("")
+
+[node name="base" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_1rybc")
+skeleton = NodePath("")
+
+[node name="rotor" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
+mesh = SubResource("CylinderMesh_1rybc")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_oai5e")
+}

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Twin Shooter Starting Kit"
 config/tags=PackedStringArray("starterkit")
-run/main_scene="res://scenes/test_AI.tscn"
+run/main_scene="res://scenes/TimingRoom.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://project_icon.png"
 
@@ -189,6 +189,11 @@ p1_camera_RR={
 p1_camera_RL={
 "deadzone": 0.5,
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
+]
+}
+p1_interact={
+"deadzone": 0.5,
+"events": [null, null, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 
