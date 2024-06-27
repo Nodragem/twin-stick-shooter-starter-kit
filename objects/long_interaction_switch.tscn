@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://hcqc6rr7cqwf"]
+[gd_scene load_steps=20 format=3 uid="uid://hcqc6rr7cqwf"]
 
 [ext_resource type="Script" path="res://objects/long_interaction_switch.gd" id="1_qcqne"]
 
@@ -24,42 +24,47 @@ rings = 2
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_mi5fe"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pelsy"]
+animation = &"progession_bar"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs4oq"]
 animation = &"RESET"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_epq6n"]
 animation = &"switch_charging"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pelsy"]
-animation = &"progession_bar"
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_3nghg"]
 
 [sub_resource type="AnimationNodeTimeSeek" id="AnimationNodeTimeSeek_ihvld"]
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_6fy62"]
-input_0/name = "state_0"
+input_0/name = "Interacting"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
-input_1/name = "state_1"
+input_1/name = "Resting"
 input_1/auto_advance = false
 input_1/break_loop_at_end = false
 input_1/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_06m2i"]
-nodes/Add2/node = SubResource("AnimationNodeAdd2_mi5fe")
-nodes/Add2/position = Vector2(840, 100)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_epq6n")
-nodes/Animation/position = Vector2(320, 0)
-"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_bs4oq")
-"nodes/Animation 2/position" = Vector2(360, 140)
-nodes/Progression/node = SubResource("AnimationNodeAnimation_pelsy")
-nodes/Progression/position = Vector2(360, 300)
-nodes/TimeSeek/node = SubResource("AnimationNodeTimeSeek_ihvld")
-nodes/TimeSeek/position = Vector2(600, 260)
-nodes/Transition/node = SubResource("AnimationNodeTransition_6fy62")
-nodes/Transition/position = Vector2(600, 40)
-nodes/output/position = Vector2(1020, 160)
-node_connections = [&"Add2", 0, &"Transition", &"Add2", 1, &"TimeSeek", &"TimeSeek", 0, &"Progression", &"Transition", 0, &"Animation", &"Transition", 1, &"Animation 2", &"output", 0, &"Add2"]
+graph_offset = Vector2(0, 143.194)
+nodes/output/position = Vector2(1120, 120)
+nodes/play_both_animation/node = SubResource("AnimationNodeAdd2_mi5fe")
+nodes/play_both_animation/position = Vector2(900, 60)
+nodes/progression/node = SubResource("AnimationNodeAnimation_pelsy")
+nodes/progression/position = Vector2(300, 340)
+nodes/rest/node = SubResource("AnimationNodeAnimation_bs4oq")
+nodes/rest/position = Vector2(340, 140)
+nodes/switch_charging/node = SubResource("AnimationNodeAnimation_epq6n")
+nodes/switch_charging/position = Vector2(320, 0)
+nodes/time_scale/node = SubResource("AnimationNodeTimeScale_3nghg")
+nodes/time_scale/position = Vector2(520, 300)
+nodes/time_seek/node = SubResource("AnimationNodeTimeSeek_ihvld")
+nodes/time_seek/position = Vector2(700, 260)
+nodes/transition/node = SubResource("AnimationNodeTransition_6fy62")
+nodes/transition/position = Vector2(600, 40)
+node_connections = [&"output", 0, &"play_both_animation", &"play_both_animation", 0, &"transition", &"play_both_animation", 1, &"time_seek", &"time_scale", 0, &"progression", &"time_seek", 0, &"time_scale", &"transition", 0, &"switch_charging", &"transition", 1, &"rest"]
 
 [sub_resource type="Animation" id="Animation_lwkho"]
 length = 0.001
@@ -189,34 +194,38 @@ skeleton = NodePath("")
 tree_root = SubResource("AnimationNodeBlendTree_06m2i")
 anim_player = NodePath("../AnimationPlayer")
 parameters/current_length = 0.500002
-parameters/current_position = 0.383344
-parameters/current_delta = 0.00978
-parameters/Add2/current_length = 0.500002
-parameters/Add2/current_position = 0.383344
-parameters/Add2/current_delta = 0.00978
-parameters/Add2/add_amount = 1.0
-parameters/Animation/current_length = 0.500002
-parameters/Animation/current_position = 0.383344
-parameters/Animation/current_delta = 0.00978
-"parameters/Animation 2/current_length" = 0.001
-"parameters/Animation 2/current_position" = 0.001
-"parameters/Animation 2/current_delta" = 0.0
-parameters/Progression/current_length = 1.0
-parameters/Progression/current_position = 1.0
-parameters/Progression/current_delta = 0.0
-parameters/TimeSeek/current_length = 1.0
-parameters/TimeSeek/current_position = 1.0
-parameters/TimeSeek/current_delta = 0.0
-parameters/TimeSeek/seek_request = -1.0
-parameters/Transition/current_length = 0.500002
-parameters/Transition/current_position = 0.383344
-parameters/Transition/current_delta = 0.00978
-parameters/Transition/current_state = "state_0"
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = 0
+parameters/current_position = 0.29009
+parameters/current_delta = 0.0150663
 parameters/output/current_length = 0.500002
-parameters/output/current_position = 0.383344
-parameters/output/current_delta = 0.00978
+parameters/output/current_position = 0.29009
+parameters/output/current_delta = 0.0150663
+parameters/play_both_animation/current_length = 0.500002
+parameters/play_both_animation/current_position = 0.29009
+parameters/play_both_animation/current_delta = 0.0150663
+parameters/play_both_animation/add_amount = 1.0
+parameters/progression/current_length = 1.0
+parameters/progression/current_position = 0.5
+parameters/progression/current_delta = 0.0
+parameters/rest/current_length = 0.001
+parameters/rest/current_position = 0.001
+parameters/rest/current_delta = 0.0
+parameters/switch_charging/current_length = 0.500002
+parameters/switch_charging/current_position = 0.29009
+parameters/switch_charging/current_delta = 0.0150663
+parameters/time_scale/current_length = 1.0
+parameters/time_scale/current_position = 0.5
+parameters/time_scale/current_delta = 0.0
+parameters/time_scale/scale = 0.0
+parameters/time_seek/current_length = 1.0
+parameters/time_seek/current_position = 0.5
+parameters/time_seek/current_delta = 0.0
+parameters/time_seek/seek_request = -1.0
+parameters/transition/current_length = 0.500002
+parameters/transition/current_position = 0.29009
+parameters/transition/current_delta = 0.0150663
+parameters/transition/current_state = "Interacting"
+parameters/transition/transition_request = ""
+parameters/transition/current_index = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
