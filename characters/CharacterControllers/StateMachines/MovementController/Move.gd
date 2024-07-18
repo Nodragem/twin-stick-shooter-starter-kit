@@ -6,6 +6,7 @@ extends PlayerState
 @export var snap_length := 0.5
 @export var do_stop_on_slope := true
 
+var _interacting_area :Area3D = null
 var _move_direction := Vector3.ZERO
 var _player_input := Vector3.ZERO
 var _is_directing := true
@@ -27,14 +28,17 @@ func unhandled_input(event: InputEvent) -> void:
 		var interactibles = player.interaction_area.get_overlapping_areas()
 		for area in interactibles:
 			print("Interactible Objects found!")
-			if area is LongInteractable:
+			if area is LongSwitch:
 				print("long interaction")
-				area.on_interaction() 
+				_interacting_area = area
+				_interacting_area.on_interaction() 
 				#_state_machine.transition_to("Interacting")
-			elif area is ShortInteractable:
+			elif area is ShortSwitch:
 				print("short interaction")
-				area.on_interaction() 
-
+				area.on_interaction()
+	if event.is_action_released("p1_interact") or not player.is_on_floor():
+		print("button interacting released")
+		_interacting_area.on_interruption()
 
 func physics_process(delta: float) -> void:
 	_update_player_input()

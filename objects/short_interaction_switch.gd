@@ -1,7 +1,8 @@
-extends Node3D
-class_name ShortInteractable
+extends Switch
+class_name ShortSwitch
 
-var is_activated = false
+func _ready():
+	on_interaction()
 
 func on_interaction():
 	is_activated = !is_activated
