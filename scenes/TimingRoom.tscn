@@ -42,7 +42,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3562)
 ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
 
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.707107, 0.122788, 0.696364, 0, 0.984808, -0.173648, -0.707107, 0.122788, 0.696364, 0, 0, 0)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_ylicc")
@@ -123,7 +123,10 @@ progression_rate = 20.0
 regression_rate = 0.0
 
 [node name="ShortSwitch3" parent="GridMap/SwitchManager" instance=ExtResource("18_2r2k3")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.15949, 0.529999, -1.97161)
+process_mode = 4
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
+visible = false
+is_activated = true
 
 [node name="LongSwitch2" parent="GridMap/SwitchManager" instance=ExtResource("16_fgb57")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
