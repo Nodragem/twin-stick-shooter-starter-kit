@@ -86,7 +86,7 @@ radius = 1.30422
 height = 3.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hsi84"]
-radius = 10.0
+radius = 27.9865
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vfolx"]
 radius = 2.06982
@@ -204,7 +204,7 @@ debug_path_custom_point_size = 10.04
 [node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_1stn8")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@30132")
+blackboard = NodePath("@Node@25916")
 actor = NodePath("..")
 
 [node name="SelectBehaviour" type="Node" parent="BeehaveTree"]

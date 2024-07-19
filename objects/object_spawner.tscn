@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="1_g6ffw"]
 
 [sub_resource type="GDScript" id="GDScript_wjm4f"]
-script/source = "extends Marker3D
+script/source = "extends Switch
 
 @export var to_spawn : PackedScene
 @export var time_between_waves : int = 3
@@ -12,6 +12,7 @@ script/source = "extends Marker3D
 @onready var wave_timer : Timer = $WaveTimer
 
 func _ready():
+	is_activated = true
 	wave_timer.wait_time = time_between_waves
 	_on_wave_timer_timeout()
 
@@ -22,15 +23,21 @@ func spawn():
 	print(\"Spawn!\")
 
 func _on_wave_timer_timeout():
+	if not is_activated:
+		return
 	var tween = self.create_tween()
 	tween.set_loops(nb_spawn_by_wave).tween_callback(spawn).set_delay(flow_rate)
 	tween.finished.connect(restart_wave_timer)
 
 func restart_wave_timer():
 	wave_timer.start()
+
+
+func on_interaction(requested:bool):
+	is_activated = false
 "
 
-[node name="EnemySpawner" type="Marker3D"]
+[node name="EnemySpawner" type="Marker3D" groups=["switch_receiver"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3425, 1.90735e-06, 1.888)
 gizmo_extents = 3.88
 script = SubResource("GDScript_wjm4f")

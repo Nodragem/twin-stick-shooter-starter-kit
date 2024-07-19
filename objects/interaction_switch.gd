@@ -1,20 +1,17 @@
-extends Node3D
+extends Node
 class_name Switch
 
-signal switched(is_activated)
+signal activation_signal(is_activated)
 
 @export var is_activated:bool = false:
 	get:
 		return is_activated
 	set(value):
 		is_activated = value
-		switched.emit(value)
+		activation_signal.emit(value)
 		
 @export var inversed_switch:bool = false
 
 
-func on_interaction():
-	pass
-
-func on_interruption():
+func on_interaction(requested:bool):
 	pass

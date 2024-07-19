@@ -48,6 +48,8 @@ wint=false
 [global_group]
 
 bullet="group for all bullets"
+switch_receiver=""
+switch_emitter=""
 
 [input]
 

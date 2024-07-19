@@ -33,14 +33,12 @@ func _process(delta):
 	anim_progress.play("progression_bar")
 	anim_progress.seek(progress/100.0, -1, 0)
 	
-func on_interaction():
-	if state == OFF or state == REGRESSING:
+func on_interaction(requested:bool):
+	if requested and (state == OFF or state == REGRESSING):
 		state = PROGRESSING
 		print("Progressing")
 
-
-func on_interruption():
-	if state == PROGRESSING:
+	if not requested and state == PROGRESSING:
 		print("Regressing")
 		state = REGRESSING
 		anim_loading.stop()

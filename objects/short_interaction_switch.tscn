@@ -114,7 +114,7 @@ _data = {
 "on_state": SubResource("Animation_m4h6i")
 }
 
-[node name="Area3D" type="Area3D"]
+[node name="Area3D" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 8
 monitoring = false

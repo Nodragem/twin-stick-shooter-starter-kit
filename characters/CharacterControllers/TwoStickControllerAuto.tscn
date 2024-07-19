@@ -20,11 +20,6 @@ initial_state = NodePath("Move/Idle")
 
 [node name="Move" type="Node" parent="MovementController"]
 script = ExtResource("2_spb56")
-max_speed = null
-acceleration = null
-gravity = null
-snap_length = null
-do_stop_on_slope = null
 
 [node name="Idle" type="Node" parent="MovementController/Move"]
 script = ExtResource("3_1xdhr")

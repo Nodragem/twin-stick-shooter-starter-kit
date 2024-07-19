@@ -114,7 +114,7 @@ _data = {
 "switch_charging": SubResource("Animation_728kc")
 }
 
-[node name="Area3D" type="Area3D"]
+[node name="Area3D" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 8
 monitoring = false

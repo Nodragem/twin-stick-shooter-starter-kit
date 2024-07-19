@@ -1,13 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://b2nlcgg1yuy7o"]
 
 [sub_resource type="GDScript" id="GDScript_xbe0k"]
-script/source = "extends Node3D
-class_name Activable
+script/source = "extends Switch
 
-var is_activated:bool = false
-
-func change_activation_to(activated:bool):
-	if activated:
+func on_interaction(requested:bool):
+	if requested:
 		open_door()
 	else:
 		close_door()
@@ -192,7 +189,7 @@ _data = {
 "RESET": SubResource("Animation_o3pyg")
 }
 
-[node name="Primitive_Wall" type="Node3D"]
+[node name="Primitive_Wall" type="Node3D" groups=["switch_receiver"]]
 script = SubResource("GDScript_xbe0k")
 
 [node name="Origin" type="Marker3D" parent="."]

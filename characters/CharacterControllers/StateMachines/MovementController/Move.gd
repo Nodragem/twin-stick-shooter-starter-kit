@@ -23,22 +23,21 @@ func _ready():
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_jump") and player.is_on_floor():
 		_state_machine.transition_to("Move/Jump", {velocity = player.velocity})
+	
+	# TODO: I dont like that this logic is in the Player
+	# The logic of the switch input should be in the switch? 
 	if event.is_action_pressed("p1_interact") and player.is_on_floor():
 		print("button interacting pressed.")
 		var interactibles = player.interaction_area.get_overlapping_areas()
 		for area in interactibles:
 			print("Interactible Objects found!")
-			if area is LongSwitch:
+			if area is Switch:
 				print("long interaction")
 				_interacting_area = area
-				_interacting_area.on_interaction() 
-				#_state_machine.transition_to("Interacting")
-			elif area is ShortSwitch:
-				print("short interaction")
-				area.on_interaction()
+				_interacting_area.on_interaction(true) 
 	if event.is_action_released("p1_interact") or not player.is_on_floor():
 		print("button interacting released")
-		_interacting_area.on_interruption()
+		if _interacting_area: _interacting_area.on_interaction(false)
 
 func physics_process(delta: float) -> void:
 	_update_player_input()

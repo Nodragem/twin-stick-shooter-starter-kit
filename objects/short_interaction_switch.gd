@@ -2,9 +2,12 @@ extends Switch
 class_name ShortSwitch
 
 func _ready():
-	on_interaction()
+	on_interaction(true)
 
-func on_interaction():
+func on_interaction(requested):
+	if requested == false: 
+		return
+	
 	is_activated = !is_activated
 	if is_activated:
 		print("interacting ON")
