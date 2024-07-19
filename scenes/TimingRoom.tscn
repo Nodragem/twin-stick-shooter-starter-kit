@@ -38,6 +38,12 @@ offset_bottom = 0.0
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3562)
 
+[node name="HealthManager" parent="PlayerEntity" index="1" node_paths=PackedStringArray("ui_hearts")]
+ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
+
+[node name="CameraPivot" parent="PlayerEntity" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_ylicc")
 cell_center_x = false
@@ -102,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)
 [node name="Cube_Prototype_Large_B_003" parent="GridMap/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="SwitchManager" type="Node" parent="GridMap"]
+[node name="SwitchManager" type="Node3D" parent="GridMap"]
 script = ExtResource("15_r2gfh")
 
 [node name="InteractiveDoor1" parent="GridMap/SwitchManager" instance=ExtResource("18_lua54")]
@@ -113,7 +119,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, 20.4582)
 
 [node name="LongSwitch1" parent="GridMap/SwitchManager" instance=ExtResource("16_fgb57")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.014, 0.529999, -14.0096)
-progression_rate = 30.0
+progression_rate = 20.0
 regression_rate = 0.0
 
 [node name="ShortSwitch3" parent="GridMap/SwitchManager" instance=ExtResource("18_2r2k3")]
@@ -121,7 +127,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.15949, 0.529999, -1.9
 
 [node name="LongSwitch2" parent="GridMap/SwitchManager" instance=ExtResource("16_fgb57")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
-progression_rate = 30.0
+progression_rate = 20.0
 regression_rate = 0.0
 
 [node name="EnemySpawner" parent="GridMap/SwitchManager" instance=ExtResource("15_68bn6")]
@@ -131,7 +137,7 @@ nb_spawn_by_wave = 2
 
 [node name="EnemySpawner2" parent="GridMap/SwitchManager" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
-time_between_waves = 7
+time_between_waves = 8
 nb_spawn_by_wave = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -170,4 +176,5 @@ mesh = SubResource("QuadMesh_v623h")
 
 [connection signal="is_dead" from="PlayerEntity" to="." method="on_player_death"]
 
+[editable path="PlayerEntity"]
 [editable path="GridMap/Locker_Decorated4"]
