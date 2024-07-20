@@ -1,22 +1,26 @@
-extends Switch
+extends SwitchComponent
 class_name SwitchHub
 
-var switch_emitters:Array[Switch] = []
-var switch_receivers:Array[Switch] = []
+var switch_emitters:Array[SwitchComponent] = []
+var switch_receivers:Array[SwitchComponent] = []
 var nb_activated_switches = 0
 var nb_switches = -1
 
 
 func _ready():
 	DebugStats.add_property(self, "nb_activated_switches", "")
-	var children = get_children()
+	var children = get_parent().get_children()
 	for child in children:
+		if child.process_mode == PROCESS_MODE_DISABLED:
+			continue
 		if child.is_in_group("switch_emitter"):
-			switch_emitters.append(child)
-			child.activation_signal.connect(on_interaction)
+			var switch_component:SwitchComponent = child.get_node("SwitchComponent")
+			switch_emitters.append(switch_component)
+			switch_component.activation_signal.connect(on_interaction)
 		if child.is_in_group("switch_receiver"):
-			switch_receivers.append(child)
-			self.activation_signal.connect(child.on_interaction)
+			var switch_component:SwitchComponent = child.get_node("SwitchComponent")
+			switch_receivers.append(switch_component)
+			self.activation_signal.connect(switch_component.on_interaction)
 	nb_switches = switch_emitters.size()
 	update_activation_sum()
 

@@ -1,5 +1,5 @@
-extends Switch
 class_name ShortSwitch
+extends SwitchComponent
 
 func _ready():
 	update_animation()

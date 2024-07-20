@@ -5,23 +5,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_w132w"]
 radius = 0.994774
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
-albedo_color = Color(0.447059, 0.180392, 0.619608, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
-material = SubResource("StandardMaterial3D_kao0k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wsmx"]
-resource_local_to_scene = true
-albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_iiikx"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
-height = 0.1
-radial_segments = 6
-rings = 2
-
 [sub_resource type="Animation" id="Animation_lwkho"]
 length = 0.001
 tracks/0/type = "value"
@@ -114,15 +97,46 @@ _data = {
 "switch_charging": SubResource("Animation_728kc")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
+albedo_color = Color(0.447059, 0.180392, 0.619608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
+material = SubResource("StandardMaterial3D_kao0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wsmx"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iiikx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
+height = 0.1
+radial_segments = 6
+rings = 2
+
 [node name="Area3D" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 8
 monitoring = false
-script = ExtResource("1_qcqne")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
 shape = SubResource("SphereShape3D_w132w")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_qcqne")
+
+[node name="AnimationProgression" type="AnimationPlayer" parent="SwitchComponent"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_oai5e")
+}
+
+[node name="AnimationLoading" type="AnimationPlayer" parent="SwitchComponent"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_oai5e")
+}
 
 [node name="main_body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.521648, 0, 0, 0, 1, 0, 0, 0, 0.524464, 0, 0.5, 0)
@@ -146,13 +160,3 @@ skeleton = NodePath("")
 transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 mesh = SubResource("CylinderMesh_1rybc")
 skeleton = NodePath("")
-
-[node name="AnimationLoading" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_oai5e")
-}
-
-[node name="AnimationProgression" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_oai5e")
-}

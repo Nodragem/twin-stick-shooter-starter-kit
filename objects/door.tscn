@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=4 uid="uid://b2nlcgg1yuy7o"]
 
-[sub_resource type="GDScript" id="GDScript_xbe0k"]
-script/source = "extends Switch
+[sub_resource type="GDScript" id="GDScript_lrv8e"]
+script/source = "extends SwitchComponent
 
 func on_interaction(requested:bool):
 	if requested:
@@ -15,45 +15,6 @@ func open_door():
 func close_door():
 	$AnimationPlayer.play(\"Closing\")
 "
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qk1hj"]
-size = Vector3(4.25562, 4.04102, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30exi"]
-resource_name = "prototype_texture"
-roughness = 0.4
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_33jcx"]
-_surfaces = [{
-"aabb": AABB(-2, 1.49012e-07, -0.5, 4.00001, 4, 1.00001),
-"format": 34359742465,
-"index_count": 36,
-"index_data": PackedByteArray("BwAEAAUABwAGAAQAAQAEAAAAAQAFAAQAAgAEAAYAAgAAAAQAAQACAAMAAQAAAAIAAQAHAAUAAQADAAcAAwAGAAcAAwACAAYA"),
-"name": "prototype_texture",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAQAAAIDT9//8+AAAAQAEAgED9//8+AAAAwAAAIDQBAAA/AAAAwAEAgEABAAA/AAAAQAAAIDQBAAC/AAAAQAEAgEABAAC/AAAAwAAAIDT9//++AAAAwAEAgED9//++")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_cy61t"]
-resource_name = "Primitive_Wall_Cube_16415"
-_surfaces = [{
-"aabb": AABB(-2, 1.49012e-07, -0.5, 4.00001, 4, 1.00001),
-"attribute_data": PackedByteArray("8DzHPZg8Rz7wPMc9mDxHPvA8xz2YPGc+8DzHPUAZxjzwPMc9oAxjPfA8xz2gDGM9QAzjPJg8Rz5ADOM8mDxHPkAM4zyYPGc+QAzjPEAZxjxADOM8oAxjPUAM4zygDGM98DzHPZg8Rz7wPMc9mDxHPvA8xz2YPGc+8DzHPUAZxjzwPMc9oAxjPfA8xz2gDGM9QAzjPJg8Rz5ADOM8mDxHPkAM4zyYPGc+QAzjPEAZxjxADOM8oAxjPUAM4zygDGM9"),
-"format": 34359742487,
-"index_count": 36,
-"index_data": PackedByteArray("FwAMABAAFwATAAwABQANAAEABQARAA0ACAAOABQACAACAA4ABAAHAAsABAAAAAcAAwAVAA8AAwAJABUACgASABYACgAGABIA"),
-"material": SubResource("StandardMaterial3D_30exi"),
-"name": "prototype_texture",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAQAAAIDT9//8+AAAAQAAAIDT9//8+AAAAQAAAIDT9//8+AAAAQAEAgED9//8+AAAAQAEAgED9//8+AAAAQAEAgED9//8+AAAAwAAAIDQBAAA/AAAAwAAAIDQBAAA/AAAAwAAAIDQBAAA/AAAAwAEAgEABAAA/AAAAwAEAgEABAAA/AAAAwAEAgEABAAA/AAAAQAAAIDQBAAC/AAAAQAAAIDQBAAC/AAAAQAAAIDQBAAC/AAAAQAEAgEABAAC/AAAAQAEAgEABAAC/AAAAQAEAgEABAAC/AAAAwAAAIDT9//++AAAAwAAAIDT9//++AAAAwAAAIDT9//++AAAAwAEAgED9//++AAAAwAEAgED9//++AAAAwAEAgED9//++/3//f////7////9/////v/9/AAD///+//3///////7//f/9/////v////3////+/AAD/f////7//f/9/////v/9/AAD///+//3///////78AAP9/////v/9//3////+/AAD//////z////9/////v/9/AAD///+//3///////78AAP//////P////3////+/AAD/f////78AAP//////P/9/AAD///+//3///////78AAP9/////vwAA//////8/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_33jcx")
 
 [sub_resource type="Animation" id="Animation_470fy"]
 resource_name = "Closing"
@@ -189,8 +150,56 @@ _data = {
 "RESET": SubResource("Animation_o3pyg")
 }
 
-[node name="Primitive_Wall" type="Node3D" groups=["switch_receiver"]]
-script = SubResource("GDScript_xbe0k")
+[sub_resource type="BoxShape3D" id="BoxShape3D_qk1hj"]
+size = Vector3(4.25562, 4.04102, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30exi"]
+resource_name = "prototype_texture"
+roughness = 0.4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_33jcx"]
+_surfaces = [{
+"aabb": AABB(-2, 1.49012e-07, -0.5, 4.00001, 4, 1.00001),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("BwAEAAUABwAGAAQAAQAEAAAAAQAFAAQAAgAEAAYAAgAAAAQAAQACAAMAAQAAAAIAAQAHAAUAAQADAAcAAwAGAAcAAwACAAYA"),
+"name": "prototype_texture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAQAAAIDT9//8+AAAAQAEAgED9//8+AAAAwAAAIDQBAAA/AAAAwAEAgEABAAA/AAAAQAAAIDQBAAC/AAAAQAEAgEABAAC/AAAAwAAAIDT9//++AAAAwAEAgED9//++")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cy61t"]
+resource_name = "Primitive_Wall_Cube_16415"
+_surfaces = [{
+"aabb": AABB(-2, 1.49012e-07, -0.5, 4.00001, 4, 1.00001),
+"attribute_data": PackedByteArray("8DzHPZg8Rz7wPMc9mDxHPvA8xz2YPGc+8DzHPUAZxjzwPMc9oAxjPfA8xz2gDGM9QAzjPJg8Rz5ADOM8mDxHPkAM4zyYPGc+QAzjPEAZxjxADOM8oAxjPUAM4zygDGM98DzHPZg8Rz7wPMc9mDxHPvA8xz2YPGc+8DzHPUAZxjzwPMc9oAxjPfA8xz2gDGM9QAzjPJg8Rz5ADOM8mDxHPkAM4zyYPGc+QAzjPEAZxjxADOM8oAxjPUAM4zygDGM9"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("FwAMABAAFwATAAwABQANAAEABQARAA0ACAAOABQACAACAA4ABAAHAAsABAAAAAcAAwAVAA8AAwAJABUACgASABYACgAGABIA"),
+"material": SubResource("StandardMaterial3D_30exi"),
+"name": "prototype_texture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAQAAAIDT9//8+AAAAQAAAIDT9//8+AAAAQAAAIDT9//8+AAAAQAEAgED9//8+AAAAQAEAgED9//8+AAAAQAEAgED9//8+AAAAwAAAIDQBAAA/AAAAwAAAIDQBAAA/AAAAwAAAIDQBAAA/AAAAwAEAgEABAAA/AAAAwAEAgEABAAA/AAAAwAEAgEABAAA/AAAAQAAAIDQBAAC/AAAAQAAAIDQBAAC/AAAAQAAAIDQBAAC/AAAAQAEAgEABAAC/AAAAQAEAgEABAAC/AAAAQAEAgEABAAC/AAAAwAAAIDT9//++AAAAwAAAIDT9//++AAAAwAAAIDT9//++AAAAwAEAgED9//++AAAAwAEAgED9//++AAAAwAEAgED9//++/3//f////7////9/////v/9/AAD///+//3///////7//f/9/////v////3////+/AAD/f////7//f/9/////v/9/AAD///+//3///////78AAP9/////v/9//3////+/AAD//////z////9/////v/9/AAD///+//3///////78AAP//////P////3////+/AAD/f////78AAP//////P/9/AAD///+//3///////78AAP9/////vwAA//////8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_33jcx")
+
+[node name="Door" type="Node3D" groups=["switch_receiver"]]
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = SubResource("GDScript_lrv8e")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_p0j34")
+}
+autoplay = "Closing"
 
 [node name="Origin" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
@@ -206,9 +215,3 @@ shape = SubResource("BoxShape3D_qk1hj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 mesh = SubResource("ArrayMesh_cy61t")
 skeleton = NodePath("")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_p0j34")
-}
-autoplay = "Closing"

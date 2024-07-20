@@ -5,25 +5,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
 radius = 0.846304
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
-albedo_color = Color(0.351331, 0.595926, 0.988783, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
-material = SubResource("StandardMaterial3D_kao0k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3ees"]
-albedo_color = Color(0.927686, 0.256411, 0.298385, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kk2b1"]
-material = SubResource("StandardMaterial3D_i3ees")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
-height = 0.1
-radial_segments = 6
-rings = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_ohq8r"]
-
 [sub_resource type="Animation" id="Animation_aycb1"]
 length = 0.001
 tracks/0/type = "value"
@@ -114,15 +95,42 @@ _data = {
 "on_state": SubResource("Animation_m4h6i")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
+albedo_color = Color(0.351331, 0.595926, 0.988783, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
+material = SubResource("StandardMaterial3D_kao0k")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3ees"]
+albedo_color = Color(0.927686, 0.256411, 0.298385, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kk2b1"]
+material = SubResource("StandardMaterial3D_i3ees")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
+height = 0.1
+radial_segments = 6
+rings = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_ohq8r"]
+
 [node name="Area3D" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 8
 monitoring = false
-script = ExtResource("1_4j45m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
 shape = SubResource("SphereShape3D_q8hf6")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_4j45m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_t5ss8")
+}
 
 [node name="main_body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.521648, 0, 0, 0, 1, 0, 0, 0, 0.524464, 0, 0.5, 0)
@@ -142,8 +150,3 @@ skeleton = NodePath("")
 transform = Transform3D(-1.22627e-06, 0.229841, 0, -0.33875, -8.32021e-07, 0, 0, 0, 0.32927, 0.318764, 0.68638, 0.00279331)
 mesh = SubResource("BoxMesh_ohq8r")
 skeleton = NodePath("")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_t5ss8")
-}
