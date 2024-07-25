@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d2yqin8xn1yc1"]
+[gd_scene load_steps=24 format=3 uid="uid://d2yqin8xn1yc1"]
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
@@ -12,13 +12,21 @@
 [ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
 [ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
 [ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
+[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://objects/switch_hub.tscn" id="14_0vyri"]
 [ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="14_6bvec"]
 [ext_resource type="PackedScene" uid="uid://bjt7nal8lacai" path="res://objects/object_spawner.tscn" id="15_68bn6"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_mrupq"]
-[ext_resource type="Script" path="res://objects/switch_manager.gd" id="15_r2gfh"]
 [ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://objects/long_interaction_switch.tscn" id="16_fgb57"]
 [ext_resource type="PackedScene" uid="uid://orkkys0mmvkr" path="res://objects/short_interaction_switch.tscn" id="18_2r2k3"]
 [ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://objects/door.tscn" id="18_lua54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64ufk"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6m8p"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 19, 19, 1, 19, 19, 1, -15)
@@ -38,11 +46,11 @@ offset_bottom = 0.0
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3562)
 
-[node name="HealthManager" parent="PlayerEntity" index="1" node_paths=PackedStringArray("ui_hearts")]
-ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
-
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
 transform = Transform3D(0.707107, 0.122788, 0.696364, 0, 0.984808, -0.173648, -0.707107, 0.122788, 0.696364, 0, 0, 0)
+
+[node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
+fov = 40.0
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_ylicc")
@@ -108,8 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)
 [node name="Cube_Prototype_Large_B_003" parent="GridMap/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="SwitchManager" type="Node3D" parent="GridMap"]
-script = ExtResource("15_r2gfh")
+[node name="SwitchManager" parent="GridMap" instance=ExtResource("14_0vyri")]
 
 [node name="InteractiveDoor1" parent="GridMap/SwitchManager" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
@@ -119,19 +126,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, 20.4582)
 
 [node name="LongSwitch1" parent="GridMap/SwitchManager" instance=ExtResource("16_fgb57")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.014, 0.529999, -14.0096)
+
+[node name="SwitchComponent" parent="GridMap/SwitchManager/LongSwitch1" index="1"]
 progression_rate = 20.0
 regression_rate = 0.0
+
+[node name="progress_bar" parent="GridMap/SwitchManager/LongSwitch1/origin_progress_bar" index="0"]
+material_override = SubResource("StandardMaterial3D_64ufk")
+
+[node name="rotor" parent="GridMap/SwitchManager/LongSwitch1" index="5"]
+transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 
 [node name="ShortSwitch3" parent="GridMap/SwitchManager" instance=ExtResource("18_2r2k3")]
 process_mode = 4
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
 visible = false
-is_activated = true
 
 [node name="LongSwitch2" parent="GridMap/SwitchManager" instance=ExtResource("16_fgb57")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
+
+[node name="SwitchComponent" parent="GridMap/SwitchManager/LongSwitch2" index="1"]
 progression_rate = 20.0
 regression_rate = 0.0
+
+[node name="progress_bar" parent="GridMap/SwitchManager/LongSwitch2/origin_progress_bar" index="0"]
+material_override = SubResource("StandardMaterial3D_c6m8p")
+
+[node name="rotor" parent="GridMap/SwitchManager/LongSwitch2" index="5"]
+transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 
 [node name="EnemySpawner" parent="GridMap/SwitchManager" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
@@ -181,3 +203,5 @@ mesh = SubResource("QuadMesh_v623h")
 
 [editable path="PlayerEntity"]
 [editable path="GridMap/Locker_Decorated4"]
+[editable path="GridMap/SwitchManager/LongSwitch1"]
+[editable path="GridMap/SwitchManager/LongSwitch2"]

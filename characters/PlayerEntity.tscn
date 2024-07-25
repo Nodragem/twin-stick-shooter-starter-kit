@@ -26,8 +26,7 @@ game_data = ExtResource("2_gbwfc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.987748, 0)
 shape = SubResource("1")
 
-[node name="HealthManager" parent="." node_paths=PackedStringArray("ui_hearts") instance=ExtResource("6_7wv34")]
-ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
+[node name="HealthManager" parent="." instance=ExtResource("6_7wv34")]
 
 [node name="PositionResetter" type="Node" parent="."]
 script = ExtResource("14")
