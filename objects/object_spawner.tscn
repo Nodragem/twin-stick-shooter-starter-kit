@@ -1,18 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjt7nal8lacai"]
+[gd_scene load_steps=4 format=3 uid="uid://bjt7nal8lacai"]
 
 [ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="1_g6ffw"]
 
 [sub_resource type="GDScript" id="GDScript_wjm4f"]
-script/source = "extends Switch
+script/source = "extends Marker3D
 
 @export var to_spawn : PackedScene
 @export var time_between_waves : int = 3
 @export var nb_spawn_by_wave : int = 3
 @export var flow_rate : int = 1
+
 @onready var wave_timer : Timer = $WaveTimer
+@onready var switch_component : SwitchComponent = $SwitchComponent
 
 func _ready():
-	is_activated = true
+	switch_component.is_activated = true
 	wave_timer.wait_time = time_between_waves
 	_on_wave_timer_timeout()
 
@@ -23,7 +25,7 @@ func spawn():
 	print(\"Spawn!\")
 
 func _on_wave_timer_timeout():
-	if not is_activated:
+	if not switch_component.is_activated:
 		return
 	var tween = self.create_tween()
 	tween.set_loops(nb_spawn_by_wave).tween_callback(spawn).set_delay(flow_rate)
@@ -31,7 +33,10 @@ func _on_wave_timer_timeout():
 
 func restart_wave_timer():
 	wave_timer.start()
+"
 
+[sub_resource type="GDScript" id="GDScript_av4hr"]
+script/source = "extends SwitchComponent
 
 func on_interaction(requested:bool):
 	is_activated = false
@@ -46,5 +51,8 @@ time_between_waves = 10
 
 [node name="WaveTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = SubResource("GDScript_av4hr")
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

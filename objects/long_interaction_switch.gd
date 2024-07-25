@@ -1,5 +1,5 @@
-extends Switch
 class_name LongSwitch
+extends SwitchComponent
 
 enum {OFF, PROGRESSING, REGRESSING, ON}
 var state = OFF

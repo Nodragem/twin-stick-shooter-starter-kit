@@ -1,5 +1,5 @@
+class_name SwitchComponent
 extends Node
-class_name Switch
 
 signal activation_signal(is_activated)
 
@@ -11,7 +11,6 @@ signal activation_signal(is_activated)
 		activation_signal.emit(value)
 		
 @export var inversed_switch:bool = false
-
 
 func on_interaction(requested:bool):
 	pass

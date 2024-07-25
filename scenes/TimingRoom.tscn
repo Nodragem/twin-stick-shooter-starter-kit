@@ -40,8 +40,6 @@ size = Vector2(36, 36)
 script = ExtResource("1_a2x0p")
 
 [node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
-offset_top = 0.0
-offset_bottom = 0.0
 
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3562)
