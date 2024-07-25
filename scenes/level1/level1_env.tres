@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://13w4n7joxo58"]
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://dtrxire26wyng"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gtpib"]
 sky_top_color = Color(0.266278, 0.480075, 0.700952, 1)
@@ -18,10 +18,10 @@ ambient_light_color = Color(0.389, 0.229, 0.196, 1)
 ambient_light_sky_contribution = 0.33
 reflected_light_source = 2
 tonemap_mode = 3
-tonemap_exposure = 1.2
+tonemap_exposure = 1.1
 ssao_enabled = true
-ssao_radius = 3.54
-ssao_intensity = 2.52
+ssao_radius = 2.9
+ssao_intensity = 5.35
 ssao_power = 2.35376
 ssil_enabled = true
 ssil_radius = 6.13
@@ -43,4 +43,4 @@ glow_intensity = 1.36
 glow_strength = 1.5
 glow_bloom = 0.02
 adjustment_enabled = true
-adjustment_saturation = 1.19
+adjustment_saturation = 1.2
