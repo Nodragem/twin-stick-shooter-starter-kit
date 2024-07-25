@@ -8,7 +8,7 @@ radius = 0.846304
 [node name="OneOffAreaSwitch" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 8
-monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_q8hf6")

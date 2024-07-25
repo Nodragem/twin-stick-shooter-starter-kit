@@ -6,15 +6,19 @@
 script/source = "extends SwitchComponent
 
 func on_interaction(requested:bool):
+	if requested == is_activated:
+		return
 	if requested:
 		open_door()
 	else:
 		close_door()
 
 func open_door():
+	is_activated = true
 	$AnimationPlayer.play(\"Opening\")
 	
 func close_door():
+	is_activated = false
 	$AnimationPlayer.play(\"Closing\")
 "
 
@@ -119,7 +123,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -131,7 +135,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(1, 0.01, 1)]
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -141,7 +145,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.01, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -195,16 +199,16 @@ shadow_mesh = SubResource("ArrayMesh_33jcx")
 
 [node name="SwitchComponent" type="Node" parent="."]
 script = SubResource("GDScript_lrv8e")
+is_activated = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_p0j34")
 }
-autoplay = "Closing"
 
 [node name="Origin" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, 4, 0)
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="Origin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
@@ -215,6 +219,7 @@ shape = SubResource("BoxShape3D_qk1hj")
 
 [node name="Primitive_Wall" type="MeshInstance3D" parent="Origin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+visible = false
 mesh = SubResource("ArrayMesh_cy61t")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("1_v8w4k")

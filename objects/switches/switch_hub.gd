@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var invert_signal:bool = false
 @export var switch_emitters:Array[Node] = []
 @export var switch_receivers:Array[Node] = []
 var nb_activated_switches = 0
@@ -7,6 +8,9 @@ var nb_switches = -1
 
 
 func _ready():
+	if invert_signal:
+		$SwitchComponent.inversed_signal = true
+
 	DebugStats.add_property(self, "nb_activated_switches", "")
 	
 	for switch_emitter in switch_emitters:

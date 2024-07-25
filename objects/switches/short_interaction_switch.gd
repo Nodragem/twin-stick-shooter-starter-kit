@@ -2,6 +2,8 @@ class_name ShortSwitch
 extends SwitchComponent
 
 func on_interaction(requested):
+	if is_activated:
+		return
 	is_activated = true
 
 

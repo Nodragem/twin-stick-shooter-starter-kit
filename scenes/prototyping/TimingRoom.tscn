@@ -86,28 +86,34 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="OneOffAreaSwitch" parent="GridMap/Room1" instance=ExtResource("5_0p7y3")]
+[node name="SwitchHubClosingDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
 transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
+invert_signal = true
+switch_emitters = [NodePath("OneOffAreaSwitch")]
+switch_receivers = [NodePath("../SwitchHubOpeningDoors/InteractiveDoor1"), NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")]
 
-[node name="SwitchManager" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+[node name="OneOffAreaSwitch" parent="GridMap/Room1/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SwitchHubOpeningDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
 switch_emitters = [NodePath("ShortSwitch3")]
 switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
 
-[node name="InteractiveDoor1" parent="GridMap/Room1/SwitchManager" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor1" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
 
-[node name="InteractiveDoor2" parent="GridMap/Room1/SwitchManager" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor2" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, 20.4582)
 
-[node name="ShortSwitch3" parent="GridMap/Room1/SwitchManager" instance=ExtResource("18_2r2k3")]
+[node name="ShortSwitch3" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_2r2k3")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
 
-[node name="EnemySpawner" parent="GridMap/Room1/SwitchManager" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
-[node name="EnemySpawner2" parent="GridMap/Room1/SwitchManager" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner2" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
 time_between_waves = 8
 nb_spawn_by_wave = 2
@@ -266,6 +272,60 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
+[node name="SwitchHubClosingDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
+invert_signal = true
+switch_emitters = [NodePath("OneOffAreaSwitch")]
+switch_receivers = [NodePath("../SwitchHubOpeningDoors/InteractiveDoor1"), NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")]
+
+[node name="OneOffAreaSwitch" parent="GridMap/Room2/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SwitchHubOpeningDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2"), NodePath("../../Room1/SwitchHubOpeningDoors/ShortSwitch3")]
+switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
+
+[node name="InteractiveDoor1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
+
+[node name="InteractiveDoor2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, 20.4582)
+
+[node name="LongSwitch1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.014, 0.529999, -14.0096)
+
+[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="1"]
+progression_rate = 20.0
+regression_rate = 0.0
+
+[node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/origin_progress_bar" index="0"]
+material_override = SubResource("StandardMaterial3D_64ufk")
+
+[node name="ShortSwitch3" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_2r2k3")]
+process_mode = 4
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
+visible = false
+
+[node name="LongSwitch2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
+
+[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="1"]
+progression_rate = 20.0
+regression_rate = 0.0
+
+[node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/origin_progress_bar" index="0"]
+material_override = SubResource("StandardMaterial3D_c6m8p")
+
+[node name="EnemySpawner" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
+time_between_waves = 8
+nb_spawn_by_wave = 2
+
+[node name="EnemySpawner2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
+time_between_waves = 8
+nb_spawn_by_wave = 2
+
 [node name="Locker_Decorated2" parent="GridMap/Room2" instance=ExtResource("7_hjv8p")]
 transform = Transform3D(-0.938974, 0, -0.343987, 0, 1, 0, 0.343987, 0, -0.938974, -14.4395, 0.499998, 18.1854)
 
@@ -320,51 +380,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)
 [node name="Cube_Prototype_Large_B_003" parent="GridMap/Room2/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="SwitchManager" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
-switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2"), NodePath("../../Room1/SwitchManager/ShortSwitch3")]
-switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
-
-[node name="InteractiveDoor1" parent="GridMap/Room2/SwitchManager" instance=ExtResource("18_lua54")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
-
-[node name="InteractiveDoor2" parent="GridMap/Room2/SwitchManager" instance=ExtResource("18_lua54")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, 20.4582)
-
-[node name="LongSwitch1" parent="GridMap/Room2/SwitchManager" instance=ExtResource("16_fgb57")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.014, 0.529999, -14.0096)
-
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchManager/LongSwitch1" index="1"]
-progression_rate = 20.0
-regression_rate = 0.0
-
-[node name="progress_bar" parent="GridMap/Room2/SwitchManager/LongSwitch1/origin_progress_bar" index="0"]
-material_override = SubResource("StandardMaterial3D_64ufk")
-
-[node name="ShortSwitch3" parent="GridMap/Room2/SwitchManager" instance=ExtResource("18_2r2k3")]
-process_mode = 4
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
-visible = false
-
-[node name="LongSwitch2" parent="GridMap/Room2/SwitchManager" instance=ExtResource("16_fgb57")]
-transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
-
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchManager/LongSwitch2" index="1"]
-progression_rate = 20.0
-regression_rate = 0.0
-
-[node name="progress_bar" parent="GridMap/Room2/SwitchManager/LongSwitch2/origin_progress_bar" index="0"]
-material_override = SubResource("StandardMaterial3D_c6m8p")
-
-[node name="EnemySpawner" parent="GridMap/Room2/SwitchManager" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
-time_between_waves = 8
-nb_spawn_by_wave = 2
-
-[node name="EnemySpawner2" parent="GridMap/Room2/SwitchManager" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
-time_between_waves = 8
-nb_spawn_by_wave = 2
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("5_2vc36")
 
@@ -398,6 +413,6 @@ directional_shadow_mode = 0
 [editable path="GridMap/Room1/Locker_Decorated5"]
 [editable path="GridMap/Room1/Locker_Decorated3"]
 [editable path="GridMap/Room1/Locker_Decorated4"]
+[editable path="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1"]
+[editable path="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2"]
 [editable path="GridMap/Room2/Locker_Decorated4"]
-[editable path="GridMap/Room2/SwitchManager/LongSwitch1"]
-[editable path="GridMap/Room2/SwitchManager/LongSwitch2"]
