@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2yqin8xn1yc1"]
+[gd_scene load_steps=38 format=3 uid="uid://d2yqin8xn1yc1"]
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="3_yl3ue"]
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="4_ylicc"]
+[ext_resource type="PackedScene" uid="uid://ttqp6dhghvut" path="res://objects/switches/oneoff_area_switch.tscn" id="5_0p7y3"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="5_2vc36"]
 [ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="7_hjv8p"]
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_4wka0"]
@@ -12,13 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
 [ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
 [ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
-[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://objects/switch_hub.tscn" id="14_0vyri"]
+[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://objects/switches/switch_hub.tscn" id="14_0vyri"]
 [ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="14_6bvec"]
-[ext_resource type="PackedScene" uid="uid://bjt7nal8lacai" path="res://objects/object_spawner.tscn" id="15_68bn6"]
+[ext_resource type="PackedScene" uid="uid://bjt7nal8lacai" path="res://objects/switches/object_spawner.tscn" id="15_68bn6"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_mrupq"]
-[ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://objects/long_interaction_switch.tscn" id="16_fgb57"]
-[ext_resource type="PackedScene" uid="uid://orkkys0mmvkr" path="res://objects/short_interaction_switch.tscn" id="18_2r2k3"]
-[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://objects/door.tscn" id="18_lua54"]
+[ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://objects/switches/long_interaction_switch.tscn" id="16_fgb57"]
+[ext_resource type="PackedScene" uid="uid://orkkys0mmvkr" path="res://objects/switches/short_interaction_switch.tscn" id="18_2r2k3"]
+[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://objects/switches/door.tscn" id="18_lua54"]
 [ext_resource type="PackedScene" uid="uid://cykscxty5uq57" path="res://assets/prototype_bits/Locker.gltf" id="19_w4gje"]
 [ext_resource type="PackedScene" uid="uid://dbv41542gf2gg" path="res://assets/prototype_bits/table_medium_long.gltf" id="21_i6noe"]
 [ext_resource type="PackedScene" uid="uid://cyg3765gfh25q" path="res://assets/prototype_bits/target_stand_A_Decorated.gltf" id="22_xf6y5"]
@@ -85,7 +86,12 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="SwitchManager" parent="GridMap/Room1" instance=ExtResource("14_0vyri")]
+[node name="OneOffAreaSwitch" parent="GridMap/Room1" instance=ExtResource("5_0p7y3")]
+transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
+
+[node name="SwitchManager" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+switch_emitters = [NodePath("ShortSwitch3")]
+switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
 
 [node name="InteractiveDoor1" parent="GridMap/Room1/SwitchManager" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
@@ -241,6 +247,12 @@ transform = Transform3D(-1.49877, -0.00113347, -0.112018, -0.00122263, 1.50295, 
 [node name="Box_A4" parent="GridMap/Room1" instance=ExtResource("32_qjv65")]
 transform = Transform3D(-2.7244, -0.00213912, -0.78926, -0.00270527, 2.83642, 0.00165093, 0.789258, 0.00233842, -2.7244, -11.9264, 0.542173, -13.9554)
 
+[node name="Door_B4" parent="GridMap/Room1" instance=ExtResource("15_mrupq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8737, 0.500001, 2.89588)
+
+[node name="Door_B5" parent="GridMap/Room1" instance=ExtResource("15_mrupq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8963, 0.500001, 1.20538)
+
 [node name="Barrel_A4" parent="GridMap/Room1" instance=ExtResource("29_jtqe8")]
 transform = Transform3D(1.29539, 0, 0, 0, 1.83988, 0, 0, 0, 1.34797, -14.4569, 1.35692, -10.5898)
 
@@ -308,7 +320,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)
 [node name="Cube_Prototype_Large_B_003" parent="GridMap/Room2/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="SwitchManager" parent="GridMap/Room2" instance=ExtResource("14_0vyri")]
+[node name="SwitchManager" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2"), NodePath("../../Room1/SwitchManager/ShortSwitch3")]
+switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
 
 [node name="InteractiveDoor1" parent="GridMap/Room2/SwitchManager" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
@@ -326,9 +340,6 @@ regression_rate = 0.0
 [node name="progress_bar" parent="GridMap/Room2/SwitchManager/LongSwitch1/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_64ufk")
 
-[node name="rotor" parent="GridMap/Room2/SwitchManager/LongSwitch1" index="5"]
-transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
-
 [node name="ShortSwitch3" parent="GridMap/Room2/SwitchManager" instance=ExtResource("18_2r2k3")]
 process_mode = 4
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
@@ -343,9 +354,6 @@ regression_rate = 0.0
 
 [node name="progress_bar" parent="GridMap/Room2/SwitchManager/LongSwitch2/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_c6m8p")
-
-[node name="rotor" parent="GridMap/Room2/SwitchManager/LongSwitch2" index="5"]
-transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 
 [node name="EnemySpawner" parent="GridMap/Room2/SwitchManager" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)

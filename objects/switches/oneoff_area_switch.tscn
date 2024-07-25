@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ttqp6dhghvut"]
+
+[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="1_ukywo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
+radius = 0.846304
+
+[node name="OneOffAreaSwitch" type="Area3D" groups=["switch_emitter"]]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 8
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_q8hf6")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_ukywo")
+
+[connection signal="body_entered" from="." to="SwitchComponent" method="_on_body_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://orkkys0mmvkr"]
 
-[ext_resource type="Script" path="res://objects/short_interaction_switch.gd" id="1_4j45m"]
+[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="1_4j45m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
 radius = 0.846304
@@ -114,7 +114,7 @@ rings = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_ohq8r"]
 
-[node name="Area3D" type="Area3D" groups=["switch_emitter"]]
+[node name="ShortSwitch" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 8
 monitoring = false

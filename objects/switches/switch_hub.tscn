@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk1e5h13iicq3"]
+
+[ext_resource type="Script" path="res://objects/switches/switch_manager.gd" id="1_7kijx"]
+[ext_resource type="Script" path="res://objects/switches/switch_hub.gd" id="1_cnbua"]
+
+[node name="SwitchHub" type="Node3D"]
+script = ExtResource("1_cnbua")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_7kijx")

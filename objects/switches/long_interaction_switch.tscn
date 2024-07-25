@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
 
-[ext_resource type="Script" path="res://objects/long_interaction_switch.gd" id="1_qcqne"]
+[ext_resource type="Script" path="res://objects/switches/long_interaction_switch.gd" id="1_qcqne"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_w132w"]
 radius = 0.994774
@@ -114,7 +114,7 @@ height = 0.1
 radial_segments = 6
 rings = 2
 
-[node name="Area3D" type="Area3D" groups=["switch_emitter"]]
+[node name="LongSwitch" type="Area3D" groups=["switch_emitter"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 8
 monitoring = false

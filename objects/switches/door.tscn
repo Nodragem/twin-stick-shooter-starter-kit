@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://b2nlcgg1yuy7o"]
+[gd_scene load_steps=11 format=4 uid="uid://b2nlcgg1yuy7o"]
+
+[ext_resource type="Material" uid="uid://dy20h6wfa46iv" path="res://objects/background_objects.material" id="1_v8w4k"]
 
 [sub_resource type="GDScript" id="GDScript_lrv8e"]
 script/source = "extends SwitchComponent
@@ -215,3 +217,4 @@ shape = SubResource("BoxShape3D_qk1hj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 mesh = SubResource("ArrayMesh_cy61t")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("1_v8w4k")
