@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d2yqin8xn1yc1"]
+[gd_scene load_steps=55 format=3 uid="uid://d2yqin8xn1yc1"]
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="29_jtqe8"]
 [ext_resource type="PackedScene" uid="uid://djmjc4dm0ena7" path="res://assets/prototype_bits/Box_B.gltf" id="30_brwi0"]
 [ext_resource type="PackedScene" uid="uid://bmpd4wt2sw2l1" path="res://assets/prototype_bits/Box_C.gltf" id="31_dxrwl"]
+[ext_resource type="Script" path="res://objects/switches/switch_connection.gd" id="31_ra0cn"]
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="32_qjv65"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
@@ -41,6 +42,86 @@ agent_radius = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_v623h"]
 size = Vector2(36, 36)
+
+[sub_resource type="Resource" id="Resource_e45ua"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor1")
+
+[sub_resource type="Resource" id="Resource_o46n8"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")
+
+[sub_resource type="Resource" id="Resource_6plx3"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner")
+
+[sub_resource type="Resource" id="Resource_vg0au"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner2")
+
+[sub_resource type="Resource" id="Resource_gah4f"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("InteractiveDoor1")
+
+[sub_resource type="Resource" id="Resource_jav86"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("InteractiveDoor2")
+
+[sub_resource type="Resource" id="Resource_8g4un"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("EnemySpawner")
+
+[sub_resource type="Resource" id="Resource_5jwrl"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("EnemySpawner2")
+
+[sub_resource type="Resource" id="Resource_gg046"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor1")
+
+[sub_resource type="Resource" id="Resource_s88f0"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")
+
+[sub_resource type="Resource" id="Resource_ttcm5"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner")
+
+[sub_resource type="Resource" id="Resource_hv6hq"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner2")
+
+[sub_resource type="Resource" id="Resource_anpf8"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("InteractiveDoor1")
+
+[sub_resource type="Resource" id="Resource_2pmel"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = false
+switch = NodePath("InteractiveDoor2")
+
+[sub_resource type="Resource" id="Resource_nj6g5"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("EnemySpawner")
+
+[sub_resource type="Resource" id="Resource_7ls1w"]
+script = ExtResource("31_ra0cn")
+inverse_polarity = true
+switch = NodePath("EnemySpawner2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64ufk"]
 resource_local_to_scene = true
@@ -56,7 +137,7 @@ script = ExtResource("1_a2x0p")
 [node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -58.3562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -62.3759)
 
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
 transform = Transform3D(0.707107, 0.122788, 0.696364, 0, 0.984808, -0.173648, -0.707107, 0.122788, 0.696364, 0, 0, 0)
@@ -86,18 +167,17 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="SwitchHubClosingDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
-transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
-invert_signal = true
+[node name="SwitchHubClosingDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
+transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -14)
 switch_emitters = [NodePath("OneOffAreaSwitch")]
-switch_receivers = [NodePath("../SwitchHubOpeningDoors/InteractiveDoor1"), NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")]
+switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_e45ua"), SubResource("Resource_o46n8"), SubResource("Resource_6plx3"), SubResource("Resource_vg0au")])
 
 [node name="OneOffAreaSwitch" parent="GridMap/Room1/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="SwitchHubOpeningDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+[node name="SwitchHubOpeningDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
 switch_emitters = [NodePath("ShortSwitch3")]
-switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
+switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_gah4f"), SubResource("Resource_jav86"), SubResource("Resource_8g4un"), SubResource("Resource_5jwrl")])
 
 [node name="InteractiveDoor1" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
@@ -272,18 +352,17 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="SwitchHubClosingDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+[node name="SwitchHubClosingDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
 transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
-invert_signal = true
 switch_emitters = [NodePath("OneOffAreaSwitch")]
-switch_receivers = [NodePath("../SwitchHubOpeningDoors/InteractiveDoor1"), NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")]
+switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_gg046"), SubResource("Resource_s88f0"), SubResource("Resource_ttcm5"), SubResource("Resource_hv6hq")])
 
 [node name="OneOffAreaSwitch" parent="GridMap/Room2/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.49049)
 
-[node name="SwitchHubOpeningDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters", "switch_receivers") instance=ExtResource("14_0vyri")]
+[node name="SwitchHubOpeningDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
 switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2"), NodePath("../../Room1/SwitchHubOpeningDoors/ShortSwitch3")]
-switch_receivers = [NodePath("InteractiveDoor1"), NodePath("InteractiveDoor2"), NodePath("EnemySpawner"), NodePath("EnemySpawner2")]
+switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_anpf8"), SubResource("Resource_2pmel"), SubResource("Resource_nj6g5"), SubResource("Resource_7ls1w")])
 
 [node name="InteractiveDoor1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00798, 0.530313, -16.5418)
@@ -301,6 +380,9 @@ regression_rate = 0.0
 [node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_64ufk")
 
+[node name="rotor" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="5"]
+transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
+
 [node name="ShortSwitch3" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_2r2k3")]
 process_mode = 4
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
@@ -315,6 +397,9 @@ regression_rate = 0.0
 
 [node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_c6m8p")
+
+[node name="rotor" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="5"]
+transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 
 [node name="EnemySpawner" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)

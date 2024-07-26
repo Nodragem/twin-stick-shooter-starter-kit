@@ -14,7 +14,6 @@ script/source = "extends Marker3D
 @onready var switch_component : SwitchComponent = $SwitchComponent
 
 func _ready():
-	switch_component.is_activated = true
 	wave_timer.wait_time = time_between_waves
 	_on_wave_timer_timeout()
 
@@ -39,10 +38,12 @@ func restart_wave_timer():
 script/source = "extends SwitchComponent
 
 func on_interaction(requested:bool):
-	is_activated = false
+	if requested == is_activated:
+		return
+	is_activated = requested
 "
 
-[node name="EnemySpawner" type="Marker3D" groups=["switch_receiver"]]
+[node name="EnemySpawner" type="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3425, 1.90735e-06, 1.888)
 gizmo_extents = 3.88
 script = SubResource("GDScript_wjm4f")

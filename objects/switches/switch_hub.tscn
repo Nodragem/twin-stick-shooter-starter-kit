@@ -5,6 +5,8 @@
 
 [node name="SwitchHub" type="Node3D"]
 script = ExtResource("1_cnbua")
+invert_signal = null
+switches = null
 
 [node name="SwitchComponent" type="Node" parent="."]
 script = ExtResource("1_7kijx")

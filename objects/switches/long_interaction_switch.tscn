@@ -114,7 +114,7 @@ height = 0.1
 radial_segments = 6
 rings = 2
 
-[node name="LongSwitch" type="Area3D" groups=["switch_emitter"]]
+[node name="LongSwitch" type="Area3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 collision_layer = 8
 monitoring = false

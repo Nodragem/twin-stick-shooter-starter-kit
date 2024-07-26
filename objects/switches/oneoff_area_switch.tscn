@@ -5,7 +5,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
 radius = 0.846304
 
-[node name="OneOffAreaSwitch" type="Area3D" groups=["switch_emitter"]]
+[node name="OneOffAreaSwitch" type="Area3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 8
 monitorable = false
