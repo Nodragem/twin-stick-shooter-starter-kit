@@ -16,10 +16,17 @@ script/source = "extends Marker3D
 func _ready():
 	wave_timer.wait_time = time_between_waves
 	_on_wave_timer_timeout()
+	switch_component.activation_signal.connect(self.on_interaction)
+
+func on_interaction(requested:bool):
+	if requested:
+		_on_wave_timer_timeout()
+	else:
+		wave_timer.stop()
 
 func spawn():
 	var enemy = to_spawn.instantiate()
-	enemy.transform = self.transform
+	enemy.global_transform = self.global_transform
 	get_tree().root.add_child(enemy)
 	print(\"Spawn!\")
 
