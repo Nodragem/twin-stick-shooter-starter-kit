@@ -1,9 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://ttqp6dhghvut"]
 
-[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="1_ukywo"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
 radius = 0.846304
+
+[sub_resource type="GDScript" id="GDScript_5akih"]
+script/source = "extends SwitchComponent
+
+## One-off Interaction Area
+func on_interaction(requested):
+	if is_activated:
+		return
+	is_activated = true
+
+func _on_body_entered(body):
+	if body is PlayerEntity:
+		on_interaction(true)
+"
 
 [node name="OneOffAreaSwitch" type="Area3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
@@ -14,6 +26,6 @@ monitorable = false
 shape = SubResource("SphereShape3D_q8hf6")
 
 [node name="SwitchComponent" type="Node" parent="."]
-script = ExtResource("1_ukywo")
+script = SubResource("GDScript_5akih")
 
 [connection signal="body_entered" from="." to="SwitchComponent" method="_on_body_entered"]

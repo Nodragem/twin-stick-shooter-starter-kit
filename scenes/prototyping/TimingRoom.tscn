@@ -345,6 +345,7 @@ transform = Transform3D(1.29539, 0, 0, 0, 1.83988, 0, 0, 0, 1.34797, -14.4569, 1
 [node name="Room2" type="Node3D" parent="GridMap"]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="GridMap/Room2"]
+visible = false
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap/Room2/NavigationRegion3D"]
@@ -361,7 +362,7 @@ switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_gg046")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.49049)
 
 [node name="SwitchHubOpeningDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
-switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2"), NodePath("../../Room1/SwitchHubOpeningDoors/ShortSwitch3")]
+switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2")]
 switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_anpf8"), SubResource("Resource_2pmel"), SubResource("Resource_nj6g5"), SubResource("Resource_7ls1w")])
 
 [node name="InteractiveDoor1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
@@ -380,14 +381,6 @@ regression_rate = 0.0
 [node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_64ufk")
 
-[node name="rotor" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="5"]
-transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
-
-[node name="ShortSwitch3" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_2r2k3")]
-process_mode = 4
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.98077, 0.529999, 1.97578)
-visible = false
-
 [node name="LongSwitch2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
 transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 17.8926, 0.529999, 18.0588)
 
@@ -397,9 +390,6 @@ regression_rate = 0.0
 
 [node name="progress_bar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/origin_progress_bar" index="0"]
 material_override = SubResource("StandardMaterial3D_c6m8p")
-
-[node name="rotor" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="5"]
-transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
 
 [node name="EnemySpawner" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
