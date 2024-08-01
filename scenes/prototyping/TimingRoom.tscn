@@ -143,7 +143,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -62.3759)
 transform = Transform3D(0.707107, 0.122788, 0.696364, 0, 0.984808, -0.173648, -0.707107, 0.122788, 0.696364, 0, 0, 0)
 
 [node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
-fov = 40.0
+fov = 29.0
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("4_ylicc")
