@@ -34,12 +34,12 @@ script = ExtResource("14")
 [node name="TwoStickControllerAuto" parent="." instance=ExtResource("5_n2q7r")]
 
 [node name="CameraPivot" type="Node3D" parent="."]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
 
 [node name="ThirdPersonCamera" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-1, 7.54979e-08, -1.30766e-07, 0, 0.866025, 0.5, 1.50996e-07, 0.5, -0.866025, -2.24466e-06, 23.1469, -35.6759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
 current = true
-fov = 30.9
+fov = 30.0
 
 [node name="IcySkin" parent="." instance=ExtResource("1")]
 

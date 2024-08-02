@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp44bcadipmxy"]
-
-[ext_resource type="PackedScene" uid="uid://t3fk8ctejpoh" path="res://objects/switches/LongSwitch.glb" id="1_8fd63"]
-
-[node name="LongSwitch" instance=ExtResource("1_8fd63")]

@@ -1,8 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
+[gd_scene load_steps=11 format=3 uid="uid://hcqc6rr7cqwf"]
 
-[ext_resource type="Script" path="res://objects/switches/long_interaction_switch.gd" id="1_qcqne"]
+[ext_resource type="PackedScene" uid="uid://t3fk8ctejpoh" path="res://objects/switches/LongSwitch.glb" id="1_8fd63"]
+[ext_resource type="Script" path="res://objects/switches/long_interaction_switch.gd" id="2_qjjge"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_w132w"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2py6"]
+size = Vector3(1.42712, 2.50537, 2.1781)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f4w5i"]
 radius = 0.994774
 
 [sub_resource type="Animation" id="Animation_lwkho"]
@@ -10,34 +14,58 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("rotor:rotation")
+tracks/0/path = NodePath("LongSwitchBase/Handle:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -1.5708)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("origin_progress_bar:scale")
+tracks/1/path = NodePath("LongSwitchBase/ProgressBar:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.178118, 1, 0.208812)]
+"values": [Vector3(1, 0.01, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("origin_progress_bar/progress_bar:material_override:albedo_color")
+tracks/2/path = NodePath("LongSwitchBase/ProgressBar:material_override:albedo_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LongSwitchBase/LongLightBulb:material_override:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LongSwitchBase/LongLightBulb:material_override:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -50,26 +78,50 @@ step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("origin_progress_bar:scale")
+tracks/0/path = NodePath("LongSwitchBase/ProgressBar:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.178, 0.01, 0.209), Vector3(0.178118, 1, 0.208812)]
+"values": [Vector3(1, 0.01, 1), Vector3(1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("origin_progress_bar/progress_bar:material_override:albedo_color")
+tracks/1/path = NodePath("LongSwitchBase/ProgressBar:material_override:albedo_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1),
+"times": PackedFloat32Array(0, 0.666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0.929412, 0.254902, 0.294118, 1), Color(0.927686, 0.432652, 0.1832, 1), Color(0.65098, 0.929412, 0.254902, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LongSwitchBase/LongLightBulb:material_override:emission")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.444344, 0.445691, 0.12905, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LongSwitchBase/LongLightBulb:material_override:albedo_color")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1), Color(0.163353, 0.523085, 0.105862, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_728kc"]
@@ -80,14 +132,14 @@ step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("rotor:rotation")
+tracks/0/path = NodePath("LongSwitchBase/Handle:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -1.5708), Vector3(3.14159, 0, -1.5708), Vector3(6.26573, 0, -1.5708)]
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.26573, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oai5e"]
@@ -97,66 +149,49 @@ _data = {
 "switch_charging": SubResource("Animation_728kc")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
-albedo_color = Color(0.447059, 0.180392, 0.619608, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj7cx"]
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+roughness = 0.39
+emission_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
-material = SubResource("StandardMaterial3D_kao0k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wsmx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rlf6"]
 resource_local_to_scene = true
 albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_iiikx"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
-height = 0.1
-radial_segments = 6
-rings = 2
-
-[node name="LongSwitch" type="Area3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="LongSwitch" instance=ExtResource("1_8fd63")]
 collision_layer = 8
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
-shape = SubResource("SphereShape3D_w132w")
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+collision_layer = 8
+collision_mask = 5
 
-[node name="SwitchComponent" type="Node" parent="."]
-script = ExtResource("1_qcqne")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281372, 1.24731, 0.010437)
+shape = SubResource("BoxShape3D_e2py6")
 
-[node name="AnimationProgression" type="AnimationPlayer" parent="SwitchComponent"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701363, 0.961443, -5.96046e-08)
+shape = SubResource("SphereShape3D_f4w5i")
+
+[node name="SwitchComponent" type="Node" parent="." index="2"]
+script = ExtResource("2_qjjge")
+
+[node name="AnimationProgression" type="AnimationPlayer" parent="SwitchComponent" index="0"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_oai5e")
 }
 
-[node name="AnimationLoading" type="AnimationPlayer" parent="SwitchComponent"]
+[node name="AnimationLoading" type="AnimationPlayer" parent="SwitchComponent" index="1"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_oai5e")
 }
 
-[node name="main_body" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.521648, 0, 0, 0, 1, 0, 0, 0, 0.524464, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_3fq0q")
-skeleton = NodePath("")
+[node name="LongLightBulb" parent="LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_pj7cx")
 
-[node name="origin_progress_bar" type="Node3D" parent="."]
-transform = Transform3D(0.178118, 0, 0, 0, 1, 0, 0, 0, 0.208812, 0, 0.0284122, 0.376342)
-
-[node name="progress_bar" type="MeshInstance3D" parent="origin_progress_bar"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499407, 0)
-material_override = SubResource("StandardMaterial3D_7wsmx")
-mesh = SubResource("BoxMesh_iiikx")
-skeleton = NodePath("")
-
-[node name="base" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_1rybc")
-skeleton = NodePath("")
-
-[node name="rotor" type="MeshInstance3D" parent="."]
-transform = Transform3D(-2.79175e-06, 1, 0, -0.771203, -3.61999e-06, 0, 0, 0, 0.232869, 0.393743, 0.563233, 0.00279331)
-mesh = SubResource("CylinderMesh_1rybc")
-skeleton = NodePath("")
+[node name="ProgressBar" parent="LongSwitchBase" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, -0.0691416, 0.310591, 0.631437)
+material_override = SubResource("StandardMaterial3D_6rlf6")

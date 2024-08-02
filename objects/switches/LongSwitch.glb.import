@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/LongSwitch.glb-bdace6e06b86054f678805577cec65
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Area3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

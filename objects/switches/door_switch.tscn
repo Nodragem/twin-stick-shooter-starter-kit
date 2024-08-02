@@ -1,0 +1,267 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2nlcgg1yuy7o"]
+
+[ext_resource type="PackedScene" uid="uid://nv322xfcdn3m" path="res://objects/switches/DoorSwitch.glb" id="1_gxtlg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8k5ul"]
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+emission_enabled = true
+
+[sub_resource type="GDScript" id="GDScript_p3r0o"]
+script/source = "extends SwitchComponent
+
+func _ready():
+	if not is_activated:
+		close_door()
+
+func on_interaction(requested:bool):
+	if requested == is_activated:
+		return
+	if requested:
+		open_door()
+	else:
+		close_door()
+
+func open_door():
+	is_activated = true
+	$AnimationPlayer.play(\"Opening\")
+	
+func close_door():
+	is_activated = false
+	$AnimationPlayer.play(\"Closing\")
+"
+
+[sub_resource type="Animation" id="Animation_470fy"]
+resource_name = "Closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.766667, -0.00474254, 1.05217, -0.0333334, 0.223577, 0.0666667, -0.257453, 1, -0.1, 0.045393, 0.25, 0),
+"times": PackedFloat32Array(0, 0.766667, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:emission")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nq2hn"]
+resource_name = "Opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.392291, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatableBody3D:process_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.163353, 0.523085, 0.105862, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:emission")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.444344, 0.445691, 0.12905, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o3pyg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.01, 1)]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorSwitch_Frame/DoorSwitch_Opening:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.01, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatableBody3D:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DoorSwitch_Frame/DoorLightBulbs:material_override:emission")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p0j34"]
+_data = {
+"Closing": SubResource("Animation_470fy"),
+"Opening": SubResource("Animation_nq2hn"),
+"RESET": SubResource("Animation_o3pyg")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sucim"]
+size = Vector3(4.25562, 4.04102, 1)
+
+[node name="DoorSwitch" instance=ExtResource("1_gxtlg")]
+
+[node name="DoorLightBulbs" parent="DoorSwitch_Frame" index="0"]
+material_override = SubResource("StandardMaterial3D_8k5ul")
+
+[node name="DoorSwitch_Opening" parent="DoorSwitch_Frame" index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, -0.00215316, 4, 0.00788856)
+visible = false
+
+[node name="SwitchComponent" type="Node" parent="." index="1"]
+script = SubResource("GDScript_p3r0o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_p0j34")
+}
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." index="2"]
+process_mode = 4
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000366211, 2.00098, 0)
+shape = SubResource("BoxShape3D_sucim")

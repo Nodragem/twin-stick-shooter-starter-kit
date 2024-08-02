@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/ShortSwitch.glb-7e0a73863379e44b982b4093376af
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Area3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

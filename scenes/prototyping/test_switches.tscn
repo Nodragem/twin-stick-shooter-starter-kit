@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfmlhl2m8y84c"]
+
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="1_mmrdc"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="2_dg5pt"]
+[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://objects/switches/switch_hub.tscn" id="3_qefay"]
+[ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://objects/switches/long_interaction_switch.tscn" id="3_vnpfb"]
+[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="4_57k20"]
+[ext_resource type="Script" path="res://objects/switches/switch_connection.gd" id="4_x0kdb"]
+[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://objects/switches/door_switch.tscn" id="5_0i26q"]
+
+[sub_resource type="Resource" id="Resource_nxsf6"]
+script = ExtResource("4_x0kdb")
+inverse_polarity = false
+switch = NodePath("DoorSwitch2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyvnn"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+metallic = 0.54
+roughness = 0.42
+emission_enabled = true
+emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvaxj"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83jp4"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+metallic = 0.54
+roughness = 0.42
+emission_enabled = true
+emission_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoeku"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="PlayerEntity" parent="." instance=ExtResource("2_dg5pt")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.86817, 1.69543, 4.86779)
+
+[node name="CameraPivot" parent="PlayerEntity" index="4"]
+transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_mmrdc")
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65532, 1, 40, 65534, 1, 40, 0, 1, 40, 2, 1, 40, 4, 1, 40, 6, 1, 40, 6, 65535, 40, 4, 65535, 40, 2, 65535, 40, 0, 65535, 40, 65534, 65535, 40, 65532, 65535, 40, 65532, 3, 40, 65532, 5, 1048637, 65534, 3, 40, 65534, 5, 40, 0, 3, 40, 0, 5, 40, 2, 3, 40, 2, 5, 40, 4, 3, 40, 4, 5, 40, 6, 3, 40, 6, 5, 40, 65532, 65527, 66, 65532, 65529, 40, 65532, 65531, 40, 65532, 65533, 40, 65534, 65527, 40, 65534, 65529, 40, 65534, 65531, 40, 65534, 65533, 40, 0, 65527, 40, 0, 65529, 40, 0, 65531, 40, 0, 65533, 40, 2, 65527, 40, 2, 65529, 40, 2, 65531, 40, 2, 65533, 40, 4, 65527, 40, 4, 65529, 40, 4, 65531, 40, 4, 65533, 40, 6, 65527, 40, 6, 65529, 40, 6, 65531, 40, 6, 65533, 40, 65531, 65527, 1441803, 65531, 65529, 1441803, 65531, 65531, 1441803, 65531, 65533, 1048588, 65531, 65535, 1441803, 65531, 1, 1441803, 65531, 3, 1048591, 65532, 65526, 655371, 65534, 65526, 655371, 0, 65526, 655371, 2, 65526, 13, 4, 65526, 655371, 6, 65526, 655371, 65531, 5, 1048587, 65531, 65530, 14, 5, 65527, 1441860)
+}
+
+[node name="SwitchHub" parent="GridMap" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("3_qefay")]
+switch_emitters = [NodePath("LongSwitch"), NodePath("LongSwitch2")]
+switch_receivers = Array[ExtResource("4_x0kdb")]([SubResource("Resource_nxsf6")])
+
+[node name="DoorSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("5_0i26q")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.22827, 0.530015, -13.4787)
+
+[node name="LongSwitch" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0.5, -6)
+
+[node name="SwitchComponent" parent="GridMap/SwitchHub/LongSwitch" index="2"]
+progression_rate = 20.0
+
+[node name="LongLightBulb" parent="GridMap/SwitchHub/LongSwitch/LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_eyvnn")
+
+[node name="ProgressBar" parent="GridMap/SwitchHub/LongSwitch/LongSwitchBase" index="2"]
+material_override = SubResource("StandardMaterial3D_tvaxj")
+
+[node name="LongSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0.5, -6)
+
+[node name="SwitchComponent" parent="GridMap/SwitchHub/LongSwitch2" index="2"]
+progression_rate = 20.0
+
+[node name="LongLightBulb" parent="GridMap/SwitchHub/LongSwitch2/LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_83jp4")
+
+[node name="ProgressBar" parent="GridMap/SwitchHub/LongSwitch2/LongSwitchBase" index="2"]
+material_override = SubResource("StandardMaterial3D_yoeku")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("4_57k20")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+layers = 2
+light_color = Color(0.992157, 0.917647, 0.698039, 1)
+light_angular_distance = 3.0
+shadow_enabled = true
+shadow_bias = 0.03
+directional_shadow_mode = 0
+directional_shadow_split_2 = 0.343
+directional_shadow_split_3 = 0.566
+directional_shadow_blend_splits = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
+layers = 2
+light_color = Color(0.303129, 0.18483, 0.0558749, 1)
+light_energy = 1.239
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_bias = 0.03
+shadow_blur = 0.0
+directional_shadow_mode = 0
+
+[editable path="PlayerEntity"]
+[editable path="GridMap/SwitchHub/LongSwitch"]
+[editable path="GridMap/SwitchHub/LongSwitch2"]

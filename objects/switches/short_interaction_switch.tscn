@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://orkkys0mmvkr"]
+[gd_scene load_steps=9 format=3 uid="uid://bgbyxysfhnde2"]
 
-[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="1_4j45m"]
+[ext_resource type="PackedScene" uid="uid://ds8uv8qautoda" path="res://objects/switches/ShortSwitch.glb" id="1_m8y6f"]
+[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="2_58nv6"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_q8hf6"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_dxrbr"]
 radius = 0.846304
 
 [sub_resource type="Animation" id="Animation_aycb1"]
@@ -10,26 +11,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("switch:position")
+tracks/0/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.318764, 0.68638, 0.00279331)]
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("on_off_indicator:mesh:material:albedo_color")
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.927686, 0.256411, 0.298385, 1)]
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.174533)]
 }
 
 [sub_resource type="Animation" id="Animation_sucxi"]
@@ -38,26 +51,38 @@ length = 0.06667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("switch:position")
+tracks/0/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.345845, 0.68638, 0.00279331)]
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("on_off_indicator:mesh:material:albedo_color")
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.927686, 0.256411, 0.298385, 1)]
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.174533)]
 }
 
 [sub_resource type="Animation" id="Animation_m4h6i"]
@@ -66,26 +91,38 @@ length = 0.06667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("switch:position")
+tracks/0/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.188981, 0.686381, 0.00279331)]
+"values": [Vector3(0, 0, 0.174533)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("on_off_indicator:mesh:material:albedo_color")
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.65098, 0.929412, 0.254902, 1)]
+"values": [Color(0.163353, 0.523085, 0.105862, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.444344, 0.445691, 0.12905, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t5ss8"]
@@ -95,58 +132,30 @@ _data = {
 "on_state": SubResource("Animation_m4h6i")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kao0k"]
-albedo_color = Color(0.351331, 0.595926, 0.988783, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idddy"]
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+roughness = 0.39
+emission_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_3fq0q"]
-material = SubResource("StandardMaterial3D_kao0k")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i3ees"]
-albedo_color = Color(0.927686, 0.256411, 0.298385, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_kk2b1"]
-material = SubResource("StandardMaterial3D_i3ees")
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1rybc"]
-height = 0.1
-radial_segments = 6
-rings = 2
-
-[sub_resource type="BoxMesh" id="BoxMesh_ohq8r"]
-
-[node name="ShortSwitch" type="Area3D"]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+[node name="ShortSwitch" instance=ExtResource("1_m8y6f")]
 collision_layer = 8
 monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
-shape = SubResource("SphereShape3D_q8hf6")
+shape = SubResource("SphereShape3D_dxrbr")
 
-[node name="SwitchComponent" type="Node" parent="."]
-script = ExtResource("1_4j45m")
+[node name="SwitchComponent" type="Node" parent="." index="1"]
+script = ExtResource("2_58nv6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent" index="0"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_t5ss8")
 }
 
-[node name="main_body" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.521648, 0, 0, 0, 1, 0, 0, 0, 0.524464, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_3fq0q")
-skeleton = NodePath("")
+[node name="ClickHandle" parent="ShortSwitchBase" index="0"]
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.788161, 1.13903, -0.0216069)
 
-[node name="on_off_indicator" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.178118, 0, 0, 0, 0.263164, 0, 0, 0, 0.208812, 0, 1.00584, 0.00476879)
-mesh = SubResource("BoxMesh_kk2b1")
-skeleton = NodePath("")
-
-[node name="base" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_1rybc")
-skeleton = NodePath("")
-
-[node name="switch" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.22627e-06, 0.229841, 0, -0.33875, -8.32021e-07, 0, 0, 0, 0.32927, 0.318764, 0.68638, 0.00279331)
-mesh = SubResource("BoxMesh_ohq8r")
-skeleton = NodePath("")
+[node name="ShortLightBulb" parent="ShortSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_idddy")
