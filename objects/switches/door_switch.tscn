@@ -250,6 +250,7 @@ visible = false
 
 [node name="SwitchComponent" type="Node" parent="." index="1"]
 script = SubResource("GDScript_p3r0o")
+is_activated = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent" index="0"]
 root_node = NodePath("../..")

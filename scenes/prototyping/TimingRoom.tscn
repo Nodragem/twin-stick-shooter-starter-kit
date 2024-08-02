@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://d2yqin8xn1yc1"]
+[gd_scene load_steps=58 format=3 uid="uid://d2yqin8xn1yc1"]
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
@@ -10,12 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_4wka0"]
 [ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="9_gj423"]
 [ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="10_mjrnx"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="11_25ukm"]
 [ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
 [ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
 [ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
 [ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://objects/switches/switch_hub.tscn" id="14_0vyri"]
 [ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="14_6bvec"]
-[ext_resource type="PackedScene" uid="uid://bjt7nal8lacai" path="res://objects/switches/object_spawner.tscn" id="15_68bn6"]
+[ext_resource type="PackedScene" uid="uid://ds5itulgl8xim" path="res://objects/switches/door_spawner.tscn" id="15_68bn6"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_mrupq"]
 [ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://objects/switches/long_interaction_switch.tscn" id="16_fgb57"]
 [ext_resource type="PackedScene" uid="uid://bgbyxysfhnde2" path="res://objects/switches/short_interaction_switch.tscn" id="18_2r2k3"]
@@ -123,27 +124,21 @@ script = ExtResource("31_ra0cn")
 inverse_polarity = true
 switch = NodePath("EnemySpawner2")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5qj1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i8ee"]
 resource_local_to_scene = true
-albedo_color = Color(1, 0, 0, 1)
-metallic_specular = 0.53
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 roughness = 0.39
 emission_enabled = true
-emission = Color(1, 0.501728, 0.342164, 1)
-emission_energy_multiplier = 0.52
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blcpd"]
 resource_local_to_scene = true
 albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mq4fs"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihn5v"]
 resource_local_to_scene = true
-albedo_color = Color(1, 0, 0, 1)
-metallic_specular = 0.53
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 roughness = 0.39
 emission_enabled = true
-emission = Color(1, 0.501728, 0.342164, 1)
-emission_energy_multiplier = 0.52
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poa47"]
 resource_local_to_scene = true
@@ -155,10 +150,7 @@ script = ExtResource("1_a2x0p")
 [node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -62.3759)
-
-[node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3759)
 
 [node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
 fov = 40.0
@@ -207,12 +199,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98077, 0.529999, 1.97578)
 
 [node name="EnemySpawner" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.5, 2)
+to_spawn = ExtResource("11_25ukm")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
 [node name="EnemySpawner2" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -16, 0.5, 2)
+to_spawn = ExtResource("11_25ukm")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
@@ -351,12 +345,6 @@ transform = Transform3D(-1.49877, -0.00113347, -0.112018, -0.00122263, 1.50295, 
 [node name="Box_A4" parent="GridMap/Room1" instance=ExtResource("32_qjv65")]
 transform = Transform3D(-2.7244, -0.00213912, -0.78926, -0.00270527, 2.83642, 0.00165093, 0.789258, 0.00233842, -2.7244, -11.9264, 0.542173, -13.9554)
 
-[node name="Door_B4" parent="GridMap/Room1" instance=ExtResource("15_mrupq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8737, 0.500001, 2.89588)
-
-[node name="Door_B5" parent="GridMap/Room1" instance=ExtResource("15_mrupq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8963, 0.500001, 1.20538)
-
 [node name="Barrel_A4" parent="GridMap/Room1" instance=ExtResource("29_jtqe8")]
 transform = Transform3D(1.29539, 0, 0, 0, 1.83988, 0, 0, 0, 1.34797, -14.4569, 1.35692, -10.5898)
 
@@ -396,8 +384,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.014, 0.529999, -14.0096)
 progression_rate = 20.0
 regression_rate = 0.0
 
-[node name="LongSwitchBase" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="3"]
-surface_material_override/1 = SubResource("StandardMaterial3D_t5qj1")
+[node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_5i8ee")
 
 [node name="ProgressBar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="2"]
 material_override = SubResource("StandardMaterial3D_blcpd")
@@ -409,19 +397,21 @@ transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 17.892
 progression_rate = 20.0
 regression_rate = 0.0
 
-[node name="LongSwitchBase" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="3"]
-surface_material_override/1 = SubResource("StandardMaterial3D_mq4fs")
+[node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_ihn5v")
 
 [node name="ProgressBar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="2"]
 material_override = SubResource("StandardMaterial3D_poa47")
 
 [node name="EnemySpawner" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.3425, 1.70323, 1.888)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 20, 0.5, 2)
+to_spawn = ExtResource("11_25ukm")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
 [node name="EnemySpawner2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.9163, 1.15461, 1.888)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -16, 0.5, 2)
+to_spawn = ExtResource("11_25ukm")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
@@ -467,11 +457,9 @@ transform = Transform3D(0.709952, 0, 0.70425, 0, 1, 0, -0.70425, 0, 0.709952, -1
 [node name="Weaponrack_Decorated2" parent="GridMap/Room2" instance=ExtResource("11_qcire")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57059, 0.5, -15.2207)
 
-[node name="Door_B2" parent="GridMap/Room2" instance=ExtResource("15_mrupq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.8737, 0.500001, 2.89588)
-
 [node name="Door_B3" parent="GridMap/Room2" instance=ExtResource("15_mrupq")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8963, 0.500001, 1.20538)
+visible = false
 
 [node name="Locker_Decorated4" parent="GridMap/Room2" instance=ExtResource("7_hjv8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)

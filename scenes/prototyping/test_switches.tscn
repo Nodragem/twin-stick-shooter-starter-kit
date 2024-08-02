@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfmlhl2m8y84c"]
+[gd_scene load_steps=9 format=3 uid="uid://dfmlhl2m8y84c"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="1_mmrdc"]
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="2_dg5pt"]
@@ -12,30 +12,6 @@
 script = ExtResource("4_x0kdb")
 inverse_polarity = false
 switch = NodePath("DoorSwitch2")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyvnn"]
-resource_local_to_scene = true
-albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
-metallic = 0.54
-roughness = 0.42
-emission_enabled = true
-emission_energy_multiplier = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvaxj"]
-resource_local_to_scene = true
-albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83jp4"]
-resource_local_to_scene = true
-albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
-metallic = 0.54
-roughness = 0.42
-emission_enabled = true
-emission_energy_multiplier = 2.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yoeku"]
-resource_local_to_scene = true
-albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -61,29 +37,14 @@ switch_receivers = Array[ExtResource("4_x0kdb")]([SubResource("Resource_nxsf6")]
 [node name="DoorSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("5_0i26q")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.22827, 0.530015, -13.4787)
 
+[node name="SwitchComponent" parent="GridMap/SwitchHub/DoorSwitch2" index="1"]
+is_activated = false
+
 [node name="LongSwitch" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0.5, -6)
 
-[node name="SwitchComponent" parent="GridMap/SwitchHub/LongSwitch" index="2"]
-progression_rate = 20.0
-
-[node name="LongLightBulb" parent="GridMap/SwitchHub/LongSwitch/LongSwitchBase" index="1"]
-material_override = SubResource("StandardMaterial3D_eyvnn")
-
-[node name="ProgressBar" parent="GridMap/SwitchHub/LongSwitch/LongSwitchBase" index="2"]
-material_override = SubResource("StandardMaterial3D_tvaxj")
-
 [node name="LongSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0.5, -6)
-
-[node name="SwitchComponent" parent="GridMap/SwitchHub/LongSwitch2" index="2"]
-progression_rate = 20.0
-
-[node name="LongLightBulb" parent="GridMap/SwitchHub/LongSwitch2/LongSwitchBase" index="1"]
-material_override = SubResource("StandardMaterial3D_83jp4")
-
-[node name="ProgressBar" parent="GridMap/SwitchHub/LongSwitch2/LongSwitchBase" index="2"]
-material_override = SubResource("StandardMaterial3D_yoeku")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_57k20")
@@ -112,5 +73,4 @@ shadow_blur = 0.0
 directional_shadow_mode = 0
 
 [editable path="PlayerEntity"]
-[editable path="GridMap/SwitchHub/LongSwitch"]
-[editable path="GridMap/SwitchHub/LongSwitch2"]
+[editable path="GridMap/SwitchHub/DoorSwitch2"]

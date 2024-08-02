@@ -150,6 +150,7 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj7cx"]
+resource_local_to_scene = true
 albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 roughness = 0.39
 emission_enabled = true
