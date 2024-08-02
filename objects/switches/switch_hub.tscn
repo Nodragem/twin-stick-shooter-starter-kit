@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk1e5h13iicq3"]
+
+[ext_resource type="Script" path="res://objects/switches/switch_hub.gd" id="1_cnbua"]
+
+[sub_resource type="GDScript" id="GDScript_vgdks"]
+script/source = "extends SwitchComponent
+
+func on_interaction(requested:bool):
+	print(\"variable received: \", requested)
+	get_parent().update_activation_sum()
+"
+
+[node name="SwitchHub" type="Node3D"]
+script = ExtResource("1_cnbua")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = SubResource("GDScript_vgdks")

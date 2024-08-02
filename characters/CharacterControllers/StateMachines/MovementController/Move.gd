@@ -6,6 +6,7 @@ extends PlayerState
 @export var snap_length := 0.5
 @export var do_stop_on_slope := true
 
+var _switch_component :SwitchComponent = null
 var _move_direction := Vector3.ZERO
 var _player_input := Vector3.ZERO
 var _is_directing := true
@@ -22,7 +23,23 @@ func _ready():
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_jump") and player.is_on_floor():
 		_state_machine.transition_to("Move/Jump", {velocity = player.velocity})
-
+	
+	# TODO: I dont like that this logic is in the Player
+	# The logic of the switch input should be in the switch? 
+	if event.is_action_pressed("p1_interact") and player.is_on_floor():
+		print("button interacting pressed.")
+		var interactibles = player.interaction_area.get_overlapping_areas()
+		for area:Area3D in interactibles:
+			print("Interactible Objects found!")
+			var switch_component = area.get_node_or_null("SwitchComponent")
+			if switch_component:
+				print("SwitchComponent found!")
+				print("long interaction")
+				_switch_component = switch_component
+				_switch_component.on_interaction(true) 
+	if event.is_action_released("p1_interact") or not player.is_on_floor():
+		print("button interacting released")
+		if _switch_component: _switch_component.on_interaction(false)
 
 func physics_process(delta: float) -> void:
 	_update_player_input()

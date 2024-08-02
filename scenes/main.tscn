@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bv55eibbam6m6"]
 
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://b87aieg3uitnk" path="res://scenes/level2/level2.tscn" id="3_6l6n1"]
+[ext_resource type="PackedScene" uid="uid://b87aieg3uitnk" path="res://scenes/level1/level1.tscn" id="3_6l6n1"]
 [ext_resource type="PackedScene" uid="uid://bsvdg3ojnd0oj" path="res://ui/ControllerMenu.tscn" id="13_ysf7g"]
 
 [node name="Node3D" type="Node3D"]
@@ -9,15 +9,12 @@
 [node name="PlayerEntity" parent="." instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564909, 0.467465, 24.7514)
 
-[node name="HealthManager" parent="PlayerEntity" index="1" node_paths=PackedStringArray("ui_hearts")]
-ui_hearts = [NodePath("HBoxContainer/p1"), NodePath("HBoxContainer/p2"), NodePath("HBoxContainer/p3"), NodePath("HBoxContainer/p4"), NodePath("HBoxContainer/p5")]
-
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(0.545181, 0, 0.838319, 0, 1, 0, -0.838319, 0, 0.545181, 0, 0, 0)
+transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
 
 [node name="ControllerMenu" parent="." instance=ExtResource("13_ysf7g")]
 visible = false
 
-[node name="Level2" parent="." instance=ExtResource("3_6l6n1")]
+[node name="Level1" parent="." instance=ExtResource("3_6l6n1")]
 
 [editable path="PlayerEntity"]

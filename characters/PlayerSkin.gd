@@ -82,26 +82,16 @@ func play_shooting(is_requested: bool) -> void:
 	
 
 func orient_model_to_direction(direction: Vector3, delta: float) -> void:
-	# METHOD 1:
-	# model.look_at(player.global_transform.origin +\
-	# _move_direction, Vector3.UP)
 	
 	if direction.length() > 0.2:
 		_last_strong_direction = direction
+
+	# Remember that Y is the Up Axis
+	# LERP is used cumulatively here
+	# NOTE: z axis is forward/backward, x is right/left 
+	global_rotation.y = lerp_angle(
+		global_rotation.y, 
+		Vector2(_last_strong_direction.z, _last_strong_direction.x).angle(), 
+		delta*rotation_speed
+	)
 	
-	# METHOD 2:
-	var left_axis := Vector3.UP.cross(_last_strong_direction)
-	var rotation_basis := Basis(left_axis, Vector3.UP, _last_strong_direction)\
-	.orthonormalized()
-	
-	# in what sense is it different from transform.look_at + interpolate_with?
-	self.transform.basis = self.transform.basis\
-	.orthonormalized()\
-	.slerp(rotation_basis, delta * rotation_speed)\
-	.scaled(self.scale)
-	
-	# can also try this:
-	#	_model.transform.basis = _model.transform.basis
-	#	.get_rotation_quat().slerp(
-	#		rotation_basis, delta * rotation_speed
-	#	)

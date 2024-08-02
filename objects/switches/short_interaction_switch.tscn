@@ -1,0 +1,161 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgbyxysfhnde2"]
+
+[ext_resource type="PackedScene" uid="uid://ds8uv8qautoda" path="res://objects/switches/ShortSwitch.glb" id="1_m8y6f"]
+[ext_resource type="Script" path="res://objects/switches/short_interaction_switch.gd" id="2_58nv6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dxrbr"]
+radius = 0.846304
+
+[sub_resource type="Animation" id="Animation_aycb1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.174533)]
+}
+
+[sub_resource type="Animation" id="Animation_sucxi"]
+resource_name = "off_state"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.174533)]
+}
+
+[sub_resource type="Animation" id="Animation_m4h6i"]
+resource_name = "on_state"
+length = 0.06667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShortSwitchBase/ClickHandle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.174533)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.163353, 0.523085, 0.105862, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShortSwitchBase/ShortLightBulb:material_override:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.444344, 0.445691, 0.12905, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t5ss8"]
+_data = {
+"RESET": SubResource("Animation_aycb1"),
+"off_state": SubResource("Animation_sucxi"),
+"on_state": SubResource("Animation_m4h6i")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idddy"]
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+roughness = 0.39
+emission_enabled = true
+
+[node name="ShortSwitch" instance=ExtResource("1_m8y6f")]
+collision_layer = 8
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
+shape = SubResource("SphereShape3D_dxrbr")
+
+[node name="SwitchComponent" type="Node" parent="." index="1"]
+script = ExtResource("2_58nv6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_t5ss8")
+}
+
+[node name="ClickHandle" parent="ShortSwitchBase" index="0"]
+transform = Transform3D(0.984808, 0.173648, 0, -0.173648, 0.984808, 0, 0, 0, 1, 0.788161, 1.13903, -0.0216069)
+
+[node name="ShortLightBulb" parent="ShortSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_idddy")

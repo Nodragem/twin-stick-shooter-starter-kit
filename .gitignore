@@ -1,4 +1,5 @@
 # Godot 4+ specific ignores
+export
 .godot/
 addons/
 # Godot-specific ignores
