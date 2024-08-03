@@ -381,7 +381,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 20)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.014, 0.529999, -14.0096)
 
 [node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="2"]
-progression_rate = 20.0
 regression_rate = 0.0
 
 [node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="1"]
@@ -394,7 +393,6 @@ material_override = SubResource("StandardMaterial3D_blcpd")
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 17.8926, 0.529999, 18.0588)
 
 [node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="2"]
-progression_rate = 20.0
 regression_rate = 0.0
 
 [node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="1"]

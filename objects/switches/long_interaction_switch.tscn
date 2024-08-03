@@ -177,6 +177,7 @@ shape = SubResource("SphereShape3D_f4w5i")
 
 [node name="SwitchComponent" type="Node" parent="." index="2"]
 script = ExtResource("2_qjjge")
+progression_rate = 20.0
 
 [node name="AnimationProgression" type="AnimationPlayer" parent="SwitchComponent" index="0"]
 root_node = NodePath("../..")

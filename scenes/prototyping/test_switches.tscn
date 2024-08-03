@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfmlhl2m8y84c"]
+[gd_scene load_steps=13 format=3 uid="uid://dfmlhl2m8y84c"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="1_mmrdc"]
 [ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="2_dg5pt"]
@@ -7,44 +7,61 @@
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="4_57k20"]
 [ext_resource type="Script" path="res://objects/switches/switch_connection.gd" id="4_x0kdb"]
 [ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://objects/switches/door_switch.tscn" id="5_0i26q"]
+[ext_resource type="PackedScene" uid="uid://ds5itulgl8xim" path="res://objects/switches/door_spawner.tscn" id="5_8padq"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="6_46hhq"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_hl6ts"]
+vertices = PackedVector3Array(-0.0299997, 6, -19.78, -0.0299997, 6, -19.03, 0.72, 6, -19.28, 0.72, 6, -19.78, 10.47, 4.5, -19.78, 10.47, 4.5, -16.28, 13.47, 4.5, -16.28, 13.47, 4.5, -19.78, 10.97, 1, -14.78, 10.72, 1, -15.28, 9.72, 1, -15.28, 7.22, 1, -7.28, 9.22, 1, -7.28, 2.97, 1, -19.53, 1.47, 1, -19.53, 1.22, 1, -18.28, 3.47, 1, -18.03, 6.47, 1, -6.78, -9.03, 1, -15.28, -9.03, 1, -12.78, -7.28, 1, -12.53, -5.78, 1, -15.53, 4.97, 1, -18.03, -9.03, 1, -6.03, -5.53, 1, -6.03, -5.53, 1, -6.78, -0.78, 1, -18.28, -4.78, 1, -7.28, -7.78, 1, -11.03, -9.03, 1, -11.03, 9.47, 1, -6.03, 13.47, 1, -6.03, 13.47, 1, -15.28, 12.97, 1, -14.78, 9.47, 1, -19.03, 5.47, 1, -19.03, -2.78, 1, -7.28, -1.03, 1, -19.03, -5.78, 1, -19.03, -2.53, 1, -6.03, 6.47, 1, -6.03, -4.53, 1, -4.28, -9.03, 1, 7.47, -5.28, 1, 7.72, 8.72, 1, -4.28, 13.47, 1, 11.47, -2.53, 1, -5.03, -3.28, 1, -4.28, 7.47, 1, -4.28, -5.28, 1, 11.47, -9.78, 4.5, 10.47, -9.78, 4.5, 11.47, -6.28, 4.5, 11.47, -6.28, 4.5, 10.47)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 12), PackedInt32Array(10, 12, 11), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(10, 11, 17), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(16, 22, 10), PackedInt32Array(25, 24, 23), PackedInt32Array(26, 15, 16), PackedInt32Array(25, 23, 27), PackedInt32Array(27, 23, 28), PackedInt32Array(28, 23, 29), PackedInt32Array(30, 12, 31), PackedInt32Array(31, 12, 33), PackedInt32Array(31, 33, 32), PackedInt32Array(35, 34, 22), PackedInt32Array(22, 34, 10), PackedInt32Array(20, 21, 28), PackedInt32Array(28, 21, 27), PackedInt32Array(27, 21, 36), PackedInt32Array(37, 26, 38), PackedInt32Array(38, 26, 21), PackedInt32Array(26, 16, 21), PackedInt32Array(21, 16, 36), PackedInt32Array(36, 16, 17), PackedInt32Array(17, 16, 10), PackedInt32Array(40, 39, 17), PackedInt32Array(17, 39, 36), PackedInt32Array(8, 33, 12), PackedInt32Array(24, 41, 23), PackedInt32Array(23, 41, 42), PackedInt32Array(42, 41, 43), PackedInt32Array(30, 31, 44), PackedInt32Array(44, 31, 45), PackedInt32Array(46, 39, 40), PackedInt32Array(47, 46, 40), PackedInt32Array(40, 48, 47), PackedInt32Array(47, 48, 43), PackedInt32Array(43, 48, 49), PackedInt32Array(49, 48, 45), PackedInt32Array(43, 41, 47), PackedInt32Array(48, 44, 45), PackedInt32Array(53, 52, 50), PackedInt32Array(50, 52, 51)]
 
 [sub_resource type="Resource" id="Resource_nxsf6"]
 script = ExtResource("4_x0kdb")
 inverse_polarity = false
 switch = NodePath("DoorSwitch2")
 
+[sub_resource type="Resource" id="Resource_2yck4"]
+script = ExtResource("4_x0kdb")
+inverse_polarity = false
+switch = NodePath("DoorSpawner")
+
 [node name="Node3D" type="Node3D"]
 
-[node name="PlayerEntity" parent="." instance=ExtResource("2_dg5pt")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.86817, 1.69543, 4.86779)
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_hl6ts")
 
-[node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
-
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap" type="GridMap" parent="NavigationRegion3D"]
 mesh_library = ExtResource("1_mmrdc")
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 data = {
-"cells": PackedInt32Array(65532, 1, 40, 65534, 1, 40, 0, 1, 40, 2, 1, 40, 4, 1, 40, 6, 1, 40, 6, 65535, 40, 4, 65535, 40, 2, 65535, 40, 0, 65535, 40, 65534, 65535, 40, 65532, 65535, 40, 65532, 3, 40, 65532, 5, 1048637, 65534, 3, 40, 65534, 5, 40, 0, 3, 40, 0, 5, 40, 2, 3, 40, 2, 5, 40, 4, 3, 40, 4, 5, 40, 6, 3, 40, 6, 5, 40, 65532, 65527, 66, 65532, 65529, 40, 65532, 65531, 40, 65532, 65533, 40, 65534, 65527, 40, 65534, 65529, 40, 65534, 65531, 40, 65534, 65533, 40, 0, 65527, 40, 0, 65529, 40, 0, 65531, 40, 0, 65533, 40, 2, 65527, 40, 2, 65529, 40, 2, 65531, 40, 2, 65533, 40, 4, 65527, 40, 4, 65529, 40, 4, 65531, 40, 4, 65533, 40, 6, 65527, 40, 6, 65529, 40, 6, 65531, 40, 6, 65533, 40, 65531, 65527, 1441803, 65531, 65529, 1441803, 65531, 65531, 1441803, 65531, 65533, 1048588, 65531, 65535, 1441803, 65531, 1, 1441803, 65531, 3, 1048591, 65532, 65526, 655371, 65534, 65526, 655371, 0, 65526, 655371, 2, 65526, 13, 4, 65526, 655371, 6, 65526, 655371, 65531, 5, 1048587, 65531, 65530, 14, 5, 65527, 1441860)
+"cells": PackedInt32Array(65532, 1, 40, 65534, 1, 40, 0, 1, 41, 2, 1, 41, 4, 1, 40, 6, 1, 40, 6, 65535, 40, 4, 65535, 40, 2, 65535, 41, 0, 65535, 41, 65534, 65535, 40, 65532, 65535, 40, 65532, 3, 40, 65532, 5, 1048637, 65534, 3, 40, 65534, 5, 40, 0, 3, 41, 0, 5, 41, 2, 3, 41, 2, 5, 41, 4, 3, 40, 4, 5, 40, 6, 3, 40, 6, 5, 39, 65532, 65527, 66, 65532, 65529, 41, 65532, 65531, 39, 65532, 65533, 40, 65534, 65527, 41, 65534, 65529, 41, 65534, 65531, 41, 65534, 65533, 39, 0, 65527, 41, 0, 65529, 41, 0, 65531, 41, 0, 65533, 41, 2, 65527, 41, 2, 65529, 41, 2, 65531, 41, 2, 65533, 41, 4, 65527, 41, 4, 65529, 41, 4, 65531, 41, 4, 65533, 39, 6, 65527, 54, 6, 65529, 41, 6, 65531, 39, 6, 65533, 40, 65531, 65527, 1441803, 65531, 65529, 1441803, 65531, 65531, 1441803, 65531, 65533, 1048588, 65531, 65535, 1441803, 65531, 1, 1441803, 65531, 3, 1048591, 65532, 65526, 655371, 65534, 65526, 655371, 4, 65526, 655371, 6, 65526, 655371, 65531, 5, 1048587, 65531, 65530, 14, 2, 65526, 14, 65535, 65526, 14)
 }
 
-[node name="SwitchHub" parent="GridMap" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("3_qefay")]
-switch_emitters = [NodePath("LongSwitch"), NodePath("LongSwitch2")]
-switch_receivers = Array[ExtResource("4_x0kdb")]([SubResource("Resource_nxsf6")])
+[node name="SwitchHub" parent="NavigationRegion3D/GridMap" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("3_qefay")]
+switch_emitters = [NodePath("LongSwitch2"), NodePath("LongSwitch")]
+switch_receivers = Array[ExtResource("4_x0kdb")]([SubResource("Resource_nxsf6"), SubResource("Resource_2yck4")])
 
-[node name="DoorSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("5_0i26q")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.22827, 0.530015, -13.4787)
+[node name="DoorSpawner" parent="NavigationRegion3D/GridMap/SwitchHub" instance=ExtResource("5_8padq")]
+transform = Transform3D(-1, -1.81e-06, -1.03316e-07, -1.81e-06, 1, -4.84987e-07, 1.03316e-07, -4.84987e-07, -1, 12, 0.5, -16)
+to_spawn = ExtResource("6_46hhq")
+time_between_waves = 12
+nb_spawn_by_wave = 2
 
-[node name="SwitchComponent" parent="GridMap/SwitchHub/DoorSwitch2" index="1"]
-is_activated = false
+[node name="EnemySpawner" parent="NavigationRegion3D/GridMap/SwitchHub/DoorSpawner" index="1"]
+transform = Transform3D(-1, -5.01073e-14, 8.74228e-08, 7.70801e-15, 1, -1.13687e-13, -8.74228e-08, 0, -1, 0, 2, -3)
 
-[node name="LongSwitch" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0.5, -6)
+[node name="DoorSwitch2" parent="NavigationRegion3D/GridMap/SwitchHub" instance=ExtResource("5_0i26q")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.22827, 0.530015, -19.4787)
 
-[node name="LongSwitch2" parent="GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
+[node name="LongSwitch" parent="NavigationRegion3D/GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.97409, 0.5, -6)
+
+[node name="LongSwitch2" parent="NavigationRegion3D/GridMap/SwitchHub" instance=ExtResource("3_vnpfb")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0.5, -6)
+
+[node name="PlayerEntity" parent="." instance=ExtResource("2_dg5pt")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.86817, 1.69543, 4.86779)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_57k20")
@@ -72,5 +89,5 @@ shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
 
+[editable path="NavigationRegion3D/GridMap/SwitchHub/DoorSpawner"]
 [editable path="PlayerEntity"]
-[editable path="GridMap/SwitchHub/DoorSwitch2"]
