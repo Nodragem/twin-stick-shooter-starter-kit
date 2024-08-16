@@ -1,0 +1,286 @@
+[gd_scene load_steps=34 format=3 uid="uid://dyssgs4g0elmf"]
+
+[ext_resource type="Script" path="res://characters/enemies/melee/enemy_entity.gd" id="1_p1qno"]
+[ext_resource type="PackedScene" uid="uid://en3636qm60ra" path="res://characters/enemies/melee/MeleeSkin.tscn" id="2_dbrsx"]
+[ext_resource type="Script" path="res://characters/enemies/melee/weapon.gd" id="2_efcwp"]
+[ext_resource type="ArrayMesh" uid="uid://bptnevpcunpnm" path="res://assets/objects/weapons/grass_hockey_bat/grass_hockey.res" id="2_gj8p3"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_1stn8"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_3u80n"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/is_dead.gd" id="5_qq63t"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="6_5x6ih"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="7_c8rt6"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/health_below_zero.gd" id="8_jnpn2"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/play_death.gd" id="9_0bqh6"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/is_idling.gd" id="10_5p4dt"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/player_is_detected.gd" id="10_gyner"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/play_idle.gd" id="12_mp7gt"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/player_is_in_reach.gd" id="13_e4uf5"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/succeeder.gd" id="14_b1hwv"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/stop_cool_attack_down.gd" id="14_ppcq8"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/reach_player.gd" id="14_prner"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/cooldown.gd" id="15_eal38"]
+[ext_resource type="Script" path="res://characters/enemies/melee/minion/attack_player.gd" id="15_s2pk0"]
+
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1hmg7"]
+animation = &"Hit-impact"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a2nrj"]
+animation = &"Attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h4w4y"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wcs7x"]
+animation = &"Killed-impact"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_xdwv5"]
+filter_enabled = true
+filters = ["../..", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-forearm.R", "Skeleton3D:DEF-forearm.R.001", "Skeleton3D:DEF-hand.R", "Skeleton3D:DEF-shoulder.R", "Skeleton3D:DEF-spine", "Skeleton3D:DEF-spine.001", "Skeleton3D:DEF-spine.002", "Skeleton3D:DEF-spine.003", "Skeleton3D:DEF-spine.004", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006", "Skeleton3D:DEF-upper_arm.R", "Skeleton3D:DEF-upper_arm.R.001", "Skeleton3D:DEF-weapon-anchor"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_sf8yh"]
+filter_enabled = true
+filters = ["Skeleton3D/Body_001:material_overlay", "Skeleton3D/Body_001:material_overlay:albedo_color", "Skeleton3D/Body_001:surface_material_override/0", "Skeleton3D:DEF-Blindfold", "Skeleton3D:DEF-spine.005", "Skeleton3D:DEF-spine.006"]
+mix_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce2nm"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_wld3h"]
+xfade_time = 0.1
+input_0/name = "Idling"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "Running"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Dying"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_o08rm"]
+graph_offset = Vector2(-102.121, 44.8465)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_1hmg7")
+nodes/Animation/position = Vector2(600, 480)
+nodes/attack/node = SubResource("AnimationNodeAnimation_a2nrj")
+nodes/attack/position = Vector2(380, 480)
+nodes/idle/node = SubResource("AnimationNodeAnimation_h4w4y")
+nodes/idle/position = Vector2(180, 140)
+nodes/killed/node = SubResource("AnimationNodeAnimation_wcs7x")
+nodes/killed/position = Vector2(160, 460)
+nodes/on_attacking/node = SubResource("AnimationNodeOneShot_xdwv5")
+nodes/on_attacking/position = Vector2(580, 160)
+nodes/on_hit/node = SubResource("AnimationNodeOneShot_sf8yh")
+nodes/on_hit/position = Vector2(780, 140)
+nodes/output/position = Vector2(980, 160)
+nodes/run/node = SubResource("AnimationNodeAnimation_ce2nm")
+nodes/run/position = Vector2(180, 300)
+nodes/state/node = SubResource("AnimationNodeTransition_wld3h")
+nodes/state/position = Vector2(400, 160)
+node_connections = [&"on_attacking", 0, &"state", &"on_attacking", 1, &"attack", &"on_hit", 0, &"on_attacking", &"on_hit", 1, &"Animation", &"output", 0, &"on_hit", &"state", 0, &"idle", &"state", 1, &"run", &"state", 2, &"killed"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_khqmx"]
+radius = 1.30422
+height = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hsi84"]
+radius = 27.9865
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vfolx"]
+radius = 2.06982
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2ue0h"]
+radius = 0.56734
+
+[node name="Enemy_Minion" type="CharacterBody3D"]
+collision_layer = 16
+collision_mask = 27
+script = ExtResource("1_p1qno")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+process_mode = 1
+root_node = NodePath("../MeleeSkin/Skin")
+tree_root = SubResource("AnimationNodeBlendTree_o08rm")
+anim_player = NodePath("../MeleeSkin/Skin/AnimationPlayer")
+parameters/current_length = 0.466667
+parameters/current_position = 0.466667
+parameters/current_delta = 0.0
+parameters/Animation/current_length = 0.366667
+parameters/Animation/current_position = 0.366667
+parameters/Animation/current_delta = 0.0309255
+parameters/attack/current_length = 0.266667
+parameters/attack/current_position = 0.266667
+parameters/attack/current_delta = 0.0190137
+parameters/idle/current_length = 1.0
+parameters/idle/current_position = 0.841304
+parameters/idle/current_delta = 0.008211
+parameters/killed/current_length = 0.466667
+parameters/killed/current_position = 0.466667
+parameters/killed/current_delta = 0.0
+parameters/on_attacking/current_length = 0.466667
+parameters/on_attacking/current_position = 0.466667
+parameters/on_attacking/current_delta = 0.0
+parameters/on_attacking/active = false
+parameters/on_attacking/internal_active = false
+parameters/on_attacking/request = 0
+parameters/on_hit/current_length = 0.466667
+parameters/on_hit/current_position = 0.466667
+parameters/on_hit/current_delta = 0.0
+parameters/on_hit/active = false
+parameters/on_hit/internal_active = false
+parameters/on_hit/request = 0
+parameters/output/current_length = 0.466667
+parameters/output/current_position = 0.466667
+parameters/output/current_delta = 0.0
+parameters/run/current_length = 0.666667
+parameters/run/current_position = 0.296433
+parameters/run/current_delta = 0.016444
+parameters/state/current_length = 0.466667
+parameters/state/current_position = 0.466667
+parameters/state/current_delta = 0.0
+parameters/state/current_state = "Dying"
+parameters/state/transition_request = ""
+parameters/state/current_index = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_khqmx")
+
+[node name="HitArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.230515)
+shape = SubResource("CapsuleShape3D_khqmx")
+
+[node name="DetectionRange" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange"]
+shape = SubResource("SphereShape3D_hsi84")
+
+[node name="AttackRange" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange"]
+shape = SubResource("SphereShape3D_vfolx")
+
+[node name="WeaponAnchor" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.393251, -0.0232529, 0.919137, 0.79503, 0.510733, -0.327232, -0.461824, 0.859426, 0.219333, -0.599293, 0.00299174, -9.52384)
+bone_name = "DEF-weapon-anchor"
+bone_idx = 25
+use_external_skeleton = true
+external_skeleton = NodePath("../MeleeSkin/Skin/Skeleton3D")
+
+[node name="Weapon" type="MeshInstance3D" parent="WeaponAnchor" node_paths=PackedStringArray("hit_area")]
+mesh = ExtResource("2_gj8p3")
+script = ExtResource("2_efcwp")
+hit_area = NodePath("AttackHitArea")
+
+[node name="AttackHitArea" type="Area3D" parent="WeaponAnchor/Weapon"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.11759e-08, 2.80233, -0.329513)
+collision_layer = 16
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WeaponAnchor/Weapon/AttackHitArea"]
+transform = Transform3D(1, 1.49012e-08, -8.84756e-09, 0, 1, -2.8871e-08, -2.35625e-07, -4.19095e-08, 1, 2.16465e-08, -0.672331, 3.56276e-08)
+shape = SubResource("SphereShape3D_2ue0h")
+
+[node name="MeleeSkin" parent="." instance=ExtResource("2_dbrsx")]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 2.0
+debug_path_custom_color = Color(0.595041, 0.133162, 0.133162, 1)
+debug_path_custom_point_size = 10.04
+
+[node name="BeehaveTree" type="Node" parent="." node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("3_1stn8")
+actor_node_path = NodePath("..")
+blackboard = NodePath("@Node@17290")
+actor = NodePath("..")
+
+[node name="SelectBehaviour" type="Node" parent="BeehaveTree"]
+script = ExtResource("4_3u80n")
+
+[node name="IsDead" type="Node" parent="BeehaveTree/SelectBehaviour"]
+script = ExtResource("5_qq63t")
+
+[node name="GoToDie" type="Node" parent="BeehaveTree/SelectBehaviour"]
+script = ExtResource("6_5x6ih")
+
+[node name="HealthBelowZero" type="Node" parent="BeehaveTree/SelectBehaviour/GoToDie"]
+script = ExtResource("8_jnpn2")
+
+[node name="PlayDeath" type="Node" parent="BeehaveTree/SelectBehaviour/GoToDie"]
+script = ExtResource("9_0bqh6")
+
+[node name="GoToIdle" type="Node" parent="BeehaveTree/SelectBehaviour"]
+script = ExtResource("6_5x6ih")
+
+[node name="IsNotIdling" type="Node" parent="BeehaveTree/SelectBehaviour/GoToIdle"]
+script = ExtResource("7_c8rt6")
+
+[node name="IsIdling" type="Node" parent="BeehaveTree/SelectBehaviour/GoToIdle/IsNotIdling"]
+script = ExtResource("10_5p4dt")
+
+[node name="PlayerIsNotDetected" type="Node" parent="BeehaveTree/SelectBehaviour/GoToIdle"]
+script = ExtResource("7_c8rt6")
+
+[node name="PlayerIsDetected" type="Node" parent="BeehaveTree/SelectBehaviour/GoToIdle/PlayerIsNotDetected"]
+script = ExtResource("10_gyner")
+
+[node name="PlayIdle" type="Node" parent="BeehaveTree/SelectBehaviour/GoToIdle"]
+script = ExtResource("12_mp7gt")
+
+[node name="GoToReach" type="Node" parent="BeehaveTree/SelectBehaviour"]
+script = ExtResource("6_5x6ih")
+
+[node name="PlayerIsDetected" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach"]
+script = ExtResource("10_gyner")
+
+[node name="PlayerNotInReach" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach"]
+script = ExtResource("7_c8rt6")
+
+[node name="PlayerIsInReach" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach/PlayerNotInReach"]
+script = ExtResource("13_e4uf5")
+
+[node name="TryStopAttackCooldown" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach"]
+script = ExtResource("14_b1hwv")
+
+[node name="StopCoolAttackDown" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach/TryStopAttackCooldown" node_paths=PackedStringArray("attack_cooldown")]
+script = ExtResource("14_ppcq8")
+attack_cooldown = NodePath("../../../GoToAttack/CooldownDecorator")
+
+[node name="ReachPlayer" type="Node" parent="BeehaveTree/SelectBehaviour/GoToReach"]
+script = ExtResource("14_prner")
+
+[node name="GoToAttack" type="Node" parent="BeehaveTree/SelectBehaviour"]
+script = ExtResource("6_5x6ih")
+
+[node name="PlayerIsDetected" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack"]
+script = ExtResource("10_gyner")
+
+[node name="PlayerIsInReach" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack"]
+script = ExtResource("13_e4uf5")
+
+[node name="CooldownDecorator" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack"]
+script = ExtResource("15_eal38")
+wait_time = 0.75
+
+[node name="AttackPlayer" type="Node" parent="BeehaveTree/SelectBehaviour/GoToAttack/CooldownDecorator"]
+script = ExtResource("15_s2pk0")
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="DetectionRange" to="." method="_on_detection_range_body_entered"]
+[connection signal="body_exited" from="DetectionRange" to="." method="_on_detection_range_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

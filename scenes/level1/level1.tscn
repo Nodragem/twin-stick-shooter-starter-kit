@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="29_pkd57"]
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="30_6gu3m"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="30_axpgr"]
-[ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/non-playable/dr-megadroon-PROTOTYPE.glb" id="31_cn3x0"]
+[ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/NPC/dr-megadroon-PROTOTYPE.glb" id="31_cn3x0"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
 
 [node name="Level1" type="Node3D"]

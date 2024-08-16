@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_a2x0p"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
-[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="3_yl3ue"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="3_yl3ue"]
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="4_ylicc"]
 [ext_resource type="PackedScene" uid="uid://ttqp6dhghvut" path="res://assets/objects/switches/oneoff_area_switch.tscn" id="5_0p7y3"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="5_2vc36"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_4wka0"]
 [ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="9_gj423"]
 [ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="10_mjrnx"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="11_25ukm"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://characters/enemies/melee/minion/EnemyMinion.tscn" id="11_25ukm"]
 [ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
 [ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
 [ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
