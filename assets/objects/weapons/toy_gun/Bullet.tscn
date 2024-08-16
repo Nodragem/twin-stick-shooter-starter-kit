@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3kj5sou78t1y"]
+
+[ext_resource type="Script" path="res://assets/objects/weapons/toy_gun/Arrow.gd" id="1_315kv"]
+[ext_resource type="Material" path="res://assets/objects/weapons/toy_gun/Arrow.material" id="2_spv5o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vueci"]
+radius = 0.15
+
+[sub_resource type="SphereMesh" id="SphereMesh_yq2cj"]
+material = ExtResource("2_spv5o")
+radius = 0.15
+height = 0.3
+
+[node name="Arrow" type="RigidBody3D" groups=["bullet"]]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_315kv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_vueci")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_yq2cj")

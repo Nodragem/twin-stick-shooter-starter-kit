@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://enemies/melee/enemy_entity.gd" id="1_p1qno"]
 [ext_resource type="PackedScene" uid="uid://en3636qm60ra" path="res://enemies/melee/MeleeSkin.tscn" id="2_dbrsx"]
 [ext_resource type="Script" path="res://enemies/melee/weapon.gd" id="2_efcwp"]
-[ext_resource type="ArrayMesh" uid="uid://bptnevpcunpnm" path="res://objects/weapons/grass_hockey.res" id="2_gj8p3"]
+[ext_resource type="ArrayMesh" uid="uid://bptnevpcunpnm" path="res://assets/objects/weapons/grass_hockey_bat/grass_hockey.res" id="2_gj8p3"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_1stn8"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_3u80n"]
 [ext_resource type="Script" path="res://enemies/melee/minion/is_dead.gd" id="5_qq63t"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://enemies/melee/minion/reach_player.gd" id="14_prner"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/cooldown.gd" id="15_eal38"]
 [ext_resource type="Script" path="res://enemies/melee/minion/attack_player.gd" id="15_s2pk0"]
+
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1hmg7"]
 animation = &"Hit-impact"

@@ -8,6 +8,6 @@ func _post_import(scene):
 	print("Collision Added!")
 	scene.set_script(preload("res://assets/destructible.gd"))
 	scene.body = body
-	scene.explosion = preload("res://objects/SmokeExplosion.tscn")
+	scene.explosion = preload("res://assets/objects/explosion/SmokeExplosion.tscn")
 	print("Destructible Script Added!")
 	return scene # Remember to return the imported scene

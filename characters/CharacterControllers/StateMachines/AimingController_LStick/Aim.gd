@@ -1,6 +1,6 @@
 extends PlayerState
 
-var arrow_prefab = preload("res://objects/Arrow.tscn")
+var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
 
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("p1_aim"):

@@ -1,6 +1,6 @@
 extends PlayerState
 
-var arrow_prefab = preload("res://objects/Arrow.tscn")
+var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
 var _player_aim := Vector3.ZERO
 var _aim_input := Vector2.ZERO
 @onready var _timer : Timer = $Timer

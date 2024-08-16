@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bbge8f5gbi7b6" path="res://characters/CharacterSkins/icy.glb" id="1_jnnas"]
 [ext_resource type="Script" path="res://characters/PlayerSkin.gd" id="2_ihbv3"]
-[ext_resource type="PackedScene" uid="uid://jvm2nax5dsg7" path="res://objects/laser-gun-design1.glb" id="2_nu448"]
+[ext_resource type="PackedScene" uid="uid://jvm2nax5dsg7" path="res://assets/objects/weapons/toy_gun/laser-gun-design1.glb" id="2_nu448"]
 [ext_resource type="Texture2D" uid="uid://c0lpx8edykpem" path="res://characters/CharacterSkins/icy_colors.png" id="3_8sjee"]
-[ext_resource type="Texture2D" uid="uid://dqq0avo77srm7" path="res://objects/muzzle-effect.png" id="3_di4uy"]
+[ext_resource type="Texture2D" uid="uid://dqq0avo77srm7" path="res://assets/objects/weapons/toy_gun/muzzle-effect.png" id="3_di4uy"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufrky"]
 resource_name = "character-mat"
