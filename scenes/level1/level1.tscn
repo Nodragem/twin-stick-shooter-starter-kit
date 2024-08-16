@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=33 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="1_u13gm"]
 [ext_resource type="PackedScene" uid="uid://w3bqftmyjesv" path="res://assets/prototype_bits/Weaponrack.gltf" id="2_sojh4"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="29_pkd57"]
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="30_6gu3m"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="30_axpgr"]
+[ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/non-playable/dr-megadroon-PROTOTYPE.glb" id="31_cn3x0"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
 
 [node name="Level1" type="Node3D"]
@@ -394,6 +395,11 @@ transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -22.36
 
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated3/Locker_Decorated" index="0"]
 visible = false
+
+[node name="NPCs" type="Node3D" parent="GridMapBuilding"]
+
+[node name="dr-megadroon-PROTOTYPE" parent="GridMapBuilding/NPCs" instance=ExtResource("31_cn3x0")]
+transform = Transform3D(-0.686605, 0, -0.72703, 0, 1, 0, 0.72703, 0, -0.686605, 4.72485, 4.58951, -17.7793)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_es3rg")

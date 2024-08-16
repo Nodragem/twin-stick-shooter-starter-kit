@@ -10,7 +10,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564909, 0.467465, 24.7514)
 
 [node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
+transform = Transform3D(-0.707107, 0.397453, -0.584835, 0, 0.827081, 0.562084, 0.707107, 0.397453, -0.584835, 0, 0, 0)
+
+[node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
+fov = 39.2
 
 [node name="ControllerMenu" parent="." instance=ExtResource("13_ysf7g")]
 visible = false

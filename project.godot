@@ -22,6 +22,7 @@ DebugStats="*res://tools/debugging/DebugStats.tscn"
 DebugOverlay="*res://tools/debugging/DebugOverlay.tscn"
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [display]
 
@@ -33,7 +34,7 @@ window/size/window_height_override=540
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [filesystem]
 
