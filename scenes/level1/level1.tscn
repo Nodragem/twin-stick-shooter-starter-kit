@@ -30,8 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="29_pkd57"]
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="30_6gu3m"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="30_axpgr"]
-[ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/NPC/dr-megadroon-PROTOTYPE.glb" id="31_cn3x0"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
+[ext_resource type="PackedScene" uid="uid://h8pnjgggsrtm" path="res://characters/NPC/dr_megadroon.tscn" id="32_ktg0t"]
 
 [node name="Level1" type="Node3D"]
 
@@ -398,9 +398,6 @@ visible = false
 
 [node name="NPCs" type="Node3D" parent="GridMapBuilding"]
 
-[node name="dr-megadroon-PROTOTYPE" parent="GridMapBuilding/NPCs" instance=ExtResource("31_cn3x0")]
-transform = Transform3D(-0.686605, 0, -0.72703, 0, 1, 0, 0.72703, 0, -0.686605, 4.72485, 4.58951, -17.7793)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_es3rg")
 
@@ -426,6 +423,9 @@ light_negative = true
 shadow_bias = 0.03
 shadow_blur = 0.0
 directional_shadow_mode = 0
+
+[node name="dr-megadroon-PROTOTYPE" parent="." instance=ExtResource("32_ktg0t")]
+transform = Transform3D(-0.902676, 0, -0.430322, 0, 1, 0, 0.430322, 0, -0.902676, 5.85811, 4, -19.7725)
 
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4"]

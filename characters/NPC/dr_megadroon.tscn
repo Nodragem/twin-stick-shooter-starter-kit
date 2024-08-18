@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://h8pnjgggsrtm"]
+
+[ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/NPC/dr-megadroon-PROTOTYPE.glb" id="1_x5o77"]
+[ext_resource type="Script" path="res://assets/objects/switches/switch_dialogue.gd" id="2_aq3vx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
+
+[node name="dr-megadroon-PROTOTYPE" instance=ExtResource("1_x5o77")]
+collision_layer = 8
+
+[node name="SwitchComponent" type="Node" parent="." index="0"]
+script = ExtResource("2_aq3vx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678309, -0.836281)
+shape = SubResource("SphereShape3D_mxeb6")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(0.0638655, 1.18966e-07, 7.61337e-09, 0.997959)
+bones/1/rotation = Quaternion(-0.0592261, 1.60153e-14, -1.41206e-08, 0.998245)
+bones/5/rotation = Quaternion(-0.241658, 0.209181, -0.614578, 0.721206)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0180697, 0.0953652, 0.186824, 0.977587)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0914904, -0.0395669, 0.0675893, 0.992721)
+bones/9/rotation = Quaternion(0.12297, -0.0930752, -0.135418, 0.978712)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.113128, 0.0490838, 0.596035, 0.793432)
+bones/11/rotation = Quaternion(-0.00737542, 0.0805805, 0.968878, -0.23394)
+bones/13/rotation = Quaternion(0.00737507, 0.0805804, 0.968878, 0.23394)
+bones/13/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.707029, -0.0104532, 0.70703, -0.0104531)
+bones/16/rotation = Quaternion(-0.0102543, -8.78307e-05, -0.162102, 0.986721)
+bones/16/scale = Vector3(1, 1, 1)
+bones/18/rotation = Quaternion(-0.0102544, 8.77906e-05, 0.162102, 0.986721)
+bones/18/scale = Vector3(1, 1, 1)
+
+[node name="AnimationPlayer" parent="." index="3"]
+autoplay = "Idle"

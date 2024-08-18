@@ -34,7 +34,6 @@ func unhandled_input(event: InputEvent) -> void:
 			var switch_component = area.get_node_or_null("SwitchComponent")
 			if switch_component:
 				print("SwitchComponent found!")
-				print("long interaction")
 				_switch_component = switch_component
 				_switch_component.on_interaction(true) 
 	if event.is_action_released("p1_interact") or not player.is_on_floor():
