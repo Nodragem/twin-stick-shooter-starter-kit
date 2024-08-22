@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgbyxysfhnde2"]
+[gd_scene load_steps=11 format=3 uid="uid://bgbyxysfhnde2"]
 
 [ext_resource type="PackedScene" uid="uid://ds8uv8qautoda" path="res://assets/objects/switches/ShortSwitch.glb" id="1_m8y6f"]
 [ext_resource type="Script" path="res://assets/objects/switches/short_interaction_switch.gd" id="2_58nv6"]
+[ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="2_8032h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6x0yy"]
+size = Vector3(1.42712, 2.50537, 2.1781)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dxrbr"]
 radius = 0.846304
@@ -139,13 +143,22 @@ emission_enabled = true
 
 [node name="ShortSwitch" instance=ExtResource("1_m8y6f")]
 collision_layer = 8
-monitoring = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281372, 1.24731, 0.010437)
+shape = SubResource("BoxShape3D_6x0yy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, -5.96046e-08)
 shape = SubResource("SphereShape3D_dxrbr")
 
-[node name="SwitchComponent" type="Node" parent="." index="1"]
+[node name="InteractionTip" parent="." index="2" instance=ExtResource("2_8032h")]
+
+[node name="SwitchComponent" type="Node" parent="." index="3"]
 script = ExtResource("2_58nv6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SwitchComponent" index="0"]

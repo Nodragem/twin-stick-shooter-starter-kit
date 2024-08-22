@@ -43,11 +43,10 @@ fov = 30.0
 
 [node name="IcySkin" parent="." instance=ExtResource("1")]
 
-[node name="InteractionArea" type="Area3D" parent="IcySkin"]
+[node name="PlayerHand" type="Area3D" parent="IcySkin"]
 collision_mask = 8
-monitorable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="IcySkin/InteractionArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IcySkin/PlayerHand"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00531, 0.798733)
 shape = SubResource("SphereShape3D_q0x46")
 

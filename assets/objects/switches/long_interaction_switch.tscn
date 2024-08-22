@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://hcqc6rr7cqwf"]
+[gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
 
 [ext_resource type="PackedScene" uid="uid://t3fk8ctejpoh" path="res://assets/objects/switches/LongSwitch.glb" id="1_8fd63"]
 [ext_resource type="Script" path="res://assets/objects/switches/long_interaction_switch.gd" id="2_qjjge"]
+[ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="3_76xue"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e2py6"]
 size = Vector3(1.42712, 2.50537, 2.1781)
@@ -161,7 +162,6 @@ albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
 [node name="LongSwitch" instance=ExtResource("1_8fd63")]
 collision_layer = 8
-monitoring = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
 collision_layer = 8
@@ -175,7 +175,9 @@ shape = SubResource("BoxShape3D_e2py6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701363, 0.961443, -5.96046e-08)
 shape = SubResource("SphereShape3D_f4w5i")
 
-[node name="SwitchComponent" type="Node" parent="." index="2"]
+[node name="InteractionTip" parent="." index="2" instance=ExtResource("3_76xue")]
+
+[node name="SwitchComponent" type="Node" parent="." index="3"]
 script = ExtResource("2_qjjge")
 progression_rate = 20.0
 

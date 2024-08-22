@@ -1,33 +1,33 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq342c86wg6dj"]
 
 [ext_resource type="Script" path="res://assets/objects/switches/switch_dialogue.gd" id="1_fl3hb"]
-[ext_resource type="Texture2D" uid="uid://bvywcaf4d5glv" path="res://ui/icons/xbox_button_color_x.png" id="2_qa4p8"]
+[ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="2_df0j8"]
 
 [sub_resource type="GDScript" id="GDScript_enfp8"]
 script/source = "extends Area3D
-
-@onready var _parent:Node3D = get_parent()
-@onready var _camera:Camera3D = get_viewport().get_camera_3d()
-@onready var _tip: Container = $InteractionTip
-@export var offset_3D:Vector3 = 5*Vector3.UP
-@export var offset_2D:Vector2 = Vector2.LEFT*30
-
-func _ready():
-	_tip.visible = false
-
-func _process(delta):
-	_tip.position = _camera.unproject_position(_parent.global_position+offset_3D)
-	_tip.position += offset_2D
-
-
-func _on_body_entered(body):
-	if body is PlayerEntity:
-		_tip.visible = true
-
-
-func _on_body_exited(body):
-	if body is PlayerEntity:
-		_tip.visible = false
+#
+#@onready var _parent:Node3D = get_parent()
+#@onready var _camera:Camera3D = get_viewport().get_camera_3d()
+#@onready var _tip: Container = $InteractionTip
+#@export var offset_3D:Vector3 = 5*Vector3.UP
+#@export var offset_2D:Vector2 = Vector2.LEFT*30
+#
+#func _ready():
+	#_tip.visible = false
+#
+#func _process(delta):
+	#_tip.position = _camera.unproject_position(_parent.global_position+offset_3D)
+	#_tip.position += offset_2D
+#
+#
+#func _on_body_entered(body):
+	#if body is PlayerEntity:
+		#_tip.visible = true
+#
+#
+#func _on_body_exited(body):
+	#if body is PlayerEntity:
+		#_tip.visible = false
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
@@ -37,27 +37,14 @@ radius = 1.0
 collision_layer = 8
 script = SubResource("GDScript_enfp8")
 
-[node name="SwitchComponent" type="Node" parent="."]
-script = ExtResource("1_fl3hb")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678309, -0.836281)
 shape = SubResource("SphereShape3D_mxeb6")
 
-[node name="InteractionTip" type="HBoxContainer" parent="."]
-offset_right = 105.0
-offset_bottom = 40.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_fl3hb")
 
-[node name="TextureRect" type="TextureRect" parent="InteractionTip"]
-layout_mode = 2
-texture = ExtResource("2_qa4p8")
-expand_mode = 3
-
-[node name="Label" type="Label" parent="InteractionTip"]
-layout_mode = 2
-text = "Interact"
+[node name="InteractionTip" parent="." instance=ExtResource("2_df0j8")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

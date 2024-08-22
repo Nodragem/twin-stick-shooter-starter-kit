@@ -8,7 +8,7 @@ extends CharacterBody3D
 @onready var anim_tree := $IcySkin/AnimationTree
 @onready var shoot_anchor := $IcySkin/%ShootAnchor
 @onready var current_controller := $TwoStickControllerAuto
-@onready var interaction_area := $IcySkin/InteractionArea
+@onready var interaction_area := $IcySkin/PlayerHand
 @onready var start_position := global_transform.origin
 
 @export var controller_schemes:Array[PackedScene]

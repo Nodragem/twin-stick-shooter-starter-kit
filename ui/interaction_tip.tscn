@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpxkladyjcj8d"]
+
+[ext_resource type="Texture2D" uid="uid://bvywcaf4d5glv" path="res://ui/icons/xbox_button_color_x.png" id="1_d1tlm"]
+
+[sub_resource type="GDScript" id="GDScript_sfkr8"]
+script/source = "extends HBoxContainer
+
+@onready var _parent:Area3D = get_parent()
+@onready var _camera:Camera3D = get_viewport().get_camera_3d()
+@export var offset_3D:Vector3 = 5*Vector3.UP
+@export var offset_2D:Vector2 = Vector2.LEFT*30
+
+func _ready():
+	self.visible = false
+	_parent.area_entered.connect(_on_area_entered)
+	_parent.area_exited.connect(_on_area_exited)
+
+func _process(delta):
+	self.position = _camera.unproject_position(_parent.global_position+offset_3D)
+	self.position += offset_2D
+
+
+func _on_area_entered(body):
+	if body.name == \"PlayerHand\":
+		self.visible = true
+
+
+func _on_area_exited(body):
+	if body.name == \"PlayerHand\":
+		self.visible = false
+"
+
+[node name="InteractionTip" type="HBoxContainer"]
+offset_right = 105.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = SubResource("GDScript_sfkr8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_d1tlm")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Interact"

@@ -150,7 +150,7 @@ script = ExtResource("1_a2x0p")
 [node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
 
 [node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -14.3759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -37.3759)
 
 [node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
 fov = 40.0
@@ -380,7 +380,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 20)
 [node name="LongSwitch1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.014, 0.529999, -14.0096)
 
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="2"]
+[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="3"]
 regression_rate = 0.0
 
 [node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="1"]
@@ -392,7 +392,7 @@ material_override = SubResource("StandardMaterial3D_blcpd")
 [node name="LongSwitch2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 17.8926, 0.529999, 18.0588)
 
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="2"]
+[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="3"]
 regression_rate = 0.0
 
 [node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="1"]
