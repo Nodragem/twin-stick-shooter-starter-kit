@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://h8pnjgggsrtm"]
+[gd_scene load_steps=4 format=3 uid="uid://h8pnjgggsrtm"]
 
 [ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/NPC/dr-megadroon-PROTOTYPE.glb" id="1_x5o77"]
-[ext_resource type="Script" path="res://assets/objects/switches/switch_dialogue.gd" id="2_aq3vx"]
+[ext_resource type="PackedScene" uid="uid://cq342c86wg6dj" path="res://ui/dialogue_opener.tscn" id="2_mjkfd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ghvd1"]
 radius = 0.647082
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
 
 [node name="dr-megadroon-PROTOTYPE" instance=ExtResource("1_x5o77")]
 collision_layer = 8
@@ -15,15 +13,7 @@ collision_layer = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_ghvd1")
 
-[node name="AreaDialogue" type="Area3D" parent="." index="1"]
-collision_layer = 8
-
-[node name="SwitchComponent" type="Node" parent="AreaDialogue" index="0"]
-script = ExtResource("2_aq3vx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDialogue" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678309, -0.836281)
-shape = SubResource("SphereShape3D_mxeb6")
+[node name="AreaDialogue" parent="." index="1" instance=ExtResource("2_mjkfd")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(0.0638655, 1.18966e-07, 7.61337e-09, 0.997959)
