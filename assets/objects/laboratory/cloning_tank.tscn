@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwk6ldidjdnnh"]
+
+[ext_resource type="PackedScene" uid="uid://chv31rcg6bw6h" path="res://assets/objects/laboratory/cloning_tank.glb" id="1_v8sa2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae4j7"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+albedo_color = Color(0.921, 0.99, 1, 0.287)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nwol8"]
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 0.8
+gravity = Vector3(0, 9.8, 0)
+scale_min = 0.2
+scale_max = 0.5
+turbulence_enabled = true
+turbulence_noise_strength = 0.1
+turbulence_noise_scale = 0.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.23
+
+[sub_resource type="SphereMesh" id="SphereMesh_7nacj"]
+
+[node name="CloningTank" instance=ExtResource("1_v8sa2")]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64868, 0)
+material_override = SubResource("StandardMaterial3D_ae4j7")
+amount = 10
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_nwol8")
+draw_pass_1 = SubResource("SphereMesh_7nacj")

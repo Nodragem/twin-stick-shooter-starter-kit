@@ -1,11 +1,10 @@
 [gd_scene load_steps=33 format=4 uid="uid://ds848t2x4cxyt"]
 
-[ext_resource type="PackedScene" uid="uid://bbge8f5gbi7b6" path="res://characters/player/CharacterSkins/icy.glb" id="1_jnnas"]
+[ext_resource type="PackedScene" uid="uid://dh7bl5sry622j" path="res://characters/player/CharacterSkins/icy.glb" id="1_jnnas"]
 [ext_resource type="Script" path="res://characters/player/CharacterSkins/PlayerSkin.gd" id="2_ihbv3"]
 [ext_resource type="PackedScene" uid="uid://jvm2nax5dsg7" path="res://assets/objects/weapons/toy_gun/laser-gun-design1.glb" id="2_nu448"]
 [ext_resource type="Texture2D" uid="uid://c0lpx8edykpem" path="res://characters/player/CharacterSkins/icy_colors.png" id="3_8sjee"]
 [ext_resource type="Texture2D" uid="uid://dqq0avo77srm7" path="res://assets/objects/weapons/toy_gun/muzzle-effect.png" id="3_di4uy"]
-
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufrky"]
 resource_name = "character-mat"
@@ -256,12 +255,13 @@ script = ExtResource("2_ihbv3")
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(3.54906e-09, 0.313539, 0.00387195)
-bones/0/rotation = Quaternion(0.0638656, -2.664e-06, -4.34786e-05, 0.997959)
+bones/0/position = Vector3(-1.28276e-08, 0.630601, 0.0083756)
+bones/0/rotation = Quaternion(0.0638589, -0.000925414, -0.0144623, 0.997854)
 bones/1/position = Vector3(1.21027e-15, 0.304688, 9.77356e-10)
 bones/1/rotation = Quaternion(-0.0531333, 0.440734, -0.030263, 0.895553)
 bones/2/position = Vector3(-6.10683e-16, 0.538595, 4.38301e-09)
 bones/2/rotation = Quaternion(-0.0263339, -0.422991, -0.00836387, 0.905712)
+bones/2/scale = Vector3(1, 1, 1)
 bones/3/position = Vector3(0.409599, 0.247381, 0.0251058)
 bones/3/rotation = Quaternion(0.0480825, -0.0406241, -0.774513, 0.629419)
 bones/3/scale = Vector3(1, 1, 1)
@@ -291,6 +291,7 @@ bones/11/rotation = Quaternion(0.0671144, -0.403956, 0.798738, -0.440831)
 bones/11/scale = Vector3(0.999998, 1, 0.999999)
 bones/12/position = Vector3(7.92845e-08, 0.274804, 8.02172e-09)
 bones/12/rotation = Quaternion(-0.146594, -0.00141585, -0.107122, 0.983378)
+bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-0.396213, 0.272741, 0.020303)
 bones/13/rotation = Quaternion(-0.156347, -0.456843, 0.767675, 0.421337)
 bones/13/scale = Vector3(0.999999, 1, 1)
@@ -298,15 +299,15 @@ bones/14/position = Vector3(5.07759e-08, 0.274804, 1.41851e-09)
 bones/14/rotation = Quaternion(-0.563248, 0.287173, 0.218198, 0.74342)
 bones/14/scale = Vector3(1, 1, 1)
 bones/15/position = Vector3(0.214309, 0.127537, -0.0163908)
-bones/15/rotation = Quaternion(0.697275, 0.121121, 0.695774, 0.122623)
+bones/15/rotation = Quaternion(0.61461, -0.442678, 0.539603, -0.367586)
 bones/15/scale = Vector3(1, 1, 1)
 bones/16/position = Vector3(8.66572e-09, 0.251826, 6.30961e-09)
-bones/16/rotation = Quaternion(-0.00965745, 0.00344844, -0.491938, 0.87057)
+bones/16/rotation = Quaternion(-0.010136, 0.00155567, -0.318036, 0.948023)
 bones/16/scale = Vector3(1, 1, 1)
 bones/17/position = Vector3(-0.214309, 0.127537, -0.0163909)
-bones/17/rotation = Quaternion(-0.68533, -0.179338, 0.683199, 0.177204)
+bones/17/rotation = Quaternion(-0.60221, 0.370599, 0.60221, -0.370599)
 bones/18/position = Vector3(2.44867e-08, 0.251826, 7.28026e-09)
-bones/18/rotation = Quaternion(-0.00993021, -0.00255937, 0.411051, 0.911555)
+bones/18/rotation = Quaternion(-0.00965728, -0.00344914, 0.492001, 0.870534)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/position = Vector3(-0.373176, 0.465544, -0.0941911)
 bones/19/rotation = Quaternion(-0.750823, -7.88273e-08, -8.95835e-08, 0.660504)
@@ -316,13 +317,13 @@ mesh = SubResource("ArrayMesh_iu3x2")
 skin = SubResource("Skin_7lf6u")
 
 [node name="BoneAttachment3D2" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(1, 8.64393e-05, -1.08707e-05, -8.71199e-05, 0.991842, -0.12747, -2.36442e-07, 0.12747, 0.991842, 3.54906e-09, 0.313539, 0.00387195)
+transform = Transform3D(0.99958, 0.0287444, -0.00369395, -0.0289808, 0.991426, -0.127417, -2.41562e-07, 0.12747, 0.991842, -1.28276e-08, 0.630601, 0.0083756)
 bone_name = "pelvis"
 bone_idx = 0
 
 [node name="ShootAnchor" type="Marker3D" parent="Armature/Skeleton3D/BoneAttachment3D2" index="0"]
 unique_name_in_owner = true
-transform = Transform3D(-1.99997, -0.000264508, 0.00313459, -0.000317461, 1.66669, -3.35723e-05, -0.00376146, -3.44366e-05, -1.66666, -0.385187, 0.0629825, -1.62756)
+transform = Transform3D(-0.999998, 0, -0.00174537, 0, 1, 0, 0.00174537, 0, -0.999998, -0.385187, 0.0629825, -1.62756)
 
 [node name="MuzzleVFX" type="MeshInstance3D" parent="Armature/Skeleton3D/BoneAttachment3D2" index="1"]
 unique_name_in_owner = true
@@ -331,7 +332,7 @@ mesh = SubResource("CylinderMesh_s8lnb")
 skeleton = NodePath("../../BoneAttachment3D")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(1, 2.77396e-10, 8.71503e-05, -8.71503e-05, 8.9407e-08, 1, 2.68813e-10, -1, 8.9407e-08, -0.373135, 0.787324, -0.0302076)
+transform = Transform3D(0.99958, -1.39698e-09, 0.0289808, -0.0289808, 1.3411e-07, 0.99958, -4.85072e-09, -1, 1.19209e-07, -0.35929, 1.11497, -0.0257039)
 bone_name = "weapon_slot"
 bone_idx = 19
 
@@ -339,91 +340,23 @@ bone_idx = 19
 transform = Transform3D(0.6, -1.42613e-10, -3.95349e-09, -4.74155e-09, -0.0261682, -0.499315, 3.68432e-14, 0.499315, -0.0261682, 0, 0, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+active = false
 tree_root = SubResource("AnimationNodeBlendTree_7xuvf")
 anim_player = NodePath("../AnimationPlayer")
-parameters/current_length = 0.166667
-parameters/current_position = 0.166667
-parameters/current_delta = 0.0
-parameters/aiming/current_length = 0.166667
-parameters/aiming/current_position = 0.166667
-parameters/aiming/current_delta = 0.0
-parameters/blend_aim/current_length = 0.166667
-parameters/blend_aim/current_position = 0.166667
-parameters/blend_aim/current_delta = 0.0
 parameters/blend_aim/blend_amount = 1.0
-parameters/blend_running/current_length = 0.875
-parameters/blend_running/current_position = 0.457189
-parameters/blend_running/current_delta = 0.0166667
 parameters/blend_running/blend_amount = 1.0
-parameters/blend_straffing/current_length = 0
-parameters/blend_straffing/current_position = 0
-parameters/blend_straffing/current_delta = 0
 parameters/blend_straffing/blend_amount = 0.0
-parameters/blend_weapon/current_length = 0.166667
-parameters/blend_weapon/current_position = 0.166667
-parameters/blend_weapon/current_delta = 0.0
 parameters/blend_weapon/blend_amount = 1.0
-parameters/draw_weapon/current_length = 0.166667
-parameters/draw_weapon/current_position = 0.166667
-parameters/draw_weapon/current_delta = 0.0
 parameters/draw_weapon/scale = 1.0
-parameters/draw_weapon_anim/current_length = 0.166667
-parameters/draw_weapon_anim/current_position = 0.166667
-parameters/draw_weapon_anim/current_delta = 0.0
-parameters/dying/current_length = null
-parameters/dying/current_position = null
-parameters/dying/current_delta = null
-parameters/falling/current_length = null
-parameters/falling/current_position = null
-parameters/falling/current_delta = null
-parameters/idle_break/current_length = null
-parameters/idle_break/current_position = null
-parameters/idle_break/current_delta = null
-parameters/idling_run/current_length = 1.0
-parameters/idling_run/current_position = 0.0
-parameters/idling_run/current_delta = 0.0
-parameters/idling_straff/current_length = null
-parameters/idling_straff/current_position = null
-parameters/idling_straff/current_delta = null
-parameters/jumping/current_length = null
-parameters/jumping/current_position = null
-parameters/jumping/current_delta = null
-parameters/on_hit/current_length = 0.166667
-parameters/on_hit/current_position = 0.166667
-parameters/on_hit/current_delta = 0.0
 parameters/on_hit/active = false
 parameters/on_hit/internal_active = false
 parameters/on_hit/request = 0
-parameters/on_hit_anim/current_length = 0.25
-parameters/on_hit_anim/current_position = 0.25
-parameters/on_hit_anim/current_delta = 0.0230933
-parameters/on_idle_break/current_length = 0.875
-parameters/on_idle_break/current_position = 0.457189
-parameters/on_idle_break/current_delta = 0.0166667
 parameters/on_idle_break/active = false
 parameters/on_idle_break/internal_active = false
 parameters/on_idle_break/request = 0
-parameters/on_shooting/current_length = 0.166667
-parameters/on_shooting/current_position = 0.166667
-parameters/on_shooting/current_delta = 0.0
 parameters/on_shooting/active = false
 parameters/on_shooting/internal_active = false
 parameters/on_shooting/request = 0
-parameters/output/current_length = 0.166667
-parameters/output/current_position = 0.166667
-parameters/output/current_delta = 0.0
-parameters/running/current_length = 0.875
-parameters/running/current_position = 0.457189
-parameters/running/current_delta = 0.0166667
-parameters/shooting/current_length = 0.375
-parameters/shooting/current_position = 0.375
-parameters/shooting/current_delta = 0.0228253
-parameters/state/current_length = 0.875
-parameters/state/current_position = 0.457189
-parameters/state/current_delta = 0.0166667
 parameters/state/current_state = "Running"
 parameters/state/transition_request = ""
 parameters/state/current_index = 0
-parameters/straffing/current_length = null
-parameters/straffing/current_position = null
-parameters/straffing/current_delta = null

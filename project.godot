@@ -68,6 +68,17 @@ window/size/window_height_override=540
 
 enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "orange",
+"res://characters/": "red",
+"res://scenes/": "blue",
+"res://tools/": "yellow",
+"res://ui/": "green"
+}
+
 [filesystem]
 
 import/blender/enabled=false

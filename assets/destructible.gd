@@ -11,14 +11,15 @@ func _ready():
 
 func _input(event):
 	# Use for test purposes
-	if event.is_action_pressed("p1_jump"):
-		healt_points -= 1
-		run_animation()
-		print("health: ", healt_points)
-		if healt_points < 0:
-			print("dead!")
-			queue_free()
-			run_explosion()
+	pass
+	#if event.is_action_pressed("p1_jump"):
+		#healt_points -= 1
+		#run_animation()
+		#print("health: ", healt_points)
+		#if healt_points < 0:
+			#print("dead!")
+			#queue_free()
+			#run_explosion()
 
 
 func run_animation():

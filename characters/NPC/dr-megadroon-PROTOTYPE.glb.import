@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/dr-megadroon-PROTOTYPE.glb-0bdeb5ca54e553bd6b
 
 [params]
 
-nodes/root_type="Area3D"
+nodes/root_type="AnimatableBody3D"
 nodes/root_name="DrMegadroon"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

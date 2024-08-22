@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cugi721l774ox"]
+
+[resource]
+resource_name = "liquid"
+transparency = 4
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0.282975, 0.857925, 1, 0.575)
+metallic = 0.95
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.178174, 0.281, 0.330284, 1)
+rim_tint = 1.0
+clearcoat_roughness = 1.0
+anisotropy = -0.81

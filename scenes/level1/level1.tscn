@@ -1,7 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=35 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_u13gm"]
-[ext_resource type="PackedScene" uid="uid://w3bqftmyjesv" path="res://assets/prototype_bits/Weaponrack.gltf" id="2_sojh4"]
 [ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="3_mmctn"]
 [ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="3_oe01x"]
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="3_v87cw"]
@@ -31,7 +30,10 @@
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="30_6gu3m"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="30_axpgr"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
+[ext_resource type="PackedScene" uid="uid://b7xry5nlaw1tx" path="res://assets/objects/laboratory/computer1.glb" id="32_brqut"]
 [ext_resource type="PackedScene" uid="uid://h8pnjgggsrtm" path="res://characters/NPC/dr_megadroon.tscn" id="32_ktg0t"]
+[ext_resource type="PackedScene" uid="uid://cwk6ldidjdnnh" path="res://assets/objects/laboratory/cloning_tank.tscn" id="33_a67mj"]
+[ext_resource type="PackedScene" uid="uid://dhnoso0tnbnrd" path="res://assets/objects/laboratory/computer2.glb" id="34_ph7g1"]
 
 [node name="Level1" type="Node3D"]
 
@@ -154,26 +156,23 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.5, 4, -19.5)
 [node name="Weaponrack_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("16_g7eej")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.5, 4, -19.5)
 
-[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("2_sojh4")]
-transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, -1.5, 4, -17.5)
-
 [node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_h7fll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 4, -19)
 
 [node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_h7fll")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -15)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -14.5343)
 
 [node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("19_3hpxk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -16.5)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 4, -8.5)
 
 [node name="Dummy_Base2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_gr7gv")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 4, -19)
 
 [node name="Dummy_Base4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_gr7gv")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 17, 4, -12.5)
+transform = Transform3D(-0.718576, 0, -0.695449, 0, 1, 0, 0.695449, 0, -0.718576, 17, 4, -10.5)
 
 [node name="target_stand_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("20_y6okf")]
-transform = Transform3D(-0.221804, 0, -0.975091, 0, 1, 0, 0.975091, 0, -0.221804, 17, 4, -11.0773)
+transform = Transform3D(-0.221804, 0, -0.975091, 0, 1, 0, 0.975091, 0, -0.221804, 17, 4, -9.0773)
 
 [node name="table_medium2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("21_fsxo1")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -0.444203, 4, -11.8966)
@@ -194,10 +193,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.5, -18.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.32414, 4.04713, -23.6489)
 
 [node name="Pallet_Large2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("4_px5ev")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.13344, 4, -15.1116)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.13344, 4, -11.1116)
 
 [node name="Pallet_Small5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cktse")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.5, 4.5, -14)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.5, 4.5, -10)
 
 [node name="Barrel_C2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("26_qtnuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -10)
@@ -426,6 +425,24 @@ directional_shadow_mode = 0
 
 [node name="dr-megadroon-PROTOTYPE" parent="." instance=ExtResource("32_ktg0t")]
 transform = Transform3D(-0.902676, 0, -0.430322, 0, 1, 0, 0.430322, 0, -0.902676, 5.85811, 4, -19.7725)
+
+[node name="computer12" parent="." instance=ExtResource("32_brqut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 4, -23.9)
+
+[node name="computer13" parent="." instance=ExtResource("32_brqut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 4, -23.9)
+
+[node name="computer14" parent="." instance=ExtResource("32_brqut")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 17.6986, 4, -12.1253)
+
+[node name="CloningTank" parent="." instance=ExtResource("33_a67mj")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8, 4, -22)
+
+[node name="computer22" parent="." instance=ExtResource("34_ph7g1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.7555, 4, -17)
+
+[node name="computer23" parent="." instance=ExtResource("34_ph7g1")]
+transform = Transform3D(-0.509116, 0, -0.860698, 0, 1, 0, 0.860698, 0, -0.509116, -1.21791, 4, -17.2794)
 
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4"]
