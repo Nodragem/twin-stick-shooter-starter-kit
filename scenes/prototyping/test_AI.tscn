@@ -16,8 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="15_5adn2"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_bvvud"]
 
-
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 11, 15, 1, 11, 15, 1, -15)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]

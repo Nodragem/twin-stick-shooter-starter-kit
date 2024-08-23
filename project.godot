@@ -31,7 +31,8 @@ directories/dch_directory={
 "dr_megadroon_character": "res://characters/NPC/dr_megadroon_character.dch"
 }
 directories/dtl_directory={
-"dr_megadroon": "res://characters/NPC/dr_megadroon.dtl"
+"dr_megadroon": "res://characters/NPC/dr_megadroon.dtl",
+"level1_intro": "res://scenes/level1/level1_intro.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://characters/NPC/dialog_style.tres"]
@@ -41,7 +42,7 @@ text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
-text/autoadvance_per_character_delay=0.1
+text/autoadvance_per_character_delay=0.01
 text/autoadvance_ignored_characters_enabled=true
 animations/join_default_length=0.5
 animations/leave_default_length=0.5
@@ -55,6 +56,7 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 text/input_action="p1_interact"
+text/autoadvance_enabled=false
 
 [display]
 

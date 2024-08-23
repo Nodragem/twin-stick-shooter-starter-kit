@@ -1,0 +1,14 @@
+join dr_megadroon_character 1 [animation="Fade In Up" length="0.8"]
+# #label stop1
+dr_megadroon_character: Reporting date 2304'12, time 0930, Subject A101. \
+BA8\: override was successful...
+# #label stop2
+dr_megadroon_character (default): Superior Colliculus\: 10 times larger than for Subject A100 ...
+# #label stop3
+dr_megadroon_character: Visual accuity score 21/10 on Heizmer scale !
+# #label stop4
+dr_megadroon_character (default): Reaction times show no dip effect despite the strong distractors !!
+# #label stop5
+dr_megadroon_character: ...
+dr_megadroon_character: Could Subject A101 be the one ?? 
+[end_timeline]
