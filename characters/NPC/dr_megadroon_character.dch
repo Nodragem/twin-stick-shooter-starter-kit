@@ -36,6 +36,15 @@
 "scale": 0.27,
 "scene": "",
 "sound_mood": "Mood 1"
+},
+"no_portrait": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
 }
 },
 "scale": 1.0

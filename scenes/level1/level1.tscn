@@ -295,8 +295,9 @@ var label_index = 1
 func _ready():
 	pass
 
+
 func start_dialogue():
-	Dialogic.start_timeline(\"level1_intro\")
+	Dialogic.start(\"level1_intro\")
 	Dialogic.Inputs.pause()
 	
 func go_to_next_sentence():
