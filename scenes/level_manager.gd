@@ -1,17 +1,21 @@
-extends Node3D
+class_name LevelManager extends Node3D
 
-@onready var gameover_menu: Control = $GameOverMenu
+@export var skip_intro:bool = false
+@export var camera_start_rotation:Vector3 = Vector3(-35, 60, 0)
+@onready var player_start_point:Marker3D = %PlayerStartingPoint
+signal cutscene_finished
 
 func _ready():
-	gameover_menu.restart_pressed.connect(on_restart_pressed)
-	gameover_menu.quit_pressed.connect(on_quit_pressed)
+	if not skip_intro:
+		$CutSceneManager.animation_finished.connect(on_cutscene_finished)
+		$CutSceneManager.play("Scene1_Introduction")
+		$CutSceneManager.seek(27.99,true)
+	else:
+		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
 
-func on_player_death():
-	if gameover_menu:
-		gameover_menu.show()
-
-func on_quit_pressed():
-	get_tree().quit()
-
-func on_restart_pressed():
-	get_tree().reload_current_scene()
+func on_cutscene_finished(anim_name:String):
+	if anim_name == "Scene1_Introduction":
+		cutscene_finished.emit()
+		$CutSceneManager.play("Opening")
+	if anim_name == "Opening":
+		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED

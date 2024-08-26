@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ds848t2x4cxyt" path="res://characters/player/CharacterSkins/IcySkin_inherited.tscn" id="1"]
 [ext_resource type="Script" path="res://characters/player/PlayerEntity.gd" id="2"]
-[ext_resource type="Resource" uid="uid://bga0grxsmuuwg" path="res://ui/game_data_store.tres" id="2_gbwfc"]
+[ext_resource type="Resource" uid="uid://ctlpejibdgymr" path="res://ui/game_data_store.tres" id="2_gbwfc"]
 [ext_resource type="PackedScene" uid="uid://d3yswfl2m7nue" path="res://characters/player/CharacterControllers/OneStickController.tscn" id="2_njm8p"]
 [ext_resource type="PackedScene" uid="uid://d1rmoxdu5yefv" path="res://characters/player/CharacterControllers/TwoStickController.tscn" id="3_k2os6"]
 [ext_resource type="PackedScene" uid="uid://drvgaalhd5v8s" path="res://characters/player/CharacterControllers/TwoStickControllerAuto.tscn" id="5_n2q7r"]
@@ -39,7 +39,7 @@ transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0
 [node name="ThirdPersonCamera" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
 current = true
-fov = 30.0
+fov = 40.0
 
 [node name="IcySkin" parent="." instance=ExtResource("1")]
 

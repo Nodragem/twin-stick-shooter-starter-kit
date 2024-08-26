@@ -14,13 +14,16 @@ func _ready():
 	self.visible = false
 	_parent.area_entered.connect(_on_area_entered)
 	_parent.area_exited.connect(_on_area_exited)
+	
 
 func _process(delta):
-	self.position = _camera.unproject_position(_parent.global_position+offset_3D)
-	self.position += offset_2D
+	if self.visible:
+		self.position = _camera.unproject_position(_parent.global_position+offset_3D)
+		self.position += offset_2D
 
 
 func _on_area_entered(body):
+	_camera = get_viewport().get_camera_3d()
 	if body.name == \"PlayerHand\":
 		self.visible = true
 

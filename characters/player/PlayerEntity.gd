@@ -1,8 +1,8 @@
 class_name PlayerEntity
 extends CharacterBody3D
 
-@onready var camera := $CameraPivot/ThirdPersonCamera
-@onready var camera_pivot := $CameraPivot
+@onready var camera:Camera3D = $CameraPivot/ThirdPersonCamera
+@onready var camera_pivot:Node3D = $CameraPivot
 @onready var model := $IcySkin
 @onready var health_manager := $HealthManager
 @onready var anim_tree := $IcySkin/AnimationTree

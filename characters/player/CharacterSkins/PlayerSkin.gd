@@ -14,6 +14,15 @@ func _ready() -> void:
 	anim_tree.active = true
 	muzzle_vfx.visible = false
 	muzzle_vfx.scale = Vector3()
+	reset_animations()
+
+func reset_animations():
+	anim_tree["parameters/blend_running/blend_amount"] = 0
+	anim_tree["parameters/blend_straffing/blend_amount"] = 0
+	anim_tree["parameters/blend_aim/blend_amount"] = 0
+	anim_tree["parameters/blend_weapon/blend_amount"] = 1
+	anim_tree["parameters/draw_weapon/scale"] = -1
+	anim_tree["parameters/state/transition_request"] = "Running"
 
 
 func update_move_animation(velocity_ratio, delta) -> void:

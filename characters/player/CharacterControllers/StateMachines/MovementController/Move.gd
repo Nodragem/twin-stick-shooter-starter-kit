@@ -51,7 +51,7 @@ func physics_process(delta: float) -> void:
 	player.floor_stop_on_slope = do_stop_on_slope
 	player.move_and_slide()
 	
-	if _is_directing:
+	if _is_directing and _player_input.length_squared() > 0.01: # last condition is made so that the player does not start face up
 		player.model.orient_model_to_direction(_move_direction, delta)
 	player.model.update_move_animation(velocity.length() / max_speed, delta)
 
