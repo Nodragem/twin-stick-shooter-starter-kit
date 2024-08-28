@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=44 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_u13gm"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_xfajn"]
@@ -33,8 +33,86 @@
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
 [ext_resource type="PackedScene" uid="uid://b7xry5nlaw1tx" path="res://assets/objects/laboratory/computer1.glb" id="32_brqut"]
 [ext_resource type="PackedScene" uid="uid://h8pnjgggsrtm" path="res://characters/NPC/dr_megadroon.tscn" id="32_ktg0t"]
+[ext_resource type="PackedScene" uid="uid://ghvokiyi5vxr" path="res://assets/objects/laboratory/item_distributor.tscn" id="32_xsrdy"]
 [ext_resource type="PackedScene" uid="uid://cwk6ldidjdnnh" path="res://assets/objects/laboratory/cloning_tank.tscn" id="33_a67mj"]
+[ext_resource type="ArrayMesh" uid="uid://bs6c8eaebtib1" path="res://assets/objects/weapons/toy_gun/laser-gun-design1_Cube.res" id="33_erj25"]
+[ext_resource type="Resource" path="res://scenes/level1/level1_drmegadroon.dtl" id="34_507xk"]
 [ext_resource type="PackedScene" uid="uid://dhnoso0tnbnrd" path="res://assets/objects/laboratory/computer2.glb" id="34_ph7g1"]
+
+[sub_resource type="Animation" id="Animation_e0tby"]
+resource_name = "Opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7),
+"transitions": PackedFloat32Array(0.203063, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("CutSceneManager/Control/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/cloning_tank/character_reference:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/GPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_te3is"]
 resource_name = "RESET"
@@ -157,7 +235,7 @@ tracks/0/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 6.73333, 9.23333, 11.7, 13.2333, 14.7333, 14.9666, 15.2333, 15.6666, 17.2333, 20.0666, 20.2999, 20.5666),
+"times": PackedFloat32Array(0, 6.73333, 9.23333, 12.2667, 13.8, 16.2334, 16.4667, 16.7334, 17.1667, 18.7334, 21.9667, 22.2, 22.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0.189465, 0.217638, 1, 1, 1, 0.210224, 0.34151, 1),
 "update": 0,
 "values": [Vector3(1.24426, 4.5, -16.0392), Vector3(1.24426, 4.5, -16.0392), Vector3(14.8393, 4.5, -16.9901), Vector3(14.8393, 4.5, -16.9901), Vector3(15.4381, 4.5, -12.0593), Vector3(15.4381, 4.5, -12.0593), Vector3(15.438, 5, -12.059), Vector3(15.4381, 4.5, -12.0593), Vector3(15.4381, 4.5, -12.0593), Vector3(4.31759, 4.5, -21.5772), Vector3(4.31759, 4.5, -21.5772), Vector3(4.318, 6, -21.577), Vector3(4.31759, 4.5, -21.5772)]
@@ -169,7 +247,7 @@ tracks/1/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 6.73333, 6.93333, 9.23333, 11.7, 11.8, 13.2333, 13.4, 15.5666, 15.6666, 17.2333, 17.3333, 20.0666, 20.5666),
+"times": PackedFloat32Array(0, 6.73333, 6.93333, 9.23333, 12.2667, 12.3667, 13.8, 13.9667, 17.0667, 17.1667, 18.7334, 18.8334, 21.9667, 22.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.09088, 0), Vector3(0, 1.09088, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 0.785398, 0), Vector3(0, 0.785398, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 10.5592, 0)]
@@ -181,7 +259,7 @@ tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 6.73333, 9.23333, 11.7, 14.7333, 14.9666, 15.2333, 15.5666, 20.0666, 20.2999, 20.5666),
+"times": PackedFloat32Array(0, 6.73333, 9.23333, 12.2667, 16.2334, 16.4667, 16.7334, 17.0667, 21.9667, 22.2, 22.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 0.210224, 0.450626, 1, 1, 0.183011, 0.287175, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.9, 1.4, 0.9), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.8, 1.5, 0.8), Vector3(1, 1, 1)]
@@ -194,7 +272,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": PackedStringArray("Idle", "Run", "Idle", "Run", "Idle", "Run", "Idle"),
-"times": PackedFloat32Array(0.0333334, 6.90003, 9.23333, 11.8, 13.4333, 15.6666, 17.2333)
+"times": PackedFloat32Array(0.0333334, 6.90003, 9.23333, 12.3667, 14, 17.1667, 18.7334)
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -203,7 +281,7 @@ tracks/4/path = NodePath("CutSceneManager")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3.5, 9.23333, 13.3666, 17.2333, 20.0332, 20.5332, 25.4667),
+"times": PackedFloat32Array(3.5, 9.23333, 13.9333, 18.7334, 21.9333, 22.4333, 27.3668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -235,7 +313,7 @@ tracks/5/path = NodePath("CutSceneManager")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(6.73333, 9.23333, 11.7333, 13.3666, 15.5666, 17.2333),
+"times": PackedFloat32Array(6.73333, 9.23333, 12.3, 13.9333, 17.0667, 18.7334),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -264,7 +342,7 @@ tracks/6/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 22.6, 25.4667),
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 24.5001, 27.3668),
 "transitions": PackedFloat32Array(0.203063, 0.203063, 2.92817, 1, 0.183011),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.1), Vector2(1, 0.1), Vector2(1, 1)]
@@ -276,7 +354,7 @@ tracks/7/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 22.6, 25.4667),
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 24.5001, 27.3668),
 "transitions": PackedFloat32Array(0.203063, 0.203063, 2.92817, 1, 0.183011),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.1), Vector2(1, 0.1), Vector2(1, 1)]
@@ -288,7 +366,7 @@ tracks/8/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333, 3.33333, 3.46667, 22.6, 25.4667),
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.33333, 3.46667, 24.5001, 27.3668),
 "transitions": PackedFloat32Array(0.203063, 0.378929, 1, 2.63902, 2.63902, 0.203063),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -304,81 +382,6 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1, 0.378929, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_e0tby"]
-resource_name = "Opening"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333),
-"transitions": PackedFloat32Array(0.203063, 0.203063),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.633333),
-"transitions": PackedFloat32Array(0.203063, 0.203063),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.7),
-"transitions": PackedFloat32Array(0.203063, 0.378929),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("CutSceneManager/Control/Label:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 0.378929),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/cloning_tank/character_reference:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/GPUParticles3D:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ad5fl"]
@@ -570,16 +573,16 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 11.1899,
 transform = Transform3D(0.983303, 0, -0.181978, 0, 1, 0, 0.181978, 0, 0.983303, 14.0412, 0, 0.700824)
 
 [node name="Pallet_Small4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cktse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0475, 6.5, 2.05134)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.99578, 4.01293, -2.13936)
 
 [node name="Can_A3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cphbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1212, 7.03835, 2.16005)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -8.12296, 4.55128, -2.10659)
 
 [node name="Can_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("11_borv3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 1.5)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.22048, 4.51293, -2.1907)
 
 [node name="Can_A4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cphbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 2.5)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.88195, 4.51293, -1.44073)
 
 [node name="target_stand_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("13_ko3eg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 4, -2)
@@ -676,6 +679,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.755
 
 [node name="computer23" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("34_ph7g1")]
 transform = Transform3D(-0.509116, 0, -0.860698, 0, 1, 0, 0.860698, 0, -0.509116, -1.21791, 4, -17.2794)
+
+[node name="ItemDistributor" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("32_xsrdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4349, 6.5, 1.99275)
+item_mesh = ExtResource("33_erj25")
+dialog_timeline = ExtResource("34_507xk")
+jump_to_label = "OnGunPickedUp"
 
 [node name="Room2_StaticObjects" type="Node3D" parent="GridMapBuilding"]
 
@@ -874,14 +883,14 @@ sync_to_physics = false
 [node name="Skeleton3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature" index="0"]
 bones/0/position = Vector3(0, 0.318594, 3.79892e-09)
 bones/0/rotation = Quaternion(0.0638656, 1.18966e-07, 7.61337e-09, 0.997959)
-bones/1/rotation = Quaternion(-0.0477864, 7.97009e-11, -1.00502e-08, 0.998858)
-bones/1/scale = Vector3(1.02176, 1.02176, 1.02176)
+bones/1/rotation = Quaternion(-0.0592259, 1.88186e-13, -1.41177e-08, 0.998245)
+bones/1/scale = Vector3(1, 1, 1)
 bones/2/rotation = Quaternion(-0.029063, -1.19159e-07, -3.46458e-09, 0.999578)
 bones/11/position = Vector3(0.32676, 0.380072, 0.0193053)
-bones/11/rotation = Quaternion(-0.0104576, 0.0793565, 0.959174, -0.271253)
+bones/11/rotation = Quaternion(-0.00737547, 0.0805805, 0.968878, -0.233941)
 bones/12/rotation = Quaternion(-0.130554, 0.0218664, -0.0487757, 0.989999)
 bones/13/position = Vector3(-0.32676, 0.380072, 0.0193051)
-bones/13/rotation = Quaternion(0.0110467, 0.0791082, 0.957149, 0.278364)
+bones/13/rotation = Quaternion(0.00737514, 0.0805804, 0.968878, 0.233941)
 bones/14/rotation = Quaternion(-0.130554, -0.0218664, 0.0487757, 0.989999)
 bones/15/rotation = Quaternion(0.707029, -0.0104532, 0.70703, -0.0104531)
 bones/16/rotation = Quaternion(-0.0102543, -8.78313e-05, -0.162102, 0.986721)

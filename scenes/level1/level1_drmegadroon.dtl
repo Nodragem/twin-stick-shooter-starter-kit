@@ -1,0 +1,42 @@
+label OnDefault
+join dr_megadroon_character (default) 1 [animation="Fade In Up"]
+if {status} == "starting":
+	dr_megadroon_character: Welcome to our world A101, you can move using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_l.png[/img], and have a look around using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_r.png[/img]. Use [img width=32]res\://ui/icons/xbox_button_color_b.png[/img] to jump and [img width=32]res\://ui/icons/xbox_button_color_x.png[/img] to interact.
+	dr_megadroon_character: Take some time to get use to your body and its control. When you are ready, you should go get your toy gun in the room next door.
+	dr_megadroon_character: ...
+	(Dr. MegaDroon looks at you in the eyes)
+	dr_megadroon_character: Feel free to speak to me at any time, I know it can be confusing.
+	set {status} = "waiting_gun"
+elif {status} == "waiting_gun":
+	label WaitingGun
+	dr_megadroon_character: What would like us to speak about?
+	- Who am I?
+		dr_megadroon_character: You are A101, an A-clone.
+		dr_megadroon_character: It is similar to a clone except that the DNA of the original source was only used as a basis and I totally rewrote a large part of it.
+		dr_megadroon_character: My species is attempting to create a perfect weapon against the [color="#4467ab"]Zombacks[/color]. We are hoping to make an army of you.
+		jump WaitingGun
+	- How to use my body?
+		dr_megadroon_character: Sure. You can move using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_l.png[/img], and have a look around using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_r.png[/img]. Use [img width=32]res\://ui/icons/xbox_button_color_b.png[/img] to jump and [img width=32]res\://ui/icons/xbox_button_color_x.png[/img] to interact.
+		jump WaitingGun
+	- Nothing
+		[end_timeline]
+elif {status} == "waiting_card":
+	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
+
+label OnGunPickedUp
+join dr_megadroon_character (default) 1 [animation="Fade In Up"]
+dr_megadroon_character: Hey A101! Do you copy? [br]I am transmitting directly via a cholear implant in your ear. Well done collecting the [color="#4467ab"]toygun[/color]!
+dr_megadroon_character: It is just a toy gun, you won't really kill anyone for this training.
+dr_megadroon_character: Your control neural pathway should be set to [color="#4467ab"]Two Stick Auto-Shoot[/color] at the moment. In that setting, you can use [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_r.png[/img] to shoot.
+dr_megadroon_character: You can access the [color="#4467ab"]Control Settings[/color] menu by pressing [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_button_start_icon.png[/img]. In some settings, you will have to use [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_rt.png[/img] and [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_button_color_b.png[/img] to shoot.
+update dr_megadroon_character [animation="Bounce" length="0.3"]
+dr_megadroon_character: ...
+[wait time="1.0"]
+dr_megadroon_character: I just remembered that I let my building card in my [color="#4467ab"]Living Quarter[/color]. Can you go get it? It should be somewhere in the clutter.
+Once you've got the card, we will be able to open the door to the [color="#4467ab"]Training Area[/color].
+[end_timeline]
+
+label OnCardPickedUp
+join dr_megadroon_character (default) 1 [animation="Fade In Up"]
+dr_megadroon_character: Hey A101! Do you copy? [br]I am transmitting directly via a cholear implant in your ear. Well done collecting the [color="#4467ab"]toygun[/color]!
+[end_timeline]

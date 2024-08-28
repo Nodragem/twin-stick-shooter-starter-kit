@@ -10,6 +10,3 @@ func _run():
 		print("building collision box for " + child.name + "...")
 		CollisionTool.add_static_body_to_mesh(child, get_scene())
 		print("> done!")
-
-
-

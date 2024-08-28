@@ -19,3 +19,4 @@ func on_cutscene_finished(anim_name:String):
 		$CutSceneManager.play("Opening")
 	if anim_name == "Opening":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
+		Dialogic.start("level1_drmegadroon")

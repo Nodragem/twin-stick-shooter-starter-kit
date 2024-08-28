@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://h8pnjgggsrtm"]
+[gd_scene load_steps=5 format=3 uid="uid://h8pnjgggsrtm"]
 
 [ext_resource type="PackedScene" uid="uid://b7qjf0oe1eegu" path="res://characters/NPC/dr-megadroon-PROTOTYPE.glb" id="1_x5o77"]
 [ext_resource type="PackedScene" uid="uid://cq342c86wg6dj" path="res://ui/dialogue_opener.tscn" id="2_mjkfd"]
+[ext_resource type="Resource" path="res://scenes/level1/level1_drmegadroon.dtl" id="3_nrowa"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ghvd1"]
 radius = 0.647082
@@ -14,6 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_ghvd1")
 
 [node name="AreaDialogue" parent="." index="1" instance=ExtResource("2_mjkfd")]
+dialog_timeline = ExtResource("3_nrowa")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(0.0638655, 1.18966e-07, 7.61337e-09, 0.997959)

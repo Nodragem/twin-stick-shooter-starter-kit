@@ -11,7 +11,7 @@ func _ready():
 	find_player_and_level()
 	if not player and level.skip_intro:
 		spawn_player()
-	level.cutscene_finished.connect(start_level)
+	level.cutscene_finished.connect(initialise_player)
 
 
 func find_player_and_level():
@@ -23,7 +23,7 @@ func find_player_and_level():
 			level = child
 
 
-func start_level():
+func initialise_player():
 	if player:
 		player.queue_free()
 	spawn_player()

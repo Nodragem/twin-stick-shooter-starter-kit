@@ -30,9 +30,11 @@ overrides = {}
 script = ExtResource("1_k0gjl")
 scene = ExtResource("5_dfely")
 overrides = {
+"box_color_custom": "Color(1, 1, 1, 1)",
 "name_label_box_modulate": "Color(0.173798, 0.22819, 0.332031, 1)",
 "name_label_box_use_global_color": "false",
-"name_label_use_global_color": "false"
+"name_label_use_global_color": "false",
+"next_indicator_texture": "\"res://ui/icons/xbox_button_color_x.png\""
 }
 
 [sub_resource type="Resource" id="Resource_sf8v2"]
@@ -43,7 +45,9 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_cuq58"]
 script = ExtResource("1_k0gjl")
 scene = ExtResource("7_8niwt")
-overrides = {}
+overrides = {
+"boxes_stylebox_normal": "\"choice_panel_normal.tres\""
+}
 
 [sub_resource type="Resource" id="Resource_6sjbh"]
 script = ExtResource("1_k0gjl")
@@ -63,4 +67,4 @@ base_overrides = {
 "global_font_color": "Color(0.0979919, 0.0989683, 0.101563, 1)"
 }
 layers = Array[ExtResource("1_k0gjl")]([SubResource("Resource_wp6dj"), SubResource("Resource_2o5mo"), SubResource("Resource_15lsa"), SubResource("Resource_0bnic"), SubResource("Resource_sf8v2"), SubResource("Resource_cuq58"), SubResource("Resource_6sjbh"), SubResource("Resource_fwm70")])
-metadata/_latest_layer = 1
+metadata/_latest_layer = 5

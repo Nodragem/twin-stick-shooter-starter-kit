@@ -5,29 +5,17 @@
 
 [sub_resource type="GDScript" id="GDScript_enfp8"]
 script/source = "extends Area3D
-#
-#@onready var _parent:Node3D = get_parent()
-#@onready var _camera:Camera3D = get_viewport().get_camera_3d()
-#@onready var _tip: Container = $InteractionTip
-#@export var offset_3D:Vector3 = 5*Vector3.UP
-#@export var offset_2D:Vector2 = Vector2.LEFT*30
-#
-#func _ready():
-	#_tip.visible = false
-#
-#func _process(delta):
-	#_tip.position = _camera.unproject_position(_parent.global_position+offset_3D)
-	#_tip.position += offset_2D
-#
-#
-#func _on_body_entered(body):
-	#if body is PlayerEntity:
-		#_tip.visible = true
-#
-#
-#func _on_body_exited(body):
-	#if body is PlayerEntity:
-		#_tip.visible = false
+
+@export var dialog_timeline: Resource = null
+@export var jump_to_label: String = \"OnDefault\"
+@export var one_shot: bool = false
+
+signal dialog_finished
+signal dialog_started
+
+func on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(on_timeline_ended)
+	self.dialog_finished.emit()
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
