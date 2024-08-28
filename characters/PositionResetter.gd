@@ -17,4 +17,4 @@ func _physics_process(delta: float) -> void:
 
 
 func reset_position():
-	parent.position = initial_position
+	parent.global_transform = initial_position

@@ -41,6 +41,8 @@ func spawn_player():
 	add_child(player)
 	player.global_transform = level.player_start_point.global_transform
 	player.camera_pivot.rotation_degrees = level.camera_start_rotation
+	var pos_resetter = player.get_node_or_null("./PositionResetter")
+	pos_resetter.initial_position = player.global_transform
 
 
 func on_player_death():
