@@ -680,12 +680,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.755
 [node name="computer23" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("34_ph7g1")]
 transform = Transform3D(-0.509116, 0, -0.860698, 0, 1, 0, 0.860698, 0, -0.509116, -1.21791, 4, -17.2794)
 
-[node name="ItemDistributor" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("32_xsrdy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4349, 6.5, 1.99275)
-item_mesh = ExtResource("33_erj25")
-dialog_timeline = ExtResource("34_507xk")
-jump_to_label = "OnGunPickedUp"
-
 [node name="Room2_StaticObjects" type="Node3D" parent="GridMapBuilding"]
 
 [node name="Box_B2" parent="GridMapBuilding/Room2_StaticObjects" instance=ExtResource("7_hlqlk")]
@@ -897,6 +891,14 @@ bones/16/rotation = Quaternion(-0.0102543, -8.78313e-05, -0.162102, 0.986721)
 bones/17/rotation = Quaternion(-0.70703, -0.0104531, 0.70703, 0.0104532)
 bones/18/rotation = Quaternion(-0.0102544, 8.77911e-05, 0.162102, 0.986721)
 bones/20/position = Vector3(1.43335e-07, 0.208249, -0.601192)
+
+[node name="InteractiveObjects" type="Node3D" parent="GridMapBuilding"]
+
+[node name="ItemDistributor" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("32_xsrdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4349, 7, 1.99275)
+item_mesh = ExtResource("33_erj25")
+dialog_timeline = ExtResource("34_507xk")
+jump_to_label = "OnGunPickedUp"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_es3rg")

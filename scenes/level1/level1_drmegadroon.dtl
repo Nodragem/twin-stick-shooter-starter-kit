@@ -22,7 +22,7 @@ elif {status} == "waiting_gun":
 		[end_timeline]
 elif {status} == "waiting_card":
 	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
-
+[end_timeline]
 label OnGunPickedUp
 join dr_megadroon_character (default) 1 [animation="Fade In Up"]
 dr_megadroon_character: Hey A101! Do you copy? [br]I am transmitting directly via a cholear implant in your ear. Well done collecting the [color="#4467ab"]toygun[/color]!

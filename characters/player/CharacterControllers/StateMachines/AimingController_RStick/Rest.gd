@@ -4,7 +4,7 @@ var _player_input := Vector2.ZERO
 
 func unhandled_input(event: InputEvent) -> void:
 	_update_player_input()
-	if _player_input.length()>0.01:
+	if _player_input.length()>0.01 and player.inventory.has("toygun"):
 		_state_machine.transition_to("Aim")
 
 func enter(msg: = {}) -> void:

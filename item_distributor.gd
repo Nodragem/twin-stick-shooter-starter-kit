@@ -29,7 +29,10 @@ func _ready():
 
 
 func _on_dialog_finished():
-	pickedup.emit(item_mesh.get_meta("Object", ""))
+	var item_name = item_mesh.get_meta("object", "")
+	pickedup.emit(item_name)
+	if GameManager.has_player():
+		GameManager.get_player().inventory.append(item_name)
 
 
 func _on_dialog_started():

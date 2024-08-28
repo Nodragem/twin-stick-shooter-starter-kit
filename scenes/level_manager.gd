@@ -9,13 +9,14 @@ func _ready():
 	if not skip_intro:
 		$CutSceneManager.animation_finished.connect(on_cutscene_finished)
 		$CutSceneManager.play("Scene1_Introduction")
-		$CutSceneManager.seek(27.99,true)
+		#$CutSceneManager.seek(27.99,true)
 	else:
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
 
 func on_cutscene_finished(anim_name:String):
 	if anim_name == "Scene1_Introduction":
 		cutscene_finished.emit()
+		Dialogic.Inputs.resume()
 		$CutSceneManager.play("Opening")
 	if anim_name == "Opening":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED

@@ -1,9 +1,15 @@
-extends Node3D
+class_name GameManager extends Node3D
 
 @export var player_packed_scene:PackedScene = null
 @onready var gameover_menu: Control = $GameOverMenu
-var player:PlayerEntity = null
-var level:LevelManager = null
+static var player:PlayerEntity = null
+static var level:LevelManager = null
+
+static func get_player()->PlayerEntity:
+	return player
+
+static func has_player()->bool:
+	return true if player else false
 
 func _ready():
 	gameover_menu.restart_pressed.connect(on_restart_pressed)

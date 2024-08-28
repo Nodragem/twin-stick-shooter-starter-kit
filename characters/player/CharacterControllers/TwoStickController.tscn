@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/Dead.gd" id="8_b4jpe"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/AimingController_RStick/Rest.gd" id="9_dcdd7"]
 
-
 [node name="TwoStickController" type="Node"]
 script = ExtResource("1_te6a2")
 _camera_rotation_speed = 0.0
