@@ -14,7 +14,7 @@ extends CharacterBody3D
 @export var controller_schemes:Array[PackedScene]
 @export var game_data:GameDataStore
 
-var inventory:Array = []
+@export var inventory:Array = []
 signal is_dead
 
 func _ready():

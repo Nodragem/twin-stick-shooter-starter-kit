@@ -4,7 +4,7 @@ if {status} == "starting":
 	dr_megadroon_character: Welcome to our world A101, you can move using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_l.png[/img], and have a look around using [img width=32, color="#bbbbbb"]res\://ui/icons/xbox_stick_r.png[/img]. Use [img width=32]res\://ui/icons/xbox_button_color_b.png[/img] to jump and [img width=32]res\://ui/icons/xbox_button_color_x.png[/img] to interact.
 	dr_megadroon_character: Take some time to get use to your body and its control. When you are ready, you should go get your toy gun in the room next door.
 	dr_megadroon_character: ...
-	(Dr. MegaDroon looks at you in the eyes)
+	(Dr. MegaDroon looks you in the eyes)
 	dr_megadroon_character: Feel free to speak to me at any time, I know it can be confusing.
 	set {status} = "waiting_gun"
 elif {status} == "waiting_gun":
@@ -32,11 +32,18 @@ dr_megadroon_character: You can access the [color="#4467ab"]Control Settings[/co
 update dr_megadroon_character [animation="Bounce" length="0.3"]
 dr_megadroon_character: ...
 [wait time="1.0"]
-dr_megadroon_character: I just remembered that I let my building card in my [color="#4467ab"]Living Quarter[/color]. Can you go get it? It should be somewhere in the clutter.
+dr_megadroon_character: I just remembered that I let my building card in the [color="#4467ab"]Dormitory[/color]. Can you go get it? It should be somewhere in the clutter.
 Once you've got the card, we will be able to open the door to the [color="#4467ab"]Training Area[/color].
 [end_timeline]
 
 label OnCardPickedUp
 join dr_megadroon_character (default) 1 [animation="Fade In Up"]
-dr_megadroon_character: Hey A101! Do you copy? [br]I am transmitting directly via a cholear implant in your ear. Well done collecting the [color="#4467ab"]toygun[/color]!
+dr_megadroon_character: What is all this banging noise?
+update dr_megadroon_character [animation="Bounce" length="0.3"]
+[wait time="1.0" hide_text="false"]
+dr_megadroon_character: Oh God, what happened here?
+dr_megadroon_character: ...
+dr_megadroon_character: Oh well, it's okay. If you pass the training, I will make enough money to repay for everything!
+(Let's just hope you don't screw it up a 101th time...)
+
 [end_timeline]

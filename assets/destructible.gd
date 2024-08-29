@@ -1,8 +1,11 @@
 class_name Destructible extends Node3D
-var healt_points = 1
+var healt_points = 2
 var current_tween
 @export var explosion:PackedScene
 @export var body:RigidBody3D
+
+@export var drop_object:PackedScene = null #should be Collectable
+@export_range(0,1) var drop_probability = 0
 
 func _ready():
 	if body != null:
@@ -40,6 +43,13 @@ func run_explosion():
 	node.position = self.position + Vector3(0,2,0)
 	add_sibling(node)
 
+func drop_item():
+	if drop_probability <= 0 or drop_object == null:
+		return
+	if randf() <= drop_probability:
+		var node  = drop_object.instantiate()
+		node.position = self.position
+		add_sibling(node) 
 
 func _on_frozen_body_entered(colliding_body):
 	if colliding_body.is_in_group("bullet"):
@@ -50,3 +60,4 @@ func _on_frozen_body_entered(colliding_body):
 	if healt_points <= 0:
 		queue_free()
 		run_explosion()
+		drop_item()

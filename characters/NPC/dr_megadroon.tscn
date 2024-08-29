@@ -15,6 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_ghvd1")
 
 [node name="AreaDialogue" parent="." index="1" instance=ExtResource("2_mjkfd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -1)
 dialog_timeline = ExtResource("3_nrowa")
 
 [node name="Skeleton3D" parent="Armature" index="0"]

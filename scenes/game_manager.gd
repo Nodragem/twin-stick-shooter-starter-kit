@@ -11,13 +11,21 @@ static func get_player()->PlayerEntity:
 static func has_player()->bool:
 	return true if player else false
 
+static func on_pickup_item(name:String):
+	if player:
+		player.inventory.append(name)
+	if not level:
+		return
+	if name == "building_card":
+		level.on_card_picked_up()
+
 func _ready():
 	gameover_menu.restart_pressed.connect(on_restart_pressed)
 	gameover_menu.quit_pressed.connect(on_quit_pressed)
 	find_player_and_level()
 	if not player and level.skip_intro:
 		spawn_player()
-	level.cutscene_finished.connect(initialise_player)
+	level.introscene_finished.connect(initialise_player)
 
 
 func find_player_and_level():
@@ -34,6 +42,7 @@ func initialise_player():
 		player.queue_free()
 	spawn_player()
 	player.camera.current = true
+
 
 
 func spawn_player():

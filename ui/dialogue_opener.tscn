@@ -26,7 +26,6 @@ collision_layer = 8
 script = SubResource("GDScript_enfp8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678309, -0.836281)
 shape = SubResource("SphereShape3D_mxeb6")
 
 [node name="SwitchComponent" type="Node" parent="."]

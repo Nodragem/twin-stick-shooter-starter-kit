@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=47 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_u13gm"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_xfajn"]
@@ -38,6 +38,8 @@
 [ext_resource type="ArrayMesh" uid="uid://bs6c8eaebtib1" path="res://assets/objects/weapons/toy_gun/laser-gun-design1_Cube.res" id="33_erj25"]
 [ext_resource type="Resource" path="res://scenes/level1/level1_drmegadroon.dtl" id="34_507xk"]
 [ext_resource type="PackedScene" uid="uid://dhnoso0tnbnrd" path="res://assets/objects/laboratory/computer2.glb" id="34_ph7g1"]
+[ext_resource type="PackedScene" uid="uid://yqmkxyxy01sl" path="res://assets/objects/laboratory/collectable_building_pass.tscn" id="39_85vp3"]
+[ext_resource type="PackedScene" uid="uid://bbsktoyjr6ylg" path="res://assets/objects/laboratory/dr_bed.glb" id="39_huhy3"]
 
 [sub_resource type="Animation" id="Animation_e0tby"]
 resource_name = "Opening"
@@ -224,6 +226,30 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.325, 20.281, -0.3)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_g4mdv"]
 resource_name = "Scene1_Introduction"
@@ -284,7 +310,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(3.5, 9.23333, 13.9333, 18.7334, 21.9333, 22.4333, 27.3668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [],
+"args": ["level1_intro", "\"\""],
 "method": &"start_dialogue"
 }, {
 "args": [],
@@ -383,12 +409,125 @@ tracks/9/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.325, 20.281, -0.3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cl1bq"]
+resource_name = "Scene2_Opening_Training"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10.3444, 16.7924, 36.4174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.828235, 0.789759, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 11.796), Vector3(0, 0.5, 27.9), Vector3(0, 0.5, 27.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, 2.24949, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("Run", "Idle"),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutSceneManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["level1_drmegadroon", "OnCardPickedUp"],
+"method": &"start_dialogue"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ad5fl"]
 _data = {
 "Opening": SubResource("Animation_e0tby"),
 "RESET": SubResource("Animation_te3is"),
-"Scene1_Introduction": SubResource("Animation_g4mdv")
+"Scene1_Introduction": SubResource("Animation_g4mdv"),
+"Scene2_Opening_Training": SubResource("Animation_cl1bq")
 }
 
 [sub_resource type="GDScript" id="GDScript_oit5n"]
@@ -399,8 +538,11 @@ var label_index = 1
 func _ready():
 	pass
 
-func start_dialogue():
-	Dialogic.start(\"level1_intro\")
+func get_camera():
+	return $Camera3D
+
+func start_dialogue(name:String, label:String):
+	Dialogic.start(name, label)
 	Dialogic.Inputs.pause()
 	
 func go_to_next_sentence():
@@ -874,23 +1016,46 @@ visible = false
 transform = Transform3D(-0.902674, 0, -0.430325, 0, 1, 0, 0.430325, 0, -0.902674, 5.85811, 4.5, -19.7725)
 sync_to_physics = false
 
+[node name="CollisionShape3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="AreaDialogue" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="Armature" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="2"]
+metadata/_edit_lock_ = true
+
 [node name="Skeleton3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature" index="0"]
-bones/0/position = Vector3(0, 0.318594, 3.79892e-09)
-bones/0/rotation = Quaternion(0.0638656, 1.18966e-07, 7.61337e-09, 0.997959)
-bones/1/rotation = Quaternion(-0.0592259, 1.88186e-13, -1.41177e-08, 0.998245)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/rotation = Quaternion(-0.029063, -1.19159e-07, -3.46458e-09, 0.999578)
-bones/11/position = Vector3(0.32676, 0.380072, 0.0193053)
-bones/11/rotation = Quaternion(-0.00737547, 0.0805805, 0.968878, -0.233941)
-bones/12/rotation = Quaternion(-0.130554, 0.0218664, -0.0487757, 0.989999)
-bones/13/position = Vector3(-0.32676, 0.380072, 0.0193051)
-bones/13/rotation = Quaternion(0.00737514, 0.0805804, 0.968878, 0.233941)
-bones/14/rotation = Quaternion(-0.130554, -0.0218664, 0.0487757, 0.989999)
-bones/15/rotation = Quaternion(0.707029, -0.0104532, 0.70703, -0.0104531)
-bones/16/rotation = Quaternion(-0.0102543, -8.78313e-05, -0.162102, 0.986721)
-bones/17/rotation = Quaternion(-0.70703, -0.0104531, 0.70703, 0.0104532)
-bones/18/rotation = Quaternion(-0.0102544, 8.77911e-05, 0.162102, 0.986721)
-bones/20/position = Vector3(1.43335e-07, 0.208249, -0.601192)
+bones/0/position = Vector3(2.19309e-09, 0.352071, 0.00712542)
+bones/0/rotation = Quaternion(0.0638651, -0.000246073, -0.00384698, 0.997951)
+bones/1/rotation = Quaternion(-0.0848633, -0.0005807, -0.00556687, 0.996377)
+bones/2/rotation = Quaternion(-0.0420563, -0.00120985, -0.00716821, 0.999089)
+bones/5/rotation = Quaternion(-0.241658, 0.209181, -0.614578, 0.721206)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-0.0180697, 0.0953652, 0.186824, 0.977587)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(-0.0914904, -0.0395669, 0.0675893, 0.992721)
+bones/9/rotation = Quaternion(0.12297, -0.0930752, -0.135418, 0.978712)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.113128, 0.0490838, 0.596035, 0.793432)
+bones/11/position = Vector3(0.326639, 0.379338, 0.00969536)
+bones/11/rotation = Quaternion(0.0109798, -0.24645, 0.950563, -0.188607)
+bones/12/rotation = Quaternion(-0.146112, 0.0246308, -0.0484193, 0.987775)
+bones/13/position = Vector3(-0.326865, 0.380703, 0.0275653)
+bones/13/rotation = Quaternion(0.0228319, 0.217408, 0.945485, 0.241392)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.284372, -0.0492113, 0.0446566, 0.956408)
+bones/15/rotation = Quaternion(0.71069, 0.00618623, 0.703348, 0.0135362)
+bones/16/rotation = Quaternion(-0.00970669, 0.00330728, -0.479195, 0.877649)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(-0.703913, -0.0671296, 0.703913, 0.0671296)
+bones/18/rotation = Quaternion(-0.00985898, -0.00282135, 0.435038, 0.900354)
+bones/18/scale = Vector3(1, 1, 1)
+bones/20/position = Vector3(1.32402e-07, -0.245376, -0.554106)
+metadata/_edit_lock_ = true
+
+[node name="Body" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature/Skeleton3D" index="0"]
+metadata/_edit_lock_ = true
 
 [node name="InteractiveObjects" type="Node3D" parent="GridMapBuilding"]
 
@@ -899,6 +1064,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4349, 7, 1.99275)
 item_mesh = ExtResource("33_erj25")
 dialog_timeline = ExtResource("34_507xk")
 jump_to_label = "OnGunPickedUp"
+
+[node name="dr_bed" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0.5, 49.683)
+
+[node name="dr_bed2" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35.6752, 0.5, 35.9878)
+drop_object = ExtResource("39_85vp3")
+drop_probability = 1
+
+[node name="dr_bed3" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.3, 0.5, 41.97)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_es3rg")

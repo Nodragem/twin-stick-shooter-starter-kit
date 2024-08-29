@@ -1,9 +1,11 @@
 class_name LevelManager extends Node3D
 
 @export var skip_intro:bool = false
+
 @export var camera_start_rotation:Vector3 = Vector3(-35, 60, 0)
 @onready var player_start_point:Marker3D = %PlayerStartingPoint
-signal cutscene_finished
+
+signal introscene_finished
 
 func _ready():
 	if not skip_intro:
@@ -15,9 +17,20 @@ func _ready():
 
 func on_cutscene_finished(anim_name:String):
 	if anim_name == "Scene1_Introduction":
-		cutscene_finished.emit()
+		introscene_finished.emit() #Gamemanager will spawn a player and change camera
 		Dialogic.Inputs.resume()
 		$CutSceneManager.play("Opening")
 	if anim_name == "Opening":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
 		Dialogic.start("level1_drmegadroon")
+	if anim_name == "Scene2_Training_Door":
+		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
+		GameManager.get_player().camera.current = true
+
+func on_card_picked_up():
+	$CutSceneManager.process_mode = Node.PROCESS_MODE_INHERIT
+	$CutSceneManager.get_camera().current = true
+	$CutSceneManager.play("Scene2_Opening_Training")
+	
+func on_gun_picked_up():
+	pass
