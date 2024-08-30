@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://btgw7dpwnjnyy"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_ynaki"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="2_3c7yt"]
+[ext_resource type="PackedScene" uid="uid://bsvdg3ojnd0oj" path="res://ui/ControllerMenu.tscn" id="3_6gnp1"]
+[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="4_iidia"]
+[ext_resource type="PackedScene" uid="uid://b87aieg3uitnk" path="res://scenes/level1/level1.tscn" id="5_ojn7i"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ynaki")
+player_packed_scene = ExtResource("2_3c7yt")
+
+[node name="PlayerEntity" parent="." instance=ExtResource("2_3c7yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9698, 0.657674, 29.1733)
+inventory = ["toygun"]
+
+[node name="ControllerMenu" parent="." instance=ExtResource("3_6gnp1")]
+visible = false
+
+[node name="GameOverMenu" parent="." instance=ExtResource("4_iidia")]
+visible = false
+
+[node name="Level1" parent="." instance=ExtResource("5_ojn7i")]
+skip_intro = true

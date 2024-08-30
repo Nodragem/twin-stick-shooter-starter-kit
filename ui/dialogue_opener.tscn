@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq342c86wg6dj"]
+
+[ext_resource type="Script" path="res://assets/objects/switches/switch_dialogue.gd" id="1_fl3hb"]
+[ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="2_df0j8"]
+
+[sub_resource type="GDScript" id="GDScript_enfp8"]
+script/source = "extends Area3D
+
+@export var dialog_timeline: Resource = null
+@export var jump_to_label: String = \"OnDefault\"
+@export var one_shot: bool = false
+
+signal dialog_finished
+signal dialog_started
+
+func on_timeline_ended():
+	Dialogic.timeline_ended.disconnect(on_timeline_ended)
+	self.dialog_finished.emit()
+
+
+func _on_switch_component_activation_signal(is_activated):
+	Dialogic.start(self.dialog_timeline, self.jump_to_label)
+	Dialogic.timeline_ended.connect(self.on_timeline_ended)
+	self.dialog_started.emit()
+	get_viewport().set_input_as_handled()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
+radius = 1.0
+
+[node name="AreaDialogue" type="Area3D"]
+collision_layer = 8
+script = SubResource("GDScript_enfp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_mxeb6")
+
+[node name="SwitchComponent" type="Node" parent="."]
+script = ExtResource("1_fl3hb")
+
+[node name="InteractionTip" parent="." instance=ExtResource("2_df0j8")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="activation_signal" from="SwitchComponent" to="." method="_on_switch_component_activation_signal"]

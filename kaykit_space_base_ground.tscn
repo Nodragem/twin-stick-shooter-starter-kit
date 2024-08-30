@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c7jdddxff4q8h"]
 
-[ext_resource type="PackedScene" uid="uid://ur3avwvt6emg" path="res://kits/kaykit_space_base_ground.glb" id="1_0sb63"]
+[ext_resource type="PackedScene" uid="uid://ur3avwvt6emg" path="res://assets/kits/kaykit_space_base_ground.glb" id="1_0sb63"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0ega2"]
 points = PackedVector3Array(-1, -1, -1, -1, 0, -1, 1, -1, -1, -1, -1, 1, -1, 0, 1, 1, 0, -1, 1, -1, 1, 1, 0, 1)

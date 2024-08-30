@@ -1,11 +1,11 @@
 [gd_scene load_steps=18 format=3 uid="uid://cjklvg8pt4duv"]
 
-[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="1_6jodu"]
-[ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_txk74"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="1_6jodu"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_txk74"]
 [ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_kmmi5"]
-[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="2_rxava"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="2_rxava"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="3_yd4xj"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://enemies/melee/minion/EnemyMinion.tscn" id="4_q1glw"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://characters/enemies/melee/minion/EnemyMinion.tscn" id="4_q1glw"]
 [ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="7_ifwf2"]
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="9_c1hp4"]
 [ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="10_a3bt3"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="14_wcrvg"]
 [ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="15_5adn2"]
 [ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_bvvud"]
-
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 11, 15, 1, 11, 15, 1, -15)

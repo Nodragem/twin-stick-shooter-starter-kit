@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ghvokiyi5vxr"]
+
+[ext_resource type="PackedScene" uid="uid://cv30qkphf2eqm" path="res://assets/objects/laboratory/item_distributor.glb" id="1_q0cfd"]
+[ext_resource type="Script" path="res://assets/objects/laboratory/item_distributor.gd" id="2_kpopi"]
+[ext_resource type="PackedScene" uid="uid://cq342c86wg6dj" path="res://ui/dialogue_opener.tscn" id="3_013oy"]
+
+[node name="ItemDistributor" instance=ExtResource("1_q0cfd")]
+script = ExtResource("2_kpopi")
+
+[node name="ItemSlot" type="Node3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+rotation_edit_mode = 1
+
+[node name="AreaDialogue" parent="." index="1" instance=ExtResource("3_013oy")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.937101, 0)
+dialog_timeline = null
+jump_to_label = "OnDefault"
+one_shot = true
+metadata/_edit_pinned_properties_ = [&"dialog_timeline", &"jump_to_label"]
+
+[connection signal="dialog_finished" from="AreaDialogue" to="." method="_on_dialog_finished"]
+[connection signal="dialog_started" from="AreaDialogue" to="." method="_on_dialog_started"]

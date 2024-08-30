@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2yqin8xn1yc1"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_a2x0p"]
+[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="3_yl3ue"]
+[ext_resource type="PackedScene" uid="uid://dfam82avfcqmy" path="res://scenes/level1/level1_training_area.tscn" id="4_6m47g"]
+[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="5_2vc36"]
+
+[node name="TestAI" type="Node3D"]
+script = ExtResource("1_a2x0p")
+
+[node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
+
+[node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -37.3759)
+inventory = ["toygun", "building_card"]
+
+[node name="TrainingArea" parent="." instance=ExtResource("4_6m47g")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("5_2vc36")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
+layers = 2
+light_color = Color(0.992157, 0.917647, 0.698039, 1)
+light_angular_distance = 3.0
+shadow_enabled = true
+shadow_bias = 0.03
+directional_shadow_mode = 0
+directional_shadow_split_2 = 0.343
+directional_shadow_split_3 = 0.566
+directional_shadow_blend_splits = true
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
+layers = 2
+light_color = Color(0.303129, 0.18483, 0.0558749, 1)
+light_energy = 1.239
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_bias = 0.03
+shadow_blur = 0.0
+directional_shadow_mode = 0
+
+[connection signal="is_dead" from="PlayerEntity" to="." method="on_player_death"]
+
+[editable path="PlayerEntity"]

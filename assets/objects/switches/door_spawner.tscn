@@ -1,0 +1,184 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds5itulgl8xim"]
+
+[ext_resource type="PackedScene" uid="uid://buwig15tku7kc" path="res://assets/objects/switches/DoorSpawner.glb" id="1_feskh"]
+
+[sub_resource type="GDScript" id="GDScript_ymkot"]
+script/source = "extends Node3D
+
+@export var to_spawn : PackedScene
+@export var time_between_waves : int = 3
+@export var nb_spawn_by_wave : int = 3
+@export var flow_rate : int = 1
+
+@onready var wave_timer : Timer = $WaveTimer
+@onready var switch_component : SwitchComponent = $SwitchComponent
+
+func _ready():
+	wave_timer.wait_time = time_between_waves
+	_on_wave_timer_timeout()
+	switch_component.activation_signal.connect(self.on_interaction)
+
+func on_interaction(requested:bool):
+	if requested:
+		_on_wave_timer_timeout()
+		$AnimationPlayer.play(\"Opening\")
+	else:
+		wave_timer.stop()
+		$AnimationPlayer.play(\"Closing\")
+
+func spawn():
+	var enemy = to_spawn.instantiate()
+	enemy.global_transform = self.global_transform
+	get_tree().root.add_child(enemy)
+	print(\"Spawn!\")
+
+func _on_wave_timer_timeout():
+	if not switch_component.is_activated:
+		return
+	var tween = self.create_tween()
+	tween.set_loops(nb_spawn_by_wave).tween_callback(spawn).set_delay(flow_rate)
+	tween.finished.connect(restart_wave_timer)
+
+func restart_wave_timer():
+	wave_timer.start()
+"
+
+[sub_resource type="Animation" id="Animation_mcon7"]
+resource_name = "Closing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.523599, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vbax0"]
+resource_name = "Opening"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.142, -0.25, 0, 0.133333, -2.19164, 0.252136, -0.0666667, -0.0387901, 0, 1.78435, 0.989148, -0.0333333, 0.0339876, 0.25, 0),
+"times": PackedFloat32Array(0, 0.266667, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_omvse"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DoorSpawner_Frame/DoorSpawner_Opening:rotation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbmr2"]
+_data = {
+"Closing": SubResource("Animation_mcon7"),
+"Opening": SubResource("Animation_vbax0"),
+"RESET": SubResource("Animation_omvse")
+}
+
+[sub_resource type="GDScript" id="GDScript_n5irn"]
+script/source = "extends SwitchComponent
+
+func on_interaction(requested:bool):
+	if requested == is_activated:
+		return
+	is_activated = requested
+"
+
+[node name="DoorSpawner" instance=ExtResource("1_feskh")]
+script = SubResource("GDScript_ymkot")
+
+[node name="DoorSpawner_Opening" parent="DoorSpawner_Frame" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, -0.675713, 0.572169, 0.231301)
+
+[node name="EnemySpawner" type="Marker3D" parent="." index="1"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1, -2)
+gizmo_extents = 3.88
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_dbmr2")
+}
+
+[node name="WaveTimer" type="Timer" parent="." index="3"]
+one_shot = true
+
+[node name="SwitchComponent" type="Node" parent="." index="4"]
+script = SubResource("GDScript_n5irn")
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]

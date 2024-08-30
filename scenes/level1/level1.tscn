@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=50 format=3 uid="uid://b87aieg3uitnk"]
 
-[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="1_u13gm"]
-[ext_resource type="PackedScene" uid="uid://w3bqftmyjesv" path="res://assets/prototype_bits/Weaponrack.gltf" id="2_sojh4"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_u13gm"]
+[ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_xfajn"]
 [ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="3_mmctn"]
 [ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="3_oe01x"]
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="3_v87cw"]
@@ -31,11 +31,651 @@
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="30_6gu3m"]
 [ext_resource type="PackedScene" uid="uid://br13pby3ekf7v" path="res://assets/prototype_bits/Cube_Prototype_Small.gltf" id="30_axpgr"]
 [ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="31_es3rg"]
+[ext_resource type="PackedScene" uid="uid://b7xry5nlaw1tx" path="res://assets/objects/laboratory/computer1.glb" id="32_brqut"]
+[ext_resource type="PackedScene" uid="uid://h8pnjgggsrtm" path="res://characters/NPC/dr_megadroon.tscn" id="32_ktg0t"]
+[ext_resource type="PackedScene" uid="uid://ghvokiyi5vxr" path="res://assets/objects/laboratory/item_distributor.tscn" id="32_xsrdy"]
+[ext_resource type="PackedScene" uid="uid://cwk6ldidjdnnh" path="res://assets/objects/laboratory/cloning_tank.tscn" id="33_a67mj"]
+[ext_resource type="ArrayMesh" uid="uid://bs6c8eaebtib1" path="res://assets/objects/weapons/toy_gun/laser-gun-design1_Cube.res" id="33_erj25"]
+[ext_resource type="Resource" path="res://scenes/level1/level1_drmegadroon.dtl" id="34_507xk"]
+[ext_resource type="PackedScene" uid="uid://dhnoso0tnbnrd" path="res://assets/objects/laboratory/computer2.glb" id="34_ph7g1"]
+[ext_resource type="PackedScene" uid="uid://yqmkxyxy01sl" path="res://assets/objects/laboratory/collectable_building_pass.tscn" id="39_85vp3"]
+[ext_resource type="PackedScene" uid="uid://bbsktoyjr6ylg" path="res://assets/objects/laboratory/dr_bed.glb" id="39_huhy3"]
+[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://assets/objects/switches/door_switch.tscn" id="40_gvxam"]
+[ext_resource type="PackedScene" uid="uid://dfam82avfcqmy" path="res://scenes/level1/level1_training_area.tscn" id="41_81v2m"]
+
+[sub_resource type="Animation" id="Animation_e0tby"]
+resource_name = "Opening"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7),
+"transitions": PackedFloat32Array(0.203063, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("CutSceneManager/Control/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/cloning_tank/character_reference:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/GPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_te3is"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(5.85811, 4.5, -19.7725)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.69674, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutSceneManager/Control/Label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/cloning_tank/character_reference:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GridMapBuilding/Room1_StaticObjects/CloningTank/GPUParticles3D:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.325, 20.281, -0.3)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g4mdv"]
+resource_name = "Scene1_Introduction"
+length = 28.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6.73333, 9.23333, 12.2667, 13.8, 16.2334, 16.4667, 16.7334, 17.1667, 18.7334, 21.9667, 22.2, 22.4667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0.189465, 0.217638, 1, 1, 1, 0.210224, 0.34151, 1),
+"update": 0,
+"values": [Vector3(1.24426, 4.5, -16.0392), Vector3(1.24426, 4.5, -16.0392), Vector3(14.8393, 4.5, -16.9901), Vector3(14.8393, 4.5, -16.9901), Vector3(15.4381, 4.5, -12.0593), Vector3(15.4381, 4.5, -12.0593), Vector3(15.438, 5, -12.059), Vector3(15.4381, 4.5, -12.0593), Vector3(15.4381, 4.5, -12.0593), Vector3(4.31759, 4.5, -21.5772), Vector3(4.31759, 4.5, -21.5772), Vector3(4.318, 6, -21.577), Vector3(4.31759, 4.5, -21.5772)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.73333, 6.93333, 9.23333, 12.2667, 12.3667, 13.8, 13.9667, 17.0667, 17.1667, 18.7334, 18.8334, 21.9667, 22.4667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.09088, 0), Vector3(0, 1.09088, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, -3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 0.785398, 0), Vector3(0, 0.785398, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 10.5592, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.73333, 9.23333, 12.2667, 16.2334, 16.4667, 16.7334, 17.0667, 21.9667, 22.2, 22.4667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.210224, 0.450626, 1, 1, 0.183011, 0.287175, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.9, 1.4, 0.9), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.8, 1.5, 0.8), Vector3(1, 1, 1)]
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("Idle", "Run", "Idle", "Run", "Idle", "Run", "Idle"),
+"times": PackedFloat32Array(0.0333334, 6.90003, 9.23333, 12.3667, 14, 17.1667, 18.7334)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutSceneManager")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.5, 9.23333, 13.9333, 18.7334, 21.9333, 22.4333, 27.3668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["level1_intro", "", true],
+"method": &"start_dialogue"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}, {
+"args": [],
+"method": &"go_to_next_sentence"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutSceneManager")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6.73333, 9.23333, 12.3, 13.9333, 17.0667, 18.7334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_text_box"
+}, {
+"args": [],
+"method": &"toggle_text_box"
+}, {
+"args": [],
+"method": &"toggle_text_box"
+}, {
+"args": [],
+"method": &"toggle_text_box"
+}, {
+"args": [],
+"method": &"toggle_text_box"
+}, {
+"args": [],
+"method": &"toggle_text_box"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 24.5001, 27.3668),
+"transitions": PackedFloat32Array(0.203063, 0.203063, 2.92817, 1, 0.183011),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.1), Vector2(1, 0.1), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.3, 24.5001, 27.3668),
+"transitions": PackedFloat32Array(0.203063, 0.203063, 2.92817, 1, 0.183011),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 0.1), Vector2(1, 0.1), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333, 3.33333, 3.46667, 24.5001, 27.3668),
+"transitions": PackedFloat32Array(0.203063, 0.378929, 1, 2.63902, 2.63902, 0.203063),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath("CutSceneManager/Control/Label:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.7, 3.26667),
+"transitions": PackedFloat32Array(1, 0.378929, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.325, 20.281, -0.3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.785398, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cl1bq"]
+resource_name = "Scene2_Opening_Training"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(10.3444, 16.7924, 36.4174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.828235, 0.789759, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333, 1.36667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.5, 11.796), Vector3(0, 0.5, 27.9), Vector3(0, 0.5, 27.9), Vector3(0, 1, 27.9), Vector3(0, 0.5, 27.9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 2.24949, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 1.23333, 1.36667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.8, 1.4, 0.8), Vector3(1, 1, 1)]
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("Run", "Idle"),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutSceneManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["level1_drmegadroon", "OnCardPickedUp", false],
+"method": &"start_dialogue"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_wuyuu"]
+resource_name = "Simple_Transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7),
+"transitions": PackedFloat32Array(0.203063, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ad5fl"]
+_data = {
+"Opening": SubResource("Animation_e0tby"),
+"RESET": SubResource("Animation_te3is"),
+"Scene1_Introduction": SubResource("Animation_g4mdv"),
+"Scene2_Opening_Training": SubResource("Animation_cl1bq"),
+"Simple_Transition": SubResource("Animation_wuyuu")
+}
+
+[sub_resource type="GDScript" id="GDScript_oit5n"]
+script/source = "class_name CutSceneManager extends AnimationPlayer
+
+var label_index = 1
+
+func _ready():
+	pass
+
+func get_camera():
+	return $Camera3D
+
+func start_dialogue(name:String, label:String, disable_input:bool = false):
+	Dialogic.start(name, label)
+	if disable_input:
+		Dialogic.Inputs.pause()
+	
+func go_to_next_sentence():
+	Dialogic.handle_next_event()
+
+func toggle_text_box():
+	if Dialogic.Text.is_textbox_visible():
+		Dialogic.Text.hide_textbox()
+	else:
+		Dialogic.Text.show_textbox()
+"
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_xfajn")
+
+[node name="CutSceneManager" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ad5fl")
+}
+script = SubResource("GDScript_oit5n")
+
+[node name="Camera3D" type="Camera3D" parent="CutSceneManager"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 8.325, 20.281, -0.3)
+fov = 54.7
+
+[node name="Control" type="Control" parent="CutSceneManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopEyeLid" type="ColorRect" parent="CutSceneManager/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 540.0
+grow_horizontal = 2
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(960, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="BottomEyeLid" type="ColorRect" parent="CutSceneManager/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -540.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 1e-05)
+pivot_offset = Vector2(960, 540)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CutSceneManager/Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CutSceneManager/Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "In lab, somewhere ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TrainingArea" parent="." instance=ExtResource("41_81v2m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 86, 0, 32)
 
 [node name="GridMapBuilding" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh_library = ExtResource("1_u13gm")
 cell_octant_size = 18
 cell_center_x = false
@@ -43,9 +683,14 @@ cell_center_y = false
 cell_center_z = false
 collision_layer = 2
 data = {
-"cells": PackedInt32Array(65534, 1, 66, 0, 1, 524335, 2, 1, 40, 65532, 3, 54, 65534, 3, 524335, 0, 3, 524335, 2, 3, 40, 65532, 5, 40, 65534, 5, 40, 0, 5, 40, 2, 5, 40, 65532, 7, 1048616, 65534, 7, 1048616, 0, 7, 1048616, 2, 7, 1048616, 4, 1, 1048616, 4, 3, 1048616, 4, 5, 1048616, 4, 7, 1048616, 65531, 5, 1441803, 65531, 7, 1441803, 65532, 8, 655371, 65534, 8, 655372, 0, 8, 13, 2, 8, 655376, 4, 8, 655371, 5, 7, 1048587, 5, 5, 1441804, 2, 0, 11, 0, 0, 15, 65534, 0, 11, 3, 65535, 1441803, 3, 0, 655412, 1, 4, 655412, 65533, 3, 1048614, 6, 1, 1441839, 6, 3, 1441839, 8, 3, 1441839, 8, 1, 1441839, 4, 65535, 655407, 5, 4, 1441844, 9, 4, 1441844, 9, 0, 1441844, 6, 0, 11, 5, 65535, 1441803, 5, 0, 655412, 8, 0, 655371, 9, 1, 1048587, 9, 3, 1048593, 6, 4, 655371, 8, 4, 655371, 65532, 6, 72, 65532, 1, 54, 65530, 3, 54, 65528, 3, 54, 65528, 1, 54, 65530, 1, 54, 65528, 65535, 54, 65530, 65535, 54, 65532, 65535, 54, 196599, 4, 88, 196599, 65534, 88, 196605, 65534, 88, 196604, 65534, 68, 196602, 65534, 68, 196600, 65534, 68, 196599, 65535, 1441860, 196599, 1, 1441860, 196599, 3, 1441860, 196602, 4, 655428, 196600, 4, 655428, 196600, 65535, 63, 196600, 3, 1048639, 196601, 1, 67, 196600, 1, 57, 262136, 1, 57, 131076, 65531, 1048617, 131078, 65531, 39, 131080, 65531, 39, 131074, 65531, 39, 131072, 65531, 39, 131080, 65529, 39, 131080, 65527, 39, 131078, 65527, 39, 131076, 65527, 1048617, 131074, 65527, 39, 131072, 65527, 39, 131072, 65529, 39, 131074, 65529, 39, 131076, 65529, 1048617, 131078, 65529, 39, 4, 65533, 1441858, 5, 65532, 1441843, 3, 65532, 1441843, 5, 65533, 1441803, 3, 65533, 1441803, 196607, 65531, 1441803, 196607, 65529, 1048588, 196607, 65527, 1441803, 131072, 65526, 655371, 131080, 65526, 655371, 131081, 65527, 1048587, 131081, 65529, 1048587, 131081, 65531, 1048587, 131080, 65532, 16, 131078, 65532, 11, 131074, 65532, 11, 131072, 65532, 16, 131077, 65532, 1048627, 131075, 65532, 1048627, 196607, 65526, 655412, 131081, 65526, 655412, 196607, 65532, 655412, 131081, 65532, 655412, 196604, 65535, 39, 196604, 1, 1048617, 196604, 3, 39, 196602, 3, 39, 196602, 65535, 39, 6, 65527, 655414, 4, 65527, 655414, 2, 65527, 655414, 0, 65527, 655414, 9, 65532, 1048635, 65535, 65532, 1048635, 9, 65531, 1048592, 8, 65532, 11, 7, 65531, 1048587, 1, 65531, 1048587, 0, 65532, 11, 8, 65526, 11, 9, 65527, 1048587, 8, 65528, 11, 8, 65530, 11, 0, 65526, 11, 65535, 65527, 1441803, 65535, 65531, 1441803, 0, 65530, 655371, 0, 65528, 655371, 65532, 65534, 655371, 65528, 65534, 655371, 65530, 4, 655371, 65528, 4, 655371, 65527, 3, 1048587, 65527, 1, 1048587, 65527, 65535, 1048587, 3, 1, 1048587, 131074, 65524, 655371, 131076, 65524, 655371, 131078, 65524, 655371, 131079, 65525, 1048587, 131073, 65525, 1048587, 131074, 65525, 1048617, 131076, 65525, 1048617, 131078, 65525, 1048617, 131075, 8, 65588, 131073, 8, 65588, 131077, 65534, 917556, 131075, 65534, 917556, 131075, 0, 917556, 131077, 0, 917556, 196603, 6, 917556, 196603, 8, 917556, 131081, 2, 917556, 131081, 4, 917556, 196603, 4, 88, 65534, 4, 1048663, 0, 4, 1048663, 1, 1, 655447, 1, 3, 655447, 65533, 9, 1048587, 196603, 1, 655447, 131077, 7, 655447, 131077, 5, 655447, 65534, 9, 655407, 2, 9, 655407, 65534, 11, 655400, 65534, 13, 655400, 65534, 15, 1048616, 65534, 17, 655401, 0, 11, 655401, 0, 13, 655401, 0, 15, 655401, 0, 17, 655401, 65532, 15, 655400, 65532, 17, 655401, 65532, 19, 1048616, 65530, 15, 655400, 65528, 15, 655400, 65526, 15, 655400, 65524, 15, 1048616, 65522, 15, 655400, 65520, 15, 655400, 65520, 17, 655401, 65522, 17, 655401, 65524, 17, 655401, 65526, 17, 655401, 65528, 17, 655401, 65530, 17, 655401, 65530, 19, 655400, 65528, 19, 1048616, 65526, 19, 655400, 65524, 19, 655400, 65522, 19, 1048636, 65520, 19, 655400, 65518, 18, 1048615, 65518, 16, 1048634, 65532, 21, 655400, 65530, 21, 655400, 65528, 21, 655400, 65526, 21, 655400, 65524, 21, 655400, 65522, 21, 1048630, 65520, 21, 655400, 65520, 23, 655400, 65522, 23, 655400, 65524, 23, 655400, 65526, 23, 1048616, 65528, 23, 655400, 65530, 23, 655400, 65532, 23, 655400, 65524, 25, 655400, 65526, 25, 655400, 65524, 13, 1048615, 65526, 13, 1048615, 2, 11, 655400, 2, 13, 655400, 2, 15, 655400, 2, 17, 655400, 2, 19, 655400, 0, 19, 655400, 65534, 19, 655400, 65532, 25, 655400, 65530, 25, 1048630, 65528, 25, 655400, 65522, 25, 655400, 65520, 25, 655400, 65529, 16, 655413, 65526, 22, 655413, 65521, 21, 1048629, 65523, 21, 1048632, 3, 9, 1048587, 3, 11, 1048587, 3, 13, 1441808, 65533, 11, 1441803, 65533, 13, 1441803, 65532, 14, 655371, 65530, 14, 16, 65528, 14, 655371, 65527, 13, 1048587, 65526, 12, 11, 65524, 12, 11, 65523, 13, 1441803, 65517, 16, 1048587, 65517, 18, 1048588, 65519, 21, 1048587, 65519, 23, 1048591, 65519, 25, 1048587, 65520, 26, 11, 65522, 26, 655376, 65530, 26, 11, 65532, 26, 655376, 65533, 25, 1441803, 65533, 23, 1441803, 65533, 21, 1441803, 65534, 20, 655371, 0, 20, 655371, 2, 20, 655371, 3, 19, 1048587, 65520, 14, 16, 65522, 14, 16, 3, 15, 1048593, 3, 17, 1441804, 65518, 15, 655371, 65518, 19, 655371, 65519, 15, 1048628, 65519, 20, 1048590, 65527, 27, 1048615, 65525, 27, 1048615, 65527, 14, 1048628, 65523, 14, 1048628, 65519, 19, 1048628, 65519, 14, 1441806, 65529, 26, 655374, 65523, 26, 14, 65524, 26, 52, 65528, 26, 52, 65525, 28, 11, 65527, 28, 11, 65528, 27, 1441803, 65524, 27, 1441803, 0, 9, 655401, 65530, 24, 655398, 65522, 22, 38)
+"cells": PackedInt32Array(65534, 1, 66, 0, 1, 524335, 2, 1, 40, 65532, 3, 54, 65534, 3, 524335, 0, 3, 524335, 2, 3, 40, 65532, 5, 40, 65534, 5, 40, 0, 5, 40, 2, 5, 40, 65532, 7, 1048616, 65534, 7, 1048616, 0, 7, 1048616, 2, 7, 1048616, 4, 1, 1048616, 4, 3, 1048616, 4, 5, 1048616, 4, 7, 1048616, 65531, 5, 1441803, 65531, 7, 1441803, 65532, 8, 655371, 65534, 8, 655372, 0, 8, 13, 2, 8, 655376, 4, 8, 655371, 5, 7, 1048587, 5, 5, 1441804, 2, 0, 11, 0, 0, 15, 65534, 0, 11, 3, 65535, 1441803, 3, 0, 655412, 1, 4, 655412, 65533, 3, 1048614, 6, 1, 1441839, 6, 3, 1441839, 8, 3, 1441839, 8, 1, 1441839, 4, 65535, 655407, 5, 4, 1441844, 9, 4, 1441844, 9, 0, 1441844, 6, 0, 11, 5, 65535, 1441803, 5, 0, 655412, 8, 0, 655371, 9, 1, 1048587, 9, 3, 1048593, 6, 4, 655371, 8, 4, 655371, 65532, 6, 72, 65532, 1, 54, 65530, 3, 54, 65528, 3, 54, 65528, 1, 54, 65530, 1, 54, 65528, 65535, 54, 65530, 65535, 54, 65532, 65535, 54, 196599, 4, 88, 196599, 65534, 88, 196605, 65534, 88, 196604, 65534, 68, 196602, 65534, 68, 196600, 65534, 68, 196599, 65535, 1441860, 196599, 1, 1441860, 196599, 3, 1441860, 196602, 4, 655428, 196600, 4, 655428, 196600, 65535, 63, 196600, 3, 1048639, 196601, 1, 67, 196600, 1, 57, 262136, 1, 57, 131076, 65531, 1048617, 131078, 65531, 39, 131080, 65531, 39, 131074, 65531, 39, 131072, 65531, 39, 131080, 65529, 39, 131080, 65527, 39, 131078, 65527, 39, 131076, 65527, 1048617, 131074, 65527, 39, 131072, 65527, 39, 131072, 65529, 39, 131074, 65529, 39, 131076, 65529, 1048617, 131078, 65529, 39, 4, 65533, 1441858, 5, 65532, 1441843, 3, 65532, 1441843, 5, 65533, 1441803, 3, 65533, 1441803, 196607, 65531, 1441803, 196607, 65529, 1048588, 196607, 65527, 1441803, 131072, 65526, 655371, 131080, 65526, 655371, 131081, 65527, 1048587, 131081, 65529, 1048587, 131081, 65531, 1048587, 131080, 65532, 16, 131078, 65532, 11, 131074, 65532, 11, 131072, 65532, 16, 131077, 65532, 1048627, 131075, 65532, 1048627, 196607, 65526, 655412, 131081, 65526, 655412, 196607, 65532, 655412, 131081, 65532, 655412, 196604, 65535, 39, 196604, 1, 1048617, 196604, 3, 39, 196602, 3, 39, 196602, 65535, 39, 6, 65527, 655414, 4, 65527, 655414, 2, 65527, 655414, 0, 65527, 655414, 9, 65532, 1048635, 65535, 65532, 1048635, 9, 65531, 1048592, 8, 65532, 11, 7, 65531, 1048587, 1, 65531, 1048587, 0, 65532, 11, 8, 65526, 11, 9, 65527, 1048587, 8, 65528, 11, 8, 65530, 11, 0, 65526, 11, 65535, 65527, 1441803, 65535, 65531, 1441803, 0, 65530, 655371, 0, 65528, 655371, 65532, 65534, 655371, 65528, 65534, 655371, 65530, 4, 655371, 65528, 4, 655371, 65527, 3, 1048587, 65527, 1, 1048587, 65527, 65535, 1048587, 3, 1, 1048587, 131074, 65524, 655371, 131076, 65524, 655371, 131078, 65524, 655371, 131079, 65525, 1048587, 131073, 65525, 1048587, 131074, 65525, 1048617, 131076, 65525, 1048617, 131078, 65525, 1048617, 131075, 8, 65588, 131073, 8, 65588, 131077, 65534, 917556, 131075, 65534, 917556, 131075, 0, 917556, 131077, 0, 917556, 196603, 6, 917556, 196603, 8, 917556, 131081, 2, 917556, 131081, 4, 917556, 196603, 4, 88, 65534, 4, 1048663, 0, 4, 1048663, 1, 1, 655447, 1, 3, 655447, 65533, 9, 1048587, 196603, 1, 655447, 131077, 7, 655447, 131077, 5, 655447, 65534, 9, 655407, 2, 9, 655407, 65534, 11, 655400, 65534, 13, 655400, 65534, 15, 1048616, 65534, 17, 655401, 0, 11, 655401, 0, 13, 655401, 0, 15, 655401, 0, 17, 655401, 65532, 15, 655400, 65532, 17, 655401, 65532, 19, 1048616, 65530, 15, 655400, 65528, 15, 655400, 65526, 15, 655400, 65524, 15, 1048616, 65522, 15, 655400, 65520, 15, 655400, 65520, 17, 655401, 65522, 17, 655401, 65524, 17, 655401, 65526, 17, 655401, 65528, 17, 655401, 65530, 17, 655401, 65530, 19, 655400, 65528, 19, 1048616, 65526, 19, 655400, 65524, 19, 655400, 65522, 19, 1048636, 65520, 19, 655400, 65518, 18, 1048615, 65518, 16, 1048634, 65532, 21, 655400, 65530, 21, 655400, 65528, 21, 655400, 65526, 21, 655400, 65524, 21, 655400, 65522, 21, 1048630, 65520, 21, 655400, 65520, 23, 655400, 65522, 23, 655400, 65524, 23, 655400, 65526, 23, 1048616, 65528, 23, 655400, 65530, 23, 655400, 65532, 23, 655400, 65524, 25, 655400, 65526, 25, 655400, 65524, 13, 1048615, 65526, 13, 1048615, 2, 11, 655400, 2, 13, 655400, 2, 15, 47, 2, 17, 655400, 2, 19, 655400, 0, 19, 655400, 65534, 19, 655400, 65532, 25, 655400, 65530, 25, 1048630, 65528, 25, 655400, 65522, 25, 655400, 65520, 25, 655400, 65529, 16, 655413, 65526, 22, 655413, 65521, 21, 1048629, 65523, 21, 1048632, 3, 9, 1048587, 3, 11, 1048587, 3, 13, 1441808, 65533, 11, 1441803, 65533, 13, 1441803, 65532, 14, 655371, 65530, 14, 16, 65528, 14, 655371, 65527, 13, 1048587, 65526, 12, 11, 65524, 12, 11, 65523, 13, 1441803, 65517, 16, 1048587, 65517, 18, 1048588, 65519, 21, 1048587, 65519, 23, 1048591, 65519, 25, 1048587, 65520, 26, 11, 65522, 26, 655376, 65530, 26, 11, 65532, 26, 655376, 65533, 25, 1441803, 65533, 23, 1441803, 65533, 21, 1441803, 65534, 20, 655371, 0, 20, 655371, 2, 20, 655371, 3, 19, 1048587, 65520, 14, 16, 65522, 14, 16, 3, 17, 1441804, 65518, 15, 655371, 65518, 19, 655371, 65519, 15, 1048628, 65519, 20, 1048590, 65527, 27, 1048615, 65525, 27, 1048615, 65527, 14, 1048628, 65523, 14, 1048628, 65519, 19, 1048628, 65519, 14, 1441806, 65529, 26, 655374, 65523, 26, 14, 65524, 26, 52, 65528, 26, 52, 65525, 28, 11, 65527, 28, 11, 65528, 27, 1441803, 65524, 27, 1441803, 0, 9, 655401, 65530, 24, 655398, 65522, 22, 38, 4, 15, 47, 6, 15, 47, 8, 15, 47, 5, 14, 88, 5, 16, 88, 7, 14, 88, 7, 16, 88, 9, 14, 88, 9, 16, 88, 11, 14, 88, 11, 16, 88, 4, 16, 68, 6, 16, 68, 8, 16, 68, 8, 14, 68, 6, 14, 68, 4, 14, 68, 10, 14, 68, 10, 16, 68, 10, 15, 1441839)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="PlayerStartingPoint" type="Marker3D" parent="GridMapBuilding"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 5, -17)
+gizmo_extents = 5.35
 
 [node name="Room1_StaticObjects" type="Node3D" parent="GridMapBuilding"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -115,16 +760,16 @@ transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 11.1899,
 transform = Transform3D(0.983303, 0, -0.181978, 0, 1, 0, 0.181978, 0, 0.983303, 14.0412, 0, 0.700824)
 
 [node name="Pallet_Small4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cktse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0475, 6.5, 2.05134)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.99578, 4.01293, -2.13936)
 
 [node name="Can_A3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cphbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1212, 7.03835, 2.16005)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -8.12296, 4.55128, -2.10659)
 
 [node name="Can_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("11_borv3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 1.5)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.22048, 4.51293, -2.1907)
 
 [node name="Can_A4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cphbt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5, 7, 2.5)
+transform = Transform3D(0.749973, 0, -0.661469, 0, 1, 0, 0.661469, 0, 0.749973, -7.88195, 4.51293, -1.44073)
 
 [node name="target_stand_A2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("13_ko3eg")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.5, 4, -2)
@@ -153,26 +798,23 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 1.5, 4, -19.5)
 [node name="Weaponrack_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("16_g7eej")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.5, 4, -19.5)
 
-[node name="Weaponrack2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("2_sojh4")]
-transform = Transform3D(-5.68248e-08, 0, 1.3, 0, 1.3, 0, -1.3, 0, -5.68248e-08, -1.5, 4, -17.5)
-
 [node name="Workbench_Decorated2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_h7fll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 4, -19)
 
 [node name="Workbench_Decorated3" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("18_h7fll")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -15)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -14.5343)
 
 [node name="Workbench2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("19_3hpxk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 4, -16.5)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 4, -8.5)
 
 [node name="Dummy_Base2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_gr7gv")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 17, 4, -19)
 
 [node name="Dummy_Base4" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("8_gr7gv")]
-transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 17, 4, -12.5)
+transform = Transform3D(-0.718576, 0, -0.695449, 0, 1, 0, 0.695449, 0, -0.718576, 17, 4, -10.5)
 
 [node name="target_stand_B2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("20_y6okf")]
-transform = Transform3D(-0.221804, 0, -0.975091, 0, 1, 0, 0.975091, 0, -0.221804, 17, 4, -11.0773)
+transform = Transform3D(-0.221804, 0, -0.975091, 0, 1, 0, 0.975091, 0, -0.221804, 17, 4, -9.0773)
 
 [node name="table_medium2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("21_fsxo1")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -0.444203, 4, -11.8966)
@@ -193,10 +835,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.5, -18.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.32414, 4.04713, -23.6489)
 
 [node name="Pallet_Large2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("4_px5ev")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.13344, 4, -15.1116)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.13344, 4, -11.1116)
 
 [node name="Pallet_Small5" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("5_cktse")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.5, 4.5, -14)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4.5, 4.5, -10)
 
 [node name="Barrel_C2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("26_qtnuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4.5, -10)
@@ -206,6 +848,24 @@ transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 
 
 [node name="target2" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("30_6gu3m")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 2, 7)
+
+[node name="computer12" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("32_brqut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 4, -23.9)
+
+[node name="computer13" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("32_brqut")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4, 4, -23.9)
+
+[node name="computer14" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("32_brqut")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 17.6986, 4, -12.1253)
+
+[node name="CloningTank" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("33_a67mj")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 8, 4, -22)
+
+[node name="computer22" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("34_ph7g1")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.7555, 4, -17)
+
+[node name="computer23" parent="GridMapBuilding/Room1_StaticObjects" instance=ExtResource("34_ph7g1")]
+transform = Transform3D(-0.509116, 0, -0.860698, 0, 1, 0, 0.860698, 0, -0.509116, -1.21791, 4, -17.2794)
 
 [node name="Room2_StaticObjects" type="Node3D" parent="GridMapBuilding"]
 
@@ -395,6 +1055,68 @@ transform = Transform3D(-1, 0, 8.74227e-08, 0, 1, 0, -8.74227e-08, 0, -1, -22.36
 [node name="Cube_Prototype_Large_B_003" parent="GridMapBuilding/Room2_StaticObjects/Locker_Decorated3/Locker_Decorated" index="0"]
 visible = false
 
+[node name="NPCs" type="Node3D" parent="GridMapBuilding"]
+
+[node name="dr-megadroon-PROTOTYPE" parent="GridMapBuilding/NPCs" instance=ExtResource("32_ktg0t")]
+transform = Transform3D(-0.902674, 0, -0.430325, 0, 1, 0, 0.430325, 0, -0.902674, 5.85811, 4.5, -19.7725)
+sync_to_physics = false
+
+[node name="CollisionShape3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="AreaDialogue" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="1"]
+metadata/_edit_lock_ = true
+
+[node name="Armature" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE" index="2"]
+metadata/_edit_lock_ = true
+
+[node name="Skeleton3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature" index="0"]
+bones/0/position = Vector3(-1.7076e-09, 0.648879, 0.00932931)
+bones/0/rotation = Quaternion(0.063862, 0.000674934, 0.0105446, 0.997903)
+bones/1/rotation = Quaternion(-0.0268261, 0.00337962, 0.0323985, 0.999109)
+bones/2/rotation = Quaternion(0.0811838, 0.00482465, 0.028589, 0.996277)
+bones/11/position = Vector3(0.327103, 0.382137, 0.0463465)
+bones/11/rotation = Quaternion(0.0461017, 0.605745, 0.766684, -0.207709)
+bones/12/rotation = Quaternion(-0.219969, 0.0377579, -0.046545, 0.973664)
+bones/13/position = Vector3(-0.326216, 0.376787, -0.0237088)
+bones/13/rotation = Quaternion(-0.19833, -0.481994, 0.853366, -0.0106197)
+bones/14/rotation = Quaternion(-0.301476, -0.0522541, 0.0441136, 0.951018)
+bones/15/rotation = Quaternion(0.591388, 0.387635, 0.591388, 0.387635)
+bones/16/rotation = Quaternion(-0.00969014, 0.00335547, -0.48355, 0.875256)
+bones/17/rotation = Quaternion(-0.60145, -0.458143, 0.528905, 0.385517)
+bones/18/rotation = Quaternion(-0.0101508, -0.00145626, 0.308727, 0.951095)
+bones/20/position = Vector3(1.44046e-07, 0.18756, -0.599045)
+metadata/_edit_lock_ = true
+
+[node name="Body" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature/Skeleton3D" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="InteractiveObjects" type="Node3D" parent="GridMapBuilding"]
+
+[node name="ItemDistributor" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("32_xsrdy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4349, 7, 1.99275)
+item_mesh = ExtResource("33_erj25")
+dialog_timeline = ExtResource("34_507xk")
+jump_to_label = "OnGunPickedUp"
+
+[node name="dr_bed" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0.5, 49.683)
+
+[node name="dr_bed2" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -35.6752, 0.5, 35.9878)
+drop_object = ExtResource("39_85vp3")
+drop_probability = 1
+
+[node name="dr_bed3" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("39_huhy3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.3, 0.5, 41.97)
+
+[node name="DoorToTraining" parent="GridMapBuilding/InteractiveObjects" instance=ExtResource("40_gvxam")]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 30)
+
+[node name="SwitchComponent" parent="GridMapBuilding/InteractiveObjects/DoorToTraining" index="1"]
+is_activated = false
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("31_es3rg")
 
@@ -424,7 +1146,10 @@ directional_shadow_mode = 0
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated10"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated4"]
 [editable path="GridMapBuilding/Room1_StaticObjects/Locker_Decorated5"]
+[editable path="GridMapBuilding/Room1_StaticObjects/CloningTank"]
 [editable path="GridMapBuilding/Room2_StaticObjects/Locker_Decorated2"]
 [editable path="GridMapBuilding/Room2_StaticObjects/Locker_Decorated4"]
 [editable path="GridMapBuilding/Room2_StaticObjects/Locker_Decorated5"]
 [editable path="GridMapBuilding/Room2_StaticObjects/Locker_Decorated3"]
+[editable path="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE"]
+[editable path="GridMapBuilding/InteractiveObjects/DoorToTraining"]

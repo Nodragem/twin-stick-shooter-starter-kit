@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b6w6w3c51x1q8"]
+
+[ext_resource type="Shader" path="res://assets/objects/laboratory/glass_shader.gdshader" id="1_oclsa"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_oclsa")
+shader_parameter/albedo = Color(0.569, 0.791, 0.873, 0.445)
+shader_parameter/roughness = 0.266
+shader_parameter/normal_strength = -2.605
+shader_parameter/edge_color = Color(0, 0.588936, 1, 1)

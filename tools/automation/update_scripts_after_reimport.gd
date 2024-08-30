@@ -19,5 +19,3 @@ func get_all_children(in_node, children_acc = []):
 		children_acc = get_all_children(child, children_acc)
 
 	return children_acc
-
-

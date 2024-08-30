@@ -1,20 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv55eibbam6m6"]
+[gd_scene load_steps=6 format=3 uid="uid://bv55eibbam6m6"]
 
-[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/PlayerEntity.tscn" id="2"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_3c0uv"]
+[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://b87aieg3uitnk" path="res://scenes/level1/level1.tscn" id="3_6l6n1"]
+[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="3_ss24o"]
 [ext_resource type="PackedScene" uid="uid://bsvdg3ojnd0oj" path="res://ui/ControllerMenu.tscn" id="13_ysf7g"]
 
-[node name="Node3D" type="Node3D"]
-
-[node name="PlayerEntity" parent="." instance=ExtResource("2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564909, 0.467465, 24.7514)
-
-[node name="CameraPivot" parent="PlayerEntity" index="4"]
-transform = Transform3D(-0.707107, 0.298836, -0.640857, 0, 0.906308, 0.422618, 0.707107, 0.298836, -0.640857, 0, 0, 0)
+[node name="Main" type="Node3D"]
+script = ExtResource("1_3c0uv")
+player_packed_scene = ExtResource("2")
 
 [node name="ControllerMenu" parent="." instance=ExtResource("13_ysf7g")]
 visible = false
 
-[node name="Level1" parent="." instance=ExtResource("3_6l6n1")]
+[node name="GameOverMenu" parent="." instance=ExtResource("3_ss24o")]
+visible = false
 
-[editable path="PlayerEntity"]
+[node name="Level1" parent="." instance=ExtResource("3_6l6n1")]

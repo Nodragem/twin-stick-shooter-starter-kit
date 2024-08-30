@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=3 uid="uid://hcqc6rr7cqwf"]
+
+[ext_resource type="PackedScene" uid="uid://t3fk8ctejpoh" path="res://assets/objects/switches/LongSwitch.glb" id="1_8fd63"]
+[ext_resource type="Script" path="res://assets/objects/switches/long_interaction_switch.gd" id="2_qjjge"]
+[ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="3_76xue"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2py6"]
+size = Vector3(1.42712, 2.50537, 2.1781)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f4w5i"]
+radius = 0.994774
+
+[sub_resource type="Animation" id="Animation_lwkho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LongSwitchBase/Handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongSwitchBase/ProgressBar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.01, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LongSwitchBase/ProgressBar:material_override:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LongSwitchBase/LongLightBulb:material_override:emission")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LongSwitchBase/LongLightBulb:material_override:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uicdx"]
+resource_name = "progression_bar"
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LongSwitchBase/ProgressBar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 0.01, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LongSwitchBase/ProgressBar:material_override:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1), Color(0.927686, 0.432652, 0.1832, 1), Color(0.65098, 0.929412, 0.254902, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LongSwitchBase/LongLightBulb:material_override:emission")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.444344, 0.445691, 0.12905, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LongSwitchBase/LongLightBulb:material_override:albedo_color")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.929412, 0.254902, 0.294118, 1), Color(0.163353, 0.523085, 0.105862, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_728kc"]
+resource_name = "switch_charging"
+length = 0.500002
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LongSwitchBase/Handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 0), Vector3(6.26573, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oai5e"]
+_data = {
+"RESET": SubResource("Animation_lwkho"),
+"progression_bar": SubResource("Animation_uicdx"),
+"switch_charging": SubResource("Animation_728kc")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj7cx"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+roughness = 0.39
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6rlf6"]
+resource_local_to_scene = true
+albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
+
+[node name="LongSwitch" instance=ExtResource("1_8fd63")]
+collision_layer = 8
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="0"]
+collision_layer = 8
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0281372, 1.24731, 0.010437)
+shape = SubResource("BoxShape3D_e2py6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.701363, 0.961443, -5.96046e-08)
+shape = SubResource("SphereShape3D_f4w5i")
+
+[node name="InteractionTip" parent="." index="2" instance=ExtResource("3_76xue")]
+
+[node name="SwitchComponent" type="Node" parent="." index="3"]
+script = ExtResource("2_qjjge")
+progression_rate = 20.0
+
+[node name="AnimationProgression" type="AnimationPlayer" parent="SwitchComponent" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_oai5e")
+}
+
+[node name="AnimationLoading" type="AnimationPlayer" parent="SwitchComponent" index="1"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_oai5e")
+}
+
+[node name="LongLightBulb" parent="LongSwitchBase" index="1"]
+material_override = SubResource("StandardMaterial3D_pj7cx")
+
+[node name="ProgressBar" parent="LongSwitchBase" index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.01, 0, 0, 0, 1, -0.0691416, 0.310591, 0.631437)
+material_override = SubResource("StandardMaterial3D_6rlf6")

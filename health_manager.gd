@@ -6,12 +6,12 @@ signal health_depleted
 signal health_replenished
 
 @export var ui_hearts: Array[TextureRect]
-@export var max_health: int = 10
-@export var start_health: int = 4
+@export var max_health: int = 6
+@export var start_health: int = 6
 
-var heart_full = preload("res://objects/heart_full.png")
-var heart_empty = preload("res://objects/heart_null.png")
-var heart_half = preload("res://objects/heart_half.png")
+var heart_full = preload("res://assets/objects/heart_full.png")
+var heart_empty = preload("res://assets/objects/heart_null.png")
+var heart_half = preload("res://assets/objects/heart_half.png")
 
 var health_points: int = 0: set = set_health
 

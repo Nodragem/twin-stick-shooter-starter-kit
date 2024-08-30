@@ -1,11 +1,11 @@
 [gd_scene load_steps=39 format=4 uid="uid://og0akbc31x1j"]
 
-[ext_resource type="MeshLibrary" uid="uid://dcjglgl7pvpgu" path="res://kits/meshlib_space_ground.tres" id="1_gyir3"]
+[ext_resource type="MeshLibrary" uid="uid://dcjglgl7pvpgu" path="res://assets/kits/meshlib_space_ground.tres" id="1_gyir3"]
 [ext_resource type="PackedScene" uid="uid://ms5nau2lw1o4" path="res://assets/space_base_bits/rock_B.gltf" id="2_yky8a"]
 [ext_resource type="PackedScene" uid="uid://dppaged5omlt8" path="res://assets/space_base_bits/rocks_A.gltf" id="3_xv8dq"]
 [ext_resource type="PackedScene" uid="uid://7lnqxlh2nl8j" path="res://assets/space_base_bits/rocks_B.gltf" id="4_6aqqy"]
 [ext_resource type="PackedScene" uid="uid://dy1h4xg8uhvdg" path="res://assets/space_base_bits/rock_A.gltf" id="5_6by03"]
-[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://kits/mesh_lib3.tres" id="6_qdi8i"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="6_qdi8i"]
 [ext_resource type="PackedScene" uid="uid://dfpm8iiyrvwb8" path="res://assets/prototype_bits/Can_A.gltf" id="7_4wy3p"]
 [ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_uuphb"]
 [ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="9_qk24r"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://cyg3765gfh25q" path="res://assets/prototype_bits/target_stand_A_Decorated.gltf" id="33_04ea0"]
 [ext_resource type="PackedScene" uid="uid://b4pnyn61mwgsh" path="res://assets/prototype_bits/target.gltf" id="34_6xqhy"]
 [ext_resource type="Environment" uid="uid://13w4n7joxo58" path="res://scenes/prototyping/level_canyon_env.tres" id="35_64yo0"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8opj"]
 resource_name = "prototype_texture.034"

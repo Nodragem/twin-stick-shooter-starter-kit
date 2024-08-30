@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dry6bur0hcgqc"]
+
+[ext_resource type="Script" path="res://assets/objects/collectable.gd" id="1_jjs3m"]
+[ext_resource type="PackedScene" uid="uid://cq342c86wg6dj" path="res://ui/dialogue_opener.tscn" id="2_whrga"]
+
+[node name="Collectable" type="Node3D"]
+script = ExtResource("1_jjs3m")
+
+[node name="ItemSlot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+rotation_edit_mode = 1
+
+[node name="AreaDialogue" parent="." instance=ExtResource("2_whrga")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.00062, 0)
+dialog_timeline = null
+jump_to_label = "OnDefault"
+one_shot = true
+metadata/_edit_pinned_properties_ = [&"dialog_timeline", &"jump_to_label"]

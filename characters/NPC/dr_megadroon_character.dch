@@ -1,0 +1,51 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 0.632813, 0, 1),
+"custom_info": {
+"sound_mood_default": "Mood 1",
+"sound_moods": {
+"Mood 1": {
+"mode": 1,
+"name": "Mood 1",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://characters/NPC/drop_002.ogg",
+"volume_base": 0.3,
+"volume_variance": 0.0
+}
+},
+"style": "dialog_style"
+},
+"default_portrait": "default",
+"description": "",
+"display_name": "Dr. MegaDroon",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"default": {
+"export_overrides": {
+"image": "\"res://characters/NPC/profile_dr_megadroon.png\""
+},
+"ignore_char_scale": true,
+"mirror": true,
+"offset": Vector2(-170, -20),
+"scale": 0.27,
+"scene": "",
+"sound_mood": "Mood 1"
+},
+"no_portrait": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1.0,
+"scene": ""
+}
+},
+"scale": 1.0
+}
