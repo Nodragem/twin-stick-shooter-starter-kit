@@ -16,6 +16,13 @@ signal dialog_started
 func on_timeline_ended():
 	Dialogic.timeline_ended.disconnect(on_timeline_ended)
 	self.dialog_finished.emit()
+
+
+func _on_switch_component_activation_signal(is_activated):
+	Dialogic.start(self.dialog_timeline, self.jump_to_label)
+	Dialogic.timeline_ended.connect(self.on_timeline_ended)
+	self.dialog_started.emit()
+	get_viewport().set_input_as_handled()
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mxeb6"]
@@ -35,3 +42,4 @@ script = ExtResource("1_fl3hb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="activation_signal" from="SwitchComponent" to="." method="_on_switch_component_activation_signal"]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpxkladyjcj8d" path="res://ui/interaction_tip.tscn" id="3_y1vyt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ptfp1"]
-radius = 1.0
+radius = 2.0
 
 [sub_resource type="GDScript" id="GDScript_ka5bl"]
 script/source = "extends SwitchComponent
@@ -21,6 +21,7 @@ item_mesh = ExtResource("2_qh84o")
 metadata/object = "building_card"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999917, 0.0128976, 0, -0.0128976, 0.999917, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ptfp1")
 
 [node name="InteractionTip" parent="." instance=ExtResource("3_y1vyt")]

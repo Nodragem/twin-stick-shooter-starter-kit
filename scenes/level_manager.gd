@@ -8,8 +8,12 @@ class_name LevelManager extends Node3D
 signal introscene_finished
 
 func _ready():
+	# NOTE: both the animation player or the dialog system can flag the end of a cutscene
+	# depending on whether the cutscene is dialog-driven or animation-driven.
+	$CutSceneManager.animation_finished.connect(on_cutscene_finished)
+	Dialogic.signal_event.connect(on_cutscene_finished)
+	
 	if not skip_intro:
-		$CutSceneManager.animation_finished.connect(on_cutscene_finished)
 		$CutSceneManager.play("Scene1_Introduction")
 		#$CutSceneManager.seek(27.99,true)
 	else:
@@ -23,9 +27,12 @@ func on_cutscene_finished(anim_name:String):
 	if anim_name == "Opening":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
 		Dialogic.start("level1_drmegadroon")
-	if anim_name == "Scene2_Training_Door":
-		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
+	if anim_name == "Scene2_Ending":
 		GameManager.get_player().camera.current = true
+		$CutSceneManager.play("Simple_Transition")
+	if anim_name == "Simple_Transition":
+		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED
+		
 
 func on_card_picked_up():
 	$CutSceneManager.process_mode = Node.PROCESS_MODE_INHERIT

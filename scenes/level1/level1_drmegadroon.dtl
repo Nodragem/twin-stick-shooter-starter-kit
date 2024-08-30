@@ -22,6 +22,8 @@ elif {status} == "waiting_gun":
 		[end_timeline]
 elif {status} == "waiting_card":
 	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
+elif {status} == "card_collected":
+	dr_megadroon_character: You should be able to pass the purple and gold door now.
 [end_timeline]
 label OnGunPickedUp
 join dr_megadroon_character (default) 1 [animation="Fade In Up"]
@@ -34,6 +36,7 @@ dr_megadroon_character: ...
 [wait time="1.0"]
 dr_megadroon_character: I just remembered that I let my building card in the [color="#4467ab"]Dormitory[/color]. Can you go get it? It should be somewhere in the clutter.
 Once you've got the card, we will be able to open the door to the [color="#4467ab"]Training Area[/color].
+set {status} = "waiting_card"
 [end_timeline]
 
 label OnCardPickedUp
@@ -45,5 +48,6 @@ dr_megadroon_character: Oh God, what happened here?
 dr_megadroon_character: ...
 dr_megadroon_character: Oh well, it's okay. If you pass the training, I will make enough money to repay for everything!
 (Let's just hope you don't screw it up a 101th time...)
-
+set {status} = "card_collected"
+[signal arg="Scene2_Ending"]
 [end_timeline]

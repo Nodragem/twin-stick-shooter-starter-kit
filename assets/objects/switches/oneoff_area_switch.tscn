@@ -13,6 +13,7 @@ func on_interaction(requested):
 	is_activated = true
 
 func _on_body_entered(body):
+	# Interaction is activated automatically
 	if body is PlayerEntity:
 		on_interaction(true)
 "

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b87aieg3uitnk"]
+[gd_scene load_steps=48 format=3 uid="uid://b87aieg3uitnk"]
 
 [ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_u13gm"]
 [ext_resource type="Script" path="res://scenes/level_manager.gd" id="1_xfajn"]
@@ -310,7 +310,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(3.5, 9.23333, 13.9333, 18.7334, 21.9333, 22.4333, 27.3668),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": ["level1_intro", "\"\""],
+"args": ["level1_intro", "", true],
 "method": &"start_dialogue"
 }, {
 "args": [],
@@ -436,7 +436,7 @@ tracks/11/keys = {
 
 [sub_resource type="Animation" id="Animation_cl1bq"]
 resource_name = "Scene2_Opening_Training"
-length = 10.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -468,10 +468,10 @@ tracks/2/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.23333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 1.23333, 1.36667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0.5, 11.796), Vector3(0, 0.5, 27.9), Vector3(0, 0.5, 27.9)]
+"values": [Vector3(0, 0.5, 11.796), Vector3(0, 0.5, 27.9), Vector3(0, 0.5, 27.9), Vector3(0, 1, 27.9), Vector3(0, 0.5, 27.9)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -483,7 +483,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1, 1.23333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 3.14159, 0), Vector3(0, -3.14159, 0), Vector3(0, 2.24949, 0)]
+"values": [Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 2.24949, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -492,10 +492,10 @@ tracks/4/path = NodePath("GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1, 1.23333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 1.23333, 1.36667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.8, 1.4, 0.8), Vector3(1, 1, 1)]
 }
 tracks/5/type = "animation"
 tracks/5/imported = false
@@ -517,9 +517,48 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["level1_drmegadroon", "OnCardPickedUp"],
+"args": ["level1_drmegadroon", "OnCardPickedUp", false],
 "method": &"start_dialogue"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_wuyuu"]
+resource_name = "Simple_Transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutSceneManager/Control/BottomEyeLid:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutSceneManager/Control/TopEyeLid:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.633333),
+"transitions": PackedFloat32Array(0.203063, 0.203063),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutSceneManager/Control/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7),
+"transitions": PackedFloat32Array(0.203063, 0.378929),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ad5fl"]
@@ -527,7 +566,8 @@ _data = {
 "Opening": SubResource("Animation_e0tby"),
 "RESET": SubResource("Animation_te3is"),
 "Scene1_Introduction": SubResource("Animation_g4mdv"),
-"Scene2_Opening_Training": SubResource("Animation_cl1bq")
+"Scene2_Opening_Training": SubResource("Animation_cl1bq"),
+"Simple_Transition": SubResource("Animation_wuyuu")
 }
 
 [sub_resource type="GDScript" id="GDScript_oit5n"]
@@ -541,9 +581,10 @@ func _ready():
 func get_camera():
 	return $Camera3D
 
-func start_dialogue(name:String, label:String):
+func start_dialogue(name:String, label:String, disable_input:bool = false):
 	Dialogic.start(name, label)
-	Dialogic.Inputs.pause()
+	if disable_input:
+		Dialogic.Inputs.pause()
 	
 func go_to_next_sentence():
 	Dialogic.handle_next_event()
@@ -1026,10 +1067,10 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Skeleton3D" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature" index="0"]
-bones/0/position = Vector3(2.19309e-09, 0.352071, 0.00712542)
-bones/0/rotation = Quaternion(0.0638651, -0.000246073, -0.00384698, 0.997951)
-bones/1/rotation = Quaternion(-0.0848633, -0.0005807, -0.00556687, 0.996377)
-bones/2/rotation = Quaternion(-0.0420563, -0.00120985, -0.00716821, 0.999089)
+bones/0/position = Vector3(-1.7076e-09, 0.648879, 0.00932931)
+bones/0/rotation = Quaternion(0.063862, 0.000674934, 0.0105446, 0.997903)
+bones/1/rotation = Quaternion(-0.0268261, 0.00337962, 0.0323985, 0.999109)
+bones/2/rotation = Quaternion(0.0811838, 0.00482465, 0.028589, 0.996277)
 bones/5/rotation = Quaternion(-0.241658, 0.209181, -0.614578, 0.721206)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.0180697, 0.0953652, 0.186824, 0.977587)
@@ -1038,20 +1079,20 @@ bones/8/rotation = Quaternion(-0.0914904, -0.0395669, 0.0675893, 0.992721)
 bones/9/rotation = Quaternion(0.12297, -0.0930752, -0.135418, 0.978712)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/rotation = Quaternion(0.113128, 0.0490838, 0.596035, 0.793432)
-bones/11/position = Vector3(0.326639, 0.379338, 0.00969536)
-bones/11/rotation = Quaternion(0.0109798, -0.24645, 0.950563, -0.188607)
-bones/12/rotation = Quaternion(-0.146112, 0.0246308, -0.0484193, 0.987775)
-bones/13/position = Vector3(-0.326865, 0.380703, 0.0275653)
-bones/13/rotation = Quaternion(0.0228319, 0.217408, 0.945485, 0.241392)
+bones/11/position = Vector3(0.327103, 0.382137, 0.0463465)
+bones/11/rotation = Quaternion(0.0461017, 0.605745, 0.766684, -0.207709)
+bones/12/rotation = Quaternion(-0.219969, 0.0377579, -0.046545, 0.973664)
+bones/13/position = Vector3(-0.326216, 0.376787, -0.0237088)
+bones/13/rotation = Quaternion(-0.19833, -0.481994, 0.853366, -0.0106197)
 bones/13/scale = Vector3(1, 1, 1)
-bones/14/rotation = Quaternion(-0.284372, -0.0492113, 0.0446566, 0.956408)
-bones/15/rotation = Quaternion(0.71069, 0.00618623, 0.703348, 0.0135362)
-bones/16/rotation = Quaternion(-0.00970669, 0.00330728, -0.479195, 0.877649)
+bones/14/rotation = Quaternion(-0.301476, -0.0522541, 0.0441136, 0.951018)
+bones/15/rotation = Quaternion(0.591388, 0.387635, 0.591388, 0.387635)
+bones/16/rotation = Quaternion(-0.00969014, 0.00335547, -0.48355, 0.875256)
 bones/16/scale = Vector3(1, 1, 1)
-bones/17/rotation = Quaternion(-0.703913, -0.0671296, 0.703913, 0.0671296)
-bones/18/rotation = Quaternion(-0.00985898, -0.00282135, 0.435038, 0.900354)
+bones/17/rotation = Quaternion(-0.60145, -0.458143, 0.528905, 0.385517)
+bones/18/rotation = Quaternion(-0.0101508, -0.00145626, 0.308727, 0.951095)
 bones/18/scale = Vector3(1, 1, 1)
-bones/20/position = Vector3(1.32402e-07, -0.245376, -0.554106)
+bones/20/position = Vector3(1.44046e-07, 0.18756, -0.599045)
 metadata/_edit_lock_ = true
 
 [node name="Body" parent="GridMapBuilding/NPCs/dr-megadroon-PROTOTYPE/Armature/Skeleton3D" index="0"]

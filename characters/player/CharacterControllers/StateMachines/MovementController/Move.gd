@@ -38,7 +38,8 @@ func unhandled_input(event: InputEvent) -> void:
 				_switch_component.on_interaction(true) 
 	if event.is_action_released("p1_interact") or not player.is_on_floor():
 		print("button interacting released")
-		if _switch_component: _switch_component.on_interaction(false)
+		if _switch_component and is_instance_valid(_switch_component): 
+			_switch_component.on_interaction(false)
 
 func physics_process(delta: float) -> void:
 	_update_player_input()
