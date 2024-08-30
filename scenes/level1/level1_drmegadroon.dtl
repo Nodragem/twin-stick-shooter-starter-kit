@@ -23,8 +23,10 @@ elif {status} == "waiting_gun":
 elif {status} == "waiting_card":
 	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
 elif {status} == "card_collected":
-	dr_megadroon_character: You should be able to pass the purple and gold door now.
+	dr_megadroon_character: The [color="#4467ab"]Training Area[/color] is just on the other side of this door.
+	dr_megadroon_character: One last tip, you can use [img width=32, color="#bbbbbb"]res://ui/icons/xbox_lt.png[/img] and [img width=32, color="#bbbbbb"]res://ui/icons/xbox_rt.png[/img] to look around and get a new perspective on things.
 [end_timeline]
+########################################################################################################
 label OnGunPickedUp
 join dr_megadroon_character (default) 1 [animation="Fade In Up"]
 dr_megadroon_character: Hey A101! Do you copy? [br]I am transmitting directly via a cholear implant in your ear. Well done collecting the [color="#4467ab"]toygun[/color]!

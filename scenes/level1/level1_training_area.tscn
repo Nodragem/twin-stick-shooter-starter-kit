@@ -1,40 +1,36 @@
-[gd_scene load_steps=58 format=3 uid="uid://d2yqin8xn1yc1"]
+[gd_scene load_steps=54 format=3 uid="uid://dfam82avfcqmy"]
 
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_a2x0p"]
-[ext_resource type="PackedScene" uid="uid://bd5lrudlpxbay" path="res://ui/GameOverMenu.tscn" id="2_8egb0"]
-[ext_resource type="PackedScene" uid="uid://jga6pbb5xpug" path="res://characters/player/PlayerEntity.tscn" id="3_yl3ue"]
-[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="4_ylicc"]
-[ext_resource type="PackedScene" uid="uid://ttqp6dhghvut" path="res://assets/objects/switches/oneoff_area_switch.tscn" id="5_0p7y3"]
-[ext_resource type="Environment" uid="uid://dtrxire26wyng" path="res://scenes/level1/level1_env.tres" id="5_2vc36"]
-[ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="7_hjv8p"]
-[ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="8_4wka0"]
-[ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="9_gj423"]
-[ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="10_mjrnx"]
-[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://characters/enemies/melee/minion/EnemyMinion.tscn" id="11_25ukm"]
-[ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="11_qcire"]
-[ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="12_hx5fo"]
-[ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="13_4uk6c"]
-[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://assets/objects/switches/switch_hub.tscn" id="14_0vyri"]
-[ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="14_6bvec"]
-[ext_resource type="PackedScene" uid="uid://ds5itulgl8xim" path="res://assets/objects/switches/door_spawner.tscn" id="15_68bn6"]
-[ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="15_mrupq"]
-[ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://assets/objects/switches/long_interaction_switch.tscn" id="16_fgb57"]
-[ext_resource type="PackedScene" uid="uid://bgbyxysfhnde2" path="res://assets/objects/switches/short_interaction_switch.tscn" id="18_2r2k3"]
-[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://assets/objects/switches/door_switch.tscn" id="18_lua54"]
-[ext_resource type="PackedScene" uid="uid://cykscxty5uq57" path="res://assets/prototype_bits/Locker.gltf" id="19_w4gje"]
-[ext_resource type="PackedScene" uid="uid://dbv41542gf2gg" path="res://assets/prototype_bits/table_medium_long.gltf" id="21_i6noe"]
-[ext_resource type="PackedScene" uid="uid://cyg3765gfh25q" path="res://assets/prototype_bits/target_stand_A_Decorated.gltf" id="22_xf6y5"]
-[ext_resource type="PackedScene" uid="uid://dd08ei85tvcah" path="res://assets/prototype_bits/target_stand_B.gltf" id="23_e1dvf"]
-[ext_resource type="PackedScene" uid="uid://bduqqs8bwptfe" path="res://assets/prototype_bits/target_wall_large_A.gltf" id="24_odqui"]
-[ext_resource type="PackedScene" uid="uid://b0fpnksr2gol4" path="res://assets/prototype_bits/target_wall_large_B.gltf" id="25_mc4lk"]
-[ext_resource type="PackedScene" uid="uid://412m6dc1bi7s" path="res://assets/prototype_bits/target_wall_small.gltf" id="26_vgb6n"]
-[ext_resource type="PackedScene" uid="uid://b7g7fvs1g0pww" path="res://assets/prototype_bits/Pallet_Small.gltf" id="27_82v20"]
-[ext_resource type="PackedScene" uid="uid://gcagnlrq3ee1" path="res://assets/prototype_bits/Barrel_B.gltf" id="28_7phup"]
-[ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="29_jtqe8"]
-[ext_resource type="PackedScene" uid="uid://djmjc4dm0ena7" path="res://assets/prototype_bits/Box_B.gltf" id="30_brwi0"]
-[ext_resource type="PackedScene" uid="uid://bmpd4wt2sw2l1" path="res://assets/prototype_bits/Box_C.gltf" id="31_dxrwl"]
-[ext_resource type="Script" path="res://assets/objects/switches/switch_connection.gd" id="31_ra0cn"]
-[ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="32_qjv65"]
+[ext_resource type="MeshLibrary" uid="uid://1r1ria7fpq17" path="res://assets/kits/meshlib_prototype_bits.tres" id="1_facyi"]
+[ext_resource type="PackedScene" uid="uid://dk1e5h13iicq3" path="res://assets/objects/switches/switch_hub.tscn" id="2_faork"]
+[ext_resource type="Script" path="res://assets/objects/switches/switch_connection.gd" id="3_dx2yw"]
+[ext_resource type="PackedScene" uid="uid://ttqp6dhghvut" path="res://assets/objects/switches/oneoff_area_switch.tscn" id="4_61lg1"]
+[ext_resource type="PackedScene" uid="uid://b2nlcgg1yuy7o" path="res://assets/objects/switches/door_switch.tscn" id="5_jgbxd"]
+[ext_resource type="PackedScene" uid="uid://bgbyxysfhnde2" path="res://assets/objects/switches/short_interaction_switch.tscn" id="6_7wpyl"]
+[ext_resource type="PackedScene" uid="uid://ds5itulgl8xim" path="res://assets/objects/switches/door_spawner.tscn" id="7_difau"]
+[ext_resource type="PackedScene" uid="uid://dyssgs4g0elmf" path="res://characters/enemies/melee/minion/EnemyMinion.tscn" id="8_5eejw"]
+[ext_resource type="PackedScene" uid="uid://cykscxty5uq57" path="res://assets/prototype_bits/Locker.gltf" id="9_x7knn"]
+[ext_resource type="PackedScene" uid="uid://dneg7v0yca3cx" path="res://assets/prototype_bits/Locker_Decorated.gltf" id="10_enssg"]
+[ext_resource type="PackedScene" uid="uid://ppgku2ydp6y4" path="res://assets/prototype_bits/Pallet_Small_Decorated_B.gltf" id="11_1argt"]
+[ext_resource type="PackedScene" uid="uid://dotpnlcy27ggq" path="res://assets/prototype_bits/Pallet_Small_Decorated_A.gltf" id="12_e4t0l"]
+[ext_resource type="PackedScene" uid="uid://dbv41542gf2gg" path="res://assets/prototype_bits/table_medium_long.gltf" id="13_5k0ko"]
+[ext_resource type="PackedScene" uid="uid://cyg3765gfh25q" path="res://assets/prototype_bits/target_stand_A_Decorated.gltf" id="14_k2ri8"]
+[ext_resource type="PackedScene" uid="uid://dd08ei85tvcah" path="res://assets/prototype_bits/target_stand_B.gltf" id="15_217mu"]
+[ext_resource type="PackedScene" uid="uid://bduqqs8bwptfe" path="res://assets/prototype_bits/target_wall_large_A.gltf" id="16_qcqk8"]
+[ext_resource type="PackedScene" uid="uid://b0fpnksr2gol4" path="res://assets/prototype_bits/target_wall_large_B.gltf" id="17_8wao3"]
+[ext_resource type="PackedScene" uid="uid://412m6dc1bi7s" path="res://assets/prototype_bits/target_wall_small.gltf" id="18_fhvse"]
+[ext_resource type="PackedScene" uid="uid://digne67jlks1d" path="res://assets/prototype_bits/Workbench_Decorated.gltf" id="19_7buel"]
+[ext_resource type="PackedScene" uid="uid://nmp0ctc70y5b" path="res://assets/prototype_bits/Workbench.gltf" id="20_s1l3h"]
+[ext_resource type="PackedScene" uid="uid://bfrrkd27b682v" path="res://assets/prototype_bits/Weaponrack_Decorated.gltf" id="21_t51ah"]
+[ext_resource type="PackedScene" uid="uid://d4ewiiealjeoy" path="res://assets/prototype_bits/Dummy_Base.gltf" id="22_6skae"]
+[ext_resource type="PackedScene" uid="uid://b7g7fvs1g0pww" path="res://assets/prototype_bits/Pallet_Small.gltf" id="23_gmsry"]
+[ext_resource type="PackedScene" uid="uid://gcagnlrq3ee1" path="res://assets/prototype_bits/Barrel_B.gltf" id="24_dlmv4"]
+[ext_resource type="PackedScene" uid="uid://coruyu75lnbo2" path="res://assets/prototype_bits/Barrel_A.gltf" id="25_8c6hl"]
+[ext_resource type="PackedScene" uid="uid://djmjc4dm0ena7" path="res://assets/prototype_bits/Box_B.gltf" id="26_7jm0o"]
+[ext_resource type="PackedScene" uid="uid://bmpd4wt2sw2l1" path="res://assets/prototype_bits/Box_C.gltf" id="27_ron65"]
+[ext_resource type="PackedScene" uid="uid://bjgubkkp8d4f1" path="res://assets/prototype_bits/Box_A.gltf" id="28_mgjh1"]
+[ext_resource type="PackedScene" uid="uid://hcqc6rr7cqwf" path="res://assets/objects/switches/long_interaction_switch.tscn" id="29_inxgk"]
+[ext_resource type="PackedScene" uid="uid://dhdf5mxqpfbnm" path="res://assets/prototype_bits/table_medium_Decorated.gltf" id="30_h2y4e"]
+[ext_resource type="PackedScene" uid="uid://cvasin4b5w0ll" path="res://assets/prototype_bits/Door_B.gltf" id="31_2i6fa"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_2ocdk"]
 vertices = PackedVector3Array(-15, 1, -15, -15, 1, 19, 19, 1, 19, 19, 1, -15)
@@ -45,82 +41,82 @@ agent_radius = 1.0
 size = Vector2(36, 36)
 
 [sub_resource type="Resource" id="Resource_e45ua"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor1")
 
 [sub_resource type="Resource" id="Resource_o46n8"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")
 
 [sub_resource type="Resource" id="Resource_6plx3"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner")
 
 [sub_resource type="Resource" id="Resource_vg0au"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner2")
 
 [sub_resource type="Resource" id="Resource_gah4f"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("InteractiveDoor1")
 
 [sub_resource type="Resource" id="Resource_jav86"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("InteractiveDoor2")
 
 [sub_resource type="Resource" id="Resource_8g4un"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("EnemySpawner")
 
 [sub_resource type="Resource" id="Resource_5jwrl"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("EnemySpawner2")
 
 [sub_resource type="Resource" id="Resource_gg046"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor1")
 
 [sub_resource type="Resource" id="Resource_s88f0"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("../SwitchHubOpeningDoors/InteractiveDoor2")
 
 [sub_resource type="Resource" id="Resource_ttcm5"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner")
 
 [sub_resource type="Resource" id="Resource_hv6hq"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("../SwitchHubOpeningDoors/EnemySpawner2")
 
 [sub_resource type="Resource" id="Resource_anpf8"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("InteractiveDoor1")
 
 [sub_resource type="Resource" id="Resource_2pmel"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = false
 switch = NodePath("InteractiveDoor2")
 
 [sub_resource type="Resource" id="Resource_nj6g5"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("EnemySpawner")
 
 [sub_resource type="Resource" id="Resource_7ls1w"]
-script = ExtResource("31_ra0cn")
+script = ExtResource("3_dx2yw")
 inverse_polarity = true
 switch = NodePath("EnemySpawner2")
 
@@ -144,19 +140,8 @@ emission_enabled = true
 resource_local_to_scene = true
 albedo_color = Color(0.929412, 0.254902, 0.294118, 1)
 
-[node name="TestAI" type="Node3D"]
-script = ExtResource("1_a2x0p")
-
-[node name="GameOverMenu" parent="." instance=ExtResource("2_8egb0")]
-
-[node name="PlayerEntity" parent="." instance=ExtResource("3_yl3ue")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.59221, 0.544964, -37.3759)
-
-[node name="ThirdPersonCamera" parent="PlayerEntity/CameraPivot" index="0"]
-fov = 40.0
-
-[node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("4_ylicc")
+[node name="TrainingArea" type="GridMap"]
+mesh_library = ExtResource("1_facyi")
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
@@ -165,339 +150,312 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Room1" type="Node3D" parent="GridMap"]
+[node name="Room1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -44)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="GridMap/Room1"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Room1"]
 visible = false
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap/Room1/NavigationRegion3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room1/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5, 2)
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="SwitchHubClosingDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
-transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -14)
+[node name="SwitchHubClosingDoors" parent="Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("2_faork")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -14)
 switch_emitters = [NodePath("OneOffAreaSwitch")]
-switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_e45ua"), SubResource("Resource_o46n8"), SubResource("Resource_6plx3"), SubResource("Resource_vg0au")])
+switch_receivers = Array[ExtResource("3_dx2yw")]([SubResource("Resource_e45ua"), SubResource("Resource_o46n8"), SubResource("Resource_6plx3"), SubResource("Resource_vg0au")])
 
-[node name="OneOffAreaSwitch" parent="GridMap/Room1/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="OneOffAreaSwitch" parent="Room1/SwitchHubClosingDoors" instance=ExtResource("4_61lg1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+save_player_position = true
 
-[node name="SwitchHubOpeningDoors" parent="GridMap/Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
+[node name="SwitchHubOpeningDoors" parent="Room1" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("2_faork")]
 switch_emitters = [NodePath("ShortSwitch3")]
-switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_gah4f"), SubResource("Resource_jav86"), SubResource("Resource_8g4un"), SubResource("Resource_5jwrl")])
+switch_receivers = Array[ExtResource("3_dx2yw")]([SubResource("Resource_gah4f"), SubResource("Resource_jav86"), SubResource("Resource_8g4un"), SubResource("Resource_5jwrl")])
 
-[node name="InteractiveDoor1" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor1" parent="Room1/SwitchHubOpeningDoors" instance=ExtResource("5_jgbxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.53, -16)
 
-[node name="InteractiveDoor2" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor2" parent="Room1/SwitchHubOpeningDoors" instance=ExtResource("5_jgbxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 20)
 
-[node name="ShortSwitch3" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("18_2r2k3")]
+[node name="ShortSwitch3" parent="Room1/SwitchHubOpeningDoors" instance=ExtResource("6_7wpyl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98077, 0.529999, 1.97578)
 
-[node name="EnemySpawner" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner" parent="Room1/SwitchHubOpeningDoors" instance=ExtResource("7_difau")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20, 0.5, 2)
-to_spawn = ExtResource("11_25ukm")
+to_spawn = ExtResource("8_5eejw")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
-[node name="EnemySpawner2" parent="GridMap/Room1/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner2" parent="Room1/SwitchHubOpeningDoors" instance=ExtResource("7_difau")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -16, 0.5, 2)
-to_spawn = ExtResource("11_25ukm")
+to_spawn = ExtResource("8_5eejw")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
-[node name="Locker" parent="GridMap/Room1" instance=ExtResource("19_w4gje")]
+[node name="Locker" parent="Room1" instance=ExtResource("9_x7knn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 11.4959, 0.529999, 19.3835)
 
-[node name="Locker2" parent="GridMap/Room1" instance=ExtResource("19_w4gje")]
+[node name="Locker2" parent="Room1" instance=ExtResource("9_x7knn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.36064, 0.529999, 19.3723)
 
-[node name="Locker_Decorated2" parent="GridMap/Room1" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated2" parent="Room1" instance=ExtResource("10_enssg")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 10.4363, 0.529999, 19.3568)
 
-[node name="Cube_Prototype_Large_B_003" parent="GridMap/Room1/Locker_Decorated2/Locker_Decorated" index="0"]
+[node name="Cube_Prototype_Large_B_003" parent="Room1/Locker_Decorated2/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker3" parent="GridMap/Room1" instance=ExtResource("19_w4gje")]
+[node name="Locker3" parent="Room1" instance=ExtResource("9_x7knn")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.20001, 0.529999, 19.3835)
 
-[node name="Locker4" parent="GridMap/Room1" instance=ExtResource("19_w4gje")]
+[node name="Locker4" parent="Room1" instance=ExtResource("9_x7knn")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.3353, 0.529999, 19.3723)
 
-[node name="Locker_Decorated5" parent="GridMap/Room1" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated5" parent="Room1" instance=ExtResource("10_enssg")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -4.55757, 0.529999, 19.3568)
 
-[node name="Cube_Prototype_Large_B_003" parent="GridMap/Room1/Locker_Decorated5/Locker_Decorated" index="0"]
+[node name="Cube_Prototype_Large_B_003" parent="Room1/Locker_Decorated5/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated3" parent="GridMap/Room1" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated3" parent="Room1" instance=ExtResource("10_enssg")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 19.045, 0.529999, 19.3568)
 
-[node name="Cube_Prototype_Large_B_003" parent="GridMap/Room1/Locker_Decorated3/Locker_Decorated" index="0"]
+[node name="Cube_Prototype_Large_B_003" parent="Room1/Locker_Decorated3/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Locker_Decorated4" parent="GridMap/Room1" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated4" parent="Room1" instance=ExtResource("10_enssg")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 17.9622, 0.529999, 19.3568)
 
-[node name="Cube_Prototype_Large_B_003" parent="GridMap/Room1/Locker_Decorated4/Locker_Decorated" index="0"]
+[node name="Cube_Prototype_Large_B_003" parent="Room1/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="Pallet_Small_Decorated_B2" parent="GridMap/Room1" instance=ExtResource("8_4wka0")]
+[node name="Pallet_Small_Decorated_B2" parent="Room1" instance=ExtResource("11_1argt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3931, 0.5, 17.6174)
 
-[node name="Pallet_Small_Decorated_B4" parent="GridMap/Room1" instance=ExtResource("8_4wka0")]
+[node name="Pallet_Small_Decorated_B4" parent="Room1" instance=ExtResource("11_1argt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3931, 0.5, 11.6976)
 
-[node name="Pallet_Small_Decorated_A2" parent="GridMap/Room1" instance=ExtResource("9_gj423")]
+[node name="Pallet_Small_Decorated_A2" parent="Room1" instance=ExtResource("12_e4t0l")]
 transform = Transform3D(0.708069, 0, 0.706143, 0, 1, 0, -0.706143, 0, 0.708069, -13.239, 0.529999, 14.9711)
 
-[node name="Pallet_Small_Decorated_B3" parent="GridMap/Room1" instance=ExtResource("8_4wka0")]
+[node name="Pallet_Small_Decorated_B3" parent="Room1" instance=ExtResource("11_1argt")]
 transform = Transform3D(0.90144, 0, -0.432904, 0, 1, 0, 0.432904, 0, 0.90144, -9.80729, 0.529999, 15.89)
 
-[node name="table_medium_long2" parent="GridMap/Room1" instance=ExtResource("21_i6noe")]
+[node name="table_medium_long2" parent="Room1" instance=ExtResource("13_5k0ko")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65007, 0.529999, -11.9977)
 
-[node name="target_stand_A_Decorated2" parent="GridMap/Room1" instance=ExtResource("22_xf6y5")]
+[node name="target_stand_A_Decorated2" parent="Room1" instance=ExtResource("14_k2ri8")]
 transform = Transform3D(-5.87848e-08, 0, -1.34484, 0, 1.34484, 0, 1.34484, 0, -5.87848e-08, 18.0878, 0.529999, 9.93969)
 
-[node name="target_stand_B2" parent="GridMap/Room1" instance=ExtResource("23_e1dvf")]
+[node name="target_stand_B2" parent="Room1" instance=ExtResource("15_217mu")]
 transform = Transform3D(-0.436488, 0, -0.89971, 0, 1, 0, 0.89971, 0, -0.436488, 18.3287, 0.529999, 7.84306)
 
-[node name="target_wall_large_A2" parent="GridMap/Room1" instance=ExtResource("24_odqui")]
+[node name="target_wall_large_A2" parent="Room1" instance=ExtResource("16_qcqk8")]
 transform = Transform3D(-0.0825647, 0.413594, 0.90671, 3.72529e-09, 0.909816, -0.415011, -0.996586, -0.0342653, -0.0751187, 19.1171, 1.38565, 6.3335)
 
-[node name="target_wall_large_B2" parent="GridMap/Room1" instance=ExtResource("25_mc4lk")]
+[node name="target_wall_large_B2" parent="Room1" instance=ExtResource("17_8wao3")]
 transform = Transform3D(1, 0, 0, 0, 0.904738, -0.425969, 0, 0.425969, 0.904738, 15.9969, 1.35489, 19.3793)
 
-[node name="target_wall_large_B3" parent="GridMap/Room1" instance=ExtResource("25_mc4lk")]
+[node name="target_wall_large_B3" parent="Room1" instance=ExtResource("17_8wao3")]
 transform = Transform3D(1, 0, 0, 0, 0.904738, -0.425969, 0, 0.425969, 0.904738, 13.8282, 1.35489, 19.3793)
 
-[node name="target_wall_small2" parent="GridMap/Room1" instance=ExtResource("26_vgb6n")]
+[node name="target_wall_small2" parent="Room1" instance=ExtResource("18_fhvse")]
 transform = Transform3D(0.157354, -0.0456285, -2.08882, 0.594254, 2.00919, 0.000877121, 2.00302, -0.5925, 0.163834, -15.3714, 2.61146, -13.3077)
 
-[node name="target_wall_small3" parent="GridMap/Room1" instance=ExtResource("26_vgb6n")]
+[node name="target_wall_small3" parent="Room1" instance=ExtResource("18_fhvse")]
 transform = Transform3D(-3.87545e-08, 7.54847e-16, -0.886599, -0.184319, 0.867228, 8.05685e-09, 0.867228, 0.184319, -3.79077e-08, -15.587, 2.61145, 9.25518)
 
-[node name="Workbench_Decorated" parent="GridMap/Room1" instance=ExtResource("13_4uk6c")]
+[node name="Workbench_Decorated" parent="Room1" instance=ExtResource("19_7buel")]
 transform = Transform3D(0.962526, 0, -0.271188, 0, 1, 0, 0.271188, 0, 0.962526, 7.64315, 0.5, -14.3421)
 
-[node name="Workbench" parent="GridMap/Room1" instance=ExtResource("12_hx5fo")]
+[node name="Workbench" parent="Room1" instance=ExtResource("20_s1l3h")]
 transform = Transform3D(0.493532, 0, 0.869728, 0, 1, 0, -0.869728, 0, 0.493532, 11.1945, 0.529999, -13.1151)
 
-[node name="Weaponrack_Decorated" parent="GridMap/Room1" instance=ExtResource("11_qcire")]
+[node name="Weaponrack_Decorated" parent="Room1" instance=ExtResource("21_t51ah")]
 transform = Transform3D(-5.601e-08, 0, 1.28136, 0, 1.28136, 0, -1.28136, 0, -5.601e-08, -15.2376, 0.529999, -1.66592)
 
-[node name="Weaponrack_Decorated2" parent="GridMap/Room1" instance=ExtResource("11_qcire")]
+[node name="Weaponrack_Decorated2" parent="Room1" instance=ExtResource("21_t51ah")]
 transform = Transform3D(-5.601e-08, 0, 1.28136, 0, 1.28136, 0, -1.28136, 0, -5.601e-08, -15.2376, 0.529999, -3.83758)
 
-[node name="Dummy_Base2" parent="GridMap/Room1" instance=ExtResource("14_6bvec")]
+[node name="Dummy_Base2" parent="Room1" instance=ExtResource("22_6skae")]
 transform = Transform3D(1.16366, 0, -0.817497, 0, 1.42211, 0, 0.817497, 0, 1.16366, 18.1628, 0.5, -14.4521)
 
-[node name="Dummy_Base3" parent="GridMap/Room1" instance=ExtResource("14_6bvec")]
+[node name="Dummy_Base3" parent="Room1" instance=ExtResource("22_6skae")]
 transform = Transform3D(-0.219335, 0, -0.97565, 0, 1, 0, 0.97565, 0, -0.219335, 17.5017, 0.5, -12.4478)
 
-[node name="Locker5" parent="GridMap/Room1" instance=ExtResource("19_w4gje")]
+[node name="Locker5" parent="Room1" instance=ExtResource("9_x7knn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7949, 0.53, -15.2872)
 
-[node name="Pallet_Small2" parent="GridMap/Room1" instance=ExtResource("27_82v20")]
+[node name="Pallet_Small2" parent="Room1" instance=ExtResource("23_gmsry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2211, 0.53, -14.6814)
 
-[node name="Barrel_B3" parent="GridMap/Room1" instance=ExtResource("28_7phup")]
+[node name="Barrel_B3" parent="Room1" instance=ExtResource("24_dlmv4")]
 transform = Transform3D(0.990608, 0, -0.136736, 0, 1, 0, 0.136736, 0, 0.990608, 14.7557, 1.50022, -15.2012)
 
-[node name="Barrel_A2" parent="GridMap/Room1" instance=ExtResource("29_jtqe8")]
+[node name="Barrel_A2" parent="Room1" instance=ExtResource("25_8c6hl")]
 transform = Transform3D(0.990608, 0, -0.136736, 0, 1, 0, 0.136736, 0, 0.990608, 13.8396, 1.495, -14.7514)
 
-[node name="Barrel_A3" parent="GridMap/Room1" instance=ExtResource("29_jtqe8")]
+[node name="Barrel_A3" parent="Room1" instance=ExtResource("25_8c6hl")]
 transform = Transform3D(0.990608, 0, -0.136736, 0, 1, 0, 0.136736, 0, 0.990608, 14.6095, 1.495, -14.0174)
 
-[node name="Box_B2" parent="GridMap/Room1" instance=ExtResource("30_brwi0")]
+[node name="Box_B2" parent="Room1" instance=ExtResource("26_7jm0o")]
 transform = Transform3D(3.62896, 0, 0, 0, 3.62896, 0, 0, 0, 3.62896, 17.8159, 0.53, -10.3397)
 
-[node name="Box_C2" parent="GridMap/Room1" instance=ExtResource("31_dxrwl")]
+[node name="Box_C2" parent="Room1" instance=ExtResource("27_ron65")]
 transform = Transform3D(1.36276, 0, -0.633844, 0, 1.50295, 0, 0.633844, 0, 1.36276, 17.7686, 1.9876, -10.2703)
 
-[node name="Box_A2" parent="GridMap/Room1" instance=ExtResource("32_qjv65")]
+[node name="Box_A2" parent="Room1" instance=ExtResource("28_mgjh1")]
 transform = Transform3D(2.76303, 0, -0.641046, 0, 2.83642, 0, 0.641046, 0, 2.76303, 17.9591, 0.53, -8.85347)
 
-[node name="Box_B3" parent="GridMap/Room1" instance=ExtResource("30_brwi0")]
+[node name="Box_B3" parent="Room1" instance=ExtResource("26_7jm0o")]
 transform = Transform3D(3.62896, 0, 0, 0, 3.62896, 0, 0, 0, 3.62896, -14.0017, 0.541951, -13.6832)
 
-[node name="Box_C3" parent="GridMap/Room1" instance=ExtResource("31_dxrwl")]
+[node name="Box_C3" parent="Room1" instance=ExtResource("27_ron65")]
 transform = Transform3D(1.36276, 0, -0.633844, 0, 1.50295, 0, 0.633844, 0, 1.36276, -14.0491, 1.99955, -13.6139)
 
-[node name="Box_C5" parent="GridMap/Room1" instance=ExtResource("31_dxrwl")]
+[node name="Box_C5" parent="Room1" instance=ExtResource("27_ron65")]
 transform = Transform3D(1.48467, 0, -0.233715, 0, 1.50295, 0, 0.233715, 0, 1.48467, -14.0491, 2.62728, -13.6139)
 
-[node name="Box_A3" parent="GridMap/Room1" instance=ExtResource("32_qjv65")]
+[node name="Box_A3" parent="Room1" instance=ExtResource("28_mgjh1")]
 transform = Transform3D(2.76303, 0, -0.641046, 0, 2.83642, 0, 0.641046, 0, 2.76303, -13.8585, 0.541951, -12.197)
 
-[node name="Box_B4" parent="GridMap/Room1" instance=ExtResource("30_brwi0")]
+[node name="Box_B4" parent="Room1" instance=ExtResource("26_7jm0o")]
 transform = Transform3D(-3.16723, -0.00273683, -1.77144, -0.00384899, 3.62896, 0.00127533, 1.77144, 0.00299182, -3.16724, -11.076, 0.541803, -12.7281)
 
-[node name="Box_C4" parent="GridMap/Room1" instance=ExtResource("31_dxrwl")]
+[node name="Box_C4" parent="Room1" instance=ExtResource("27_ron65")]
 transform = Transform3D(-1.49877, -0.00113347, -0.112018, -0.00122263, 1.50295, 0.00115119, 0.112017, 0.00123908, -1.49877, -11.0696, 1.99948, -12.8106)
 
-[node name="Box_A4" parent="GridMap/Room1" instance=ExtResource("32_qjv65")]
+[node name="Box_A4" parent="Room1" instance=ExtResource("28_mgjh1")]
 transform = Transform3D(-2.7244, -0.00213912, -0.78926, -0.00270527, 2.83642, 0.00165093, 0.789258, 0.00233842, -2.7244, -11.9264, 0.542173, -13.9554)
 
-[node name="Barrel_A4" parent="GridMap/Room1" instance=ExtResource("29_jtqe8")]
+[node name="Barrel_A4" parent="Room1" instance=ExtResource("25_8c6hl")]
 transform = Transform3D(1.29539, 0, 0, 0, 1.83988, 0, 0, 0, 1.34797, -14.4569, 1.35692, -10.5898)
 
-[node name="Room2" type="Node3D" parent="GridMap"]
+[node name="Room2" type="Node3D" parent="."]
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="GridMap/Room2"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Room2"]
 visible = false
 navigation_mesh = SubResource("NavigationMesh_2ocdk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap/Room2/NavigationRegion3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room2/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2, 0.5, 2)
 visible = false
 mesh = SubResource("QuadMesh_v623h")
 
-[node name="SwitchHubClosingDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
-transform = Transform3D(2.68368, 0, 0, 0, 2.68368, 0, 0, 0, 2.68368, 2, 0, -10)
+[node name="SwitchHubClosingDoors" parent="Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("2_faork")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10)
 switch_emitters = [NodePath("OneOffAreaSwitch")]
-switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_gg046"), SubResource("Resource_s88f0"), SubResource("Resource_ttcm5"), SubResource("Resource_hv6hq")])
+switch_receivers = Array[ExtResource("3_dx2yw")]([SubResource("Resource_gg046"), SubResource("Resource_s88f0"), SubResource("Resource_ttcm5"), SubResource("Resource_hv6hq")])
 
-[node name="OneOffAreaSwitch" parent="GridMap/Room2/SwitchHubClosingDoors" instance=ExtResource("5_0p7y3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.49049)
+[node name="OneOffAreaSwitch" parent="Room2/SwitchHubClosingDoors" instance=ExtResource("4_61lg1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -3.4431)
+save_player_position = true
 
-[node name="SwitchHubOpeningDoors" parent="GridMap/Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("14_0vyri")]
+[node name="SwitchHubOpeningDoors" parent="Room2" node_paths=PackedStringArray("switch_emitters") instance=ExtResource("2_faork")]
 switch_emitters = [NodePath("LongSwitch1"), NodePath("LongSwitch2")]
-switch_receivers = Array[ExtResource("31_ra0cn")]([SubResource("Resource_anpf8"), SubResource("Resource_2pmel"), SubResource("Resource_nj6g5"), SubResource("Resource_7ls1w")])
+switch_receivers = Array[ExtResource("3_dx2yw")]([SubResource("Resource_anpf8"), SubResource("Resource_2pmel"), SubResource("Resource_nj6g5"), SubResource("Resource_7ls1w")])
 
-[node name="InteractiveDoor1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor1" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("5_jgbxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -16)
 
-[node name="InteractiveDoor2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("18_lua54")]
+[node name="InteractiveDoor2" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("5_jgbxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 20)
 
-[node name="LongSwitch1" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
+[node name="LongSwitch1" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("29_inxgk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.014, 0.529999, -14.0096)
 
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1" index="3"]
+[node name="SwitchComponent" parent="Room2/SwitchHubOpeningDoors/LongSwitch1" index="3"]
 regression_rate = 0.0
 
-[node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="1"]
+[node name="LongLightBulb" parent="Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="1"]
 material_override = SubResource("StandardMaterial3D_5i8ee")
 
-[node name="ProgressBar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="2"]
+[node name="ProgressBar" parent="Room2/SwitchHubOpeningDoors/LongSwitch1/LongSwitchBase" index="2"]
 material_override = SubResource("StandardMaterial3D_blcpd")
 
-[node name="LongSwitch2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("16_fgb57")]
+[node name="LongSwitch2" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("29_inxgk")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 17.8926, 0.529999, 18.0588)
 
-[node name="SwitchComponent" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2" index="3"]
+[node name="SwitchComponent" parent="Room2/SwitchHubOpeningDoors/LongSwitch2" index="3"]
 regression_rate = 0.0
 
-[node name="LongLightBulb" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="1"]
+[node name="LongLightBulb" parent="Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="1"]
 material_override = SubResource("StandardMaterial3D_ihn5v")
 
-[node name="ProgressBar" parent="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="2"]
+[node name="ProgressBar" parent="Room2/SwitchHubOpeningDoors/LongSwitch2/LongSwitchBase" index="2"]
 material_override = SubResource("StandardMaterial3D_poa47")
 
-[node name="EnemySpawner" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("7_difau")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 20, 0.5, 2)
-to_spawn = ExtResource("11_25ukm")
+to_spawn = ExtResource("8_5eejw")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
-[node name="EnemySpawner2" parent="GridMap/Room2/SwitchHubOpeningDoors" instance=ExtResource("15_68bn6")]
+[node name="EnemySpawner2" parent="Room2/SwitchHubOpeningDoors" instance=ExtResource("7_difau")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -16, 0.5, 2)
-to_spawn = ExtResource("11_25ukm")
+to_spawn = ExtResource("8_5eejw")
 time_between_waves = 8
 nb_spawn_by_wave = 2
 
-[node name="Locker_Decorated2" parent="GridMap/Room2" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated2" parent="Room2" instance=ExtResource("10_enssg")]
 transform = Transform3D(-0.938974, 0, -0.343987, 0, 1, 0, 0.343987, 0, -0.938974, -14.4395, 0.499998, 18.1854)
 
-[node name="Pallet_Small_Decorated_B2" parent="GridMap/Room2" instance=ExtResource("8_4wka0")]
+[node name="Pallet_Small_Decorated_B2" parent="Room2" instance=ExtResource("11_1argt")]
 transform = Transform3D(0.961233, 0, 0.275738, 0, 1, 0, -0.275738, 0, 0.961233, 17.5164, 0.500002, -13.4174)
 
-[node name="Pallet_Small_Decorated_A2" parent="GridMap/Room2" instance=ExtResource("9_gj423")]
+[node name="Pallet_Small_Decorated_A2" parent="Room2" instance=ExtResource("12_e4t0l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5309, 0.5, -13.592)
 
-[node name="table_medium_Decorated2" parent="GridMap/Room2" instance=ExtResource("10_mjrnx")]
+[node name="table_medium_Decorated2" parent="Room2" instance=ExtResource("30_h2y4e")]
 transform = Transform3D(0.941741, 0, -0.336339, 0, 1, 0, 0.336339, 0, 0.941741, 17.1569, 0.500002, -10.6213)
 
-[node name="Weaponrack_Decorated" parent="GridMap/Room2" instance=ExtResource("11_qcire")]
+[node name="Weaponrack_Decorated" parent="Room2" instance=ExtResource("21_t51ah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.27134, 0.5, -15.236)
 
-[node name="Workbench" parent="GridMap/Room2" instance=ExtResource("12_hx5fo")]
+[node name="Workbench" parent="Room2" instance=ExtResource("20_s1l3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0895, 0.5, 16.2518)
 
-[node name="Workbench_Decorated" parent="GridMap/Room2" instance=ExtResource("13_4uk6c")]
+[node name="Workbench_Decorated" parent="Room2" instance=ExtResource("19_7buel")]
 transform = Transform3D(-0.162121, 0, -0.986771, 0, 1, 0, 0.986771, 0, -0.162121, -13.8471, 0.5, 13.5474)
 
-[node name="Dummy_Base2" parent="GridMap/Room2" instance=ExtResource("14_6bvec")]
+[node name="Dummy_Base2" parent="Room2" instance=ExtResource("22_6skae")]
 transform = Transform3D(0.917872, 0, -0.396876, 0, 1, 0, 0.396876, 0, 0.917872, -5.93547, 0.499998, -10.7149)
 
-[node name="Locker_Decorated3" parent="GridMap/Room2" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated3" parent="Room2" instance=ExtResource("10_enssg")]
 transform = Transform3D(-0.0349344, 0, 0.99939, 0, 1, 0, -0.99939, 0, -0.0349344, -15.2065, 0.5, -1.75924)
 
-[node name="Pallet_Small_Decorated_A3" parent="GridMap/Room2" instance=ExtResource("9_gj423")]
+[node name="Pallet_Small_Decorated_A3" parent="Room2" instance=ExtResource("12_e4t0l")]
 transform = Transform3D(0.995316, 0, -0.0966796, 0, 1, 0, 0.0966796, 0, 0.995316, -14.0543, 0.5, 9.58811)
 
-[node name="Pallet_Small_Decorated_B3" parent="GridMap/Room2" instance=ExtResource("8_4wka0")]
+[node name="Pallet_Small_Decorated_B3" parent="Room2" instance=ExtResource("11_1argt")]
 transform = Transform3D(0.980639, 0, 0.195826, 0, 1, 0, -0.195826, 0, 0.980639, -13.9626, 0.5, 6.23112)
 
-[node name="table_medium_Decorated3" parent="GridMap/Room2" instance=ExtResource("10_mjrnx")]
+[node name="table_medium_Decorated3" parent="Room2" instance=ExtResource("30_h2y4e")]
 transform = Transform3D(0.644346, -0.00938846, -0.764677, 0.00959683, 0.999945, -0.00419036, 0.764674, -0.00463843, 0.6444, -11.6043, 0.770306, 14.3137)
 
-[node name="Workbench_Decorated2" parent="GridMap/Room2" instance=ExtResource("13_4uk6c")]
+[node name="Workbench_Decorated2" parent="Room2" instance=ExtResource("19_7buel")]
 transform = Transform3D(0.709952, 0, 0.70425, 0, 1, 0, -0.70425, 0, 0.709952, -11.0625, 0.5, 18.1713)
 
-[node name="Weaponrack_Decorated2" parent="GridMap/Room2" instance=ExtResource("11_qcire")]
+[node name="Weaponrack_Decorated2" parent="Room2" instance=ExtResource("21_t51ah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.57059, 0.5, -15.2207)
 
-[node name="Door_B3" parent="GridMap/Room2" instance=ExtResource("15_mrupq")]
+[node name="Door_B3" parent="Room2" instance=ExtResource("31_2i6fa")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.8963, 0.500001, 1.20538)
 visible = false
 
-[node name="Locker_Decorated4" parent="GridMap/Room2" instance=ExtResource("7_hjv8p")]
+[node name="Locker_Decorated4" parent="Room2" instance=ExtResource("10_enssg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0908, 0.500002, -14.29)
 
-[node name="Cube_Prototype_Large_B_003" parent="GridMap/Room2/Locker_Decorated4/Locker_Decorated" index="0"]
+[node name="Cube_Prototype_Large_B_003" parent="Room2/Locker_Decorated4/Locker_Decorated" index="0"]
 visible = false
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("5_2vc36")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.138435, 0.820941, -0.553978, -0.35771, 0.56305, 0.744996, 0.923515, 0.0950299, 0.371605, 0, 26.3786, -5.7794)
-layers = 2
-light_color = Color(0.992157, 0.917647, 0.698039, 1)
-light_angular_distance = 3.0
-shadow_enabled = true
-shadow_bias = 0.03
-directional_shadow_mode = 0
-directional_shadow_split_2 = 0.343
-directional_shadow_split_3 = 0.566
-directional_shadow_blend_splits = true
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 8.74228e-08, 4.37114e-08, -1, 1, -4.37114e-08, 8.74228e-08, 0, 13.9098, -17.1364)
-layers = 2
-light_color = Color(0.303129, 0.18483, 0.0558749, 1)
-light_energy = 1.239
-light_volumetric_fog_energy = 0.0
-light_negative = true
-shadow_bias = 0.03
-shadow_blur = 0.0
-directional_shadow_mode = 0
-
-[connection signal="is_dead" from="PlayerEntity" to="." method="on_player_death"]
-
-[editable path="PlayerEntity"]
-[editable path="GridMap/Room1/Locker_Decorated2"]
-[editable path="GridMap/Room1/Locker_Decorated5"]
-[editable path="GridMap/Room1/Locker_Decorated3"]
-[editable path="GridMap/Room1/Locker_Decorated4"]
-[editable path="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch1"]
-[editable path="GridMap/Room2/SwitchHubOpeningDoors/LongSwitch2"]
-[editable path="GridMap/Room2/Locker_Decorated4"]
+[editable path="Room1/Locker_Decorated2"]
+[editable path="Room1/Locker_Decorated5"]
+[editable path="Room1/Locker_Decorated3"]
+[editable path="Room1/Locker_Decorated4"]
+[editable path="Room2/SwitchHubOpeningDoors/LongSwitch1"]
+[editable path="Room2/SwitchHubOpeningDoors/LongSwitch2"]
+[editable path="Room2/Locker_Decorated4"]

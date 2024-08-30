@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://x8mapw2tro6o" path="res://assets/objects/heart_full.png" id="3_w3ty2"]
 [ext_resource type="Texture2D" uid="uid://8jihgu4bmhcd" path="res://assets/objects/heart_null.png" id="4_uvc5a"]
 
-
 [sub_resource type="LabelSettings" id="LabelSettings_kmpmy"]
 font = ExtResource("2_vjroa")
 font_size = 24

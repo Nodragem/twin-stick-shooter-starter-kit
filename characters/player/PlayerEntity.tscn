@@ -21,6 +21,7 @@ floor_max_angle = 0.872665
 script = ExtResource("2")
 controller_schemes = Array[PackedScene]([ExtResource("2_njm8p"), ExtResource("3_k2os6"), ExtResource("5_n2q7r")])
 game_data = ExtResource("2_gbwfc")
+inventory = null
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.987748, 0)

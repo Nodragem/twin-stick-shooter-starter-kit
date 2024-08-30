@@ -1,7 +1,7 @@
 class_name GameManager extends Node3D
 
 @export var player_packed_scene:PackedScene = null
-@onready var gameover_menu: Control = $GameOverMenu
+static var gameover_menu: Control = null
 static var player:PlayerEntity = null
 static var level:LevelManager = null
 
@@ -20,21 +20,26 @@ static func on_pickup_item(name:String):
 		level.on_card_picked_up()
 
 func _ready():
-	gameover_menu.restart_pressed.connect(on_restart_pressed)
-	gameover_menu.quit_pressed.connect(on_quit_pressed)
-	find_player_and_level()
+	
+	find_game_elements() # find player, level and gameovermenu
 	if not player and level.skip_intro:
 		spawn_player()
-	level.introscene_finished.connect(initialise_player)
+	if level: 
+		level.introscene_finished.connect(initialise_player)
+	if gameover_menu:
+		gameover_menu.restart_pressed.connect(on_restart_pressed)
+		gameover_menu.quit_pressed.connect(on_quit_pressed)
 
 
-func find_player_and_level():
+func find_game_elements():
 	var children = get_children()
 	for child in children:
 		if child is PlayerEntity:
 			player = child
 		elif child is LevelManager:
 			level = child
+		elif child is GameOverMenu:
+			gameover_menu = child
 
 
 func initialise_player():
@@ -50,11 +55,10 @@ func spawn_player():
 	add_child(player)
 	player.global_transform = level.player_start_point.global_transform
 	player.camera_pivot.rotation_degrees = level.camera_start_rotation
-	var pos_resetter = player.get_node_or_null("./PositionResetter")
-	pos_resetter.initial_position = player.global_transform
+	player.position_resetter.update_reset_position()
 
 
-func on_player_death():
+static func on_player_death():
 	if gameover_menu:
 		gameover_menu.show()
 
@@ -62,4 +66,7 @@ func on_quit_pressed():
 	get_tree().quit()
 
 func on_restart_pressed():
-	get_tree().reload_current_scene()
+	player.position_resetter.reset_position()
+	player.on_respawn()
+	if gameover_menu: 
+		gameover_menu.hide()

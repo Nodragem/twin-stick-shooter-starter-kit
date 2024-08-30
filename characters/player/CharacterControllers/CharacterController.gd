@@ -28,3 +28,7 @@ func _update_player_input():
 func on_death():
 	$MovementController.transition_to("Dead")
 	$AimingController.transition_to("Dead")
+
+func on_respawn():
+	$MovementController.transition_to("Move/Run")
+	$AimingController.transition_to("Rest")

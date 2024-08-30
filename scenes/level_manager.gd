@@ -29,6 +29,8 @@ func on_cutscene_finished(anim_name:String):
 		Dialogic.start("level1_drmegadroon")
 	if anim_name == "Scene2_Ending":
 		GameManager.get_player().camera.current = true
+		var switch:SwitchComponent = %DoorToTraining.get_node_or_null("SwitchComponent")
+		switch.on_interaction(true)
 		$CutSceneManager.play("Simple_Transition")
 	if anim_name == "Simple_Transition":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED

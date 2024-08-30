@@ -9,6 +9,7 @@ extends CharacterBody3D
 @onready var shoot_anchor := $IcySkin/%ShootAnchor
 @onready var current_controller := $TwoStickControllerAuto
 @onready var interaction_area := $IcySkin/PlayerHand
+@onready var position_resetter := $PositionResetter
 @onready var start_position := global_transform.origin
 
 @export var controller_schemes:Array[PackedScene]
@@ -36,10 +37,14 @@ func on_death():
 	model.move_to_dead()
 	#current_controller.process_mode = Node.PROCESS_MODE_DISABLED
 	current_controller.on_death()
+	GameManager.on_player_death()
 	
 
-func respawn():
-	pass
+func on_respawn():
+	model.move_to_running()
+	current_controller.on_respawn()
+	health_manager.get_full_health()
+
 
 func _on_dialog_started():
 	current_controller.process_mode = Node.PROCESS_MODE_DISABLED
