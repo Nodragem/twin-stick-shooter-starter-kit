@@ -53,3 +53,11 @@ dr_megadroon_character: Oh well, it's okay. If you pass the training, I will mak
 set {status} = "card_collected"
 [signal arg="Scene2_Ending"]
 [end_timeline]
+
+label OnEnding
+join dr_megadroon_character (default) 1 [animation="Fade In Up"]
+dr_megadroon_character: Well Done A101 for making it this far!
+dr_megadroon_character: The training is work-in-progress at the moment. There might be more to do soon, when the game developer adds new content!
+dr_megadroon_character: Keep an eye on the developer's social media account ([color="#4467ab"]@nodragem[/color]) for updates.
+dr_megadroon_character: And until next time, have fun making or playing games!
+[end_timeline]

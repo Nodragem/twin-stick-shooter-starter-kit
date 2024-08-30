@@ -1,0 +1,6 @@
+[gd_resource type="BoxMesh" load_steps=2 format=3 uid="uid://jmldsyopndwf"]
+
+[ext_resource type="Material" uid="uid://cugi721l774ox" path="res://assets/objects/laboratory/liquid.tres" id="1_cr8ht"]
+
+[resource]
+material = ExtResource("1_cr8ht")
