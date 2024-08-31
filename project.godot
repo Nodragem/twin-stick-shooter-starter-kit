@@ -36,8 +36,8 @@ directories/dtl_directory={
 "level1_intro": "res://scenes/level1/level1_intro.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://characters/NPC/dialog_style.tres"]
-layout/default_style="res://characters/NPC/dialog_style.tres"
+layout/style_list=["res://ui/dialogic_style/dialog_style.tres"]
+layout/default_style="res://ui/dialogic_style/dialog_style.tres"
 variables={
 "status": "starting"
 }
