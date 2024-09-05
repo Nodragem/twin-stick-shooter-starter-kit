@@ -1,3 +1,4 @@
+# AimingController with LStick: Resting State
 extends PlayerState
 
 func unhandled_input(event: InputEvent) -> void:

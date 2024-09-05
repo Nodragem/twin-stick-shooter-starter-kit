@@ -22,7 +22,7 @@ static func on_pickup_item(name:String):
 func _ready():
 	
 	find_game_elements() # find player, level and gameovermenu
-	if not player and level.skip_intro:
+	if not player and level and level.skip_intro:
 		spawn_player()
 	if level: 
 		level.introscene_finished.connect(initialise_player)

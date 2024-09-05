@@ -21,7 +21,8 @@ elif {status} == "waiting_gun":
 	- Nothing
 		[end_timeline]
 elif {status} == "waiting_card":
-	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
+	dr_megadroon_character: Who are the [color="#4467ab"]Zombacks[/color]? [br]Well, A101, you are being selected to eradicate a vigoruous, spreading inter-planetary weed, the [color="#4467ab"]Zombacks[/color]. 
+	dr_megadroon_character: They acts as a parasite and can take control of the brain of many animals, or even emulate animal life forms through DNA ingestion. As far as your are concerned, they are your enemies.
 elif {status} == "card_collected":
 	dr_megadroon_character: The [color="#4467ab"]Training Area[/color] is just on the other side of this door.
 	dr_megadroon_character: One last tip, you can use [img width=32, color="#bbbbbb"]res://ui/icons/xbox_lt.png[/img] and [img width=32, color="#bbbbbb"]res://ui/icons/xbox_rt.png[/img] to look around and get a new perspective on things.
