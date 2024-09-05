@@ -96,8 +96,8 @@ func orient_model_to_direction(direction: Vector3, delta: float) -> void:
 		_last_strong_direction = direction
 
 	# Remember that Y is the Up Axis
-	# LERP is used cumulatively here
-	# NOTE: z axis is forward/backward, x is right/left 
+	# Hence, direction.x and direction.z gives us the direction on the floor 
+	# Also, LERP is used cumulatively here
 	global_rotation.y = lerp_angle(
 		global_rotation.y, 
 		Vector2(_last_strong_direction.z, _last_strong_direction.x).angle(), 

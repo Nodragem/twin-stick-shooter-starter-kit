@@ -2,7 +2,7 @@
 extends PlayerState
 
 var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
-var _player_aim := Vector3.ZERO
+var _aiming_direction := Vector3.ZERO
 var _aim_input := Vector2.ZERO
 var _player_trigger := false
 @onready var _timer : Timer = $Timer
@@ -16,7 +16,7 @@ func process(delta) -> void:
 		# 2) it would trigger a second bullet on release
 		_timer.start()
 		_shoot_arrow()
-	player.model.orient_model_to_direction(_player_aim, delta)
+	player.model.orient_model_to_direction(_aiming_direction, delta)
 
 
 func _unhandled_input(event):
@@ -50,7 +50,7 @@ func _update_player_input():
 	_aim_input = get_viewport().get_mouse_position() - get_player_position_2D()
 	_aim_input = _aim_input.normalized()
 	# move it to a 3D vector:
-	_player_aim.x = _aim_input.x
-	_player_aim.z = _aim_input.y
-	_player_aim.y = 0
-	_player_aim = player.camera.global_transform.basis * (_player_aim)
+	_aiming_direction.x = _aim_input.x
+	_aiming_direction.z = _aim_input.y
+	_aiming_direction.y = 0
+	_aiming_direction = player.camera.global_transform.basis * (_aiming_direction)

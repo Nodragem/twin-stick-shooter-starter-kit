@@ -2,7 +2,7 @@
 extends PlayerState
 
 var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
-var _player_aim := Vector3.ZERO
+var _aiming_direction := Vector3.ZERO
 var _mouse_position := Vector2.ZERO
 var _mouse_position_3D := Vector3.ZERO
 var _floor_plane := Plane(Vector3.UP)
@@ -18,7 +18,7 @@ func process(delta) -> void:
 		# 2) it would trigger a second bullet on release
 		_timer.start()
 		_shoot_arrow()
-	player.model.orient_model_to_direction(_player_aim, delta)
+	player.model.orient_model_to_direction(_aiming_direction, delta)
 
 
 func _unhandled_input(event):
@@ -51,5 +51,5 @@ func _update_player_input():
 			player.camera.project_ray_origin(_mouse_position),
 			player.camera.project_ray_normal(_mouse_position))
 	# player_aim tells where is the mouse relatively to the player
-	_player_aim = _mouse_position_3D - player.global_position
-	_player_aim.y = 0
+	_aiming_direction = _mouse_position_3D - player.global_position
+	_aiming_direction.y = 0

@@ -1,7 +1,7 @@
 # AimingController with Mouse: Resting State
 extends PlayerState
 
-var _player_aim := Vector3.ZERO
+var _aiming_direction := Vector3.ZERO
 var _aim_input := Vector2.ZERO
 
 

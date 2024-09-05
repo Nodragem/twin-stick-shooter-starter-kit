@@ -2,7 +2,7 @@
 extends PlayerState
 
 var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
-var _player_aim := Vector3.ZERO
+var _aiming_direction := Vector3.ZERO
 var _aim_input := Vector2.ZERO
 @onready var _timer : Timer = $Timer
 
@@ -10,7 +10,7 @@ var _aim_input := Vector2.ZERO
 func process(delta) -> void:
 	
 	_update_player_input()
-	if _player_aim.length() <= 0.2:
+	if _aiming_direction.length() <= 0.2:
 		_state_machine.transition_to("Rest")
 	if _timer.time_left <= 0: 
 		# NOTE: we tried with event handling, but weirdly the deadzone was noisy, 
@@ -19,7 +19,7 @@ func process(delta) -> void:
 		_timer.start()
 		_shoot_arrow()
 
-	player.model.orient_model_to_direction(_player_aim, delta)
+	player.model.orient_model_to_direction(_aiming_direction, delta)
 
 
 func enter(msg: = {}) -> void:
@@ -41,7 +41,7 @@ func _update_player_input():
 	# get input for aiming
 	_aim_input = Input.get_vector("p1_aim_left", "p1_aim_right", "p1_aim_up", "p1_aim_down")
 	# align input with the camera
-	_player_aim.x = _aim_input.x
-	_player_aim.z = _aim_input.y
-	_player_aim.y = 0
-	_player_aim = player.camera.global_transform.basis * (_player_aim)
+	_aiming_direction.x = _aim_input.x
+	_aiming_direction.z = _aim_input.y
+	_aiming_direction.y = 0
+	_aiming_direction = player.camera.global_transform.basis * (_aiming_direction)
