@@ -1,18 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwf5frggyeobl"]
+[gd_scene load_steps=13 format=3 uid="uid://bwf5frggyeobl"]
 
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/CharacterController.gd" id="1_j18j0"]
+[ext_resource type="Texture2D" uid="uid://df366hxgqellf" path="res://ui/icons/generic_button_circle_outline.png" id="2_2f1mk"]
 [ext_resource type="Script" path="res://tools/state_machine/StateMachine.gd" id="2_wugc8"]
+[ext_resource type="Texture2D" uid="uid://bb0ukbei7c60e" path="res://ui/icons/generic_button_circle_fill.png" id="3_46t3i"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/MovementController/Move.gd" id="3_uos6q"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/MovementController/Idle.gd" id="4_nro53"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/MovementController/Run.gd" id="5_srdu3"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/MovementController/Jump.gd" id="6_heaah"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/MovementController/Fall.gd" id="7_l2a53"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/Dead.gd" id="8_i2s6i"]
-[ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/AimingController_Mouse/Aim.gd" id="9_gv8lu"]
 [ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/AimingController_Mouse/Rest.gd" id="10_63hyg"]
+[ext_resource type="Script" path="res://characters/player/CharacterControllers/StateMachines/AimingController_Mouse/Aim_Floor.gd" id="11_amedy"]
 
 [node name="KeyboardMouseController" type="Node"]
 script = ExtResource("1_j18j0")
+cursor_arrow = ExtResource("2_2f1mk")
+cursor_hand = ExtResource("3_46t3i")
 
 [node name="MovementController" type="Node" parent="."]
 script = ExtResource("2_wugc8")
@@ -42,7 +46,7 @@ script = ExtResource("2_wugc8")
 initial_state = NodePath("Rest")
 
 [node name="Aim" type="Node" parent="AimingController"]
-script = ExtResource("9_gv8lu")
+script = ExtResource("11_amedy")
 
 [node name="Timer" type="Timer" parent="AimingController/Aim"]
 wait_time = 0.2

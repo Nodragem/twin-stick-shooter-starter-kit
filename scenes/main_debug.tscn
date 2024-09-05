@@ -16,7 +16,7 @@ player_packed_scene = ExtResource("2_3c7yt")
 visible = false
 
 [node name="PlayerEntity" parent="." instance=ExtResource("2_3c7yt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3548, 0.657674, 24.9806)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.50017, 8.67145, -14.4622)
 inventory = ["toygun"]
 
 [node name="Level1" parent="." instance=ExtResource("5_ojn7i")]
