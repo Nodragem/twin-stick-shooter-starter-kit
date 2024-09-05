@@ -10,15 +10,14 @@
 script = ExtResource("1_ynaki")
 player_packed_scene = ExtResource("2_3c7yt")
 
-[node name="PlayerEntity" parent="." instance=ExtResource("2_3c7yt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.9698, 0.657674, 29.1733)
-inventory = ["toygun"]
-
 [node name="ControllerMenu" parent="." instance=ExtResource("3_6gnp1")]
-visible = false
 
 [node name="GameOverMenu" parent="." instance=ExtResource("4_iidia")]
 visible = false
+
+[node name="PlayerEntity" parent="." instance=ExtResource("2_3c7yt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3548, 0.657674, 24.9806)
+inventory = ["toygun"]
 
 [node name="Level1" parent="." instance=ExtResource("5_ojn7i")]
 skip_intro = true

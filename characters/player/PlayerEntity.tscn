@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://jga6pbb5xpug"]
+[gd_scene load_steps=12 format=3 uid="uid://jga6pbb5xpug"]
 
 [ext_resource type="PackedScene" uid="uid://ds848t2x4cxyt" path="res://characters/player/CharacterSkins/IcySkin_inherited.tscn" id="1"]
 [ext_resource type="Script" path="res://characters/player/PlayerEntity.gd" id="2"]
-[ext_resource type="Resource" uid="uid://buxce8yjy76u5" path="res://ui/game_data_store.tres" id="2_gbwfc"]
+[ext_resource type="Resource" uid="uid://bj1ewi4mrx1c6" path="res://ui/game_data_store.tres" id="2_gbwfc"]
 [ext_resource type="PackedScene" uid="uid://d3yswfl2m7nue" path="res://characters/player/CharacterControllers/OneStickController.tscn" id="2_njm8p"]
 [ext_resource type="PackedScene" uid="uid://d1rmoxdu5yefv" path="res://characters/player/CharacterControllers/TwoStickController.tscn" id="3_k2os6"]
 [ext_resource type="PackedScene" uid="uid://drvgaalhd5v8s" path="res://characters/player/CharacterControllers/TwoStickControllerAuto.tscn" id="5_n2q7r"]
+[ext_resource type="PackedScene" uid="uid://bwf5frggyeobl" path="res://characters/player/CharacterControllers/KeyboardMouseController.tscn" id="5_rys30"]
 [ext_resource type="PackedScene" uid="uid://c5l20701ck6co" path="res://characters/player/health_manager.tscn" id="6_7wv34"]
 [ext_resource type="Script" path="res://characters/PositionResetter.gd" id="14"]
 
@@ -19,7 +20,7 @@ height = 1.97047
 collision_mask = 27
 floor_max_angle = 0.872665
 script = ExtResource("2")
-controller_schemes = Array[PackedScene]([ExtResource("2_njm8p"), ExtResource("3_k2os6"), ExtResource("5_n2q7r")])
+controller_schemes = Array[PackedScene]([ExtResource("2_njm8p"), ExtResource("3_k2os6"), ExtResource("5_n2q7r"), ExtResource("5_rys30")])
 game_data = ExtResource("2_gbwfc")
 inventory = null
 

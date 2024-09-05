@@ -1,3 +1,4 @@
+# AimingController with RStick and RStick Auto: Resting State
 extends PlayerState
 
 var _player_input := Vector2.ZERO

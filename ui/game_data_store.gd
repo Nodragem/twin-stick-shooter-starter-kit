@@ -3,7 +3,7 @@ class_name GameDataStore
 
 
 signal controller_scheme_changed
-@export_range(0,2) var controller_scheme: int:
+@export_range(0,3) var controller_scheme: int:
 	get:
 		return controller_scheme
 	set(value):

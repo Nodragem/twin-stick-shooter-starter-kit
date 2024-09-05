@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bsvdg3ojnd0oj"]
 
-[ext_resource type="Resource" uid="uid://ctlpejibdgymr" path="res://ui/game_data_store.tres" id="1_fgpb7"]
+[ext_resource type="Resource" uid="uid://bj1ewi4mrx1c6" path="res://ui/game_data_store.tres" id="1_fgpb7"]
 [ext_resource type="ButtonGroup" uid="uid://cvcioqwcbs17c" path="res://ui/button_group.tres" id="1_qxp7l"]
 [ext_resource type="StyleBox" uid="uid://onusb7ku18ti" path="res://ui/selected_style.tres" id="2_m52od"]
 
@@ -14,6 +14,7 @@ var _buttons : Array[BaseButton] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.visible = false
 	_button_group = $VBoxContainer/Button1.button_group
 	_button_group.pressed.connect(_on_button_group_pressed)
 	_buttons = _button_group.get_buttons()
@@ -36,7 +37,7 @@ func _unhandled_input(event):
 		get_tree().paused = !get_tree().paused
 		if self.visible:
 			set_focus_based_on_data()
-	if event.is_action_pressed(\"ui_cancel\") and self.visible:
+	elif event.is_action_pressed(\"ui_cancel\") and self.visible:
 		self.visible = false
 		get_tree().paused = false
 		
@@ -67,7 +68,6 @@ script = SubResource("GDScript_n34ot")
 _data_store = ExtResource("1_fgpb7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-process_mode = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = -1
@@ -90,8 +90,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Button1" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_top = NodePath("../Button4")
 focus_neighbor_bottom = NodePath("../Button2")
+mouse_default_cursor_shape = 2
 theme_override_styles/pressed = ExtResource("2_m52od")
 toggle_mode = true
 button_group = ExtResource("1_qxp7l")
@@ -101,6 +102,7 @@ text = "One Stick Controls"
 layout_mode = 2
 focus_neighbor_top = NodePath("../Button1")
 focus_neighbor_bottom = NodePath("../Button3")
+mouse_default_cursor_shape = 2
 theme_override_styles/pressed = ExtResource("2_m52od")
 toggle_mode = true
 button_group = ExtResource("1_qxp7l")
@@ -109,16 +111,21 @@ text = "Two Stick Controls"
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Button2")
-focus_neighbor_bottom = NodePath("../Button1")
+focus_neighbor_bottom = NodePath("../Button4")
+mouse_default_cursor_shape = 2
 theme_override_styles/pressed = ExtResource("2_m52od")
 toggle_mode = true
 button_group = ExtResource("1_qxp7l")
 text = "Two Stick Auto-Shoot Controls"
 
-[node name="Marker2D" type="Marker2D" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="Marker2D"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Button4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Button1")
+mouse_default_cursor_shape = 2
+theme_override_styles/pressed = ExtResource("2_m52od")
+toggle_mode = true
+button_group = ExtResource("1_qxp7l")
+text = "Keyboard + Mouse Controls"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

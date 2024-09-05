@@ -1,3 +1,4 @@
+# Common to ALL Controllers
 extends PlayerState
 class_name DeadState
 

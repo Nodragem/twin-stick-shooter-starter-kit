@@ -1,3 +1,4 @@
+# AimingController with RStick Auto: Aiming State
 extends PlayerState
 
 var arrow_prefab = preload("res://assets/objects/weapons/toy_gun/Arrow.tscn")
