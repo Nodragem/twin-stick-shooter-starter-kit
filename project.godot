@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Twin Shooter Starting Kit"
 config/tags=PackedStringArray("starterkit")
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.6")
+config/features=PackedStringArray("4.7")
 config/icon="res://project_icon.png"
 
 [autoload]
@@ -26,7 +26,7 @@ DebugStats="*res://tools/debugging/DebugStats.tscn"
 DebugOverlay="*res://tools/debugging/DebugOverlay.tscn"
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
-Dialogic="*uid://34td1m823su1"
+Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
@@ -63,6 +63,25 @@ save/encryption_on_exports_only=true
 text/autopauses={}
 text/input_action="p1_interact"
 text/autoadvance_enabled=false
+layout/style_directory={
+"": "res://ui/dialogic_style/dialog_style.tres",
+"dialog_style": "res://ui/dialogic_style/dialog_style.tres"
+}
+animations/cross_fade_default_length=0.5
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
 
 [display]
 

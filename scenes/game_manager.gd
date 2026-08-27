@@ -49,7 +49,6 @@ func initialise_player():
 	player.camera.current = true
 
 
-
 func spawn_player():
 	player = player_packed_scene.instantiate()
 	add_child(player)

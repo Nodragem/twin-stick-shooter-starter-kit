@@ -22,7 +22,7 @@ func _ready():
 func on_cutscene_finished(anim_name:String):
 	if anim_name == "Scene1_Introduction":
 		introscene_finished.emit() #Gamemanager will spawn a player and change camera
-		Dialogic.Inputs.resume()
+		Dialogic.Inputs._resume()
 		$CutSceneManager.play("Opening")
 	if anim_name == "Opening":
 		$CutSceneManager.process_mode = Node.PROCESS_MODE_DISABLED

@@ -1,15 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3kbcomnf24ly"]
+[gd_scene format=3 uid="uid://b3kbcomnf24ly"]
 
-[ext_resource type="Script" uid="uid://b3g3dkki5rron" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.gd" id="1_xtd5r"]
+[ext_resource type="Script" uid="uid://ij0qm2ew6plv" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.gd" id="1_xtd5r"]
 [ext_resource type="StyleBox" uid="uid://cgxjxr57ll6aq" path="res://ui/dialogic_style/choice_panel_normal.tres" id="2_nvf72"]
-[ext_resource type="Script" uid="uid://bc5b575qkuc81" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="3_x8jld"]
-[ext_resource type="Script" uid="uid://dbut1agawcm5u" path="res://addons/dialogic/Modules/Choice/node_button_sound.gd" id="4_t2ls7"]
+[ext_resource type="Script" uid="uid://bldt7xlfum7ov" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="3_x8jld"]
+[ext_resource type="Script" uid="uid://b1stj4ljd2vo7" path="res://addons/dialogic/Modules/Choice/node_button_sound.gd" id="4_t2ls7"]
 [ext_resource type="AudioStream" uid="uid://b6c1p14bc20p1" path="res://addons/dialogic/Example Assets/sound-effects/typing1.wav" id="5_clfny"]
 [ext_resource type="AudioStream" uid="uid://c2viukvbub6v6" path="res://addons/dialogic/Example Assets/sound-effects/typing4.wav" id="6_8rk1c"]
 
 [sub_resource type="AudioStream" id="AudioStream_pe27w"]
 
-[node name="VN_ChoiceLayer" type="Control"]
+[node name="VN_ChoiceLayer" type="Control" unique_id=1941383651]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_xtd5r")
 
-[node name="Choices" type="VBoxContainer" parent="."]
+[node name="Choices" type="VBoxContainer" parent="." unique_id=196295940]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,106 +36,106 @@ mouse_filter = 2
 alignment = 1
 metadata/_edit_layout_mode = 1
 
-[node name="DialogicNode_ChoiceButton1" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton1" type="Button" parent="Choices" unique_id=1579585714]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton2" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton2" type="Button" parent="Choices" unique_id=1380973343]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton3" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton3" type="Button" parent="Choices" unique_id=2013918538]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton4" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton4" type="Button" parent="Choices" unique_id=1112085464]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton5" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton5" type="Button" parent="Choices" unique_id=1781636700]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton6" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton6" type="Button" parent="Choices" unique_id=388807449]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton7" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton7" type="Button" parent="Choices" unique_id=91636544]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton8" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton8" type="Button" parent="Choices" unique_id=748071521]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton9" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton9" type="Button" parent="Choices" unique_id=831180014]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton10" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton10" type="Button" parent="Choices" unique_id=1605698703]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ChoiceButton11" type="Button" parent="Choices"]
+[node name="DialogicNode_ChoiceButton11" type="Button" parent="Choices" unique_id=1433451122]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
-theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_colors/font_color = Color(0.14699, 0.134396, 0.134396, 1)
+theme_override_colors/font_focus_color = Color(0.268, 0.402, 0.67, 1)
+theme_override_colors/font_hover_color = Color(0.268, 0.402, 0.67, 1)
 theme_override_styles/normal = ExtResource("2_nvf72")
 text = "Some text"
 script = ExtResource("3_x8jld")
 
-[node name="DialogicNode_ButtonSound" type="AudioStreamPlayer" parent="Choices"]
+[node name="DialogicNode_ButtonSound" type="AudioStreamPlayer" parent="Choices" unique_id=2109527569]
 unique_name_in_owner = true
 script = ExtResource("4_t2ls7")
 sound_pressed = ExtResource("5_clfny")

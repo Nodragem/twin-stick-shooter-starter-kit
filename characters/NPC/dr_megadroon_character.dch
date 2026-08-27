@@ -4,6 +4,7 @@
 &"_translation_id": "",
 &"color": Color(1, 0.632813, 0, 1),
 &"custom_info": {
+"prefix": "",
 "sound_mood_default": "Mood 1",
 "sound_moods": {
 "Mood 1": {
@@ -13,11 +14,12 @@
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://characters/NPC/drop_002.ogg",
-"volume_base": 0.3,
+"volume_base": 0.30000000000000004,
 "volume_variance": 0.0
 }
 },
-"style": "dialog_style"
+"style": "dialog_style",
+"suffix": ""
 },
 &"default_portrait": "default",
 &"description": "",
